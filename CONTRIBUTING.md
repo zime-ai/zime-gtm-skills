@@ -26,7 +26,8 @@ Every skill must:
 - Keep `SKILL.md` under 500 lines
 - Keep any `references/`, `scripts/`, `assets/` files one level deep — no
   nested reference chains
-- Pass `skills-ref validate skills/<skill-name>` (this runs in CI on every PR)
+- Pass `./validate-skills.sh` locally (fast, zero dependencies) and
+  `skills-ref validate skills/<skill-name>` (this runs in CI on every PR)
 - Ship with a synthetic or fully anonymized sample file in `assets/` so the
   skill is runnable with nothing of the contributor's own
 

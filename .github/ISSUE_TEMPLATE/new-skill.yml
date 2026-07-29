@@ -1,0 +1,39 @@
+name: Propose a new skill
+description: Suggest a new GTM motion this repo should cover
+title: "[new skill] "
+labels: [new-skill]
+body:
+  - type: input
+    id: motion
+    attributes:
+      label: Motion / job this skill covers
+      placeholder: e.g. "meeting to qualify", "pilot to conversion"
+    validations:
+      required: true
+  - type: dropdown
+    id: input-mode
+    attributes:
+      label: Who runs it and on what input?
+      options:
+        - Transcript only
+        - CRM export (CSV) only
+        - Both
+    validations:
+      required: true
+  - type: textarea
+    id: dimensions
+    attributes:
+      label: Proposed rubric dimensions
+      description: >
+        List the 5-10 things a good call/deal on this motion should show.
+        Your own words — see CONTRIBUTING.md on why rubric text must be
+        written fresh, not copied from anywhere.
+    validations:
+      required: true
+  - type: textarea
+    id: gaps
+    attributes:
+      label: Anything this motion needs that the existing skills don't have
+      description: New input format, different output shape, etc.
+    validations:
+      required: false

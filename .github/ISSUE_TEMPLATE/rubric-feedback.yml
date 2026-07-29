@@ -1,0 +1,39 @@
+name: Rubric got it wrong
+description: A skill missed something, or flagged something that wasn't actually a miss
+title: "[rubric] "
+labels: [rubric-feedback]
+body:
+  - type: input
+    id: skill
+    attributes:
+      label: Skill
+      placeholder: e.g. deep-discovery
+    validations:
+      required: true
+  - type: textarea
+    id: excerpt
+    attributes:
+      label: What happened
+      description: >
+        Paste the relevant excerpt from your transcript/export and what the
+        skill said about it. Anonymize company/person names before posting
+        — do not paste a real, identifiable transcript.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of miss was this?
+      options:
+        - Missed something that was actually covered (false negative)
+        - Flagged as covered when it wasn't (false positive)
+        - A dimension that doesn't fit this motion at all
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What it should have said
+    validations:
+      required: false
