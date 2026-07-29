@@ -44,11 +44,18 @@ Next steps:
 |---|---|---|
 | `gtm-deep-discovery` | Early-stage discovery call quality — pain, trigger, decision process, budget/timeline, procurement, competition, rapport | transcript (`.txt`/`.vtt`/`.json`/`.md`) or CRM export (`.csv`) |
 | `gtm-meeting-to-qualify` | Whether a deal is real — authority, budget plausibility, urgency, fit, competitive situation, concrete next step | transcript or CRM export |
+| `gtm-technical-discovery` | Whether a POC is set up to succeed — current stack, future-state fit, scope clarity, technical stakeholders, resourcing | transcript or CRM export |
+| `gtm-improve-demo` | Demo quality — tailoring, stakeholder presence, engagement, competitive differentiation, clear next step | transcript or CRM export |
+| `gtm-pilot-to-conversion` | Pilot/POC health — plan alignment, technical readiness, user engagement, results against criteria, conversion path | transcript or CRM export |
+| `gtm-negotiation-closing` | Late-stage deal momentum — pricing reaction, procurement progress, contracting awareness, closure timeline | transcript or CRM export |
+| `gtm-first-call-rampup` | New-rep foundational technique — opening, open-ended questioning, pain uncovering, pitch clarity, rapport | transcript only |
+| `gtm-onboarding-journey` | New-customer onboarding health — setup experience, sentiment, engagement, milestone clarity | transcript or CRM export |
+| `gtm-customer-success` | Periodic QBR/health-review depth — value vs. original goals, usage breadth, issue resolution, strategic alignment | transcript or CRM export |
 | `gtm-churn-prevention` | Renewal risk — value realization, usage depth, champion strength, sentiment, service friction | transcript or CRM export |
+| `gtm-upsell-expansion` | Expansion readiness — account health check first, opportunity clarity, champion strength, strategic alignment | transcript or CRM export |
 
-More motions (technical discovery, demo, pilot/POC, negotiation, onboarding,
-customer success, upsell/expansion) are planned — see
-[CONTRIBUTING.md](CONTRIBUTING.md) if you want to help build one sooner.
+All 11 planned motions are covered. New skills beyond these are welcome —
+see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 

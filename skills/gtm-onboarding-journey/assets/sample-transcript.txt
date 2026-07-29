@@ -1,0 +1,32 @@
+Onboarding check-in, week 2 — Marlowe Dental Group x Fictional Vendor Co.
+Participants: Ana Ferreira (Practice Manager), Kim Osei (CSM)
+[Synthetic transcript for demo purposes only — no real company or person]
+
+00:03 Kim: Two weeks in, Ana — how's setup going on your end?
+
+00:08 Ana: Pretty smooth, actually. We had one hiccup getting the front-desk
+logins set up, but your support team sorted it same day.
+
+00:35 Kim: Glad to hear that. How's the team feeling about the new
+workflow so far?
+
+00:42 Ana: Honestly, better than I expected. Our front desk lead said it's
+already cutting down on double-entry.
+
+01:10 Kim: Great. Have you had a chance to poke around any of the reporting
+features yet?
+
+01:16 Ana: A little — I actually tried building a custom report myself
+yesterday, which I wouldn't have bothered with on our old system.
+
+01:45 Kim: That's a good sign. We'd set week four as the point where you're
+fully live across all three locations — still feel good about that
+timeline?
+
+01:55 Ana: Yes, two of three are already there, the third should be easy.
+
+02:20 Kim: One more thing — you mentioned your billing team separately,
+would it make sense to loop them in given how this connects to invoicing?
+
+02:30 Ana: Actually yes, I hadn't thought about that, let me bring that up
+internally and get back to you.

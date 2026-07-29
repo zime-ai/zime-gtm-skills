@@ -1,0 +1,41 @@
+Product demo — Callahan & Vance Law x Fictional Vendor Co.
+Participants: Teresa Callahan (Managing Partner), Devon Ware (Paralegal Lead), Sam Reyes (AE)
+[Synthetic transcript for demo purposes only — no real company or person]
+
+00:04 Sam: Last time we spoke, Teresa, you mentioned intake time was the
+biggest headache. Let's start there instead of the full product tour.
+
+00:15 Teresa: Yes please, that's really what I care about.
+
+00:30 Sam: Here's how a new-client intake would flow in our system — notice
+it pulls straight from your existing case management export, so nothing
+gets re-typed.
+
+00:50 Devon: Does it handle conflict checks the way we do them now, across
+existing clients?
+
+01:05 Sam: Good question — yes, here's that exact flow. [demo] Does that
+match how your team runs conflict checks today?
+
+01:20 Devon: Mostly, though we also flag by referral source, which I don't
+see here.
+
+01:35 Sam: Noted, let me follow up on whether that's configurable.
+
+02:00 Sam: You'd mentioned wanting intake time down from about 45 minutes
+to under 15 — this flow would get you close to that for straightforward
+cases.
+
+02:20 Teresa: That would be a big deal for us if it holds up in practice.
+
+02:40 Sam: One other firm your size we work with was evaluating a
+competitor tool before us — did you look at anyone else?
+
+02:48 Teresa: We did glance at one other option, but it didn't integrate
+with our case management system at all, which was a dealbreaker.
+
+03:15 Sam: Good to know. Let's get Devon a sandbox account this week so she
+can test the conflict-check flow with real-ish data, and we'll reconvene
+Thursday to go over what she finds.
+
+03:25 Devon: That works for me.

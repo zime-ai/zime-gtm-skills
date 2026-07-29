@@ -1,0 +1,44 @@
+Quarterly business review — Havenport Realty Group x Fictional Vendor Co.
+Participants: Elena Marsh (VP Operations), Diego Silva (Broker Lead), Kim Osei (CSM)
+[Synthetic transcript for demo purposes only — no real company or person]
+
+00:03 Kim: Thanks both for joining. Elena, when we started, the goal was
+cutting listing-to-close admin time — how's that tracking?
+
+00:12 Elena: We're down from about six hours per listing to just under
+three, so that's held up well.
+
+00:35 Kim: Great. Diego, how's adoption looking across the broker team, not
+just the ops side?
+
+00:42 Diego: Honestly mixed — maybe half the brokers use it consistently,
+the newer ones especially haven't fully ramped.
+
+01:05 Kim: Last quarter we flagged the document-upload bug — did that get
+resolved?
+
+01:12 Elena: Yes, that was fixed within a week after we raised it, no
+complaints since.
+
+01:35 Kim: Good. Is there anything currently in the way of full adoption
+for that other half of the team?
+
+01:42 Diego: I think it's mostly that we never did a proper training pass
+for the newer brokers when they onboarded mid-quarter.
+
+02:05 Kim: I can set up a short refresher session for them. Elena, is this
+tool tied to anything your leadership's tracking this year?
+
+02:15 Elena: Actually yes — our managing broker is pushing hard on
+reducing time-to-close company-wide, and this is a direct lever for that.
+
+02:40 Kim: Good to know. Anything on the roadmap side you'd want to flag
+for us, even informally?
+
+02:48 Diego: We've talked about wanting better mobile access for brokers
+who are out showing properties most of the day.
+
+03:15 Kim: Noted, I'll pass that to product. Let's plan the next review in
+90 days, and I'll get that training session on the calendar this week.
+
+03:22 Elena: Sounds good, thank you.

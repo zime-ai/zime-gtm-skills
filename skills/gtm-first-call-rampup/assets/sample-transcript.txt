@@ -1,0 +1,49 @@
+First call, new rep (3 weeks tenure) — Solstice Fitness x Fictional Vendor Co.
+Participants: Nina Park (Ops Manager, Solstice), Jordan Blake (new AE)
+[Synthetic transcript for demo purposes only — no real company or person]
+
+00:03 Jordan: Hi Nina, thanks for the time. Today I wanted to learn a bit
+about how your gyms handle class scheduling, and then if it's relevant,
+show you a bit of what we do. Sound okay?
+
+00:16 Nina: Sure, that works.
+
+00:20 Jordan: So, walk me through what a typical week looks like for
+scheduling classes across your locations.
+
+00:30 Nina: It's honestly chaotic. Each location manager builds their own
+schedule in a spreadsheet, and corporate doesn't have visibility until
+Monday when it's already live.
+
+00:55 Jordan: What happens when that causes a problem — like a double-
+booked instructor?
+
+01:05 Nina: We had that happen twice last month. Members show up to a
+canceled class, and we look disorganized.
+
+01:30 Jordan: Do you use any scheduling software today, or is it fully
+manual?
+
+01:36 Nina: Fully manual, just spreadsheets and group texts between
+managers.
+
+01:55 Jordan: Got it. So, is your current plan to just... keep doing this,
+or find something?
+
+02:05 Nina: We're actively looking now, yeah. This became a priority after
+a member complained loudly enough that our regional director got involved.
+
+02:30 Jordan: Okay. So we have a scheduling tool, it does a lot of things.
+Let me just show you the dashboard.
+
+02:40 Nina: Sure.
+
+03:10 Jordan: And there's also reporting, and an admin panel, and mobile
+notifications, and —
+
+03:25 Nina: Sorry, can we go back to the double-booking thing? Does it
+actually prevent that specifically?
+
+03:32 Jordan: Oh — yes, it does, it flags conflicts before publishing.
+
+03:40 Nina: That's really the main thing I care about.
