@@ -14,13 +14,6 @@ product coupling, no lead capture. Built and maintained by
 **Contributions welcome** — see [CONTRIBUTING.md](CONTRIBUTING.md). Found a
 bug or have a question? [Open an issue](https://github.com/zime-ai/zime-gtm-skills/issues).
 
-## What are Skills?
-
-A Skill is a markdown file (`SKILL.md`) that gives an AI coding agent
-specialized instructions and reference material for a specific task. Drop one
-into `.agents/skills/` (or `.claude/skills/` for Claude Code) and the agent
-picks it up automatically when you ask for something the skill's description
-matches — here, that's "audit this call" or "check this pipeline export."
 
 ## Quick start
 
