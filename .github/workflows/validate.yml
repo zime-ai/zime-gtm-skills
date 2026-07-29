@@ -1,0 +1,31 @@
+name: validate skills
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # skills-ref isn't published to PyPI — install from source, pinned
+      # to a commit so upstream changes can't silently break CI.
+      - name: Install skills-ref
+        run: |
+          pip install "git+https://github.com/agentskills/agentskills.git@38a2ff82958afee88dadf4831509e6f7e9d8ef4e#subdirectory=skills-ref"
+
+      - name: Validate every skill
+        run: |
+          set -e
+          for dir in skills/*/; do
+            echo "Validating ${dir%/}"
+            skills-ref validate "${dir%/}"
+          done
