@@ -1,0 +1,49 @@
+Qualification call — Bramble Retail Co. x Fictional Vendor Co.
+Participants: Marcus Ojo (Director of Store Ops, Bramble), Sam Reyes (AE, Vendor Co.)
+[Synthetic transcript for demo purposes only — no real company or person]
+
+00:02 Sam: Thanks for hopping on, Marcus. Last time we spoke you mentioned
+inventory reconciliation was a pain point — where's that sitting on your
+priority list today?
+
+00:14 Marcus: It's near the top, honestly. We're opening four new stores
+in Q1 and our current process just doesn't scale past what we're running
+now.
+
+00:35 Sam: Got it. If you don't solve this before those stores open, what
+happens?
+
+00:42 Marcus: We'd be doing manual counts store by store, which is what
+we're stuck with today, and it already eats a full day a week per store
+manager.
+
+01:15 Sam: Who beyond you would need to be involved in choosing a vendor
+here?
+
+01:22 Marcus: I own this decision operationally, but anything over $75k
+goes through our VP of Retail Ops for sign-off. She trusts my
+recommendation on tooling.
+
+01:50 Sam: And is there a specific date this needs to be decided by?
+
+01:56 Marcus: We need something live before the Q1 store openings, so
+realistically we'd need to sign by end of next month to have time to roll
+it out.
+
+02:30 Sam: Are you looking at other options right now, or is this
+exploratory?
+
+02:36 Marcus: We looked at one competitor's demo two weeks ago. It did the
+basics but didn't handle multi-location reconciliation the way we need.
+
+03:05 Sam: What's your current process running on, if anything?
+
+03:10 Marcus: Nothing formal — spreadsheets and a lot of manual cross-
+checking between store systems and our central inventory database.
+
+03:40 Sam: Makes sense. Let's set up a working session with your VP before
+the end of next week so she can weigh in early rather than at the finish
+line — does that work?
+
+03:50 Marcus: Yes, let me get something on her calendar. I'll send you a
+few times by tomorrow.

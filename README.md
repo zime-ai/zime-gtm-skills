@@ -43,18 +43,12 @@ Next steps:
 | Skill | Audits | Input |
 |---|---|---|
 | `gtm-deep-discovery` | Early-stage discovery call quality — pain, trigger, decision process, budget/timeline, procurement, competition, rapport | transcript (`.txt`/`.vtt`/`.json`/`.md`) or CRM export (`.csv`) |
+| `gtm-meeting-to-qualify` | Whether a deal is real — authority, budget plausibility, urgency, fit, competitive situation, concrete next step | transcript or CRM export |
+| `gtm-churn-prevention` | Renewal risk — value realization, usage depth, champion strength, sentiment, service friction | transcript or CRM export |
 
-More motions (qualification, demo, pilot/POC, negotiation, onboarding,
-customer success, churn, expansion) are planned — see
+More motions (technical discovery, demo, pilot/POC, negotiation, onboarding,
+customer success, upsell/expansion) are planned — see
 [CONTRIBUTING.md](CONTRIBUTING.md) if you want to help build one sooner.
-
-## What this does not do
-
-- No CRM connection, no OAuth, no API keys
-- No network calls of any kind — everything runs on the file you point it at
-- No telemetry, no data retention beyond the current session
-- No gating — every skill here is free and always will be; this repo isn't
-  a lead funnel
 
 ## License
 
