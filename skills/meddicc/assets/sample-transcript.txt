@@ -1,0 +1,56 @@
+[Synthetic transcript — no real company or person. For demonstrating the meddicc skill.]
+
+Call: Northbridge Logistics <> Vendor (Rep: Dana)
+Stage: Second call, technical + business stakeholders
+
+Dana: Thanks for looping in your ops lead today. Last time we talked mostly
+about the workflow pain — walk me through where things stand since then?
+
+Prospect (Marcus, Ops Director): Sure. So since we spoke I actually pulled
+the numbers our team lead mentioned — we're spending close to $18,000 a
+month in overtime specifically covering manual exception handling. That's
+the number that got our CFO's attention, honestly, more than anything I
+said.
+
+Dana: That's a concrete number, good to have. And who else needs to see
+that number before this moves forward?
+
+Marcus: My CFO, Renee, ultimately signs off on anything over $50k annually.
+She hasn't been in a call yet but I've been sending her summaries.
+
+Dana: Would it make sense to get her on a call directly at some point?
+
+Marcus: Possibly — she's usually pretty hands-off until the contract stage,
+honestly. She trusts my read on the ops side.
+
+Dana: Got it. On the evaluation side — is this a "pick the best tool"
+process or more formal, like an RFP?
+
+Marcus: Not formal. It's basically me and our IT lead comparing two options.
+Price matters, but honestly the bigger thing for us is whether it plugs into
+our existing WMS without a six-month integration project. We got burned by
+that with a different vendor two years ago.
+
+Dana: That's useful to know. Is there a committee or just the two of you
+deciding?
+
+Marcus: Just us two recommending, then it goes to Renee for a rubber stamp
+assuming the number works.
+
+Dana: And besides us, is there anyone else you're actively looking at?
+
+Marcus: We did a demo with one other vendor last month. Honestly it felt
+built for a much bigger company than us — a lot of features we'd never use.
+That's actually part of why I looped you back in.
+
+Dana: Appreciate you sharing that directly. Last thing — has anyone
+internally been pushing for this beyond you?
+
+Marcus: My IT lead, Priya, has actually been the one nudging me on this the
+last few weeks — she's tired of the manual patches we've been doing to make
+the current system limp along. She'd probably talk this up if anyone asked
+her.
+
+Dana: That's helpful to know going in. I'll follow up with a one-pager Renee
+can skim, and let's get a date on the calendar with Priya and IT for a
+technical deep-dive.

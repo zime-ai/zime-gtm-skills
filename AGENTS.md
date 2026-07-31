@@ -40,7 +40,7 @@ zime-gtm-skills/
 | `name` | yes | 1–64 chars, lowercase `[a-z0-9-]`, must equal the parent directory name |
 | `description` | yes | 1–1024 chars; state both *what* the skill does and *when* to use it |
 | `license` | no | defaults to MIT |
-| `metadata` | no | free-form; this repo uses `zime:category` and `zime:input-modes` |
+| `metadata` | no | free-form; this repo uses `zime:category`, `zime:dimension` (`stage`/`initiative`/`vertical-context`), `zime:input-modes`, and (for stage skills) `zime:stage` |
 
 `SKILL.md` stays under 500 lines — move detail into `references/`.
 `references/`, `scripts/`, `assets/`, `evals/` are one level deep, no nested
@@ -68,7 +68,20 @@ published to PyPI.
 ## Evals
 
 Each skill may carry `evals/evals.json` — declarative test cases (prompt +
-sample file + expected assertions). They are not run in CI yet; see
-`MAINTAINING.md`'s deferred-work list. Treat them as the source of truth for
-"does this skill actually work," not the `skills-ref`/`validate-skills.sh`
-structural checks, which only catch frontmatter and layout errors.
+sample file + expected `expectations`). They are not run in CI yet. See
+`EVALS.md` for the full methodology: the three eval tiers, why format
+compliance and insight recall are reported as two separate metrics rather
+than one blended number, and where a human is required versus where nothing
+is. Treat evals as the source of truth for "does this skill actually work,"
+not the `skills-ref`/`validate-skills.sh` structural checks, which only
+catch frontmatter and layout errors.
+
+## Three dimensions: stage, initiative, vertical
+
+Skills cover deal stage and initiative as ordinary, flat skills
+(`zime:dimension: stage` or `initiative` in frontmatter) — never nested
+under a `skills/stage/` or `skills/initiative/` directory, since that breaks
+the install command above and both validators. Vertical is different: it's
+one skill, `skills/vertical-context/`, holding a reference pack per industry
+that any other skill loads on request. See `MAINTAINING.md`'s "Three
+dimensions" section for the full rationale and current coverage.

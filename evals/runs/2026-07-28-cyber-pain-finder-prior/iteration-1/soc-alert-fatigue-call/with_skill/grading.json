@@ -1,0 +1,10 @@
+{
+  "expectations": [
+    {"text": "Uses explicit five-bucket category tags", "passed": true, "evidence": "Every pain point has a 'Category:' line naming buckets like 'Tooling gaps and alert fatigue', 'Threat exposure / incident history', etc."},
+    {"text": "Includes a confidence rating per pain point", "passed": true, "evidence": "Each entry has a 'Confidence:' line (High, Medium-High, Low) with a reason."},
+    {"text": "Backed by direct quotes", "passed": true, "evidence": "Every pain point has an 'Evidence:' line quoting Chris Vance directly."},
+    {"text": "Cyber insurance flagged as low-confidence/secondary", "passed": true, "evidence": "Pain point 5 (cyber insurance) is rated Low confidence, explicitly noting Chris said it's not what's keeping him up at night."},
+    {"text": "No unrequested recommended-next-steps section", "passed": true, "evidence": "Output ends with a 'Notes' section on inference/ranking logic, not a sales-recommendation section."}
+  ],
+  "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1.0}
+}

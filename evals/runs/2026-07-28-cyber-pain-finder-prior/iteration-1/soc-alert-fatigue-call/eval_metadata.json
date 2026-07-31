@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "eval_name": "soc-alert-fatigue-call",
+  "prompt": "I just got off a discovery call with a prospect (Meridian Freight Logistics). Here's the transcript, pasted below. Can you tell me what their actual pain points are so I know what to focus on in my follow-up?",
+  "assertions": [
+    "Pain points are labeled with explicit category tags drawn from the five-bucket cybersecurity taxonomy (threat exposure, compliance/audit, tooling/alert fatigue, budget/headcount, exec/board pressure)",
+    "Each pain point includes a confidence or certainty rating",
+    "Each pain point is backed by a direct quote from the transcript",
+    "Cyber insurance/compliance is correctly flagged as low-confidence or secondary, matching Chris's own downplaying of it",
+    "Output does not include an unrequested 'recommended next steps for the follow-up call' section, since the prompt only asked what the pain points are"
+  ]
+}

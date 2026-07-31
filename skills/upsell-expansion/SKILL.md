@@ -4,6 +4,8 @@ description: Audits an expansion/upsell call transcript against a rubric coverin
 license: MIT
 metadata:
   zime:category: post-sale
+  zime:dimension: stage
+  zime:stage: expansion
   zime:input-modes: transcript,csv
 ---
 

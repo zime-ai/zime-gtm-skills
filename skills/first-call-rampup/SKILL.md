@@ -4,6 +4,8 @@ description: Audits a new rep's early sales call transcript against a foundation
 license: MIT
 metadata:
   zime:category: new-business
+  zime:dimension: stage
+  zime:stage: any
   zime:input-modes: transcript
 ---
 

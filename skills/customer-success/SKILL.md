@@ -4,6 +4,8 @@ description: Audits a periodic QBR or account health-review call transcript agai
 license: MIT
 metadata:
   zime:category: post-sale
+  zime:dimension: stage
+  zime:stage: post-sale-review
   zime:input-modes: transcript,csv
 ---
 

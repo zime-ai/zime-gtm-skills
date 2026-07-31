@@ -59,6 +59,22 @@ for skill_dir in "$SKILLS_DIR"/*/; do
         errors+=("SKILL.md is $line_count lines (must be under 500)")
     fi
 
+    dimension=$(echo "$frontmatter" | grep "zime:dimension:" | head -1 | sed 's/.*zime:dimension: *//' | tr -d ' ')
+    if [[ -z "$dimension" ]]; then
+        errors+=("missing 'zime:dimension' metadata field")
+    elif [[ "$dimension" != "stage" && "$dimension" != "initiative" && "$dimension" != "vertical-context" ]]; then
+        errors+=("invalid zime:dimension '$dimension' (must be stage, initiative, or vertical-context)")
+    fi
+
+    evals_file="${skill_dir}evals/evals.json"
+    if [[ -f "$evals_file" ]]; then
+        if ! python3 -m json.tool "$evals_file" >/dev/null 2>&1; then
+            errors+=("evals/evals.json does not parse as valid JSON")
+        elif grep -q '"assertions"' "$evals_file"; then
+            errors+=("evals/evals.json uses 'assertions' — schema requires 'expectations'")
+        fi
+    fi
+
     for sub in "$skill_dir"*/; do
         [[ -d "$sub" ]] || continue
         sub_name=$(basename "$sub")

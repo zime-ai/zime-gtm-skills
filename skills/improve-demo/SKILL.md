@@ -4,6 +4,8 @@ description: Audits a product demo call transcript against a rubric covering tai
 license: MIT
 metadata:
   zime:category: new-business
+  zime:dimension: stage
+  zime:stage: demo
   zime:input-modes: transcript,csv
 ---
 

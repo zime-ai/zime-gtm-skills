@@ -4,6 +4,8 @@ description: Audits a pilot/POC check-in call transcript against a rubric coveri
 license: MIT
 metadata:
   zime:category: new-business
+  zime:dimension: stage
+  zime:stage: pilot
   zime:input-modes: transcript,csv
 ---
 

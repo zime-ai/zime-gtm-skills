@@ -1,0 +1,47 @@
+{
+  "skill_name": "meddicc",
+  "evals": [
+    {
+      "id": 1,
+      "name": "meddicc-eval-1",
+      "prompt": "run meddicc on skills/meddicc/assets/sample-transcript.txt",
+      "expected_output": "Scores the call against all seven MEDDICC letters. Metrics is Covered (the $18,000/month overtime figure). Economic buyer is Partial (Renee is named and her threshold known, but she has not been on a call). Decision criteria is Covered (integration effort into the existing WMS, informed by a past bad integration). Decision process is Covered (two people recommend, Renee rubber-stamps). Identify pain is Covered (manual exception handling). Champion is Covered or Partial (Priya is named and actively pushing, but her influence on Renee is not yet demonstrated). Competition is Covered (a specific competitor demo, described as overbuilt for their size). Closes with the single biggest qualification risk — Renee's lack of direct engagement — and a concrete next step to close it.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "All seven MEDDICC letters receive a Status",
+        "Metrics is scored Covered and cites the $18,000/month figure",
+        "Economic buyer notes Renee is named but not yet directly engaged, not simply Covered",
+        "Competition cites the specific detail that the competing vendor felt built for a bigger company",
+        "Closes with a single named biggest qualification risk and a concrete next step, not a full recap",
+        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "meddicc-eval-2-reads-well-too",
+      "prompt": "run meddicc on a transcript of a first discovery call that, by any reasonable read, went well for a call at that early stage",
+      "expected_output": "Letters that a first call could not reasonably have covered (typically Decision process, and often Economic buyer direct engagement) are scored Not applicable rather than Missed. The audit does not read as mostly gaps just because MEDDICC has seven letters and a first call cannot cover all of them equally.",
+      "files": [],
+      "expectations": [
+        "Letters unreachable at this call's stage are marked Not applicable, not Missed",
+        "A genuinely strong first call is not scored as mostly Missed",
+        "The reads-well-too check from references/rubric.md is applied before the audit is finalized"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "meddicc-eval-3-csv",
+      "prompt": "run meddicc on a CRM pipeline export csv with deal rows missing several MEDDICC fields",
+      "expected_output": "Treats this as a structural hygiene sweep, not a call-quality audit, and says so explicitly. Flags each deal row for missing MEDDICC-relevant fields. Output is a table sorted by deal value descending. Makes no claim about what was actually discussed on any specific call.",
+      "files": [],
+      "expectations": [
+        "States explicitly that CSV mode is a structural check, not a call-quality claim",
+        "Flags rows missing MEDDICC-relevant fields",
+        "Output is sorted by deal value descending",
+        "Does not claim to know what happened on any specific call from CRM fields alone"
+      ]
+    }
+  ]
+}

@@ -4,6 +4,8 @@ description: Audits a renewal-risk or check-in call transcript against a churn/r
 license: MIT
 metadata:
   zime:category: post-sale
+  zime:dimension: stage
+  zime:stage: renewal-risk
   zime:input-modes: transcript,csv
 ---
 

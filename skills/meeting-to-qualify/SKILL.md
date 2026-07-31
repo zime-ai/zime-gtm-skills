@@ -4,6 +4,8 @@ description: Audits a qualification call transcript to assess whether a deal is 
 license: MIT
 metadata:
   zime:category: new-business
+  zime:dimension: stage
+  zime:stage: qualify
   zime:input-modes: transcript,csv
 ---
 

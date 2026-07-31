@@ -4,6 +4,8 @@ description: Audits a late-stage negotiation call transcript against a rubric co
 license: MIT
 metadata:
   zime:category: new-business
+  zime:dimension: stage
+  zime:stage: negotiation
   zime:input-modes: transcript,csv
 ---
 

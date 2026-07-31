@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eval Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" integrity="sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --surface: #ffffff;
+      --border: #e8e6dc;
+      --text: #141413;
+      --text-muted: #b0aea5;
+      --accent: #d97757;
+      --accent-hover: #c4613f;
+      --green: #788c5d;
+      --green-bg: #eef2e8;
+      --red: #c44;
+      --red-bg: #fceaea;
+      --header-bg: #141413;
+      --header-text: #faf9f5;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .header .instructions {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
+    }
+    .header .progress {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      text-align: right;
+    }
+
+    /* ---- Main content ---- */
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      flex-shrink: 0;
+    }
+    .section-header {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .section-body {
+      padding: 1rem;
+    }
+
+    /* ---- Config badge ---- */
+    .config-badge {
+      display: inline-block;
+      padding: 0.2rem 0.625rem;
+      border-radius: 9999px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-left: 0.75rem;
+      vertical-align: middle;
+    }
+    .config-badge.config-primary {
+      background: rgba(33, 150, 243, 0.12);
+      color: #1976d2;
+    }
+    .config-badge.config-baseline {
+      background: rgba(255, 193, 7, 0.15);
+      color: #f57f17;
+    }
+
+    /* ---- Prompt ---- */
+    .prompt-text {
+      white-space: pre-wrap;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Outputs ---- */
+    .output-file {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .output-file + .output-file {
+      margin-top: 1rem;
+    }
+    .output-file-header {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .output-file-header .dl-btn {
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-decoration: none;
+      cursor: pointer;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .output-file-header .dl-btn:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .output-file-content {
+      padding: 0.75rem;
+      overflow-x: auto;
+    }
+    .output-file-content pre {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .output-file-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .output-file-content iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+    .output-file-content table {
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+      width: 100%;
+    }
+    .output-file-content table td,
+    .output-file-content table th {
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.5rem;
+      text-align: left;
+    }
+    .output-file-content table th {
+      background: var(--bg);
+      font-weight: 600;
+    }
+    .output-file-content .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .output-file-content .download-link:hover {
+      background: var(--border);
+    }
+    .empty-state {
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* ---- Feedback ---- */
+    .prev-feedback {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.625rem 0.75rem;
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .prev-feedback-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+    }
+    .feedback-textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      resize: vertical;
+      color: var(--text);
+    }
+    .feedback-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .feedback-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      min-height: 1.1em;
+    }
+
+    /* ---- Grades (collapsible) ---- */
+    .grades-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .grades-toggle:hover {
+      color: var(--accent);
+    }
+    .grades-toggle .arrow {
+      margin-right: 0.5rem;
+      transition: transform 0.15s;
+      font-size: 0.75rem;
+    }
+    .grades-toggle .arrow.open {
+      transform: rotate(90deg);
+    }
+    .grades-content {
+      display: none;
+      margin-top: 0.75rem;
+    }
+    .grades-content.open {
+      display: block;
+    }
+    .grades-summary {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .grade-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .grade-pass { background: var(--green-bg); color: var(--green); }
+    .grade-fail { background: var(--red-bg); color: var(--red); }
+    .assertion-list {
+      list-style: none;
+    }
+    .assertion-item {
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem;
+    }
+    .assertion-item:last-child { border-bottom: none; }
+    .assertion-status {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+    .assertion-status.pass { color: var(--green); }
+    .assertion-status.fail { color: var(--red); }
+    .assertion-evidence {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      padding-left: 1.5rem;
+    }
+
+    /* ---- View tabs ---- */
+    .view-tabs {
+      display: flex;
+      gap: 0;
+      padding: 0 2rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .view-tab {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .view-tab:hover { color: var(--text); }
+    .view-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .view-panel { display: none; }
+    .view-panel.active { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+
+    /* ---- Benchmark view ---- */
+    .benchmark-view {
+      padding: 1.5rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .benchmark-table {
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.8125rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .benchmark-table th, .benchmark-table td {
+      padding: 0.625rem 0.75rem;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .benchmark-table th {
+      font-family: 'Poppins', sans-serif;
+      background: var(--header-bg);
+      color: var(--header-text);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .benchmark-table tr:hover { background: var(--bg); }
+    .benchmark-table tr.benchmark-row-with { background: rgba(33, 150, 243, 0.06); }
+    .benchmark-table tr.benchmark-row-without { background: rgba(255, 193, 7, 0.06); }
+    .benchmark-table tr.benchmark-row-with:hover { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-without:hover { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-table tr.benchmark-row-avg { font-weight: 600; border-top: 2px solid var(--border); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-with { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-without { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-delta-positive { color: var(--green); font-weight: 600; }
+    .benchmark-delta-negative { color: var(--red); font-weight: 600; }
+    .benchmark-notes {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .benchmark-notes h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .benchmark-notes ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+    .benchmark-notes li {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-bottom: 0.375rem;
+    }
+    .benchmark-empty {
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    /* ---- Navigation ---- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .nav-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .done-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .done-btn:hover {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .done-btn.ready {
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+    .done-btn.ready:hover {
+      background: var(--accent-hover);
+    }
+    /* ---- Done overlay ---- */
+    .done-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .done-overlay.visible {
+      display: flex;
+    }
+    .done-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+    }
+    .done-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .done-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .done-card .btn-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .done-card button {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .done-card button:hover {
+      background: var(--bg);
+    }
+    /* ---- Toast ---- */
+    .toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 200;
+    }
+    .toast.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" style="height:100vh; display:flex; flex-direction:column;">
+    <div class="header">
+      <div>
+        <h1>Eval Review: <span id="skill-name"></span></h1>
+        <div class="instructions">Review each output and leave feedback below. Navigate with arrow keys or buttons. When done, copy feedback and paste into Claude Code.</div>
+      </div>
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- View tabs (only shown when benchmark data exists) -->
+    <div class="view-tabs" id="view-tabs" style="display:none;">
+      <button class="view-tab active" onclick="switchView('outputs')">Outputs</button>
+      <button class="view-tab" onclick="switchView('benchmark')">Benchmark</button>
+    </div>
+
+    <!-- Outputs panel (qualitative review) -->
+    <div class="view-panel active" id="panel-outputs">
+    <div class="main">
+      <!-- Prompt -->
+      <div class="section">
+        <div class="section-header">Prompt <span class="config-badge" id="config-badge" style="display:none;"></span></div>
+        <div class="section-body">
+          <div class="prompt-text" id="prompt-text"></div>
+        </div>
+      </div>
+
+      <!-- Outputs -->
+      <div class="section">
+        <div class="section-header">Output</div>
+        <div class="section-body" id="outputs-body">
+          <div class="empty-state">No output files found</div>
+        </div>
+      </div>
+
+      <!-- Previous Output (collapsible) -->
+      <div class="section" id="prev-outputs-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="togglePrevOutputs()">
+            <span class="arrow" id="prev-outputs-arrow">&#9654;</span>
+            Previous Output
+          </div>
+        </div>
+        <div class="grades-content" id="prev-outputs-content"></div>
+      </div>
+
+      <!-- Grades (collapsible) -->
+      <div class="section" id="grades-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="toggleGrades()">
+            <span class="arrow" id="grades-arrow">&#9654;</span>
+            Formal Grades
+          </div>
+        </div>
+        <div class="grades-content" id="grades-content"></div>
+      </div>
+
+      <!-- Feedback -->
+      <div class="section">
+        <div class="section-header">Your Feedback</div>
+        <div class="section-body">
+          <textarea
+            class="feedback-textarea"
+            id="feedback"
+            placeholder="What do you think of this output? Any issues, suggestions, or things that look great?"
+          ></textarea>
+          <div class="feedback-status" id="feedback-status"></div>
+          <div class="prev-feedback" id="prev-feedback" style="display:none;">
+            <div class="prev-feedback-label">Previous feedback</div>
+            <div id="prev-feedback-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav" id="outputs-nav">
+      <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">&#8592; Previous</button>
+      <button class="done-btn" id="done-btn" onclick="showDoneDialog()">Submit All Reviews</button>
+      <button class="nav-btn" id="next-btn" onclick="navigate(1)">Next &#8594;</button>
+    </div>
+    </div><!-- end panel-outputs -->
+
+    <!-- Benchmark panel (quantitative stats) -->
+    <div class="view-panel" id="panel-benchmark">
+      <div class="benchmark-view" id="benchmark-content">
+        <div class="benchmark-empty">No benchmark data available. Run a benchmark to see quantitative results here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Done overlay -->
+  <div class="done-overlay" id="done-overlay">
+    <div class="done-card">
+      <h2>Review Complete</h2>
+      <p>Your feedback has been saved. Go back to your Claude Code session and tell Claude you're done reviewing.</p>
+      <div class="btn-row">
+        <button onclick="closeDoneDialog()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ---- Embedded data (injected by generate_review.py) ----
+    const EMBEDDED_DATA = {"skill_name": "cyber-pain-finder", "runs": [{"id": "soc-alert-fatigue-call-with_skill", "prompt": "I just got off a discovery call with a prospect (Meridian Freight Logistics). Here's the transcript, pasted below. Can you tell me what their actual pain points are so I know what to focus on in my follow-up?", "eval_id": 1, "outputs": [{"name": "output.md", "type": "text", "content": "## Pain points, ranked\n\n### 1. Disconnected tools turn every triage into a manual, multi-hour slog\n**Category:** Tooling gaps and alert fatigue\n**Confidence:** High \u2014 this is the most specific, concretely-detailed complaint in the call, told as a real incident with a timestamp (\"last Tuesday\"), not a general grievance.\n**Evidence:** \"None of it talks to each other... I have four browser tabs open at all times just to triage one alert. Last Tuesday we had a weird lateral movement pattern and it took my senior analyst almost three hours just to confirm it was a false positive, because he had to manually cross-reference the endpoint log, the network log, and the identity provider log by hand. Three hours for a non-event. That's not sustainable.\" \u2014 Chris Vance, early-to-mid call.\n\n### 2. A near-miss last Tuesday leaves Chris doubting they'd catch a real threat in time\n**Category:** Threat exposure / incident history\n**Confidence:** High \u2014 this is the single most emotionally loaded line in the transcript; Chris volunteers a genuine confidence gap about his own team's detection capability, not just a workflow complaint.\n**Evidence:** \"if that lateral movement alert last Tuesday HAD been real, I'm not confident we would have caught it in time given how long triage took.\" \u2014 Chris Vance, mid-call, immediately after describing a prior phishing-based credential compromise ~8 months ago that was \"contained... before it went anywhere serious, but it was close.\"\n**Note:** This pain is directly downstream of Pain #1 (tool fragmentation) \u2014 the slow, manual triage isn't just costly, it's a detection-speed risk Chris is personally worried about.\n\n### 3. Team is exhausted and starting to walk \u2014 one analyst is already job-hunting\n**Category:** Tooling gaps and alert fatigue; Budget and headcount constraints\n**Confidence:** High \u2014 direct quote of the analyst's own words relayed by Chris, plus a specific volume figure (50-80 alerts/day, 2-3 real), which is a strong signal this is a lived daily reality, not exaggeration.\n**Evidence:** \"I'd guess we're triaging fifty to eighty alerts a day and maybe two or three of those are real. My team is exhausted. I had one analyst tell me flat out he's applying to other jobs because he's tired of 'chasing ghosts,' his words.\" \u2014 Chris Vance.\n\n### 4. Leadership thinks the SentinelOne purchase already solved this, so headcount asks get dismissed\n**Category:** Budget and headcount constraints; Exec/board pressure\n**Confidence:** Medium-High \u2014 clearly stated with a direct quote, but it's one exchange rather than something Chris returned to repeatedly; still, the frustration is explicit (\"it's not like leadership sees it\").\n**Evidence:** \"I go to my VP and say I need headcount and he says 'didn't we just buy that SentinelOne thing to handle this?' Like the tool alone was supposed to fix it.\" \u2014 Chris Vance.\n**Note:** Compounds Pain #3 \u2014 the team is already stretched thin (3 analysts on paper, effectively 2.5 with one out on leave), and Chris can't get leadership to sign off on relief.\n\n### 5. Cyber insurance renewal in the fall will ask about MTTR and detection coverage\n**Category:** Compliance and audit pressure\n**Confidence:** Low \u2014 Chris raised this only when directly asked, and explicitly downgraded its importance in the same breath.\n**Evidence:** \"Cyber insurance renewal is in the fall, they'll probably ask about MTTR and detection coverage, but that's not really what's keeping me up at night. It's genuinely the fatigue and the near miss.\" \u2014 Chris Vance.\n\n## Notes\n- The \"understaffed\" framing (Pain #3) is partly inferred: Chris never uses the word \"understaffed,\" but describes a team of three analysts on paper reduced to \"two and a half\" with one out on leave, covering a 24/7 operation \u2014 the shortfall is described through workload and attrition risk rather than stated outright.\n- Compliance/audit pressure (cyber insurance) is present but explicitly low-urgency in Chris's own words \u2014 don't lead the follow-up with a compliance angle; he told the rep directly it's not the driver.\n- No SOC 2, ISO 27001, HIPAA, or PCI-DSS pressure surfaced in this call. Given this is a logistics company (not obviously in a heavily-regulated vertical), that's plausible rather than a gap \u2014 but worth a light probe if a follow-up touches compliance, since it wasn't ruled out, just not raised.\n- Pains #1, #2, and #3 are tightly linked (fragmented tooling \u2192 slow manual triage \u2192 analyst burnout \u2192 near-miss detection risk). In the follow-up, these likely read to Chris as one connected problem, not three separate ones \u2014 worth reflecting that back rather than treating them as a checklist.\n"}], "grading": {"expectations": [{"text": "Uses explicit five-bucket category tags", "passed": true, "evidence": "Every pain point has a 'Category:' line naming buckets like 'Tooling gaps and alert fatigue', 'Threat exposure / incident history', etc."}, {"text": "Includes a confidence rating per pain point", "passed": true, "evidence": "Each entry has a 'Confidence:' line (High, Medium-High, Low) with a reason."}, {"text": "Backed by direct quotes", "passed": true, "evidence": "Every pain point has an 'Evidence:' line quoting Chris Vance directly."}, {"text": "Cyber insurance flagged as low-confidence/secondary", "passed": true, "evidence": "Pain point 5 (cyber insurance) is rated Low confidence, explicitly noting Chris said it's not what's keeping him up at night."}, {"text": "No unrequested recommended-next-steps section", "passed": true, "evidence": "Output ends with a 'Notes' section on inference/ranking logic, not a sales-recommendation section."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1.0}}}, {"id": "soc-alert-fatigue-call-without_skill", "prompt": "I just got off a discovery call with a prospect (Meridian Freight Logistics). Here's the transcript, pasted below. Can you tell me what their actual pain points are so I know what to focus on in my follow-up?", "eval_id": 1, "outputs": [{"name": "output.md", "type": "text", "content": "# Pain Point Analysis: Meridian Freight Logistics (Chris Vance)\n\n## Bottom line\n\nChris's real problem isn't \"we need more security tools\" \u2014 it's that the tools he already has don't talk to each other, and that gap is burning out his team, creating real risk exposure, and isn't visible to his own leadership. That last point matters: he doesn't have internal air cover to fix it yet. Your follow-up should give him ammunition for that internal conversation as much as it should sell the product.\n\n## Pain Point #1 (Primary): Alert fatigue driven by tool fragmentation, not tool quality\n\nThis is the pain he came back to twice, unprompted, and it's the most quantifiable.\n\n- Stack: SentinelOne (endpoint), Splunk (logs), a separate email security gateway, and native AWS GuardDuty for cloud \u2014 \"none of it talks to each other.\"\n- Manual correlation is the actual workflow: four browser tabs open just to triage a single alert.\n- Concrete example: a lateral movement alert took his senior analyst **almost three hours** to rule out as a false positive, because he had to manually cross-reference endpoint, network, and identity provider logs by hand.\n- Scale: 50\u201380 alerts triaged per day, of which only 2\u20133 are real. This kind of cross-tool manual triage event happens **multiple times a week**, not as a one-off.\n\n**Why it matters:** This isn't a \"we want a nicer dashboard\" complaint \u2014 it's hours of skilled-analyst time spent per week confirming non-events, on a team that doesn't have hours to spare.\n\n## Pain Point #2: Team capacity and retention risk\n\n- Nominal team is Chris + 3 analysts for a 24/7 operation; actual capacity right now is Chris + 2.5 (one analyst is out on leave).\n- He describes the team as \"exhausted.\"\n- One analyst has told him directly he's job-hunting because he's tired of \"chasing ghosts\" (his words) \u2014 i.e., burnout from chasing false positives is an active attrition risk, not a hypothetical one.\n\n**Why it matters:** If Meridian loses another analyst, the coverage gap gets worse and the triage burden per person goes up, compounding Pain #1. This is a business-continuity/staffing risk, not just a morale issue \u2014 worth naming explicitly in your follow-up since it's a cost leadership tends to underrate until someone actually quits.\n\n## Pain Point #3: Real risk exposure \u2014 the near miss\n\n- Meridian had an actual phishing-based credential compromise ~8 months ago. It was contained before causing serious damage, but it was close.\n- Chris's own words: if the lateral movement alert from \"last Tuesday\" (the 3-hour triage case) had been a real attack instead of a false positive, **he is not confident they'd have caught it in time**, given how long triage currently takes.\n\n**Why it matters:** This connects the operational pain (slow manual triage) directly to a plausible bad outcome (missed real intrusion), and it's backed by a real prior incident, not a hypothetical. This is the strongest \"cost of inaction\" argument you have \u2014 use it, but handle it factually rather than as a scare tactic since he raised it candidly.\n\n## Pain Point #4: Leadership doesn't see the problem \u2014 no internal air cover\n\n- When Chris asked his VP for headcount, the response was \"didn't we just buy that SentinelOne thing to handle this?\" \u2014 leadership believes the tool purchase already solved the problem.\n- Chris is currently stuck: he can see the operational and risk problem clearly, but he doesn't have a way to make it visible or credible to leadership.\n\n**Why it matters:** This is likely the actual buying obstacle. Even if Chris is sold, he may not be able to get budget approved unless you help him build a case his VP will accept \u2014 ideally with data/metrics his leadership will find credible (see Pain #5).\n\n## Pain Point #5 (secondary, but useful for timing/urgency): Cyber insurance renewal\n\n- Renewal is this fall; the insurer will likely ask about MTTR and detection coverage.\n- Chris was explicit that this is **not** what's keeping him up at night \u2014 the fatigue and the near miss are the real drivers. Don't lead with this; treat it as a secondary forcing function and a source of metrics leadership already expects to be asked about.\n\n## Recommended focus for your follow-up\n\n1. **Lead with the triage-time story** (3 hours to clear one alert, 50\u201380/day, 2\u20133 real) \u2014 it's concrete, it's his own words, and it directly maps to whatever correlation/automation capability reduces manual cross-referencing across SentinelOne, Splunk, the email gateway, and GuardDuty.\n2. **Name the near-miss explicitly** as the cost of the status quo \u2014 tie faster/automated correlation to confidence in catching a real lateral movement event, referencing the phishing compromise from 8 months ago.\n3. **Give him a leadership-ready narrative**, not just a product pitch. He needs something he can bring to his VP that reframes this as \"the tool we bought needs a correlation layer to actually deliver on its promise,\" not \"the tool failed.\" Consider offering a simple ROI/business-case framing (analyst hours saved, retention risk, insurance readiness) he can forward internally.\n4. **Use the insurance renewal as a timing anchor**, not the emotional hook \u2014 position MTTR/detection-coverage improvements as a proof point that will also happen to satisfy the fall renewal conversation.\n5. Be mindful of the retention thread \u2014 mention it, but don't overplay it as the primary pitch since Chris himself framed fatigue/near-miss as the core issue.\n"}], "grading": {"expectations": [{"text": "Uses explicit five-bucket category tags", "passed": false, "evidence": "Uses ad hoc headers ('Pain Point #1 (Primary)', 'Team capacity and retention risk') with no consistent category taxonomy."}, {"text": "Includes a confidence rating per pain point", "passed": false, "evidence": "Uses a 'Why it matters' rationale instead of an explicit confidence/certainty rating."}, {"text": "Backed by direct quotes", "passed": true, "evidence": "Quotes Chris Vance directly throughout."}, {"text": "Cyber insurance flagged as low-confidence/secondary", "passed": true, "evidence": "Pain Point #5 explicitly says 'not what's keeping him up at night... don't lead with this'."}, {"text": "No unrequested recommended-next-steps section", "passed": false, "evidence": "Includes a 5-point 'Recommended focus for your follow-up' section giving talk-track advice that wasn't asked for."}], "summary": {"passed": 2, "failed": 3, "total": 5, "pass_rate": 0.4}}}, {"id": "compliance-driven-healthcare-notes-with_skill", "prompt": "Here are my raw notes from a call with Northgate Health Partners, not a clean transcript, just what I jotted down. What are this customer's real pain points? I want to know what to lead with.", "eval_id": 2, "outputs": [{"name": "output.md", "type": "text", "content": "## Pain points, ranked\n\n### 1. She can't back up the \"continuous monitoring\" she's on the hook to attest to\n**Category:** Compliance and audit pressure; Tooling gaps and alert fatigue\n**Confidence:** High \u2014 this is the thread nearly every other note ties back to, and it ends the call as her own ask.\n**Evidence:** IT security is \"one guy, Marcus, who also handles helpdesk tickets and does NOT work nights or weekends.\" When asked what happens at 2am on a Saturday, Priya paused and said \"nothing happens until Monday morning, I guess... and laughed but it wasn't really a laugh.\" She closed the call with: \"I need something I can point to in the audit and say yes, this is being watched around the clock, and mean it.\"\n\n### 2. A recent near-miss that could have been a headline\n**Category:** Threat exposure / incident history; Tooling gaps and alert fatigue\n**Confidence:** High \u2014 specific, dated, and carries real fear, not just a mentioned topic.\n**Evidence:** A nurse's laptop was flagged for a \"PUP\" six weeks ago and \"sat unreviewed for 9 days because nobody was watching the console.\" It turned out benign, but she said: \"we got lucky, if that had been ransomware we'd be reading about ourselves in Becker's.\"\n\n### 3. Personal liability on attestations she doesn't feel she can honestly sign\n**Category:** Exec/board pressure; Compliance and audit pressure\n**Confidence:** High \u2014 she raised this twice, unprompted, which per the call's own pattern signals it's weighing on her personally, not just a compliance checkbox.\n**Evidence:** She is the one who \"has to sign the attestation for the board and for their biggest customer's security questionnaire\" (a large hospital network) and \"does not feel like she can honestly vouch for continuous monitoring right now.\" Also, earlier in the call: \"I don't actually know if we're secure, I know if we're compliant, and I'm told those aren't the same thing anymore.\"\n\n### 4. A named audit finding with a clock already running\n**Category:** Compliance and audit pressure\n**Confidence:** High \u2014 led with this before being asked about pain at all, and it's a concrete, dated deadline (14 months out).\n**Evidence:** \"Insufficient continuous monitoring\" was the outside auditor's finding last cycle, ahead of their next HIPAA risk assessment renewal.\n\n### 5. Cyber insurance renewal costing more over the same monitoring gap\n**Category:** Compliance and audit pressure\n**Confidence:** Medium-high \u2014 concrete and financially real, but came across more matter-of-fact than emotional, so it reads as a contributing driver rather than the core wound.\n**Evidence:** The cyber insurance renewal \"got more expensive this year,\" and the broker's questionnaire specifically asked about \"24/7 monitoring capability\" \u2014 which they technically don't have.\n\n## Notes\n\n- **Not budget-constrained \u2014 this matters for what to lead with.** She said money is already allocated as part of this year's risk remediation plan. The anxiety isn't cost, it's *not knowing what to buy* and fear of \"picking wrong and having it not satisfy the auditor next cycle.\" A pitch anchored on price/ROI will miss; a pitch anchored on audit-defensibility and being able to point to a specific, provable control will land.\n- **No signal on alert fatigue or SOC burnout**, despite that being a standard category in this space \u2014 expected, since there's no SOC, just one generalist IT person (Marcus) covering helpdesk and security. Not worth probing further; there's no team to fatigue.\n- **Inferred, not stated outright:** the \"compliant vs. secure\" quote and the repeated attestation comments suggest Priya is carrying personal professional risk (reputational/legal exposure if something happens on her watch) beyond what a typical technical buyer would feel. She never uses words like \"scared\" or \"exposed,\" but the pattern (unprompted repetition, the not-really-a-laugh, the closing line) points that direction. Worth confirming directly rather than assuming.\n- **Ranking logic:** ranked by how much emotional weight and specificity each point carries, not by how often it came up. The monitoring-coverage gap (#1) and the near-miss (#2) outrank the more procedural insurance note (#5) even though all were mentioned once, because the language around #1 and #2 was visibly more charged (the nervous laugh, \"reading about ourselves in Becker's\").\n"}], "grading": {"expectations": [{"text": "Uses explicit five-bucket category tags", "passed": true, "evidence": "Each pain point has a 'Category:' line, e.g. 'Compliance and audit pressure; Tooling gaps and alert fatigue'."}, {"text": "Includes a confidence rating per pain point", "passed": true, "evidence": "Each entry has a 'Confidence:' line (High, Medium-high) with reasoning."}, {"text": "Backed by direct quotes", "passed": true, "evidence": "Every point quotes Priya Anand directly."}, {"text": "Explicitly notes alert fatigue/SOC does not apply", "passed": true, "evidence": "Notes section: 'No signal on alert fatigue or SOC burnout... expected, since there's no SOC, just one generalist IT person'."}, {"text": "Distinguishes stated vs inferred pain", "passed": true, "evidence": "Notes section explicitly labels the personal/professional-risk reading as 'Inferred, not stated outright'."}, {"text": "No unrequested recommended-opening-angle section", "passed": true, "evidence": "Ends with ranking-logic notes, not a sales-motion recommendation section."}], "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0}}}, {"id": "compliance-driven-healthcare-notes-without_skill", "prompt": "Here are my raw notes from a call with Northgate Health Partners, not a clean transcript, just what I jotted down. What are this customer's real pain points? I want to know what to lead with.", "eval_id": 2, "outputs": [{"name": "output.md", "type": "text", "content": "# Northgate Health Partners \u2014 Pain Point Analysis\n**Contact:** Priya Anand, VP Compliance & Security\n**Source:** Rep's raw call notes (not a clean transcript)\n\n## The one thing to lead with\n\n**Priya is personally on the hook to attest, in writing, to something she doesn't believe is true \u2014 and she said so twice, unprompted.**\n\nShe signs the board attestation *and* the security questionnaire for her biggest customer (a large hospital network she's a vendor to), both of which effectively claim continuous monitoring is in place. Her own words: *\"I don't actually know if we're secure, I know if we're compliant, and I'm told those aren't the same thing anymore\"* and *\"I need something I can point to in the audit and say yes, this is being watched around the clock, and mean it.\"*\n\nThis isn't an abstract \"we should improve our security posture\" pain. It's a named individual facing personal/professional exposure for signing an attestation she can't honestly stand behind \u2014 to her board and to the customer relationship that likely matters most to the business. Lead with closing that gap for her, specifically framed as something she can point to and defend, not as a generic security upgrade.\n\n## Supporting pain points (in priority order)\n\n1. **No actual 24/7 monitoring capability \u2014 and everyone in the chain knows it.**\n   Security is one person, Marcus, who also runs the helpdesk and doesn't work nights or weekends. When asked what happens at 2am on a Saturday, her own answer was *\"nothing happens until Monday morning\"* \u2014 said with a laugh that \"wasn't really a laugh.\" This is the concrete, literal gap behind the compliance and insurance language.\n\n2. **A named, dated audit finding with a clock on it.**\n   Their outside auditor already flagged \"insufficient continuous monitoring\" as a finding last cycle. She raised this before the rep even asked about pain \u2014 it's clearly top of mind. Renewal is 14 months out, so there's a real deadline to show remediation, not just intent.\n\n3. **Cyber insurance is getting more expensive and asking the question directly.**\n   The broker's renewal questionnaire specifically asked about 24/7 monitoring capability, which they can't honestly answer yes to. Rising premiums plus a direct question they're currently fudging is a second, independent forcing function beyond the HIPAA audit.\n\n4. **A near-miss that made the risk concrete, not hypothetical.**\n   A nurse's laptop was flagged for a PUP six weeks ago and sat unreviewed for 9 days because no one was watching the console. It turned out benign, but her framing \u2014 *\"if that had been ransomware we'd be reading about ourselves in Becker's\"* \u2014 shows she's thinking about this in terms of public breach disclosure and reputational damage in a healthcare-trade-press context, not just audit checkboxes.\n\n5. **Vendor risk to their largest customer relationship.**\n   They're a vendor to a large hospital network and she has to complete that customer's security questionnaire too. Continuous monitoring is table stakes for that relationship to continue, which ties this directly to revenue/contract risk, not just internal compliance hygiene.\n\n6. **Decision paralysis, not budget constraint \u2014 important for how to sell this.**\n   Money is already allocated as part of this year's risk remediation plan, so this is not a price objection. Her anxiety is about picking the wrong solution and having it fail to satisfy the auditor next cycle. That means the sales motion should lead with audit-defensibility, clear mapping to the \"insufficient continuous monitoring\" finding, and reference-ability with similar healthcare/HIPAA customers \u2014 not ROI or discounting.\n\n7. **She's compliance/legal, not security, and knows it.**\n   She explicitly separates \"secure\" from \"compliant\" and defers to being told they aren't the same thing. She needs a solution (and a partner) that translates technical monitoring into language she can defend to a board and to auditors \u2014 she can't be expected to independently judge the technical merits.\n\n## What's notably absent\n\nShe did **not** raise alert fatigue, SOC analyst burnout, or tool sprawl \u2014 unsurprising, since there's no SOC at all, just one generalist. Don't lead with \"reduce noise for your security team\" messaging; it won't land and may signal you didn't listen. The pitch should be built around *coverage that doesn't exist yet* and *proof she can show an auditor*, not optimizing an existing security operation.\n\n## Recommended opening angle\n\nLead with closing the attestation gap: position the offering as the thing that lets Priya sign the board attestation and the hospital network's questionnaire and mean it \u2014 true 24/7 coverage that maps directly to the auditor's \"insufficient continuous monitoring\" finding, with documentation/reporting she can hand to both audiences. Treat the insurance questionnaire and the near-miss incident as secondary proof points that reinforce urgency, and treat budget/price as a non-issue \u2014 the real sales work is building her confidence that this specific solution will satisfy the *next* audit cycle.\n"}], "grading": {"expectations": [{"text": "Uses explicit five-bucket category tags", "passed": false, "evidence": "Uses headers like 'Supporting pain points' with numbered items, no cybersecurity-specific taxonomy labels."}, {"text": "Includes a confidence rating per pain point", "passed": false, "evidence": "No explicit confidence field; uses narrative framing instead."}, {"text": "Backed by direct quotes", "passed": true, "evidence": "Quotes Priya Anand directly throughout."}, {"text": "Explicitly notes alert fatigue/SOC does not apply", "passed": true, "evidence": "'What's notably absent' section covers this directly."}, {"text": "Distinguishes stated vs inferred pain", "passed": false, "evidence": "Discusses her personal exposure but doesn't explicitly flag it as an inference versus what was said outright."}, {"text": "No unrequested recommended-opening-angle section", "passed": false, "evidence": "Includes a 'Recommended opening angle' section giving sales positioning advice that wasn't asked for."}], "summary": {"passed": 2, "failed": 4, "total": 6, "pass_rate": 0.33}}}, {"id": "meridian-followup-cross-call-comparison-with_skill", "prompt": "Attached is the transcript from a follow-up call with Meridian Freight Logistics, three weeks after the first call I had with them. Compare the pain points across both calls -- what's recurring, what's new, and what's escalated?", "eval_id": 3, "outputs": [{"name": "output.md", "type": "text", "content": "# Meridian Freight Logistics \u2014 Pain Point Comparison Across Two Calls\n\n**Call 1:** Discovery call \u2014 Dana Okafor (Rep) & Chris Vance (Director of IT Security)\n**Call 2:** Follow-up call, 3 weeks later \u2014 Dana Okafor (Rep), Chris Vance, and Renee Kupchak (VP Operations, new to these calls)\n\n---\n\n## Call 1 pain points, ranked (Discovery)\n\n### 1. Alert triage is eating hours on non-events, with real risk of missing a genuine threat\n**Category:** Tooling gaps and alert fatigue / Threat exposure and incident history\n**Confidence:** High \u2014 specific, detailed, and Chris connects it directly to real risk\n**Evidence:** \"it took my senior analyst almost three hours just to confirm it was a false positive... Three hours for a non-event. That's not sustainable.\" And: \"if that lateral movement alert last Tuesday HAD been real, I'm not confident we would have caught it in time given how long triage took.\"\n\n### 2. Team burnout and attrition risk from chasing false positives\n**Category:** Tooling gaps and alert fatigue / Budget and headcount constraints\n**Confidence:** High \u2014 direct quote from an analyst, relayed with visible frustration\n**Evidence:** \"My team is exhausted. I had one analyst tell me flat out he's applying to other jobs because he's tired of 'chasing ghosts,' his words.\"\n\n### 3. Disconnected tools force manual cross-referencing across four systems\n**Category:** Tooling gaps and alert fatigue\n**Confidence:** High\n**Evidence:** \"None of it talks to each other... I literally have four browser tabs open at all times just to triage one alert.\"\n\n### 4. Leadership dismisses the problem as already solved by a tool purchase\n**Category:** Exec/board pressure / Budget and headcount constraints\n**Confidence:** Medium-High \u2014 one exchange described, but clearly still stinging\n**Evidence:** \"I go to my VP and say I need headcount and he says 'didn't we just buy that SentinelOne thing to handle this?' Like the tool alone was supposed to fix it.\"\n\n### 5. Understaffed relative to 24/7 coverage requirements\n**Category:** Budget and headcount constraints\n**Confidence:** High\n**Evidence:** \"It's me and three analysts covering a 24/7 operation, honestly, three of them on paper, one's out on leave right now so it's really two and a half.\"\n\n### 6. Near-miss credential compromise (~8 months prior)\n**Category:** Threat exposure and incident history\n**Confidence:** Medium \u2014 a real incident, but Chris frames it as contained and explicitly not the top concern\n**Evidence:** \"We had a phishing-based credential compromise about eight months ago. Contained it before it went anywhere serious, but it was close...\"\n\n### 7. Upcoming cyber insurance renewal scrutiny\n**Category:** Compliance and audit pressure\n**Confidence:** Low-Medium \u2014 raised only when asked, and downplayed by Chris himself\n**Evidence:** \"Cyber insurance renewal is in the fall, they'll probably ask about MTTR and detection coverage, but that's not really what's keeping me up at night. It's genuinely the fatigue and the near miss.\"\n\n---\n\n## Call 2 pain points, ranked (Follow-up, 3 weeks later)\n\n### 1. Board-level visibility gap \u2014 leadership can't answer \"would we know if we were breached right now\"\n**Category:** Exec/board pressure\n**Confidence:** High \u2014 direct quote, explicitly described as uncomfortable, and is the reason a new stakeholder joined this call\n**Evidence:** Renee: \"the board asked me directly at our quarterly review why we don't have better visibility into security incidents, and I did not have a good answer... 'how would we know if we were breached right now.' That was uncomfortable.\"\n\n### 2. Alert fatigue and understaffing have gotten worse, not better\n**Category:** Tooling gaps and alert fatigue / Budget and headcount constraints\n**Confidence:** High\n**Evidence:** \"the alert fatigue thing hasn't gotten better, if anything it's worse. My analyst who was on leave came back and then two weeks later put in his notice. So we're down to two people covering what should be four.\"\n\n### 3. No ability to produce a plain-English security posture summary for the board\n**Category:** Exec/board pressure\n**Confidence:** High\n**Evidence:** \"Our CEO is now asking me for a one-page summary of our security posture he can bring to the next board meeting, in plain English, not tool names. I don't have that... neither of us feels confident writing something like that right now given what he described about triage taking hours.\"\n\n### 4. Cyber insurance premium jumped ~30%, explicitly tied to detection/coverage gaps\n**Category:** Compliance and audit pressure / Budget and headcount constraints\n**Confidence:** High\n**Evidence:** \"our premium went up almost 30%, and their questionnaire specifically dinged us on 'mean time to detect' and 'SOC coverage hours.' So now there's a dollar figure attached to the thing I've been complaining about internally for a year.\"\n\n### 5. Recurrence of a multi-hour false-positive triage incident \u2014 now visible to leadership\n**Category:** Tooling gaps and alert fatigue / Threat exposure and incident history\n**Confidence:** High\n**Evidence:** \"we did have another one of those multi-hour false-positive triage situations two weeks ago, similar to the one I mentioned last time. Renee actually heard about that one secondhand and that's part of what triggered her question to the board.\"\n\n### 6. Budget ask now requires a risk-reduction narrative, not just a tool purchase\n**Category:** Budget and headcount constraints / Exec/board pressure\n**Confidence:** Medium-High\n**Evidence:** Renee: \"budget is going to be a real conversation. We are not a company with a blank check for this. If we ask the board for security spend, it has to come with a story about risk reduction, not just 'we bought a tool.'\"\n\n---\n\n## Cross-call comparison \u2014 recurring, escalated, new\n\n**Recurring (same core pain, still present):**\n- **Alert fatigue / hours-long false-positive triage** \u2014 the central complaint in Call 1 recurred almost verbatim in Call 2 (\"another one of those multi-hour false-positive triage situations... similar to the one I mentioned last time\").\n- **Understaffing** \u2014 present in both calls, described both times relative to 24/7 coverage needs.\n- **Leadership skepticism that a tool purchase alone solves this** \u2014 the VP's \"didn't we just buy that SentinelOne thing\" from Call 1 has the same shape as the board's \"we bought a tool\" framing Renee references in Call 2, just escalated to a higher altitude.\n\n**Escalated (same pain, materially worse or higher-stakes):**\n- **Staffing** went from \"three analysts on paper, really two and a half\" to \"down to two people covering what should be four\" \u2014 the analyst who returned from leave has since quit. This is a direct worsening, not a new issue.\n- **Cyber insurance** moved from a distant, low-urgency mention (\"renewal is in the fall... not really what's keeping me up at night\") to a materialized, quantified cost: a ~30% premium increase explicitly attributed to the same MTTR/SOC coverage weaknesses Chris described in Call 1. This is the clearest before/after escalation in the whole comparison \u2014 the exact pain Chris was informally venting about now has a dollar figure and an external party (the insurer) attached to it.\n- **Exec/board pressure** escalated sharply in scope and altitude: Call 1 had a single dismissive comment from Chris's VP; Call 2 has the board directly questioning the VP of Operations, a CEO asking for board-ready reporting, and a second executive stakeholder (Renee) now sitting in on vendor calls because of it.\n\n**New since Call 1:**\n- **A second buying stakeholder** \u2014 Renee Kupchak, VP Operations \u2014 has entered the deal specifically because of the board's question. This widens the deal's influence map beyond Chris.\n- **The specific board question** \"how would we know if we were breached right now\" \u2014 a new, sharply-worded artifact of pain that didn't exist in Call 1's language.\n- **The plain-English board reporting gap** \u2014 neither Chris nor Renee can currently produce a non-technical security posture summary. This is a distinct pain from alert fatigue itself (it's a communication/reporting gap layered on top of the operational one).\n- **A quantified financial consequence** (30% premium increase) tied directly to the insurer's questionnaire \u2014 previously this was speculative (\"they'll probably ask about MTTR\").\n- **An explicit ROI/risk-reduction narrative requirement** for any future budget ask, raised by Renee \u2014 this is a new framing of the budget conversation that didn't exist when it was just Chris vs. his VP.\n\n**Resolved or de-emphasized:**\n- Nothing has resolved. The one item that faded into the background is the **8-month-old near-miss credential compromise** \u2014 Chris confirms directly that nothing similarly serious has recurred (\"Not something that serious, no\"). It's not \"good news\" so much as it's simply been overtaken by the alert-fatigue-to-insurance-to-board chain, which is now the more urgent and more evidenced storyline.\n\n---\n\n## Notes\n\n- The connection between the Call 1 near-miss/alert-fatigue complaints and the Call 2 insurance premium increase and board question is stated directly by the customers themselves (Chris ties the premium to \"the thing I've been complaining about internally for a year\"; Renee ties her board question to hearing about the second triage incident \"secondhand\"). This isn't an inferred link \u2014 it's explicit in the transcript.\n- One inference: Renee's presence on the call, combined with her direct quotes about budget and risk narrative, suggests she is likely to be a co-decision-maker or budget gatekeeper going forward, not just a one-time attendee \u2014 the transcript doesn't say this outright, but her framing (\"if we ask the board for security spend, it has to come with a story\") reads as someone who will own that ask.\n- No new threat exposure/incident history signal beyond a repeat of the same *type* of event (multi-hour false-positive triage) \u2014 worth noting since this call could easily be read as \"another incident,\" when what actually happened is the same underlying tooling/staffing problem recurring, not a new attack vector.\n"}], "grading": {"expectations": [{"text": "Explicit five-bucket category tags used in both calls", "passed": true, "evidence": "Every pain point in both the Call 1 and Call 2 sections has a 'Category:' line."}, {"text": "Alert fatigue/staffing identified as recurring and escalated", "passed": true, "evidence": "Listed under both 'Recurring' and 'Escalated' with the '2.5 down to 2 covering a 4-person job' detail."}, {"text": "Exec/board pressure identified as new", "passed": true, "evidence": "'New since Call 1' section lists Renee's involvement, the board question, and the CEO's reporting request."}, {"text": "Cyber insurance escalation quantified", "passed": true, "evidence": "'Escalated' section explicitly calls the 30% premium increase 'the clearest before/after escalation in the whole comparison'."}, {"text": "Notes the near-miss breach did not recur", "passed": true, "evidence": "'Resolved or de-emphasized' section states the 8-month-old near-miss hasn't recurred, distinguishing it from the new triage incident."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1.0}}}, {"id": "meridian-followup-cross-call-comparison-without_skill", "prompt": "Attached is the transcript from a follow-up call with Meridian Freight Logistics, three weeks after the first call I had with them. Compare the pain points across both calls -- what's recurring, what's new, and what's escalated?", "eval_id": 3, "outputs": [{"name": "output.md", "type": "text", "content": "# Meridian Freight Logistics \u2014 Cross-Call Pain Point Comparison\n\n**Call 1:** Discovery call (Dana Okafor / Chris Vance, Director of IT Security)\n**Call 2:** Follow-up call, 3 weeks later (Dana Okafor / Chris Vance / Renee Kupchak, VP Operations \u2014 new attendee)\n\n---\n\n## Recurring Pain Points (present in both calls, unresolved)\n\n| Pain Point | Call 1 | Call 2 |\n|---|---|---|\n| **Alert fatigue / manual triage burden** | 50\u201380 alerts/day, only 2\u20133 real; analysts juggle 4 tools by hand to triage a single alert | \"Hasn't gotten better, if anything it's worse\" \u2014 no change in root cause |\n| **Disconnected tool stack** | SentinelOne, Splunk, email gateway, AWS GuardDuty \u2014 \"none of it talks to each other\" | Not explicitly re-described, but it's the direct cause of the repeat multi-hour triage incident described below \u2014 still unaddressed |\n| **Understaffing relative to 24/7 coverage need** | Team is \"3 analysts on paper,\" one out on leave, effectively 2.5 covering 24/7 | Same structural gap persists and has gotten worse (see Escalated) |\n| **\"The tool alone should fix it\" mentality from leadership** | Chris's VP: \"didn't we just buy that SentinelOne thing to handle this?\" | Renee independently echoes the same concern from the board's side: any ask \"has to come with a story about risk reduction, not just 'we bought a tool'\" |\n| **Multi-hour false-positive triage events** | Named example: lateral movement alert took ~3 hours to clear (senior analyst manually cross-referencing endpoint/network/identity logs) | A near-identical event recurred ~2 weeks before this call \u2014 same pattern, same root cause, not fixed |\n\n---\n\n## New Pain Points (surfaced only in Call 2)\n\n1. **Board-level accountability gap.** Renee was directly asked by the board, \"how would we know if we were breached right now\" \u2014 and had no good answer. This is a brand-new stakeholder-level pain that didn't exist (or wasn't visible) three weeks ago.\n2. **Executive reporting demand.** The CEO now wants a one-page, plain-English (no tool-jargon) security posture summary for the next board meeting. Neither Chris nor Renee feels able to produce it credibly given the current state of triage and visibility.\n3. **New stakeholder in the loop.** Renee Kupchak (VP Operations) has now been pulled into security conversations \u2014 meaning this is no longer purely an IT/security problem but an operations/leadership problem too.\n4. **Explicit budget constraint framing.** Renee states the company is \"not a company with a blank check\" \u2014 any security spend ask must be justified with a risk-reduction narrative for the board, not just tooling purchases. This is a new, more formal procurement/budget lens that wasn't part of the conversation in Call 1.\n\n---\n\n## Escalated Pain Points (existed in seed form in Call 1, intensified by Call 2)\n\n1. **Staffing attrition risk \u2192 actual attrition.**\n   - *Call 1:* One analyst told Chris he's job-hunting because he's tired of \"chasing ghosts.\" Team already thin (2.5 effective).\n   - *Call 2:* That analyst (or the one who'd been on leave) returned and then resigned two weeks later. Team is now down to **2 people covering what should be 4** \u2014 a real, materialized loss, not just a risk anymore.\n\n2. **Cyber insurance exposure \u2192 real financial cost.**\n   - *Call 1:* Chris flagged that the fall renewal would likely probe MTTR and detection coverage, but downplayed it (\"not really what's keeping me up at night\").\n   - *Call 2:* Renewal terms came back with a **~30% premium increase**, and the questionnaire specifically penalized them on \"mean time to detect\" and \"SOC coverage hours\" \u2014 the exact gaps Chris had been describing internally for a year. What was a soft, anticipated concern is now a hard dollar figure tied directly to the unresolved alert-fatigue/visibility problem.\n\n3. **Operational frustration \u2192 leadership/board visibility.**\n   - *Call 1:* The triage pain was largely contained to Chris's team and invisible to senior leadership (his VP dismissed the need for headcount).\n   - *Call 2:* A repeat multi-hour triage incident reached Renee secondhand and was part of what triggered her being questioned by the board. The pain has effectively climbed the org chart from an IT annoyance to a boardroom concern.\n\n4. **Urgency/stakes.**\n   - *Call 1:* Chris's biggest fear was a hypothetical \u2014 \"if that lateral movement alert HAD been real, I'm not confident we would have caught it in time.\"\n   - *Call 2:* That fear is reinforced by a second real triage failure of the same kind, plus now a board member directly questioning breach detection capability \u2014 moving from a private \"what if\" to an externally-visible credibility problem.\n\n---\n\n## Notable Non-Escalation\n\n- The **credential compromise near-miss from ~8 months ago** (the most serious incident referenced in Call 1) has **not recurred**. Chris explicitly confirms \"not something that serious, no\" when asked. The active risk driver in Call 2 is the *chronic* triage/staffing/visibility problem, not a new security event.\n\n---\n\n## Summary Takeaway\n\nThe core technical problem (disconnected tools causing slow, manual, exhausting triage) has not changed in three weeks \u2014 but its consequences have compounded. What began as an internal team-morale and efficiency issue has escalated into: (1) a realized staffing loss, (2) a quantified financial hit via the insurance renewal, and (3) a board-level credibility and reporting problem now involving a second executive stakeholder. The sales opportunity has shifted from \"help an overworked security director\" to \"help two stakeholders answer to the board with a defensible risk-reduction story\" \u2014 a materially higher-stakes, higher-urgency conversation than three weeks ago.\n"}], "grading": {"expectations": [{"text": "Explicit five-bucket category tags used in both calls", "passed": false, "evidence": "Uses a plain table and prose headers with no cybersecurity-specific category taxonomy."}, {"text": "Alert fatigue/staffing identified as recurring and escalated", "passed": true, "evidence": "Covered under both 'Recurring' table row and 'Escalated Pain Points' #1."}, {"text": "Exec/board pressure identified as new", "passed": true, "evidence": "'New Pain Points' #1-3 cover the board-level accountability gap, executive reporting demand, and new stakeholder."}, {"text": "Cyber insurance escalation quantified", "passed": true, "evidence": "'Escalated Pain Points' #2 explicitly covers the 30% premium increase tied to MTTR/SOC coverage."}, {"text": "Notes the near-miss breach did not recur", "passed": true, "evidence": "'Notable Non-Escalation' section covers this directly."}], "summary": {"passed": 4, "failed": 1, "total": 5, "pass_rate": 0.8}}}], "previous_feedback": {}, "previous_outputs": {}, "benchmark": {"metadata": {"skill_name": "cyber-pain-finder", "skill_path": "/sessions/intelligent-eloquent-bohr/mnt/outputs/cyber-pain-finder/skill", "executor_model": "claude-sonnet-5", "analyzer_model": "claude-sonnet-5", "timestamp": "2026-07-28T12:06:05.163771+00:00", "evals_run": ["soc-alert-fatigue-call", "compliance-driven-healthcare-notes", "meridian-followup-cross-call-comparison"], "runs_per_configuration": 1}, "runs": [{"eval_id": 1, "eval_name": "soc-alert-fatigue-call", "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 5, "failed": 0, "total": 5, "time_seconds": 47.1, "tokens": 33190, "tool_calls": null, "errors": 0}, "expectations": [{"text": "Uses explicit five-bucket category tags", "passed": true, "evidence": "Every pain point has a 'Category:' line naming buckets like 'Tooling gaps and alert fatigue', 'Threat exposure / incident history', etc."}, {"text": "Includes a confidence rating per pain point", "passed": true, "evidence": "Each entry has a 'Confidence:' line (High, Medium-High, Low) with a reason."}, {"text": "Backed by direct quotes", "passed": true, "evidence": "Every pain point has an 'Evidence:' line quoting Chris Vance directly."}, {"text": "Cyber insurance flagged as low-confidence/secondary", "passed": true, "evidence": "Pain point 5 (cyber insurance) is rated Low confidence, explicitly noting Chris said it's not what's keeping him up at night."}, {"text": "No unrequested recommended-next-steps section", "passed": true, "evidence": "Output ends with a 'Notes' section on inference/ranking logic, not a sales-recommendation section."}], "notes": []}, {"eval_id": 1, "eval_name": "soc-alert-fatigue-call", "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.4, "passed": 2, "failed": 3, "total": 5, "time_seconds": 56.4, "tokens": 30985, "tool_calls": null, "errors": 0}, "expectations": [{"text": "Uses explicit five-bucket category tags", "passed": false, "evidence": "Uses ad hoc headers ('Pain Point #1 (Primary)', 'Team capacity and retention risk') with no consistent category taxonomy."}, {"text": "Includes a confidence rating per pain point", "passed": false, "evidence": "Uses a 'Why it matters' rationale instead of an explicit confidence/certainty rating."}, {"text": "Backed by direct quotes", "passed": true, "evidence": "Quotes Chris Vance directly throughout."}, {"text": "Cyber insurance flagged as low-confidence/secondary", "passed": true, "evidence": "Pain Point #5 explicitly says 'not what's keeping him up at night... don't lead with this'."}, {"text": "No unrequested recommended-next-steps section", "passed": false, "evidence": "Includes a 5-point 'Recommended focus for your follow-up' section giving talk-track advice that wasn't asked for."}], "notes": []}, {"eval_id": 2, "eval_name": "compliance-driven-healthcare-notes", "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 6, "failed": 0, "total": 6, "time_seconds": 82.3, "tokens": 36048, "tool_calls": null, "errors": 0}, "expectations": [{"text": "Uses explicit five-bucket category tags", "passed": true, "evidence": "Each pain point has a 'Category:' line, e.g. 'Compliance and audit pressure; Tooling gaps and alert fatigue'."}, {"text": "Includes a confidence rating per pain point", "passed": true, "evidence": "Each entry has a 'Confidence:' line (High, Medium-high) with reasoning."}, {"text": "Backed by direct quotes", "passed": true, "evidence": "Every point quotes Priya Anand directly."}, {"text": "Explicitly notes alert fatigue/SOC does not apply", "passed": true, "evidence": "Notes section: 'No signal on alert fatigue or SOC burnout... expected, since there's no SOC, just one generalist IT person'."}, {"text": "Distinguishes stated vs inferred pain", "passed": true, "evidence": "Notes section explicitly labels the personal/professional-risk reading as 'Inferred, not stated outright'."}, {"text": "No unrequested recommended-opening-angle section", "passed": true, "evidence": "Ends with ranking-logic notes, not a sales-motion recommendation section."}], "notes": []}, {"eval_id": 2, "eval_name": "compliance-driven-healthcare-notes", "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.33, "passed": 2, "failed": 4, "total": 6, "time_seconds": 58.4, "tokens": 30877, "tool_calls": null, "errors": 0}, "expectations": [{"text": "Uses explicit five-bucket category tags", "passed": false, "evidence": "Uses headers like 'Supporting pain points' with numbered items, no cybersecurity-specific taxonomy labels."}, {"text": "Includes a confidence rating per pain point", "passed": false, "evidence": "No explicit confidence field; uses narrative framing instead."}, {"text": "Backed by direct quotes", "passed": true, "evidence": "Quotes Priya Anand directly throughout."}, {"text": "Explicitly notes alert fatigue/SOC does not apply", "passed": true, "evidence": "'What's notably absent' section covers this directly."}, {"text": "Distinguishes stated vs inferred pain", "passed": false, "evidence": "Discusses her personal exposure but doesn't explicitly flag it as an inference versus what was said outright."}, {"text": "No unrequested recommended-opening-angle section", "passed": false, "evidence": "Includes a 'Recommended opening angle' section giving sales positioning advice that wasn't asked for."}], "notes": []}, {"eval_id": 3, "eval_name": "meridian-followup-cross-call-comparison", "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 5, "failed": 0, "total": 5, "time_seconds": 98.3, "tokens": 39869, "tool_calls": null, "errors": 0}, "expectations": [{"text": "Explicit five-bucket category tags used in both calls", "passed": true, "evidence": "Every pain point in both the Call 1 and Call 2 sections has a 'Category:' line."}, {"text": "Alert fatigue/staffing identified as recurring and escalated", "passed": true, "evidence": "Listed under both 'Recurring' and 'Escalated' with the '2.5 down to 2 covering a 4-person job' detail."}, {"text": "Exec/board pressure identified as new", "passed": true, "evidence": "'New since Call 1' section lists Renee's involvement, the board question, and the CEO's reporting request."}, {"text": "Cyber insurance escalation quantified", "passed": true, "evidence": "'Escalated' section explicitly calls the 30% premium increase 'the clearest before/after escalation in the whole comparison'."}, {"text": "Notes the near-miss breach did not recur", "passed": true, "evidence": "'Resolved or de-emphasized' section states the 8-month-old near-miss hasn't recurred, distinguishing it from the new triage incident."}], "notes": []}, {"eval_id": 3, "eval_name": "meridian-followup-cross-call-comparison", "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.8, "passed": 4, "failed": 1, "total": 5, "time_seconds": 58.2, "tokens": 32506, "tool_calls": null, "errors": 0}, "expectations": [{"text": "Explicit five-bucket category tags used in both calls", "passed": false, "evidence": "Uses a plain table and prose headers with no cybersecurity-specific category taxonomy."}, {"text": "Alert fatigue/staffing identified as recurring and escalated", "passed": true, "evidence": "Covered under both 'Recurring' table row and 'Escalated Pain Points' #1."}, {"text": "Exec/board pressure identified as new", "passed": true, "evidence": "'New Pain Points' #1-3 cover the board-level accountability gap, executive reporting demand, and new stakeholder."}, {"text": "Cyber insurance escalation quantified", "passed": true, "evidence": "'Escalated Pain Points' #2 explicitly covers the 30% premium increase tied to MTTR/SOC coverage."}, {"text": "Notes the near-miss breach did not recur", "passed": true, "evidence": "'Notable Non-Escalation' section covers this directly."}], "notes": []}], "run_summary": {"with_skill": {"pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0}, "time_seconds": {"mean": 75.9, "stddev": 26.1931, "min": 47.1, "max": 98.3}, "tokens": {"mean": 36369.0, "stddev": 3351.0507, "min": 33190, "max": 39869}}, "without_skill": {"pass_rate": {"mean": 0.51, "stddev": 0.2536, "min": 0.33, "max": 0.8}, "time_seconds": {"mean": 57.6667, "stddev": 1.1015, "min": 56.4, "max": 58.4}, "tokens": {"mean": 31456.0, "stddev": 910.9286, "min": 30877, "max": 32506}}, "delta": {"pass_rate": "+0.49", "time_seconds": "+18.2", "tokens": "+4913"}}, "notes": ["The underlying model already does a strong job at finding pain points even without the skill -- the biggest, most consistent gap is structural: the skill enforces the five-bucket cybersecurity taxonomy and a confidence rating per pain point, while baseline runs use ad hoc headers and narrative framing instead.", "Baseline runs in all three evals added an unrequested sales-recommendation section (e.g. 'Recommended focus for your follow-up', 'Recommended opening angle') even though none of the prompts asked for next steps -- this is scope creep the skill explicitly avoids.", "Eval 3 (cross-call comparison) shows the smallest gap (0.8 vs 1.0) -- the comparison structure itself seems to nudge the baseline model toward the same recurring/new/escalated framing even without the skill, since the prompt itself asks for that structure explicitly.", "With-skill runs consistently took longer and used more tokens (~18s, ~4900 tokens more on average) -- worth knowing this is not a free win, it trades some latency/cost for consistency and taxonomy adherence."]}};
+
+    // ---- State ----
+    let feedbackMap = {};  // run_id -> feedback text
+    let currentIndex = 0;
+    let visitedRuns = new Set();
+
+    // ---- Init ----
+    async function init() {
+      // Load saved feedback from server — but only if this isn't a fresh
+      // iteration (indicated by previous_feedback being present). When
+      // previous feedback exists, the feedback.json on disk is stale from
+      // the prior iteration and should not pre-fill the textareas.
+      const hasPrevious = Object.keys(EMBEDDED_DATA.previous_feedback || {}).length > 0
+        || Object.keys(EMBEDDED_DATA.previous_outputs || {}).length > 0;
+      if (!hasPrevious) {
+        try {
+          const resp = await fetch("/api/feedback");
+          const data = await resp.json();
+          if (data.reviews) {
+            for (const r of data.reviews) feedbackMap[r.run_id] = r.feedback;
+          }
+        } catch { /* first run, no feedback yet */ }
+      }
+
+      document.getElementById("skill-name").textContent = EMBEDDED_DATA.skill_name;
+      showRun(0);
+
+      // Wire up feedback auto-save
+      const textarea = document.getElementById("feedback");
+      let saveTimeout = null;
+      textarea.addEventListener("input", () => {
+        clearTimeout(saveTimeout);
+        document.getElementById("feedback-status").textContent = "";
+        saveTimeout = setTimeout(() => saveCurrentFeedback(), 800);
+      });
+    }
+
+    // ---- Navigation ----
+    function navigate(delta) {
+      const newIndex = currentIndex + delta;
+      if (newIndex >= 0 && newIndex < EMBEDDED_DATA.runs.length) {
+        saveCurrentFeedback();
+        showRun(newIndex);
+      }
+    }
+
+    function updateNavButtons() {
+      document.getElementById("prev-btn").disabled = currentIndex === 0;
+      document.getElementById("next-btn").disabled =
+        currentIndex === EMBEDDED_DATA.runs.length - 1;
+    }
+
+    // ---- Show a run ----
+    function showRun(index) {
+      currentIndex = index;
+      const run = EMBEDDED_DATA.runs[index];
+
+      // Progress
+      document.getElementById("progress").textContent =
+        `${index + 1} of ${EMBEDDED_DATA.runs.length}`;
+
+      // Prompt
+      document.getElementById("prompt-text").textContent = run.prompt;
+
+      // Config badge
+      const badge = document.getElementById("config-badge");
+      const configMatch = run.id.match(/(with_skill|without_skill|new_skill|old_skill)/);
+      if (configMatch) {
+        const config = configMatch[1];
+        const isBaseline = config === "without_skill" || config === "old_skill";
+        badge.textContent = config.replace(/_/g, " ");
+        badge.className = "config-badge " + (isBaseline ? "config-baseline" : "config-primary");
+        badge.style.display = "inline-block";
+      } else {
+        badge.style.display = "none";
+      }
+
+      // Outputs
+      renderOutputs(run);
+
+      // Previous outputs
+      renderPrevOutputs(run);
+
+      // Grades
+      renderGrades(run);
+
+      // Previous feedback
+      const prevFb = (EMBEDDED_DATA.previous_feedback || {})[run.id];
+      const prevEl = document.getElementById("prev-feedback");
+      if (prevFb) {
+        document.getElementById("prev-feedback-text").textContent = prevFb;
+        prevEl.style.display = "block";
+      } else {
+        prevEl.style.display = "none";
+      }
+
+      // Feedback
+      document.getElementById("feedback").value = feedbackMap[run.id] || "";
+      document.getElementById("feedback-status").textContent = "";
+
+      updateNavButtons();
+
+      // Track visited runs and promote done button when all visited
+      visitedRuns.add(index);
+      const doneBtn = document.getElementById("done-btn");
+      if (visitedRuns.size >= EMBEDDED_DATA.runs.length) {
+        doneBtn.classList.add("ready");
+      }
+
+      // Scroll main content to top
+      document.querySelector(".main").scrollTop = 0;
+    }
+
+    // ---- Render outputs ----
+    function renderOutputs(run) {
+      const container = document.getElementById("outputs-body");
+      container.innerHTML = "";
+
+      const outputs = run.outputs || [];
+      if (outputs.length === 0) {
+        container.innerHTML = '<div class="empty-state">No output files</div>';
+        return;
+      }
+
+      for (const file of outputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        // Always show file header with download link
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const content = document.createElement("div");
+        content.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          content.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          content.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          content.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(content, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          content.appendChild(a);
+        } else if (file.type === "error") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          pre.style.color = "var(--red)";
+          content.appendChild(pre);
+        }
+
+        fileDiv.appendChild(content);
+        container.appendChild(fileDiv);
+      }
+    }
+
+    // ---- XLSX rendering via SheetJS ----
+    function renderXlsx(container, b64Data) {
+      try {
+        const raw = Uint8Array.from(atob(b64Data), c => c.charCodeAt(0));
+        const wb = XLSX.read(raw, { type: "array" });
+
+        for (let i = 0; i < wb.SheetNames.length; i++) {
+          const sheetName = wb.SheetNames[i];
+          const ws = wb.Sheets[sheetName];
+
+          if (wb.SheetNames.length > 1) {
+            const sheetLabel = document.createElement("div");
+            sheetLabel.style.cssText =
+              "font-weight:600; font-size:0.8rem; color:#b0aea5; margin-top:0.5rem; margin-bottom:0.25rem;";
+            sheetLabel.textContent = "Sheet: " + sheetName;
+            container.appendChild(sheetLabel);
+          }
+
+          const htmlStr = XLSX.utils.sheet_to_html(ws, { editable: false });
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = htmlStr;
+          container.appendChild(wrapper);
+        }
+      } catch (err) {
+        container.textContent = "Error rendering spreadsheet: " + err.message;
+      }
+    }
+
+    // ---- Grades ----
+    function renderGrades(run) {
+      const section = document.getElementById("grades-section");
+      const content = document.getElementById("grades-content");
+
+      if (!run.grading) {
+        section.style.display = "none";
+        return;
+      }
+
+      const grading = run.grading;
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("grades-arrow").classList.remove("open");
+
+      const summary = grading.summary || {};
+      const expectations = grading.expectations || [];
+
+      let html = '<div style="padding: 1rem;">';
+
+      // Summary line
+      const passRate = summary.pass_rate != null
+        ? Math.round(summary.pass_rate * 100) + "%"
+        : "?";
+      const badgeClass = summary.pass_rate >= 0.8 ? "grade-pass" : summary.pass_rate >= 0.5 ? "" : "grade-fail";
+      html += '<div class="grades-summary">';
+      html += '<span class="grade-badge ' + badgeClass + '">' + passRate + '</span>';
+      html += '<span>' + (summary.passed || 0) + ' passed, ' + (summary.failed || 0) + ' failed of ' + (summary.total || 0) + '</span>';
+      html += '</div>';
+
+      // Assertions list
+      html += '<ul class="assertion-list">';
+      for (const exp of expectations) {
+        const statusClass = exp.passed ? "pass" : "fail";
+        const statusIcon = exp.passed ? "\u2713" : "\u2717";
+        html += '<li class="assertion-item">';
+        html += '<span class="assertion-status ' + statusClass + '">' + statusIcon + '</span>';
+        html += '<span>' + escapeHtml(exp.text) + '</span>';
+        if (exp.evidence) {
+          html += '<div class="assertion-evidence">' + escapeHtml(exp.evidence) + '</div>';
+        }
+        html += '</li>';
+      }
+      html += '</ul>';
+
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    function toggleGrades() {
+      const content = document.getElementById("grades-content");
+      const arrow = document.getElementById("grades-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Previous outputs (collapsible) ----
+    function renderPrevOutputs(run) {
+      const section = document.getElementById("prev-outputs-section");
+      const content = document.getElementById("prev-outputs-content");
+      const prevOutputs = (EMBEDDED_DATA.previous_outputs || {})[run.id];
+
+      if (!prevOutputs || prevOutputs.length === 0) {
+        section.style.display = "none";
+        return;
+      }
+
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("prev-outputs-arrow").classList.remove("open");
+
+      // Render the files into the content area
+      content.innerHTML = "";
+      const wrapper = document.createElement("div");
+      wrapper.style.padding = "1rem";
+
+      for (const file of prevOutputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const fc = document.createElement("div");
+        fc.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          fc.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          fc.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          fc.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(fc, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          fc.appendChild(a);
+        }
+
+        fileDiv.appendChild(fc);
+        wrapper.appendChild(fileDiv);
+      }
+
+      content.appendChild(wrapper);
+    }
+
+    function togglePrevOutputs() {
+      const content = document.getElementById("prev-outputs-content");
+      const arrow = document.getElementById("prev-outputs-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Feedback (saved to server -> feedback.json) ----
+    function saveCurrentFeedback() {
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // Build reviews array from map
+      const reviews = [];
+      for (const [run_id, feedback] of Object.entries(feedbackMap)) {
+        if (feedback.trim()) {
+          reviews.push({ run_id, feedback, timestamp: new Date().toISOString() });
+        }
+      }
+
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reviews, status: "in_progress" }),
+      }).then(() => {
+        document.getElementById("feedback-status").textContent = "Saved";
+      }).catch(() => {
+        // Static mode or server unavailable — no-op on auto-save,
+        // feedback will be downloaded on final submit
+        document.getElementById("feedback-status").textContent = "Will download on submit";
+      });
+    }
+
+    // ---- Done ----
+    function showDoneDialog() {
+      // Save current textarea to feedbackMap (but don't POST yet)
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // POST once with status: complete — include ALL runs so the model
+      // can distinguish "no feedback" (looks good) from "not reviewed"
+      const reviews = [];
+      const ts = new Date().toISOString();
+      for (const r of EMBEDDED_DATA.runs) {
+        reviews.push({ run_id: r.id, feedback: feedbackMap[r.id] || "", timestamp: ts });
+      }
+      const payload = JSON.stringify({ reviews, status: "complete" }, null, 2);
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }).then(() => {
+        document.getElementById("done-overlay").classList.add("visible");
+      }).catch(() => {
+        // Server not available (static mode) — download as file
+        const blob = new Blob([payload], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "feedback.json";
+        a.click();
+        URL.revokeObjectURL(url);
+        document.getElementById("done-overlay").classList.add("visible");
+      });
+    }
+
+    function closeDoneDialog() {
+      // Reset status back to in_progress
+      saveCurrentFeedback();
+      document.getElementById("done-overlay").classList.remove("visible");
+    }
+
+    // ---- Toast ----
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("visible");
+      setTimeout(() => toast.classList.remove("visible"), 2000);
+    }
+
+    // ---- Keyboard nav ----
+    document.addEventListener("keydown", (e) => {
+      // Don't capture when typing in textarea
+      if (e.target.tagName === "TEXTAREA") return;
+
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        navigate(-1);
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        navigate(1);
+      }
+    });
+
+    // ---- Util ----
+    function getDownloadUri(file) {
+      if (file.data_uri) return file.data_uri;
+      if (file.data_b64) return "data:application/octet-stream;base64," + file.data_b64;
+      if (file.type === "text") return "data:text/plain;charset=utf-8," + encodeURIComponent(file.content);
+      return "#";
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ---- View switching ----
+    function switchView(view) {
+      document.querySelectorAll(".view-tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".view-panel").forEach(p => p.classList.remove("active"));
+      document.querySelector(`[onclick="switchView('${view}')"]`).classList.add("active");
+      document.getElementById("panel-" + view).classList.add("active");
+    }
+
+    // ---- Benchmark rendering ----
+    function renderBenchmark() {
+      const data = EMBEDDED_DATA.benchmark;
+      if (!data) return;
+
+      // Show the tabs
+      document.getElementById("view-tabs").style.display = "flex";
+
+      const container = document.getElementById("benchmark-content");
+      const summary = data.run_summary || {};
+      const metadata = data.metadata || {};
+      const notes = data.notes || [];
+
+      let html = "";
+
+      // Header
+      html += "<h2 style='font-family: Poppins, sans-serif; margin-bottom: 0.5rem;'>Benchmark Results</h2>";
+      html += "<p style='color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem;'>";
+      if (metadata.skill_name) html += "<strong>" + escapeHtml(metadata.skill_name) + "</strong> &mdash; ";
+      if (metadata.timestamp) html += metadata.timestamp + " &mdash; ";
+      if (metadata.evals_run) html += "Evals: " + metadata.evals_run.join(", ") + " &mdash; ";
+      html += (metadata.runs_per_configuration || "?") + " runs per configuration";
+      html += "</p>";
+
+      // Summary table
+      html += '<table class="benchmark-table">';
+
+      function fmtStat(stat, pct) {
+        if (!stat) return "—";
+        const suffix = pct ? "%" : "";
+        const m = pct ? (stat.mean * 100).toFixed(0) : stat.mean.toFixed(1);
+        const s = pct ? (stat.stddev * 100).toFixed(0) : stat.stddev.toFixed(1);
+        return m + suffix + " ± " + s + suffix;
+      }
+
+      function deltaClass(val) {
+        if (!val) return "";
+        const n = parseFloat(val);
+        if (n > 0) return "benchmark-delta-positive";
+        if (n < 0) return "benchmark-delta-negative";
+        return "";
+      }
+
+      // Discover config names dynamically (everything except "delta")
+      const configs = Object.keys(summary).filter(k => k !== "delta");
+      const configA = configs[0] || "config_a";
+      const configB = configs[1] || "config_b";
+      const labelA = configA.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const labelB = configB.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const a = summary[configA] || {};
+      const b = summary[configB] || {};
+      const delta = summary.delta || {};
+
+      html += "<thead><tr><th>Metric</th><th>" + escapeHtml(labelA) + "</th><th>" + escapeHtml(labelB) + "</th><th>Delta</th></tr></thead>";
+      html += "<tbody>";
+
+      html += "<tr><td><strong>Pass Rate</strong></td>";
+      html += "<td>" + fmtStat(a.pass_rate, true) + "</td>";
+      html += "<td>" + fmtStat(b.pass_rate, true) + "</td>";
+      html += '<td class="' + deltaClass(delta.pass_rate) + '">' + (delta.pass_rate || "—") + "</td></tr>";
+
+      // Time (only show row if data exists)
+      if (a.time_seconds || b.time_seconds) {
+        html += "<tr><td><strong>Time (s)</strong></td>";
+        html += "<td>" + fmtStat(a.time_seconds, false) + "</td>";
+        html += "<td>" + fmtStat(b.time_seconds, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.time_seconds) + '">' + (delta.time_seconds ? delta.time_seconds + "s" : "—") + "</td></tr>";
+      }
+
+      // Tokens (only show row if data exists)
+      if (a.tokens || b.tokens) {
+        html += "<tr><td><strong>Tokens</strong></td>";
+        html += "<td>" + fmtStat(a.tokens, false) + "</td>";
+        html += "<td>" + fmtStat(b.tokens, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.tokens) + '">' + (delta.tokens || "—") + "</td></tr>";
+      }
+
+      html += "</tbody></table>";
+
+      // Per-eval breakdown (if runs data available)
+      const runs = data.runs || [];
+      if (runs.length > 0) {
+        const evalIds = [...new Set(runs.map(r => r.eval_id))].sort((a, b) => a - b);
+
+        html += "<h3 style='font-family: Poppins, sans-serif; margin-bottom: 0.75rem;'>Per-Eval Breakdown</h3>";
+
+        const hasTime = runs.some(r => r.result && r.result.time_seconds != null);
+        const hasErrors = runs.some(r => r.result && r.result.errors > 0);
+
+        for (const evalId of evalIds) {
+          const evalRuns = runs.filter(r => r.eval_id === evalId);
+          const evalName = evalRuns[0] && evalRuns[0].eval_name ? evalRuns[0].eval_name : "Eval " + evalId;
+
+          html += "<h4 style='font-family: Poppins, sans-serif; margin: 1rem 0 0.5rem; color: var(--text);'>" + escapeHtml(evalName) + "</h4>";
+          html += '<table class="benchmark-table">';
+          html += "<thead><tr><th>Config</th><th>Run</th><th>Pass Rate</th>";
+          if (hasTime) html += "<th>Time (s)</th>";
+          if (hasErrors) html += "<th>Crashes During Execution</th>";
+          html += "</tr></thead>";
+          html += "<tbody>";
+
+          // Group by config and render with average rows
+          const configGroups = [...new Set(evalRuns.map(r => r.configuration))];
+          for (let ci = 0; ci < configGroups.length; ci++) {
+            const config = configGroups[ci];
+            const configRuns = evalRuns.filter(r => r.configuration === config);
+            if (configRuns.length === 0) continue;
+
+            const rowClass = ci === 0 ? "benchmark-row-with" : "benchmark-row-without";
+            const configLabel = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+            for (const run of configRuns) {
+              const r = run.result || {};
+              const prClass = r.pass_rate >= 0.8 ? "benchmark-delta-positive" : r.pass_rate < 0.5 ? "benchmark-delta-negative" : "";
+              html += '<tr class="' + rowClass + '">';
+              html += "<td>" + configLabel + "</td>";
+              html += "<td>" + run.run_number + "</td>";
+              html += '<td class="' + prClass + '">' + ((r.pass_rate || 0) * 100).toFixed(0) + "% (" + (r.passed || 0) + "/" + (r.total || 0) + ")</td>";
+              if (hasTime) html += "<td>" + (r.time_seconds != null ? r.time_seconds.toFixed(1) : "—") + "</td>";
+              if (hasErrors) html += "<td>" + (r.errors || 0) + "</td>";
+              html += "</tr>";
+            }
+
+            // Average row
+            const rates = configRuns.map(r => (r.result || {}).pass_rate || 0);
+            const avgRate = rates.reduce((a, b) => a + b, 0) / rates.length;
+            const avgPrClass = avgRate >= 0.8 ? "benchmark-delta-positive" : avgRate < 0.5 ? "benchmark-delta-negative" : "";
+            html += '<tr class="benchmark-row-avg ' + rowClass + '">';
+            html += "<td>" + configLabel + "</td>";
+            html += "<td>Avg</td>";
+            html += '<td class="' + avgPrClass + '">' + (avgRate * 100).toFixed(0) + "%</td>";
+            if (hasTime) {
+              const times = configRuns.map(r => (r.result || {}).time_seconds).filter(t => t != null);
+              html += "<td>" + (times.length ? (times.reduce((a, b) => a + b, 0) / times.length).toFixed(1) : "—") + "</td>";
+            }
+            if (hasErrors) html += "<td></td>";
+            html += "</tr>";
+          }
+          html += "</tbody></table>";
+
+          // Per-assertion detail for this eval
+          const runsWithExpectations = {};
+          for (const config of configGroups) {
+            runsWithExpectations[config] = evalRuns.filter(r => r.configuration === config && r.expectations && r.expectations.length > 0);
+          }
+          const hasAnyExpectations = Object.values(runsWithExpectations).some(runs => runs.length > 0);
+          if (hasAnyExpectations) {
+            // Collect all unique assertion texts across all configs
+            const allAssertions = [];
+            const seen = new Set();
+            for (const config of configGroups) {
+              for (const run of runsWithExpectations[config]) {
+                for (const exp of (run.expectations || [])) {
+                  if (!seen.has(exp.text)) {
+                    seen.add(exp.text);
+                    allAssertions.push(exp.text);
+                  }
+                }
+              }
+            }
+
+            html += '<table class="benchmark-table" style="margin-top: 0.5rem;">';
+            html += "<thead><tr><th>Assertion</th>";
+            for (const config of configGroups) {
+              const label = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+              html += "<th>" + escapeHtml(label) + "</th>";
+            }
+            html += "</tr></thead><tbody>";
+
+            for (const assertionText of allAssertions) {
+              html += "<tr><td>" + escapeHtml(assertionText) + "</td>";
+
+              for (const config of configGroups) {
+                html += "<td>";
+                for (const run of runsWithExpectations[config]) {
+                  const exp = (run.expectations || []).find(e => e.text === assertionText);
+                  if (exp) {
+                    const cls = exp.passed ? "benchmark-delta-positive" : "benchmark-delta-negative";
+                    const icon = exp.passed ? "\u2713" : "\u2717";
+                    html += '<span class="' + cls + '" title="Run ' + run.run_number + ': ' + escapeHtml(exp.evidence || "") + '">' + icon + "</span> ";
+                  } else {
+                    html += "— ";
+                  }
+                }
+                html += "</td>";
+              }
+              html += "</tr>";
+            }
+            html += "</tbody></table>";
+          }
+        }
+      }
+
+      // Notes
+      if (notes.length > 0) {
+        html += '<div class="benchmark-notes">';
+        html += "<h3>Analysis Notes</h3>";
+        html += "<ul>";
+        for (const note of notes) {
+          html += "<li>" + escapeHtml(note) + "</li>";
+        }
+        html += "</ul></div>";
+      }
+
+      container.innerHTML = html;
+    }
+
+    // ---- Start ----
+    init();
+    renderBenchmark();
+  </script>
+</body>
+</html>

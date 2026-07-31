@@ -4,6 +4,8 @@ description: Audits an early-stage B2B sales discovery call transcript against a
 license: MIT
 metadata:
   zime:category: new-business
+  zime:dimension: stage
+  zime:stage: discovery
   zime:input-modes: transcript,csv
 ---
 

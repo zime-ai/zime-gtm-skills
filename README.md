@@ -1,9 +1,13 @@
 # zime-gtm-skills
 
 Open-source [Agent Skills](https://agentskills.io) that audit sales call
-transcripts and CRM exports against per-motion GTM rubrics. Runs locally, no
-credentials, no data leaves your machine. Works with Claude Code, Cursor,
-Windsurf, OpenAI Codex, or any agent that supports the Agent Skills spec.
+transcripts and CRM exports against GTM rubrics, along three axes: **deal
+stage** (discovery through renewal), **initiative** (MEDDICC, BANT, pain
+identification, and more — qualification frameworks that run at any stage),
+and **vertical** (industry context packs that specialize any skill's output
+for cybersecurity, healthcare, or fintech). Runs locally, no credentials, no
+data leaves your machine. Works with Claude Code, Cursor, Windsurf, OpenAI
+Codex, or any agent that supports the Agent Skills spec.
 
 Built for RevOps engineers and sales engineers who want a structured second
 opinion on call quality without wiring a live CRM connection into a
@@ -69,6 +73,43 @@ Unlike some agent-skill collections, there's no foundational context skill
 every other one depends on, and no required order. Each skill is independent:
 one call transcript (or CRM export) in, one evidence-cited audit out.
 
+## Coverage: three dimensions, not one
+
+**Stage** and **initiative** are both skills — a flat set, no nesting.
+**Vertical** is different: it's shared context any stage or initiative skill
+can load (`skills/vertical-context/`), rather than a separate skill per
+industry. That keeps the cost additive (skills + verticals) instead of
+multiplicative (skills × verticals).
+
+| | Stage | Initiative | Vertical-aware |
+|---|---|---|---|
+| `deep-discovery` | Discovery | — | ✅ |
+| `meeting-to-qualify` | Qualify | — | ✅ |
+| `technical-discovery` | Technical discovery | — | ✅ |
+| `improve-demo` | Demo | — | ✅ |
+| `pilot-to-conversion` | Pilot | — | ✅ |
+| `negotiation-closing` | Negotiation | — | ✅ |
+| `first-call-rampup` | Any (coaching) | — | — |
+| `onboarding-journey` | Onboarding | — | ✅ |
+| `customer-success` | Post-sale review | — | ✅ |
+| `churn-prevention` | Renewal risk | — | ✅ |
+| `upsell-expansion` | Expansion | — | ✅ |
+| `meddicc` | Any | MEDDICC | ✅ |
+| `bant` | Any (early) | BANT | ✅ |
+| `pain-finder` | Any | Identify pain | ✅ |
+| `next-step-commitment` | Any | Next step commitment | — |
+
+Vertical packs available today: **cybersecurity, healthcare, fintech** —
+see `skills/vertical-context/`. Unreviewed against a domain expert; see that
+skill's status note.
+
+**Known gap, stated plainly:** Zime's internal taxonomy tracks 31
+initiatives. The 11 stage skills above double as initiative coverage (each
+is named after and scoped to one), plus these 4 cross-stage initiative
+skills — 15 of 31 covered. The other 16, mostly named methodologies
+(MEDDPICC, FAINT, Sandler, Challenger, Sell the Dream, and others), aren't
+built yet — see `MAINTAINING.md`'s deferred work.
+
 ## Available skills
 
 <!-- SKILLS:START -->
@@ -92,10 +133,28 @@ one call transcript (or CRM export) in, one evidence-cited audit out.
 | [customer-success](skills/customer-success/) | Periodic QBR/health-review depth — value vs. original goals, usage breadth, issue resolution, strategic alignment | transcript or CRM export |
 | [churn-prevention](skills/churn-prevention/) | Renewal risk — value realization, usage depth, champion strength, sentiment, service friction | transcript or CRM export |
 | [upsell-expansion](skills/upsell-expansion/) | Expansion readiness — account health check first, opportunity clarity, champion strength, strategic alignment | transcript or CRM export |
+
+**Initiative (cross-stage)**
+
+| Skill | Audits | Input |
+|---|---|---|
+| [meddicc](skills/meddicc/) | MEDDICC coverage — Metrics, Economic buyer, Decision criteria, Decision process, Identify pain, Champion, Competition | transcript or CRM export |
+| [bant](skills/bant/) | BANT coverage — Budget, Authority, Need, Timeline — lighter-weight, early-stage qualification | transcript or CRM export |
+| [pain-finder](skills/pain-finder/) | Ranked pain points with confidence and evidence, optionally specialized by vertical | transcript |
+| [next-step-commitment](skills/next-step-commitment/) | Whether a call ended in a real, dated, two-sided commitment vs. a vague "we'll circle back" | transcript or CRM export |
+
+**Vertical context (not run directly — loaded by other skills)**
+
+| Skill | Provides | Verticals |
+|---|---|---|
+| [vertical-context](skills/vertical-context/) | Buyer titles, compliance drivers, domain vocabulary, specialized pain taxonomy | cybersecurity, healthcare, fintech |
 <!-- SKILLS:END -->
 
-All 11 planned motions are covered. New skills beyond these are welcome —
-see [CONTRIBUTING.md](CONTRIBUTING.md).
+All 11 stage motions are covered; initiative coverage is a 4-skill proof set
+(15 of 31 Zime initiatives total, once the 11 stage skills are counted — see
+the coverage table above). New skills beyond these are welcome — see
+[CONTRIBUTING.md](CONTRIBUTING.md). For how these are tested, and what that
+testing can and can't prove, see [EVALS.md](EVALS.md).
 
 ## Installation
 

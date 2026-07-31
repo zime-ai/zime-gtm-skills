@@ -4,6 +4,8 @@ description: Audits a new-customer onboarding call transcript against a rubric c
 license: MIT
 metadata:
   zime:category: post-sale
+  zime:dimension: stage
+  zime:stage: onboarding
   zime:input-modes: transcript,csv
 ---
 

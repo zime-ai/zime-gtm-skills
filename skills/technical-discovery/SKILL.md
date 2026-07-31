@@ -4,6 +4,8 @@ description: Audits a technical/solution-fit call transcript against a rubric co
 license: MIT
 metadata:
   zime:category: new-business
+  zime:dimension: stage
+  zime:stage: technical-discovery
   zime:input-modes: transcript,csv
 ---
 
