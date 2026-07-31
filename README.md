@@ -50,11 +50,19 @@ Next steps:
 Eleven skills, one per GTM motion, laid out across the deal lifecycle:
 
 ```
- New business                                                  Post-sale
- ───────────────────────────────────────────────────  ───────────────────────────────────────────
- deep-discovery → meeting-to-qualify → technical-discovery → improve-demo → pilot-to-conversion
-      → negotiation-closing                              onboarding-journey → customer-success
- first-call-rampup (coaching, any stage)                  churn-prevention · upsell-expansion
+New business
+────────────
+deep-discovery → meeting-to-qualify → technical-discovery
+    → improve-demo → pilot-to-conversion → negotiation-closing
+
+    first-call-rampup   (coaching, any stage of a new rep's calls)
+
+Post-sale
+─────────
+onboarding-journey → customer-success
+
+    churn-prevention    (renewal risk)
+    upsell-expansion    (expansion opportunity)
 ```
 
 Unlike some agent-skill collections, there's no foundational context skill
