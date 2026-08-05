@@ -4,6 +4,7 @@
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
+[![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 Open-source [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics, along three axes: **deal
@@ -153,18 +154,6 @@ flowchart LR
 Unlike some agent-skill collections, there's no foundational context skill
 every other one depends on, and no required order. Each skill is independent:
 one call transcript (or CRM export) in, one evidence-cited audit out.
-
-## Why 16 skills, not 200+
-
-Other GTM skill repos compete on breadth — hundreds of skills spanning
-outbound, ABM, paid ads, tooling setup. This one stays inside one bounded
-domain (auditing calls and deal data against rubrics) and spends the effort
-there instead: an evidence-citation rule enforced in every skill, a vertical
-overlay instead of a skill-per-industry multiplication, and an
-[eval methodology](EVALS.md) that reports format compliance and insight
-recall as two separate numbers on purpose, because blending them is how a
-skill's benchmark ends up proving less than it claims. Depth in a bounded
-domain over breadth across every GTM motion.
 
 ## Coverage: three dimensions, not one
 
