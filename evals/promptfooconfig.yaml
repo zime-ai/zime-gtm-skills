@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+#
+# Skill eval framework config -- see evals/framework/README.md.
+# Internal tooling, not part of CI (EVALS.md explains why evals stay out of CI).
+description: zime-gtm-skills eval framework (Tier 0 -- gap diff vs ground truth)
+
+providers:
+  - id: 'exec:evals/framework/run_skill.sh'
+    label: skill-under-test
+
+prompts:
+  # Unused as text -- run_skill.sh drives the skill invocation itself from
+  # each test case's vars (skill, transcript). Kept because promptfoo
+  # requires a prompt to render per test.
+  - '{{skill}} / {{transcript}}'
+
+# Real cases live in evals/cases/ (gitignored, private -- real client data).
+# See evals/cases.example.yaml for the pattern.
+tests: file://evals/cases/*.yaml

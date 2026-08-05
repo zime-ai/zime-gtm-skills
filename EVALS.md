@@ -38,7 +38,50 @@ This repo reports them separately, on purpose.
   number that survives a skeptical read, and it requires a human-authored
   gold label, see below.
 
-## Three tiers
+## Three tiers, plus a Tier 0 for document-writing skills
+
+Skills like `poc-deck` and `sales-to-cs-handover` don't audit a call, they
+write a document forward from one. Tiers 1-3 above still apply, but the
+fastest and cheapest signal for these is a direct diff against a real filled
+example — see **Tier 0** below, and run it first.
+
+### Tier 0 — Gap diff vs ground truth (isolated, mostly automated)
+
+`evals/framework/eval.sh <skill>` runs the loop via promptfoo — a real dataset
+of cases (`evals/cases/*.yaml`), not a one-off transcript, with structured,
+diffable scores (`results.json`/`.csv`) instead of prose you re-read by eye.
+Full detail in `evals/framework/README.md`; the shape:
+
+1. **RUN** (`run_skill.sh`, a promptfoo provider) — isolated scratch dir, only
+   the skill + its transcript. Produces the output artifact.
+2. **GAP** (`judge.py`, a promptfoo assertion) — separate isolated scratch
+   dir per judge sample, only the output + ground truth (`evals/gt/`) +
+   transcript, never `SKILL.md`. **N independent judge samples** (default 3)
+   majority-vote each ground-truth field as present/missing/wrong/extra, with
+   ground-truth field order shuffled per sample (the applicable analogue of a
+   judge position-swap here). Every "missing" is further tagged derivable
+   (in the transcript, so a real skill bug) or not (an input limit). Splits
+   across judges are flagged `LOW_AGREEMENT`, not averaged away. A free
+   mechanical check — unresolved TBC/TBD/TBA markers — is reported as its own
+   score, separate from the model-judged diff, so a format regression can't
+   hide inside an insight number.
+3. **LEARN** (`learn.sh`, `--learn` flag) — separate isolated scratch dir,
+   only the run's `gaps-*.md` + your `feedback.md` + the skill's own
+   `SKILL.md`/references. Writes ranked, gap-cited fixes to `learnings.md`.
+   Never edits the skill itself — you apply what's useful.
+
+**Honest limit on the judge panel:** multi-sampling one model family fixes
+*variance*, not *systematic bias* — every sample shares the same priors, so
+sampling more just measures the bias more precisely. A real cross-family panel
+needs third-party API keys this environment doesn't have. The mitigation that
+*is* built: `evals/framework/calibrate.py` computes Cohen's kappa between the
+judge's majority verdict and a hand-labeled set, so a rubric drift is visible
+and fixable rather than silently trusted. Run it whenever a case is added or
+the judge rubric changes.
+
+Every artifact lands in `evals/runs/<timestamp>/` as a plain file (session
+logs, `verdicts/`, `results.json` included), not chat-only. Requires ground
+truth in `evals/gt/` first — see `evals/gt/README.md`.
 
 ### Tier 1: trigger evals (automated)
 
@@ -100,12 +143,21 @@ Not required, do not spend time here:
 ## Reproducing a run
 
 ```bash
-# Tier 2 (format compliance), any skill:
+# Tier 0 (gap diff vs ground truth), document-writing skills:
+evals/framework/eval.sh <skill>                       # all cases for that skill
+evals/framework/eval.sh <skill> --baseline --learn     # promote to baseline, then LEARN
+python3 evals/framework/calibrate.py <skill> <case> evals/runs/<timestamp>  # judge-vs-human kappa
+
+# Tier 1 (trigger), any skill — run_eval.py is trigger-only, a different
+# schema/script from the one below:
 python3 <skill-creator>/scripts/run_eval.py \
-  --eval-set skills/<name>/evals/evals.json \
+  --eval-set evals/trigger-set.json \
   --skill-path skills/<name>
 
-# Aggregate a benchmark, and view it:
+# Tier 2 (format compliance) is a subagent procedure, not a script — see
+# skill-creator's SKILL.md, "Running and evaluating test cases". It spawns
+# with_skill/without_skill agents against each skill's evals/evals.json,
+# grades via agents/grader.md into grading.json, then:
 python3 <skill-creator>/scripts/aggregate_benchmark.py <run-dir> > benchmark.json
 python3 <skill-creator>/eval-viewer/generate_review.py evals/runs/<timestamp>
 ```
@@ -118,8 +170,9 @@ authoring/testing skills, not itself a GTM skill.
 
 | Tier | Status |
 |---|---|
-| Tier 1 (trigger) | `evals/trigger-set.json` written (17 cases); not yet run |
-| Tier 2 (format) | Only the prior, non-reproducible `pain-finder` draft run (see above). None of the 16 shipped skills have been benchmarked yet: the `evals/evals.json` schema bug (`assertions` vs `expectations`, wrong file paths) blocked every one of them until this pass |
+| Tier 0 (gap diff) | Framework built (`evals/framework/`, promptfoo-backed); `astra` cases wired for both `poc-deck` and `sales-to-cs-handover`. No calibration labels yet — judge-vs-human kappa unrun |
+| Tier 1 (trigger) | `evals/trigger-set.json` written (17 cases); not yet run. Structurally impossible for `sales-to-cs-handover` — `disable-model-invocation: true` |
+| Tier 2 (format) | Only the prior, non-reproducible `pain-finder` draft run (see above). None of the 16 shipped skills have been benchmarked yet — the `evals/evals.json` schema bug (`assertions` vs `expectations`, wrong file paths) blocked every one of them until this pass |
 | Tier 3 (gold-label insight) | Not started. Blocked on 3 gold-labeled transcripts (one per vertical: cybersecurity, healthcare, fintech), by design done by a human, not the rubric author |
 
 CSV mode has never been exercised on any skill. The intentionally-broken-

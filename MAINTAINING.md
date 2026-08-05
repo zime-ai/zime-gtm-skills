@@ -147,6 +147,32 @@ Full eval methodology, the format-vs-insight distinction, and the tier
 structure now live in `EVALS.md`. Read that before adding or changing any
 eval, not just this section.
 
+## Tier 0 eval framework — maintainer procedures
+
+`evals/framework/` (see its own README) runs the gap-diff loop for
+document-writing skills (`poc-deck`, `sales-to-cs-handover`). Two procedures
+that are maintainer-run, not part of the everyday `eval.sh` loop:
+
+- **`without_skill` baseline arm.** Not built into the loop by design (adding
+  it is more machinery than the value justifies right now), but worth doing by
+  hand occasionally to confirm the skill is actually adding something: run the
+  same transcript through a fresh Claude session with no skill installed and a
+  plain "write a CS handover doc from this transcript" prompt, then diff its
+  field_recall against the skill's via `judge.py`'s same GT. If the gap is
+  small, the skill's value is mostly structural/format consistency, same
+  caveat as the `pain-finder` prior run above — say so, don't oversell it.
+- **Adding a case.** Drop a transcript + hand-authored ground truth (never a
+  previous model run — see `evals/gt/README.md`), add one entry to
+  `evals/cases/<skill>.yaml`. New cases should skew toward the tiers that
+  actually catch regressions — missing-context, ambiguous phrasing,
+  adversarial input — not just more happy-path transcripts; tag
+  `metadata.tier` accordingly. Two cases exist today (astra for both skills);
+  the framework's numbers only mean something once there are 5+.
+- **Calibration.** Run `evals/framework/calibrate.py` after adding a case and
+  after any change to `judge.py`'s rubric/model — a judge swap without
+  re-calibrating against a human-labeled set is exactly the drift `EVALS.md`
+  warns about.
+
 ## Deferred work (on hold by decision, not forgotten)
 
 - **Plugin manifest + distribution**: reversed at public launch.

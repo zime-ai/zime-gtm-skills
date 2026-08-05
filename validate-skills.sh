@@ -13,6 +13,19 @@ ISSUES=0
 WARNINGS=0
 PASSED=0
 
+echo "Checking private eval data stays gitignored"
+echo "================================================================"
+PRIVATE_DIRS=(evals/transcripts evals/gt evals/cases evals/labels)
+for d in "${PRIVATE_DIRS[@]}"; do
+    if git check-ignore -q "$d" 2>/dev/null; then
+        echo -e "${GREEN}PASS${NC} $d is gitignored"
+    else
+        echo -e "${RED}FAIL${NC} $d is NOT gitignored — real client data could leak to the public repo. Fix .gitignore."
+        ((ISSUES++))
+    fi
+done
+echo ""
+
 echo "Validating skills against the Agent Skills frontmatter contract"
 echo "================================================================"
 echo ""

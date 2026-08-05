@@ -2,3 +2,16 @@
 .session-context/
 PLAN.md
 .tmp/
+
+# Real client data — transcripts, ground truth, hand labels, cases that
+# reference them, and any eval run output derived from them (company names,
+# deal details, real people). Never public. Only evals/framework/* (the
+# eval engine itself) and evals/cases.example.yaml (fake client) are public.
+evals/transcripts/
+evals/gt/
+evals/cases/
+evals/labels/
+evals/baseline-*.json
+evals/runs/*
+!evals/runs/2026-07-28-cyber-pain-finder-prior/
+__pycache__/
