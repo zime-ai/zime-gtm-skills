@@ -1,0 +1,12 @@
+{
+  "name": "gtm-skills",
+  "description": "Evidence-cited Agent Skills that audit B2B sales calls and CRM exports against GTM rubrics — deal stage, initiative frameworks (MEDDICC, BANT), and industry vertical context. Runs locally, no credentials.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Zime",
+    "url": "https://zime.ai"
+  },
+  "repository": "https://github.com/zime-ai/zime-gtm-skills",
+  "license": "MIT",
+  "keywords": ["gtm", "sales", "revops", "meddicc", "bant", "call-intelligence"]
+}

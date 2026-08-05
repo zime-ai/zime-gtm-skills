@@ -118,7 +118,7 @@ authoring/testing skills, not itself a GTM skill.
 
 | Tier | Status |
 |---|---|
-| Tier 1 (trigger) | Not yet run on any skill |
+| Tier 1 (trigger) | `evals/trigger-set.json` written (17 cases); not yet run |
 | Tier 2 (format) | Only the prior, non-reproducible `pain-finder` draft run (see above). None of the 16 shipped skills have been benchmarked yet — the `evals/evals.json` schema bug (`assertions` vs `expectations`, wrong file paths) blocked every one of them until this pass |
 | Tier 3 (gold-label insight) | Not started. Blocked on 3 gold-labeled transcripts (one per vertical: cybersecurity, healthcare, fintech), by design done by a human, not the rubric author |
 

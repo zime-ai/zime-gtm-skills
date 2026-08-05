@@ -20,6 +20,9 @@ gating, no data leaves the user's machine. Skills install to
 
 ```
 zime-gtm-skills/
+├── .claude-plugin/
+│   ├── marketplace.json       # /plugin marketplace add zime-ai/zime-gtm-skills
+│   └── plugin.json
 ├── skills/
 │   └── skill-name/
 │       ├── SKILL.md          # required

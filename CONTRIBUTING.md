@@ -31,6 +31,10 @@ Every skill must:
 - Ship with a synthetic or fully anonymized sample file in `assets/` so the
   skill is runnable with nothing of the contributor's own
 
+Opening a PR for a new skill or a skill update? The default PR template
+covers both; for the fuller per-case checklist see
+`.github/PULL_REQUEST_TEMPLATE/new-skill.md` or `skill-update.md`.
+
 ## Sample data
 
 If your PR includes a sample transcript, deal export, or any other example

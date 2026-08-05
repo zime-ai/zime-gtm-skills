@@ -1,0 +1,73 @@
+{
+  "description": "Tier 1 trigger evals — does the right skill fire for a given prompt? Weighted toward the description-collision risk EVALS.md calls out: deep-discovery vs technical-discovery vs pain-finder vs meddicc can all sound like 'audit this call'. Run via skill-creator's scripts/run_eval.py.",
+  "cases": [
+    {
+      "prompt": "Review this early-stage discovery call and tell me what the rep missed on pain and decision process.",
+      "should_trigger": "deep-discovery"
+    },
+    {
+      "prompt": "This call was mostly about stack fit and integration scope — did the rep get the technical stakeholders right?",
+      "should_trigger": "technical-discovery"
+    },
+    {
+      "prompt": "What are the top pain points this prospect raised, ranked by confidence?",
+      "should_trigger": "pain-finder"
+    },
+    {
+      "prompt": "Check this call against MEDDICC and tell me what's missing before the forecast call.",
+      "should_trigger": "meddicc"
+    },
+    {
+      "prompt": "Quick BANT check on this first call before we invest more time.",
+      "should_trigger": "bant"
+    },
+    {
+      "prompt": "Did this qualification call actually establish a real deal, or is this rep chasing a ghost?",
+      "should_trigger": "meeting-to-qualify"
+    },
+    {
+      "prompt": "Grade this demo — did the rep tailor it or just run the standard script?",
+      "should_trigger": "improve-demo"
+    },
+    {
+      "prompt": "Is this pilot on track to convert, or stalling?",
+      "should_trigger": "pilot-to-conversion"
+    },
+    {
+      "prompt": "Late-stage negotiation call — where does pricing and procurement actually stand?",
+      "should_trigger": "negotiation-closing"
+    },
+    {
+      "prompt": "Did this call end with an actual dated next step, or just 'we'll circle back'?",
+      "should_trigger": "next-step-commitment"
+    },
+    {
+      "prompt": "New rep's first few calls — how's their foundational technique, opening and pain uncovering?",
+      "should_trigger": "first-call-rampup"
+    },
+    {
+      "prompt": "How's this new customer's onboarding going based on the kickoff call?",
+      "should_trigger": "onboarding-journey"
+    },
+    {
+      "prompt": "Run a QBR depth check on this account health-review call.",
+      "should_trigger": "customer-success"
+    },
+    {
+      "prompt": "Is this account at risk of churning based on the renewal check-in call?",
+      "should_trigger": "churn-prevention"
+    },
+    {
+      "prompt": "Is this account ready for an upsell conversation, or should we check health first?",
+      "should_trigger": "upsell-expansion"
+    },
+    {
+      "prompt": "Sweep this pipeline export for deals missing discovery fields.",
+      "should_trigger": "deep-discovery"
+    },
+    {
+      "prompt": "Load the cybersecurity vertical context so I can specialize this pain-finder run for an infosec buyer.",
+      "should_trigger": "vertical-context"
+    }
+  ]
+}

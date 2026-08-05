@@ -149,10 +149,12 @@ eval, not just this section.
 
 ## Deferred work (on hold by decision, not forgotten)
 
-- **Plugin manifest + distribution** (`.claude-plugin/plugin.json` +
-  `marketplace.json`, `npx skills add` support, `/plugin marketplace add`)
-  — explicitly held back. Do this once the repo has some organic traction
-  worth distributing, not before.
+- **Plugin manifest + distribution** — reversed at public launch.
+  `.claude-plugin/plugin.json` + `marketplace.json` now ship (`/plugin
+  marketplace add zime-ai/zime-gtm-skills`). The original reasoning (wait
+  for organic traction) held while the repo was private; a launch-day repo
+  needs a one-line install path more than it needs to wait. `npx skills add`
+  support is still deferred.
 - **Running the evals in CI** — turn `evals/evals.json` from a spec into an
   actual check, likely by invoking each skill against its eval prompts with
   a small harness and comparing against the expectations.
@@ -172,3 +174,8 @@ Repo creation, `git push`, and any `gh` invocation (setting description,
 topics, etc.) stay with the maintainer. Claude prepares and stages files and
 hands over the exact commands to run. Read-only inspection (`gh repo view`,
 `gh auth status`) is fine to run directly.
+
+**Never push `internal_skills`.** It holds work that must not be public
+(the build/launch plan, product-coupled skill drafts, internal decks) —
+branches are as world-readable as `main` on a public repo, so parking WIP on
+a branch does not hide it. Keep it local only.

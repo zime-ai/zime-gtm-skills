@@ -1,0 +1,14 @@
+{
+  "name": "zime-gtm-skills",
+  "owner": {
+    "name": "Zime",
+    "email": "hello@zime.ai"
+  },
+  "plugins": [
+    {
+      "name": "gtm-skills",
+      "source": "./",
+      "description": "16 Agent Skills that audit sales call transcripts and CRM exports against GTM rubrics, across deal stage, initiative, and industry vertical."
+    }
+  ]
+}
