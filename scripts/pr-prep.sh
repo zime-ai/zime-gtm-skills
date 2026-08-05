@@ -1,16 +1,24 @@
 #!/usr/bin/env bash
-# ponytail: prints commands, never runs them. Claude must never push or run
-# gh (hard rule, see MAINTAINING.md) -- this script is the enforcement
-# mechanism, not just advice. Adapted from the workspace's zime-worktree
-# skill's pr-prep.sh, scoped down to this repo's single-repo / single-target
-# layout (no per-repo BASE table, no dev-mage overlay backstop) and with
-# ./validate-skills.sh added as a real gate before the PR is prepped.
+# ponytail: enforces the hard rules mechanically, then pushes and opens the
+# PR itself -- zime-gtm-skills is a repo-specific exception to the workspace
+# no-push/no-gh rule (see MAINTAINING.md's "Who runs git commands"; the other
+# four Zime repos keep that rule, this one doesn't). Merging to main still
+# stays a human decision via PR review -- this script only gets a PR open.
+# Adapted from the workspace's zime-worktree skill's pr-prep.sh, scoped down
+# to this repo's single-repo / single-target layout (no per-repo BASE table,
+# no dev-mage overlay backstop) and with ./validate-skills.sh added as a
+# real gate before anything ships.
 set -euo pipefail
 
 usage() {
   echo "Usage: $0 <worktree-path> <pr-title>"
   echo "  worktree-path   path to the feature worktree (has its own git HEAD)"
   echo "  pr-title        PR title, e.g. \"Add sql-to-qualify skill\""
+  echo
+  echo "Before running: write the real PR body to"
+  echo "  .tmp/pr-description-<branch>.txt"
+  echo "in the main checkout (not the worktree) -- this script pushes and"
+  echo "opens the PR using that file's content, so it must already be filled in."
   exit 1
 }
 
@@ -45,7 +53,7 @@ if echo "$AUTHOR" | grep -qi 'claude'; then
   exit 1
 fi
 
-# Gate: structural validation must pass before a PR gets prepped.
+# Gate: structural validation must pass before anything ships.
 echo
 echo "Running ./validate-skills.sh..."
 if ! ./validate-skills.sh; then
@@ -80,24 +88,19 @@ if [ ! -f "$PR_BODY_FILE" ]; then
 - [ ] Disclosed if AI-assisted (see CONTRIBUTING.md)
 EOF
   echo
-  echo "Wrote a PR body template to: $PR_BODY_FILE (fill in before using it)"
-else
-  echo
-  echo "PR body file already exists, left untouched: $PR_BODY_FILE"
+  echo "BLOCKED: wrote a placeholder PR body to $PR_BODY_FILE"
+  echo "Fill it in with the real summary, then re-run this script."
+  exit 1
 fi
 
-PUSH_SCRIPT="$REPO_ROOT/.tmp/push-pr-${BRANCH//\//-}.sh"
-cat > "$PUSH_SCRIPT" <<EOF
-#!/usr/bin/env bash
-set -euo pipefail
-cd "$WT"
-git push -u origin $BRANCH
-gh pr create --base $BASE --title "$TITLE" --body-file "$PR_BODY_FILE"
-EOF
-chmod +x "$PUSH_SCRIPT"
+if grep -q '<!-- one-liner' "$PR_BODY_FILE"; then
+  echo
+  echo "BLOCKED: $PR_BODY_FILE still has the unfilled placeholder text."
+  echo "Fill in the real summary before this can push."
+  exit 1
+fi
 
 echo
-echo "================================================================"
-echo "Claude never runs this. Run it yourself:"
-echo "================================================================"
-echo "$PUSH_SCRIPT"
+echo "Pushing and opening PR..."
+git push -u origin "$BRANCH"
+gh pr create --base "$BASE" --title "$TITLE" --body-file "$PR_BODY_FILE"

@@ -181,12 +181,13 @@ mechanics — directory, branch, isolation check — but it doesn't know this
 repo's rules, which still apply regardless of worktree tooling:
 
 - No `Co-Authored-By: Claude` trailer, ever.
-- Claude never runs `git push` or `gh` — see "Who runs git commands" below.
+- No commit under a Claude-attributed identity.
 
-`scripts/pr-prep.sh <worktree-path> "<PR title>"` enforces both, plus runs
-`./validate-skills.sh` against the worktree, before writing (never running) a
-push/PR script. Run it from the main checkout once a worktree's skill work is
-done.
+`scripts/pr-prep.sh <worktree-path> "<PR title>"` enforces both, runs
+`./validate-skills.sh` against the worktree, then pushes the branch and opens
+the PR directly — see "Who runs git commands" below for what Claude may and
+may not do past that point. Run it from the main checkout once a worktree's
+skill work is done.
 
 One worktree per skill being built. 3-5 concurrent is the practical ceiling —
 past that, review becomes the bottleneck, not the building.
@@ -245,10 +246,18 @@ run the workflow against that secret unapproved.
 
 ## Who runs git commands
 
-Repo creation, `git push`, and any `gh` invocation (setting description,
-topics, etc.) stay with the maintainer. Claude prepares and stages files and
-hands over the exact commands to run. Read-only inspection (`gh repo view`,
-`gh auth status`) is fine to run directly.
+Claude may run `git push` and `gh` directly for this repo — branches, PRs,
+repo metadata — once the relevant safety gate has passed (`./validate-skills.sh`
+at minimum; for skill content, the create-validate-iterate loop above). This
+is narrower than it sounds: **merging a PR into `main` stays a human decision**
+via PR review (`CONTRIBUTING.md` + the automated PR-Agent pass), not something
+Claude does itself. This is a deliberate exception to the workspace-wide rule
+in the other four Zime repos, where a bad push is costly in a way it isn't
+here — see the workspace `zime-worktree` skill for that rule and why it's
+tighter there.
+
+`git commit --author=` still applies, no `Co-Authored-By: Claude` trailer,
+ever — `scripts/pr-prep.sh` enforces both mechanically before any push.
 
 **Never push `internal_skills`.** It holds work that must not be public
 (the build/launch plan, product-coupled skill drafts, internal decks) —
