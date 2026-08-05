@@ -15,3 +15,8 @@ evals/baseline-*.json
 evals/runs/*
 !evals/runs/2026-07-28-cyber-pain-finder-prior/
 __pycache__/
+
+# scripts/scan-content.py's client-name denylist: real client/person names,
+# never public. Absence is expected on CI/forks -- the rule skips, it
+# doesn't fail. See AGENTS.md's rule registry.
+.private/

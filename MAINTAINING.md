@@ -123,9 +123,13 @@ Skills cover three axes, but they compose as an **overlay**, not a matrix:
   been manually run.
 - **CSV mode**: has never been exercised on any skill. A shared synthetic
   pipeline export exists at `skills/deep-discovery/assets/sample-pipeline.csv`.
-- **CI-catches-a-broken-PR test**: never actually run. Nobody has opened a
-  PR with a deliberately mismatched `name`/directory to confirm the workflow
-  fails rather than passing vacuously.
+- **CI-catches-a-broken-PR test**: fixed. `tests/run-checks-tests.sh` runs
+  `validate-skills.sh`, `scripts/check-docs-sync.sh`, and
+  `scripts/scan-content.py` against scratch fixtures with a deliberately
+  mismatched `name`/directory, missing frontmatter fields, an un-ignored
+  private data dir, a leaked home path, an injection pattern, and more —
+  asserting the real script fails with the right message, not just that it
+  exists. Wired into `.github/workflows/validate.yml` as its own step.
 - **Vertical demo (Tier 2)**: not yet run. Running `pain-finder` against the
   same transcript with no vertical named vs. `vertical: cybersecurity` named,
   and confirming the output's vocabulary/framing actually changes, is the

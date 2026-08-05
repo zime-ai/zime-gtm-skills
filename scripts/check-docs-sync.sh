@@ -7,6 +7,13 @@
 # Deliberately does not generate the README table: the "Audits" column is
 # hand-written prose, not derivable from frontmatter. This only reports
 # drift.
+#
+# Usage: ./scripts/check-docs-sync.sh [root-dir]   (default: current directory)
+# The optional root-dir lets tests/run-checks-tests.sh point this at a
+# scratch fixture instead of the real repo.
+
+ROOT="${1:-.}"
+cd "$ROOT" || { echo "No such directory: $ROOT" >&2; exit 1; }
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'

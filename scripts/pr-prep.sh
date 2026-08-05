@@ -72,6 +72,18 @@ if ! ./scripts/check-docs-sync.sh; then
   exit 1
 fi
 
+# Gate: content-level leak/injection scan. no-client-names needs a local,
+# gitignored denylist (.private/client-denylist.txt) and skips without one —
+# CI can't run it either, so this is the only place it actually runs.
+echo
+echo "Running python3 scripts/scan-content.py..."
+if ! python3 scripts/scan-content.py; then
+  echo
+  echo "BLOCKED: scripts/scan-content.py found something. See AGENTS.md's"
+  echo "'Rule registry' for what each rule ID means."
+  exit 1
+fi
+
 echo
 echo "Diff vs base (origin/$BASE):"
 git diff "origin/$BASE" --stat 2>/dev/null || echo "  (couldn't diff against origin/$BASE -- check manually)"
@@ -95,6 +107,7 @@ if [ ! -f "$PR_BODY_FILE" ]; then
 - [ ] SKILL.md under 500 lines
 - [ ] ./validate-skills.sh passes
 - [ ] ./scripts/check-docs-sync.sh passes (README count/table/coverage updated)
+- [ ] python3 scripts/scan-content.py passes
 - [ ] No internal Zime checklist question text introduced (see MAINTAINING.md)
 - [ ] Disclosed if AI-assisted (see CONTRIBUTING.md)
 EOF
