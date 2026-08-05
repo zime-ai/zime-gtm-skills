@@ -53,6 +53,7 @@ reference chains.
 
 ```bash
 ./validate-skills.sh                        # local, seconds, zero deps
+./scripts/check-docs-sync.sh                # README count/table vs skills/, zero deps
 ```
 
 CI additionally runs the upstream spec's `skills-ref validate` on every PR,
@@ -64,9 +65,11 @@ published to PyPI.
 1. **Every finding in a transcript-mode audit cites a quote or timestamp.**
    An uncited finding doesn't ship: this is the trust bar the whole repo is
    built on.
-2. **Never copy Zime's internal checklist question text into a rubric.**
-   Rubrics are written fresh, in this repo, from scratch. See
-   `MAINTAINING.md` for the authoring process and how this gets enforced.
+2. **Never expose anything that isn't already customer-visible in the Zime
+   product.** Checklist titles and question text are customer-visible and
+   fine to draw on; internal scoring weights, thresholds, model
+   configuration, and customer/account data are not. See `MAINTAINING.md`
+   for the authoring process and how this gets enforced.
 
 Building several skills at once? See `MAINTAINING.md`'s "Building skills at
 scale" for the worktree-per-skill and create-validate-iterate flow.

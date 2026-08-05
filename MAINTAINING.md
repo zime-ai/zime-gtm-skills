@@ -24,41 +24,40 @@ already has**: call transcripts and CRM exports, never a live connection.
 
 Each skill's rubric is grounded in Zime's internal initiative/checklist
 taxonomy (curated call-quality question sets, refined across many real
-client engagements) but that taxonomy is Zime IP. The repeatable process for
-turning it into a public rubric, without shipping the IP itself:
+client engagements). Checklist question text is customer-visible in the Zime
+product and is fine to draw on directly — see "The IP boundary" below for
+what's still off-limits. The process for turning a motion into a public
+rubric:
 
-1. Pull the target motion's checklist **titles only** (not question text)
-   from the internal taxonomy, read-only.
-2. Drop titles that recur across most motions (~10 generic-core titles:
+1. Pull the target motion's checklist titles and question text from the
+   internal taxonomy.
+2. Drop items that recur across most motions (~10 generic-core titles:
    things like general feedback capture, active-listening notes, call
    summary, next-meeting logistics, objection logging, action items), since
    these make every motion look the same and add no distinguishing content.
    Keep them only where genuinely load-bearing for that specific motion.
-3. Keep the **distinctive** titles: the ones specific to this motion.
-4. **Re-author each surviving title into a fresh rubric dimension**, written
-   from scratch in this repo: what the dimension is, what good coverage
-   looks like, what a miss looks like. Titles are a seed list only, and no
-   internal question text is ever copied in.
+3. Keep the **distinctive** items: the ones specific to this motion.
+4. **Write each surviving item up as a full rubric dimension**: what the
+   dimension is, what good coverage looks like, what a miss looks like.
+   Question text can be reused as-is or adapted; the surrounding rubric prose
+   (the "what good/miss looks like" framing) is still written fresh for this
+   repo, not copy-pasted from internal scoring guides.
 5. Drop junk/orphaned entries.
 
 ## The IP boundary, and how it's enforced
 
-**Hard rule: never copy Zime's internal curated checklist question text into
-a rubric.** Before any rubric change goes public, grep the repo for verbatim
-or near-verbatim matches against internal checklist titles. Rename any hit.
+**Hard rule: never expose anything that isn't already customer-visible in
+the Zime product.** Checklist titles and question text are customer-visible
+and are permitted. What stays out:
 
-Five headings were already renamed for exactly this reason during the
-initial build, because they matched an internal checklist title too closely
-even though the surrounding prose was original: a churn-prevention heading
-(now "Value delivered, in the customer's own words"), a pilot-to-conversion
-heading (now "Setup experience so far"), a negotiation-closing heading (now
-"Reaction to pricing"), another negotiation-closing heading (now "Procurement
-process is moving"), and an upsell-expansion heading (now "The expansion ask
-is concrete"). One near-match, "Onboarding experience quality" in
-onboarding-journey, was judged acceptable and left as-is: it's the skill's
-own inherent subject matter, not curated phrasing lifted from the taxonomy.
-Use that same judgment call for future renames: does the heading name the
-skill's actual subject, or does it echo curated phrasing?
+- Internal scoring weights, thresholds, or model configuration
+- Customer names, account details, or any per-account data
+- Anything from an internal scoring guide, prompt, or eval that isn't shown
+  to a Zime customer today
+
+Before any rubric change goes public, check it against that boundary, not
+against a "does this echo a checklist title" test — that test is gone now
+that checklist text itself is allowed.
 
 ## Sample-transcript rules
 
@@ -77,8 +76,8 @@ data of the user's own. Rules for any sample file (transcript or CSV):
 1. **Every finding in a transcript-mode audit cites a quote or timestamp.**
    An uncited finding is worse than none: it's untrustworthy the first time
    it's wrong, which is the fastest way to kill adoption of a tool like this.
-2. **Never copy Zime's internal checklist question text**: see the IP
-   boundary section above.
+2. **Never expose anything that isn't already customer-visible in the Zime
+   product**: see the IP boundary section above.
 
 ## Three dimensions: stage, initiative, vertical
 
@@ -243,6 +242,34 @@ add `ANTHROPIC_KEY` as a repo secret (Settings → Secrets and variables →
 Actions), and since this is a public repo, confirm "Require approval for all
 outside collaborators" is on for fork PRs, otherwise a malicious fork PR can
 run the workflow against that secret unapproved.
+
+## Landing a skill on main
+
+"Building skills at scale" above covers writing and validating a skill.
+Separately: every one of the README's several count/table surfaces has to be
+updated by hand when a skill actually lands, or `main` starts shipping a
+stale README. `scripts/check-docs-sync.sh` (wired into CI and into
+`scripts/pr-prep.sh`) catches a skipped step, but it doesn't do the step for
+you — steps 2-5 below are hand-edits by design, not generated, since the
+"Audits" column and the coverage-table cells are prose judgment calls, not
+something derivable from frontmatter.
+
+1. Skill directory complete: `SKILL.md`, `references/`, `assets/`,
+   `evals/evals.json`.
+2. `README.md` — bump the skill count in all four places: the badge, the
+   opening paragraph, "How these fit together," and the `<summary>` tag.
+3. `README.md` — add a row inside `<!-- SKILLS:START -->`/`<!-- SKILLS:END -->`,
+   under the right group (New business / Post-sale / Initiative (cross-stage)
+   / Vertical context — matching the skill's `zime:category`), with a
+   hand-written "Audits" summary and its input modes.
+4. `README.md` — add a row to the "Coverage: three dimensions" table (skip
+   this for a vertical-context skill; that table is stage/initiative only).
+5. `README.md` — if it's a stage skill, place it in the mermaid diagram.
+6. `MAINTAINING.md` — strike it from "Deferred work" if it was listed there.
+7. `./validate-skills.sh` && `./scripts/check-docs-sync.sh` — both must exit 0.
+8. `scripts/pr-prep.sh <worktree-path> "<PR title>"` — re-runs both gates,
+   pushes, opens the PR. PR-Agent reviews automatically.
+9. Merging to `main` is still a human decision. Unchanged by any of the above.
 
 ## Who runs git commands
 

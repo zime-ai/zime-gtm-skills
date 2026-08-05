@@ -15,6 +15,9 @@ jobs:
       - name: Local layout check
         run: ./validate-skills.sh
 
+      - name: README/skills docs sync check
+        run: ./scripts/check-docs-sync.sh
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"

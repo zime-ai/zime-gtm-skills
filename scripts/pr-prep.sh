@@ -62,6 +62,16 @@ if ! ./validate-skills.sh; then
   exit 1
 fi
 
+# Gate: README's several count/table surfaces must agree with skills/.
+echo
+echo "Running ./scripts/check-docs-sync.sh..."
+if ! ./scripts/check-docs-sync.sh; then
+  echo
+  echo "BLOCKED: README.md is out of sync with skills/. See MAINTAINING.md's"
+  echo "'Landing a skill on main' for what to update."
+  exit 1
+fi
+
 echo
 echo "Diff vs base (origin/$BASE):"
 git diff "origin/$BASE" --stat 2>/dev/null || echo "  (couldn't diff against origin/$BASE -- check manually)"
@@ -84,6 +94,7 @@ if [ ! -f "$PR_BODY_FILE" ]; then
 - [ ] `description` states both what and when
 - [ ] SKILL.md under 500 lines
 - [ ] ./validate-skills.sh passes
+- [ ] ./scripts/check-docs-sync.sh passes (README count/table/coverage updated)
 - [ ] No internal Zime checklist question text introduced (see MAINTAINING.md)
 - [ ] Disclosed if AI-assisted (see CONTRIBUTING.md)
 EOF
