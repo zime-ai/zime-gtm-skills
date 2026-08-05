@@ -1,13 +1,13 @@
 # zime-gtm-skills
 
-[![Skills](https://img.shields.io/badge/skills-16-blue)](skills/)
+[![Skills](https://img.shields.io/badge/skills-17-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 16 [Agent Skills](https://agentskills.io) that audit sales call
+here. 17 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
@@ -128,7 +128,7 @@ See [Installation](#installation) below for the submodule option and the
 
 ## How these fit together
 
-16 skills: 11 stage motions laid out across the deal lifecycle, 4 cross-stage
+17 skills: 11 stage motions laid out across the deal lifecycle, 5 cross-stage
 initiative skills, and 1 shared vertical-context pack loaded by the others.
 
 ```mermaid
@@ -183,6 +183,7 @@ multiplicative (skills × verticals).
 | `bant` | Any (early) | BANT | ✅ |
 | `pain-finder` | Any | Identify pain | ✅ |
 | `next-step-commitment` | Any | Next step commitment | n/a |
+| `adoption-leaderboard` | Any (post-sale) | Behavior adoption | n/a |
 
 Vertical-aware today: 3 skills (`meddicc`, `bant`, `pain-finder`). Extending
 the overlay to the stage skills is tracked in `MAINTAINING.md`.
@@ -219,7 +220,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 ## Available skills
 
 <details open>
-<summary>16 skills across new business, post-sale, cross-stage initiative, and vertical context</summary>
+<summary>17 skills across new business, post-sale, cross-stage initiative, and vertical context</summary>
 
 <!-- SKILLS:START -->
 **New business**
@@ -251,6 +252,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 | [bant](skills/bant/) | BANT coverage — Budget, Authority, Need, Timeline — lighter-weight, early-stage qualification | transcript or CRM export |
 | [pain-finder](skills/pain-finder/) | Ranked pain points with confidence and evidence, optionally specialized by vertical | transcript |
 | [next-step-commitment](skills/next-step-commitment/) | Whether a call ended in a real, dated, two-sided commitment vs. a vague "we'll circle back" | transcript or CRM export |
+| [adoption-leaderboard](skills/adoption-leaderboard/) | Ranks reps by adoption of five fixed winning behaviors (rapport, upsell signals, renewal risk, customer experience, value realization) across recent calls, lowest first | transcript or connector |
 
 **Vertical context (not run directly, loaded by other skills)**
 
@@ -261,7 +263,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 
 </details>
 
-All 11 stage motions are covered; the initiative set is four skills today.
+All 11 stage motions are covered; the initiative set is five skills today.
 New skills welcome, see [CONTRIBUTING.md](CONTRIBUTING.md). For how these
 are tested, and what that testing can and can't prove, see
 [EVALS.md](EVALS.md).

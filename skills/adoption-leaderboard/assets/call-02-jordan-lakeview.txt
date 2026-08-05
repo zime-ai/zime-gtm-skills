@@ -1,0 +1,24 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+Rep: Jordan Lee (jordan.lee@vendorco.com)
+Customer: Marcus Webb, IT Director — Lakeview Health Group (marcus.webb@lakeviewhealth.org)
+Call type: Quarterly business review
+
+Jordan: Hey Marcus, thanks for making time. Let's go through the quarterly
+numbers.
+
+Marcus: Sounds good, I've got twenty minutes.
+
+Jordan: Understood. Usage is flat this quarter — about the same seat count
+as last time. No major support tickets on our side.
+
+Marcus: We did have some frustration in March. A couple of nurses
+complained the mobile app kept logging them out mid-shift. IT had to
+reset sessions manually a few times.
+
+Jordan: I see, sorry to hear that. I'll flag it to support. Anything else?
+
+Marcus: That's really the main thing. Otherwise it's doing what it needs
+to do.
+
+Jordan: Understood. I'll send over next steps by email. Thanks, Marcus.

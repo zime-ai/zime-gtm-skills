@@ -1,0 +1,34 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+Rep: Amara Okafor (amara.okafor@vendorco.com)
+Customer: David Chen, VP Operations — Northbridge Health (david.chen@northbridgehealth.com)
+Call type: Quarterly business review
+
+Amara: David, good to see you — how was the conference last week? I saw
+you posted about the panel you were on.
+
+David: Ha, thanks for noticing, it went well. Good turnout.
+
+Amara: Glad to hear it. Let's get into the numbers — usage is up 18% this
+quarter, mostly driven by the new intake team you onboarded in March.
+
+David: Yeah, they've picked it up fast. Actually, one thing — they've been
+asking whether the platform can handle appointment reminders too, since
+they're doing that manually in a separate tool right now.
+
+Amara: That's good to know, we do have a module for that. I'll follow up
+with details. Anything holding the team back otherwise?
+
+David: Not really, but I'll say the exec team is going to want to see
+clear ROI numbers before renewal — last year they questioned the spend.
+
+Amara: Understood, I'll start pulling that together now so it's ready.
+Overall, how's the team feeling about the platform?
+
+David: Honestly pretty good — the intake team specifically has said it cut
+their per-patient intake time by almost a third.
+
+Amara: That's great to hear, I'll make sure that's captured. Anything else
+before we wrap?
+
+David: No, that covers it for now.
