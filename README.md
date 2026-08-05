@@ -8,27 +8,27 @@
 
 If you're building call-review or deal-inspection tooling in-house, start
 here. 16 [Agent Skills](https://agentskills.io) that audit sales call
-transcripts and CRM exports against GTM rubrics — one file in, one
+transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
 that reads the Agent Skills spec.
 
 Three axes: **deal stage** (discovery through renewal), **initiative**
-(MEDDICC, BANT, pain identification — frameworks that run at any stage), and
+(MEDDICC, BANT, pain identification: frameworks that run at any stage), and
 **vertical** (industry context packs that specialize any skill's output for
 cybersecurity, healthcare, or fintech).
 
 The rule every skill here is built on: **an uncited finding doesn't ship.**
 Every dimension a skill marks Covered, Partial, or Missed points at a direct
-quote or timestamp from the transcript in front of it — never a plausible
+quote or timestamp from the transcript in front of it, never a plausible
 guess dressed up as a finding.
 
 MIT, no gating, no telemetry, no lead capture. Fork it, rewrite the rubrics
-for your motion, ship it internally — that's the intended use. Built and
+for your motion, ship it internally: that's the intended use. Built and
 maintained by [Zime](https://zime.ai); we'd rather hand over the rubrics than
 argue anyone out of building.
 
-**Contributions welcome** — see [CONTRIBUTING.md](CONTRIBUTING.md). Found a
+**Contributions welcome**: see [CONTRIBUTING.md](CONTRIBUTING.md). Found a
 bug or have a question? [Open an issue](https://github.com/zime-ai/zime-gtm-skills/issues).
 
 ## See it work
@@ -38,7 +38,7 @@ prompt with no skill, and `deep-discovery` against
 `skills/deep-discovery/assets/sample-transcript.txt`.
 
 <details>
-<summary><b>Without the skill</b> — unaided, prompted "review this discovery call"</summary>
+<summary><b>Without the skill</b>: unaided, prompted "review this discovery call"</summary>
 
 ```
 Discovery call feedback — Northwind x Vendor Co:
@@ -96,12 +96,12 @@ Highest-leverage next steps:
 2. Pin a hard decision date, not "before Q3 planning."
 ```
 
-Same nine dimensions, every run — a rep gets the same read whoever's on
+Same nine dimensions, every run: a rep gets the same read whoever's on
 the call, and every Missed or Partial is falsifiable against the transcript
 next to it.
 </details>
 
-Run it yourself — nothing of your own required:
+Run it yourself, nothing of your own required:
 
 ```bash
 git clone https://github.com/zime-ai/zime-gtm-skills.git
@@ -146,9 +146,9 @@ flowchart LR
         oj[onboarding-journey] --> cs[customer-success]
     end
     nb --> ps
-    fcr["first-call-rampup — coaching, any stage"]
-    cp["churn-prevention — renewal risk"]
-    ue["upsell-expansion — expansion opportunity"]
+    fcr["first-call-rampup, coaching at any stage"]
+    cp["churn-prevention, renewal risk"]
+    ue["upsell-expansion, expansion opportunity"]
     ps -.-> cp
     ps -.-> ue
 ```
@@ -159,7 +159,7 @@ one call transcript (or CRM export) in, one evidence-cited audit out.
 
 ## Coverage: three dimensions, not one
 
-**Stage** and **initiative** are both skills — a flat set, no nesting.
+**Stage** and **initiative** are both skills: a flat set, no nesting.
 **Vertical** is different: it's shared context any stage or initiative skill
 can load (`skills/vertical-context/`), rather than a separate skill per
 industry. That keeps the cost additive (skills + verticals) instead of
@@ -167,31 +167,31 @@ multiplicative (skills × verticals).
 
 | | Stage | Initiative | Vertical-aware |
 |---|---|---|---|
-| `deep-discovery` | Discovery | — | — |
-| `meeting-to-qualify` | Qualify | — | — |
-| `technical-discovery` | Technical discovery | — | — |
-| `improve-demo` | Demo | — | — |
-| `pilot-to-conversion` | Pilot | — | — |
-| `negotiation-closing` | Negotiation | — | — |
-| `first-call-rampup` | Any (coaching) | — | — |
-| `onboarding-journey` | Onboarding | — | — |
-| `customer-success` | Post-sale review | — | — |
-| `churn-prevention` | Renewal risk | — | — |
-| `upsell-expansion` | Expansion | — | — |
+| `deep-discovery` | Discovery | n/a | n/a |
+| `meeting-to-qualify` | Qualify | n/a | n/a |
+| `technical-discovery` | Technical discovery | n/a | n/a |
+| `improve-demo` | Demo | n/a | n/a |
+| `pilot-to-conversion` | Pilot | n/a | n/a |
+| `negotiation-closing` | Negotiation | n/a | n/a |
+| `first-call-rampup` | Any (coaching) | n/a | n/a |
+| `onboarding-journey` | Onboarding | n/a | n/a |
+| `customer-success` | Post-sale review | n/a | n/a |
+| `churn-prevention` | Renewal risk | n/a | n/a |
+| `upsell-expansion` | Expansion | n/a | n/a |
 | `meddicc` | Any | MEDDICC | ✅ |
 | `bant` | Any (early) | BANT | ✅ |
 | `pain-finder` | Any | Identify pain | ✅ |
-| `next-step-commitment` | Any | Next step commitment | — |
+| `next-step-commitment` | Any | Next step commitment | n/a |
 
 Vertical-aware today: 3 skills (`meddicc`, `bant`, `pain-finder`). Extending
 the overlay to the stage skills is tracked in `MAINTAINING.md`.
 
-Vertical packs available today: **cybersecurity, healthcare, fintech** —
-see `skills/vertical-context/`. Domain-expert review pending — see that
+Vertical packs available today: **cybersecurity, healthcare, fintech**;
+see `skills/vertical-context/`. Domain-expert review pending, see that
 skill's status note.
 
-**Roadmap.** The named methodologies — MEDDPICC, FAINT, Sandler, Challenger,
-Sell the Dream, and others — aren't built yet. See `MAINTAINING.md`'s
+**Roadmap.** The named methodologies (MEDDPICC, FAINT, Sandler, Challenger,
+Sell the Dream, and others) aren't built yet. See `MAINTAINING.md`'s
 deferred work, or [contribute one](CONTRIBUTING.md).
 
 ## Where this stops
@@ -210,7 +210,7 @@ design ceiling, and it's worth knowing before you build on it:
   experience and community correction, not from regression against your own
   won/lost data. A sound default, not a model fit to your motion.
 - **No rep or manager surface.** This is an engineer running a command.
-  Assignment, coaching loops, adoption tracking — out of scope.
+  Assignment, coaching loops, adoption tracking are out of scope.
 
 Past that ceiling you're building a platform, not a skill, and that's a much
 larger piece of work. It's the problem [Zime](https://zime.ai) works on.
@@ -251,7 +251,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 | [pain-finder](skills/pain-finder/) | Ranked pain points with confidence and evidence, optionally specialized by vertical | transcript |
 | [next-step-commitment](skills/next-step-commitment/) | Whether a call ended in a real, dated, two-sided commitment vs. a vague "we'll circle back" | transcript or CRM export |
 
-**Vertical context (not run directly — loaded by other skills)**
+**Vertical context (not run directly, loaded by other skills)**
 
 | Skill | Provides | Verticals |
 |---|---|---|
@@ -261,7 +261,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 </details>
 
 All 11 stage motions are covered; the initiative set is four skills today.
-New skills welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). For how these
+New skills welcome, see [CONTRIBUTING.md](CONTRIBUTING.md). For how these
 are tested, and what that testing can and can't prove, see
 [EVALS.md](EVALS.md).
 
@@ -298,6 +298,6 @@ Update later with `git submodule update --remote`.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT, see [LICENSE](LICENSE).
 
 Maintained by [Zime](https://zime.ai).

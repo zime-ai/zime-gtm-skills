@@ -6,7 +6,7 @@ Guidelines for AI agents working in this repository.
 
 Open-source [Agent Skills](https://agentskills.io/specification.md) that
 audit sales call transcripts and CRM exports against per-GTM-motion rubrics.
-No Zime product coupling — every skill runs standalone: no API keys, no
+No Zime product coupling: every skill runs standalone, no API keys, no
 gating, no data leaves the user's machine. Skills install to
 `.agents/skills/` (the cross-agent standard) and also work under
 `.claude/skills/`.
@@ -26,9 +26,9 @@ zime-gtm-skills/
 ├── skills/
 │   └── skill-name/
 │       ├── SKILL.md          # required
-│       ├── references/       # optional — the rubric lives here
-│       ├── assets/           # optional — synthetic sample transcript/CSV
-│       └── evals/            # optional — evals.json, declarative for now
+│       ├── references/       # optional, the rubric lives here
+│       ├── assets/           # optional, synthetic sample transcript/CSV
+│       └── evals/            # optional, evals.json, declarative for now
 ├── validate-skills.sh         # local, zero-dep frontmatter/layout check
 ├── CONTRIBUTING.md
 ├── MAINTAINING.md              # process + decisions, for picking this repo back up
@@ -45,7 +45,7 @@ zime-gtm-skills/
 | `license` | no | defaults to MIT |
 | `metadata` | no | free-form; this repo uses `zime:category`, `zime:dimension` (`stage`/`initiative`/`vertical-context`), `zime:input-modes`, and (for stage skills) `zime:stage` |
 
-`SKILL.md` stays under 500 lines — move detail into `references/`.
+`SKILL.md` stays under 500 lines. Move detail into `references/`.
 `references/`, `scripts/`, `assets/`, `evals/` are one level deep, no nested
 reference chains.
 
@@ -62,7 +62,7 @@ published to PyPI.
 ## The two hard content rules
 
 1. **Every finding in a transcript-mode audit cites a quote or timestamp.**
-   An uncited finding doesn't ship — this is the trust bar the whole repo is
+   An uncited finding doesn't ship: this is the trust bar the whole repo is
    built on.
 2. **Never copy Zime's internal checklist question text into a rubric.**
    Rubrics are written fresh, in this repo, from scratch. See
@@ -73,7 +73,7 @@ scale" for the worktree-per-skill and create-validate-iterate flow.
 
 ## Evals
 
-Each skill may carry `evals/evals.json` — declarative test cases (prompt +
+Each skill may carry `evals/evals.json`: declarative test cases (prompt +
 sample file + expected `expectations`). They are not run in CI yet. See
 `EVALS.md` for the full methodology: the three eval tiers, why format
 compliance and insight recall are reported as two separate metrics rather
@@ -85,7 +85,7 @@ catch frontmatter and layout errors.
 ## Three dimensions: stage, initiative, vertical
 
 Skills cover deal stage and initiative as ordinary, flat skills
-(`zime:dimension: stage` or `initiative` in frontmatter) — never nested
+(`zime:dimension: stage` or `initiative` in frontmatter), never nested
 under a `skills/stage/` or `skills/initiative/` directory, since that breaks
 the install command above and both validators. Vertical is different: it's
 one skill, `skills/vertical-context/`, holding a reference pack per industry
