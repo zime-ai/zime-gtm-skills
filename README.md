@@ -214,7 +214,6 @@ design ceiling, and it's worth knowing before you build on it:
 
 Past that ceiling you're building a platform, not a skill, and that's a much
 larger piece of work. It's the problem [Zime](https://zime.ai) works on.
-Nothing in this repo depends on it.
 
 ## Available skills
 
