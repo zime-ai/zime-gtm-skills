@@ -168,6 +168,81 @@ eval, not just this section.
   `sync-skills.js` for this) — not worth it yet at 16 skills; the
   `<!-- SKILLS:START/END -->` markers are already in place for whenever it is.
 
+## Building skills at scale
+
+For building several skills at once instead of one Claude Code session at a
+time. Three pieces, each doing one job:
+
+### Worktree-per-skill
+
+Use the installed `using-git-worktrees` skill (`obra/superpowers`) to isolate
+each skill-in-progress in its own git worktree and branch. It handles the
+mechanics — directory, branch, isolation check — but it doesn't know this
+repo's rules, which still apply regardless of worktree tooling:
+
+- No `Co-Authored-By: Claude` trailer, ever.
+- Claude never runs `git push` or `gh` — see "Who runs git commands" below.
+
+`scripts/pr-prep.sh <worktree-path> "<PR title>"` enforces both, plus runs
+`./validate-skills.sh` against the worktree, before writing (never running) a
+push/PR script. Run it from the main checkout once a worktree's skill work is
+done.
+
+One worktree per skill being built. 3-5 concurrent is the practical ceiling —
+past that, review becomes the bottleneck, not the building.
+
+### Create → validate → iterate, with real stop conditions
+
+Not a new custom loop — a documented procedure chaining what already exists,
+with explicit stop conditions instead of ad hoc judgment each time:
+
+1. Draft the skill (a Claude Code session, in its own worktree).
+2. Deterministic gate: `./validate-skills.sh` — frontmatter, line count,
+   layout.
+3. Deterministic gate, if the skill ships `evals/evals.json`:
+   `python3 <skill-creator>/scripts/run_eval.py --eval-set skills/<name>/evals/evals.json --skill-path skills/<name>`
+   (see `EVALS.md`).
+4. **Independent verification, not self-grading** — a fresh-context Claude
+   session reads the rubric against this file's IP-boundary rule and the two
+   hard content rules. This is the step the gates above can't do: judging
+   rubric quality and IP-safety needs a model, not a test runner, and the
+   model that wrote the rubric must not be the one that clears it.
+5. Hard iteration cap: **3 revision passes** per skill. On the 4th failure,
+   stop and hand to the maintainer rather than continuing — a loop that lets
+   the model keep "trying again" past a small cap is exactly the runaway
+   pattern to avoid.
+6. Only after steps 2-4 pass: `scripts/pr-prep.sh`.
+
+What this is **not**: a CI job, unattended, or something that merges without
+review. It's the same manual flow already run for `deep-discovery` (the one
+skill actually run end-to-end — see "Verification state" above), made
+repeatable. Running this loop unattended in CI, with no human anywhere in it,
+is explicitly out of scope — it would need a much stronger verifier than "a
+fresh Claude session reads it," since this repo's IP and evidence-citation
+rules aren't mechanically checkable. Said plainly rather than implying more
+autonomy than actually exists.
+
+### PR-Agent
+
+`.github/workflows/pr-agent.yml` runs [PR-Agent](https://github.com/The-PR-Agent/pr-agent)'s
+`/review` automatically on every PR open/sync, via Claude
+(`config.model: anthropic/claude-sonnet-5`). `auto_describe`/`auto_improve`
+stay off on purpose — this repo already requires a filled-in PR template, and
+the bot shouldn't overwrite what a contributor wrote; `/describe` and
+`/improve` are still available as manual PR comments. Pinned to a release
+commit SHA, not `@main`, same reasoning as `validate.yml`'s `skills-ref` pin —
+bump deliberately by resolving the new tag's commit
+(`gh api repos/The-PR-Agent/pr-agent/git/refs/tags/<tag> --jq '.object.sha'`).
+
+This is a second, automated pass — it doesn't replace a maintainer's own
+`/code-review`, and a real acceptance decision is still the maintainer's.
+
+One-time setup the maintainer needs to do (needs repo admin, not just push):
+add `ANTHROPIC_KEY` as a repo secret (Settings → Secrets and variables →
+Actions), and since this is a public repo, confirm "Require approval for all
+outside collaborators" is on for fork PRs — otherwise a malicious fork PR can
+run the workflow against that secret unapproved.
+
 ## Who runs git commands
 
 Repo creation, `git push`, and any `gh` invocation (setting description,

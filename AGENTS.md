@@ -68,6 +68,9 @@ published to PyPI.
    Rubrics are written fresh, in this repo, from scratch. See
    `MAINTAINING.md` for the authoring process and how this gets enforced.
 
+Building several skills at once? See `MAINTAINING.md`'s "Building skills at
+scale" for the worktree-per-skill and create-validate-iterate flow.
+
 ## Evals
 
 Each skill may carry `evals/evals.json` — declarative test cases (prompt +
