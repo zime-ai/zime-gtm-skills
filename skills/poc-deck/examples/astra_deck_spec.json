@@ -1,0 +1,83 @@
+{
+  "drop_slides": [9, 20],
+  "remove_slots": {},
+  "values": {
+    "CLIENT": "Astra Security",
+    "CLIENT_SHORT": "Astra",
+    "CLIENT_SHORT_UPPER": "ASTRA",
+    "CLIENT_UPPER": "ASTRA SECURITY",
+
+    "CHAMPION_FIRST": "Suraj",
+    "CHAMPION_TITLE": "Director of Sales",
+    "CHAMPION_GOAL": "To have a Inbound system that will get to 30% conversion on 350 MQLs per month",
+    "CHAMPION_QUOTE": "“I want to run inbound like a machine”",
+
+    "BLOCKER_1_TITLE": "Inconsistent Qualification",
+    "BLOCKER_1_DESC": "No shared standard, judgment lives with a couple of senior reps instead of a documented system",
+    "BLOCKER_2_TITLE": "Lack of Visibility on Deal Health",
+    "BLOCKER_2_DESC": "No reliable read on pipeline without re-listening to hours of calls",
+    "BLOCKER_3_TITLE": "No Action Layer",
+    "BLOCKER_3_DESC": "Insights stay buried in the recording; nothing routes back to reps as actionable next steps - based on past wins",
+
+    "INITIATIVE_NAME": "Qualification",
+    "RUBRIC_NAME": "FAINT Qualification",
+    "ROOT_CAUSE_1": "Top reps head",
+    "ROOT_CAUSE_2": "Hours of MeetGeek recordings",
+
+    "RISK_HEADLINE": "Risk of Inconsistent execution in a high-velocity cycle",
+    "RISK_1_LABEL": "REVENUE",
+    "RISK_1_STAT": "30-35% of potential wins lost to inconsistent qualification",
+    "RISK_1_DESC": "High-velocity team lose deals at discovery and qualification without consistent best practices.",
+    "RISK_2_LABEL": "HIDDEN RISKS & STALL SIGNALS",
+    "RISK_2_STAT": "20–30% of pipeline quietly stalls, unqualified",
+    "RISK_2_DESC": "Deals that were never really moving keep consuming rep time until it’s too late.",
+    "RISK_3_LABEL": "LEADERSHIP BECOMES BOTTLENECK",
+    "RISK_3_STAT": "4 hours of calls, per rep, per day, on Suraj alone to review",
+    "RISK_3_DESC": "Without trusted signals, that review falls on leaders instead of the team running itself.",
+    "RISK_4_LABEL": "NEXT HIRE RISK",
+    "RISK_4_STAT": "Every new rep starts from a blank slate",
+    "RISK_4_DESC": "Qualification instinct lives with a handful of seasoned reps. Without a standard playbook, everyone has to find their own way, and every new hire repeats that same slow climb.",
+
+    "NEED_1_TITLE": "Pipeline Visibility",
+    "NEED_1_DESC": "See every deal's true health",
+    "NEED_2_TITLE": "Forecast Accuracy",
+    "NEED_2_DESC": "Numbers you can commit to",
+    "NEED_3_TITLE": "Less Manual Review",
+    "NEED_3_DESC": "Minutes, not hours",
+    "NEED_4_TITLE": "Structure Before Scaling",
+    "NEED_4_DESC": "Systemize before adding reps",
+    "NEED_5_TITLE": "Consistent Qualification",
+    "NEED_5_DESC": "One bar, every rep",
+
+    "STEP1_SUBTITLE": "Learns what makes you winat Discovery & Qualification",
+    "STEP2_TITLE": "Step 2 - Apply it to every deal",
+
+    "METRIC_PRODUCTIVITY": "10X",
+    "METRIC_TIME_SAVED": "+20%",
+    "METRIC_HEADCOUNT_SAVED": "10%",
+    "METRIC_WIN_RATE": "+18%",
+
+    "ROI_HEADLINE_STAT": "$490k  in qualified pipeline goes unrealized every month",
+    "ROI_HEADLINE_DESC": "Every month without a system, the inconsistency scales as the team does",
+
+    "ACV_TOTAL": "12,182",
+    "LINE_1_LABEL": "06 SME licenses",
+    "LINE_1_PRICE": "$7,182 / yr",
+    "LINE_1_DESC": "$99 / user / month · Pipeline review, deal health dashboard, prep notes, and call insights. Includes 15 free credits for advanced AI features; after that $1/credit.",
+    "LINE_2_LABEL": "Annual platform fee",
+    "LINE_2_PRICE": "$5,000 / yr",
+    "LINE_2_DESC": "Infrastructure, integrations, and forward-deployed engineer support. 1st qualification playbook is free, then $12K/playbook.",
+    "ACV_TOTAL_LINE": "$12,182 / yr",
+
+    "STEP_1_TASK": "Confirm onboarding date ",
+    "STEP_2_TASK": "Loop in HubSpot admin to scope auto-field sync",
+    "STEP_ETA_TBC": "TBC",
+    "STEP_3_TASK": "Sign off SOW & MSA",
+    "STEP_3_LINK": "click here",
+    "STEP_4_TASK": "Pilot User details",
+    "STEP_4_LINK": "Click here",
+
+    "STACK_TOOL_1": "MeetGeek",
+    "STACK_TOOL_2": "Hubspot"
+  }
+}
