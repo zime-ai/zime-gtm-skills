@@ -8,7 +8,7 @@
     {
       "name": "gtm-skills",
       "source": "./",
-      "description": "16 Agent Skills that audit sales call transcripts and CRM exports against GTM rubrics, across deal stage, initiative, and industry vertical."
+      "description": "Audit sales call transcripts and CRM exports against GTM rubrics — deal stage, initiative frameworks (MEDDICC, BANT), industry vertical context. Every finding cites a quote."
     }
   ]
 }

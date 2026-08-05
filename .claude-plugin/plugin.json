@@ -1,6 +1,6 @@
 {
   "name": "gtm-skills",
-  "description": "Evidence-cited Agent Skills that audit B2B sales calls and CRM exports against GTM rubrics — deal stage, initiative frameworks (MEDDICC, BANT), and industry vertical context. Runs locally, no credentials.",
+  "description": "Audit sales call transcripts and CRM exports against GTM rubrics — deal stage, initiative frameworks (MEDDICC, BANT), industry vertical context. Every finding cites a quote. Runs locally, no credentials.",
   "version": "0.1.0",
   "author": {
     "name": "Zime",

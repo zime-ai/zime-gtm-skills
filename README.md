@@ -6,25 +6,27 @@
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
-Open-source [Agent Skills](https://agentskills.io) that audit sales call
-transcripts and CRM exports against GTM rubrics, along three axes: **deal
-stage** (discovery through renewal), **initiative** (MEDDICC, BANT, pain
-identification, and more — qualification frameworks that run at any stage),
-and **vertical** (industry context packs that specialize any skill's output
-for cybersecurity, healthcare, or fintech). Runs locally, no credentials, no
-data leaves your machine. Works with Claude Code, Cursor, Windsurf, OpenAI
-Codex, or any agent that supports the Agent Skills spec.
+If you're building call-review or deal-inspection tooling in-house, start
+here. 16 [Agent Skills](https://agentskills.io) that audit sales call
+transcripts and CRM exports against GTM rubrics — one file in, one
+evidence-cited audit out. Runs locally, no credentials, no data leaves your
+machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
+that reads the Agent Skills spec.
+
+Three axes: **deal stage** (discovery through renewal), **initiative**
+(MEDDICC, BANT, pain identification — frameworks that run at any stage), and
+**vertical** (industry context packs that specialize any skill's output for
+cybersecurity, healthcare, or fintech).
 
 The rule every skill here is built on: **an uncited finding doesn't ship.**
 Every dimension a skill marks Covered, Partial, or Missed points at a direct
 quote or timestamp from the transcript in front of it — never a plausible
 guess dressed up as a finding.
 
-Built for RevOps engineers and sales engineers who want a structured second
-opinion on call quality without wiring a live CRM connection into a
-third-party tool. Standalone and community-maintained — no gating, no
-product coupling, no lead capture. Built and maintained by
-[Zime](https://zime.ai).
+MIT, no gating, no telemetry, no lead capture. Fork it, rewrite the rubrics
+for your motion, ship it internally — that's the intended use. Built and
+maintained by [Zime](https://zime.ai); we'd rather hand over the rubrics than
+argue anyone out of building.
 
 **Contributions welcome** — see [CONTRIBUTING.md](CONTRIBUTING.md). Found a
 bug or have a question? [Open an issue](https://github.com/zime-ai/zime-gtm-skills/issues).
@@ -182,19 +184,37 @@ multiplicative (skills × verticals).
 | `next-step-commitment` | Any | Next step commitment | — |
 
 Vertical-aware today: 3 skills (`meddicc`, `bant`, `pain-finder`). Extending
-the overlay to the 11 stage skills is tracked in `MAINTAINING.md` — not done
-yet, stated plainly rather than implied.
+the overlay to the stage skills is tracked in `MAINTAINING.md`.
 
 Vertical packs available today: **cybersecurity, healthcare, fintech** —
-see `skills/vertical-context/`. Unreviewed against a domain expert; see that
+see `skills/vertical-context/`. Domain-expert review pending — see that
 skill's status note.
 
-**Known gap, stated plainly:** Zime's internal taxonomy tracks 31
-initiatives. The 11 stage skills above double as initiative coverage (each
-is named after and scoped to one), plus these 4 cross-stage initiative
-skills — 15 of 31 covered. The other 16, mostly named methodologies
-(MEDDPICC, FAINT, Sandler, Challenger, Sell the Dream, and others), aren't
-built yet — see `MAINTAINING.md`'s deferred work.
+**Roadmap.** The named methodologies — MEDDPICC, FAINT, Sandler, Challenger,
+Sell the Dream, and others — aren't built yet. See `MAINTAINING.md`'s
+deferred work, or [contribute one](CONTRIBUTING.md).
+
+## Where this stops
+
+Everything here runs on one file, in one session, with no memory. That's a
+design ceiling, and it's worth knowing before you build on it:
+
+- **One call at a time.** You point a skill at a transcript. Auditing every
+  call an org makes, as it happens, is a pipeline problem, not a rubric
+  problem.
+- **Snapshot, not trend.** Each run is independent. Nothing here tracks the
+  same rubric across a rep's quarter, a team, or a pipeline over time.
+- **Reads exports, never writes back.** A CRM `.csv` goes in. Nothing updates
+  a deal record or feeds a forecast.
+- **Rubrics are hand-written, not calibrated.** These dimensions come from
+  experience and community correction, not from regression against your own
+  won/lost data. A sound default, not a model fit to your motion.
+- **No rep or manager surface.** This is an engineer running a command.
+  Assignment, coaching loops, adoption tracking — out of scope.
+
+Past that ceiling you're building a platform, not a skill, and that's a much
+larger piece of work. It's the problem [Zime](https://zime.ai) works on.
+Nothing in this repo depends on it.
 
 ## Available skills
 
@@ -241,11 +261,10 @@ built yet — see `MAINTAINING.md`'s deferred work.
 
 </details>
 
-All 11 stage motions are covered; initiative coverage is a 4-skill proof set
-(15 of 31 Zime initiatives total, once the 11 stage skills are counted — see
-the coverage table above). New skills beyond these are welcome — see
-[CONTRIBUTING.md](CONTRIBUTING.md). For how these are tested, and what that
-testing can and can't prove, see [EVALS.md](EVALS.md).
+All 11 stage motions are covered; the initiative set is four skills today.
+New skills welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). For how these
+are tested, and what that testing can and can't prove, see
+[EVALS.md](EVALS.md).
 
 ## Installation
 
@@ -277,12 +296,6 @@ git submodule add https://github.com/zime-ai/zime-gtm-skills.git .agents/zime-gt
 ```
 
 Update later with `git submodule update --remote`.
-
-## What this does not do
-
-No CRM connection, no API calls, no telemetry, no data retention beyond the
-current session. Every skill reads the file you point it at and nothing
-else.
 
 ## License
 
