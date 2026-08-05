@@ -132,6 +132,7 @@ See [Installation](#installation) below for the submodule option and the
 initiative skills, and 1 shared vertical-context pack loaded by the others.
 
 ```mermaid
+%%{init: {"flowchart": {"nodeSpacing": 65, "rankSpacing": 90, "padding": 20}, "themeVariables": {"fontSize": "20px"}}}%%
 flowchart LR
     subgraph nb["New business"]
         direction LR
