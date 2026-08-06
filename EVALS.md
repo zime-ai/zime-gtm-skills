@@ -123,8 +123,9 @@ authoring/testing skills, not itself a GTM skill.
 | Tier 3 (gold-label insight) | Not started. Blocked on 3 gold-labeled transcripts (one per vertical: cybersecurity, healthcare, fintech), by design done by a human, not the rubric author |
 
 CSV mode has never been exercised on any skill. The intentionally-broken-
-frontmatter CI test has never been run. See `MAINTAINING.md`'s "Verification
-state" for the full picture, kept in sync with this file.
+frontmatter CI test now runs (`tests/run-checks-tests.sh`, wired into CI).
+See `MAINTAINING.md`'s "Verification state" for the full picture, kept in
+sync with this file.
 
 Evals are declarative and are not run in CI. That is a decision, not an
 oversight. Say so plainly rather than implying enforcement that doesn't

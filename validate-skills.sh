@@ -2,6 +2,13 @@
 # Zero-dependency local check for skills/*/SKILL.md frontmatter and layout.
 # CI additionally runs the upstream skills-ref validator — this is the fast
 # pre-PR check a contributor can run with nothing installed.
+#
+# Usage: ./validate-skills.sh [root-dir]   (default: current directory)
+# The optional root-dir lets tests/run-checks-tests.sh point this at a
+# scratch fixture instead of the real repo.
+
+ROOT="${1:-.}"
+cd "$ROOT" || { echo "No such directory: $ROOT" >&2; exit 1; }
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -12,6 +19,27 @@ SKILLS_DIR="skills"
 ISSUES=0
 WARNINGS=0
 PASSED=0
+
+echo "Checking private eval data stays gitignored"
+echo "================================================================"
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    PRIVATE_DIRS=(evals/transcripts evals/gt evals/cases evals/labels)
+    for d in "${PRIVATE_DIRS[@]}"; do
+        # Probe a nested path, not the bare dir: a trailing-slash gitignore
+        # pattern only matches an existing directory, and these dirs never
+        # exist in a fresh CI checkout (they're gitignored, so never
+        # committed) -- checking the bare path would false-FAIL there.
+        if git check-ignore -q "$d/.probe" 2>/dev/null; then
+            echo -e "${GREEN}PASS${NC} $d is gitignored"
+        else
+            echo -e "${RED}FAIL${NC} $d is NOT gitignored — real client data could leak to the public repo. Fix .gitignore."
+            ((ISSUES++))
+        fi
+    done
+else
+    echo "Not a git repository, skipping (this check needs git check-ignore)"
+fi
+echo ""
 
 echo "Validating skills against the Agent Skills frontmatter contract"
 echo "================================================================"
@@ -37,7 +65,7 @@ for skill_dir in "$SKILLS_DIR"/*/; do
         continue
     fi
 
-    name_in_file=$(echo "$frontmatter" | grep "^name:" | sed 's/^name: //' | tr -d ' ')
+    name_in_file=$(echo "$frontmatter" | grep "^name:" | sed -E 's/^name:[[:space:]]*//' | tr -d ' ')
     if [[ -z "$name_in_file" ]]; then
         errors+=("missing 'name' field")
     elif [[ "$name_in_file" != "$skill_name" ]]; then
@@ -46,7 +74,7 @@ for skill_dir in "$SKILLS_DIR"/*/; do
         errors+=("invalid name format: '$name_in_file'")
     fi
 
-    description=$(echo "$frontmatter" | grep "^description:" | head -1 | sed 's/^description: //')
+    description=$(echo "$frontmatter" | grep "^description:" | head -1 | sed -E 's/^description:[[:space:]]*//')
     desc_len=${#description}
     if [[ -z "$description" ]]; then
         errors+=("missing 'description' field")

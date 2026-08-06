@@ -12,15 +12,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Local layout check
         run: ./validate-skills.sh
 
       - name: README/skills docs sync check
         run: ./scripts/check-docs-sync.sh
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      - name: Content leak/injection scan
+        run: python3 scripts/scan-content.py
+
+      - name: Validator fixture tests
+        run: ./tests/run-checks-tests.sh
 
       # skills-ref isn't published to PyPI — install from source, pinned
       # to a commit so upstream changes can't silently break CI.

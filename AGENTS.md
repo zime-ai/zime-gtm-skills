@@ -54,11 +54,32 @@ reference chains.
 ```bash
 ./validate-skills.sh                        # local, seconds, zero deps
 ./scripts/check-docs-sync.sh                # README count/table vs skills/, zero deps
+python3 scripts/scan-content.py             # content-level leak/injection scan, zero deps
 ```
 
 CI additionally runs the upstream spec's `skills-ref validate` on every PR,
 pinned to a commit (see `.github/workflows/validate.yml`) since it isn't
 published to PyPI.
+
+`tests/run-checks-tests.sh` runs the above three against deliberately broken
+fixtures (missing frontmatter, un-ignored private dirs, a leaked home path,
+an injection pattern, ...) so a CI failure has been shown to actually catch
+something, not just assumed to. Run it after touching any validator.
+
+## Rule registry
+
+Every automated check enforces a named rule, so a CI failure line points at
+what to fix, not just which script ran.
+
+| Rule ID | Enforced by |
+|---|---|
+| `frontmatter-contract` | `validate-skills.sh` — name/description/dimension/line-count |
+| `private-data-ignored` | `validate-skills.sh` — `evals/{transcripts,gt,cases,labels}` stay gitignored |
+| `readme-in-sync` | `scripts/check-docs-sync.sh` |
+| `no-home-paths` | `scripts/scan-content.py` — no `/Users/<name>` or `C:\Users\<name>` in tracked files |
+| `no-injection` | `scripts/scan-content.py` — no prompt-injection patterns in `skills/*/SKILL.md` or `references/` |
+| `no-hidden-unicode` | `scripts/scan-content.py` — no zero-width/bidi-override/homoglyph chars |
+| `no-client-names` | `scripts/scan-content.py` — local-only, needs a gitignored `.private/client-denylist.txt`; skips (not a failure) when that file is absent, including in CI |
 
 ## The two hard content rules
 
