@@ -17,4 +17,4 @@
     tier: happy-path # happy-path | missing-context | ambiguous | adversarial -- see MAINTAINING.md
   assert:
     - type: python
-      value: file://evals/framework/judge.py
+      value: file://framework/judge.py

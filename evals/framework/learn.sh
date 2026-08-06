@@ -81,8 +81,14 @@ python3 -c "
 import json, re, sys
 learnings_path, ledger, skill, run_dir, recorded_at = sys.argv[1:6]
 text = open(learnings_path).read()
-# one proposal per top-level list item ('1. ...', '- ...')
-items = [l.strip() for l in text.splitlines() if re.match(r'^\s*(\d+\.|-)\s+\S', l)]
+# One proposal per ranked item. The isolated session renders 'a ranked list'
+# as either a plain numbered list ('1. ...') or numbered headers
+# ('## 1. ...') with prose/sub-bullets underneath -- seen both in practice.
+# Only match a line starting with 'N.', not a bare '-' bullet: a '-' inside
+# an item's body (a sub-point, not a new ranked item) would otherwise get
+# split out as its own spurious proposal.
+items = [re.sub(r'^#+\s*', '', l).strip() for l in text.splitlines()
+         if re.match(r'^#*\s*\d+\.\s+\S', l)]
 if not items:
     sys.exit(0)
 existing_ids = set()
