@@ -26,6 +26,19 @@ TEXT_EXTENSIONS = {
     ".csv", ".mjs", ".cjs",
 }
 
+# tests/run-checks-tests.sh deliberately writes trigger examples (a fake
+# leaked home path, an injection pattern, ...) into *its own* fixture-
+# building source, not just into scratch tmpdirs -- so this scanner would
+# otherwise flag the test harness for doing its job. Mirrors ECC's
+# docs/fixes exemption for the same reason: intentional trigger text in a
+# test/fixture file isn't a real leak.
+PATH_EXEMPT_PREFIXES = ("tests/",)
+
+
+def is_exempt(rel_path):
+    rel_str = str(rel_path).replace("\\", "/")
+    return rel_str.startswith(PATH_EXEMPT_PREFIXES)
+
 # --- rule: no-home-paths ----------------------------------------------------
 # ECC's validate-no-personal-paths.js rule, ported: flag a real absolute
 # home directory path, allow the placeholder forms docs use.
@@ -160,6 +173,8 @@ def main():
         except (UnicodeDecodeError, OSError):
             continue
         rel = path.relative_to(repo_root)
+        if is_exempt(rel):
+            continue
 
         if "no-home-paths" in rules:
             for lineno, match in find_home_paths(path, text):

@@ -76,9 +76,6 @@ Ceiling notes.
 
 </details>
 EOF
-    # git's trailing-slash gitignore patterns only match existing
-    # directories, so these need to actually exist for check-ignore to work.
-    mkdir -p "$dir/evals/transcripts" "$dir/evals/gt" "$dir/evals/cases" "$dir/evals/labels"
     ( cd "$dir" && git init -q && printf 'evals/transcripts/\nevals/gt/\nevals/cases/\nevals/labels/\n' > .gitignore )
 }
 
@@ -218,7 +215,7 @@ echo "-- scripts/scan-content.py --"
 expect_exit_contains "real repo passes" 0 "Clean" $SCAN_CONTENT "$REPO_ROOT"
 
 T=$(mktemp -d); ( cd "$T" && git init -q )
-echo "See /Users/atharvadiwan/notes" > "$T/scratch.md"
+echo "See /Users/alice/notes" > "$T/scratch.md"
 ( cd "$T" && git add -A )
 expect_exit_contains "real home path fails" 1 "no-home-paths" $SCAN_CONTENT "$T" --rule no-home-paths
 rm -rf "$T"

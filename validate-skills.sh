@@ -25,7 +25,11 @@ echo "================================================================"
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     PRIVATE_DIRS=(evals/transcripts evals/gt evals/cases evals/labels)
     for d in "${PRIVATE_DIRS[@]}"; do
-        if git check-ignore -q "$d" 2>/dev/null; then
+        # Probe a nested path, not the bare dir: a trailing-slash gitignore
+        # pattern only matches an existing directory, and these dirs never
+        # exist in a fresh CI checkout (they're gitignored, so never
+        # committed) -- checking the bare path would false-FAIL there.
+        if git check-ignore -q "$d/.probe" 2>/dev/null; then
             echo -e "${GREEN}PASS${NC} $d is gitignored"
         else
             echo -e "${RED}FAIL${NC} $d is NOT gitignored — real client data could leak to the public repo. Fix .gitignore."
