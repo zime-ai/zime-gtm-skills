@@ -83,6 +83,15 @@ Every artifact lands in `evals/runs/<timestamp>/` as a plain file (session
 logs, `verdicts/`, `results.json` included), not chat-only. Requires ground
 truth in `evals/gt/` first — see `evals/gt/README.md`.
 
+Every run also appends a row per case to `evals/runs.jsonl` (gitignored) —
+the persistent run log. `evals/framework/status.sh` prints last run + delta
+per skill from it. `--learn` seeds `evals/amendments.jsonl` (gitignored) with
+proposed rubric fixes as `pending`; `evals/framework/amend.sh <id>
+applied|rejected "<note>"` decides one, and decided ids stop getting
+re-proposed. Deliberately not a 7d/30d trend dashboard — there's one skill's
+worth of run history so far, and a trend line over that would be theater.
+See `evals/framework/README.md`'s "Run log and amendments ledger".
+
 ### Tier 1: trigger evals (automated)
 
 Does the *right* skill fire for a given prompt? With 16 skills now in the

@@ -53,7 +53,7 @@ npx --yes "$PROMPTFOO_VERSION" eval \
   -o "$RUN_DIR/results.json" -o "$RUN_DIR/results.csv"
 
 echo ""
-python3 evals/framework/summarize.py "$RUN_DIR/results.json" "$REPO_ROOT/evals/baseline-$SKILL.json"
+python3 evals/framework/summarize.py "$RUN_DIR/results.json" "$REPO_ROOT/evals/baseline-$SKILL.json" "$SKILL"
 echo ""
 echo "-> $RUN_DIR/{results.json,results.csv,gaps-$SKILL-*.md}"
 

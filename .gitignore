@@ -14,4 +14,8 @@ evals/labels/
 evals/baseline-*.json
 evals/runs/*
 !evals/runs/2026-07-28-cyber-pain-finder-prior/
+# Run log + amendments ledger: case-level scores and rubric-fix proposals
+# derived from the private data above. Gitignored for the same reason.
+evals/runs.jsonl
+evals/amendments.jsonl
 __pycache__/

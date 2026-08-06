@@ -62,6 +62,31 @@ Run it whenever you add a case, and whenever `judge.py`'s `JUDGE_PROMPT_TEMPLATE
 or `RUBRIC_VERSION` changes — a judge/rubric swap is a calibration event, not a
 free pass.
 
+## Run log and amendments ledger
+
+Every `eval.sh` run appends one row per case to `evals/runs.jsonl`
+(gitignored, private -- see "Data privacy" below): skill, case, rubric
+version, judges, and the four `namedScores`. `evals/framework/status.sh`
+reads it and prints, per skill, the last run's `field_recall` and the delta
+vs. the previous run for that skill. Not a 7d/30d trend table -- there isn't
+enough run history yet for one to mean anything.
+
+`--learn` also seeds `evals/amendments.jsonl` (gitignored) with one `pending`
+row per proposal in `learnings.md`. Decide on one with:
+
+```bash
+evals/framework/amend.sh A-001 applied "tightened quote-per-finding rule"
+evals/framework/amend.sh A-002 rejected "not a rubric issue, judge miscounted"
+```
+
+Both are appends, latest row per id wins, no rewrite path. The next
+`--learn` run reads the ledger and won't re-propose anything already
+`applied` or `rejected` for that skill. When a proposal ships, the fix
+commit for the skill references the amendment id
+(`fix(pain-finder): require a quote per finding -- amendment A-014`) --
+the commit log is the public, sanitized record; no client evidence crosses
+into it.
+
 ## Adding a case
 
 1. Drop a transcript at `evals/transcripts/<name>.txt`.
@@ -85,8 +110,9 @@ free pass.
 ## Data privacy
 
 `evals/transcripts/`, `evals/gt/`, `evals/cases/`, `evals/labels/`,
-`evals/baseline-*.json`, and `evals/runs/*` (except the one pre-existing public
-demo run) are all gitignored — real client names and deal details live in
-several of these. Only `evals/framework/*`, `evals/promptfooconfig.yaml`, and
-`evals/cases.example.yaml` are public. `./validate-skills.sh` checks the
-`.gitignore` entries are still in place.
+`evals/baseline-*.json`, `evals/runs/*` (except the one pre-existing public
+demo run), `evals/runs.jsonl`, and `evals/amendments.jsonl` are all
+gitignored — real client names, deal details, and rubric-fix proposals
+derived from them live in several of these. Only `evals/framework/*`,
+`evals/promptfooconfig.yaml`, and `evals/cases.example.yaml` are public.
+`./validate-skills.sh` checks the `.gitignore` entries are still in place.

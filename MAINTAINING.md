@@ -172,6 +172,15 @@ that are maintainer-run, not part of the everyday `eval.sh` loop:
   after any change to `judge.py`'s rubric/model — a judge swap without
   re-calibrating against a human-labeled set is exactly the drift `EVALS.md`
   warns about.
+- **Amendment lifecycle.** `--learn` seeds `evals/amendments.jsonl`
+  (gitignored) with `pending` proposals. Decide each with
+  `evals/framework/amend.sh <id> applied|rejected "<note>"` — both are
+  appends, latest row per id wins. When you actually apply a fix to a
+  skill's `SKILL.md`/references, reference the amendment id in that commit
+  message (`fix(pain-finder): require a quote per finding — amendment
+  A-014`): the commit log is the sanitized, public record of what changed
+  and why, with no client evidence in it. `evals/framework/status.sh` shows
+  each skill's pending-amendment count alongside its last run.
 
 ## Deferred work (on hold by decision, not forgotten)
 
