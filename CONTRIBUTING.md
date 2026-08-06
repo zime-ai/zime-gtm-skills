@@ -35,6 +35,13 @@ Opening a PR for a new skill or a skill update? The default PR template
 covers both; for the fuller per-case checklist see
 `.github/PULL_REQUEST_TEMPLATE/new-skill.md` or `skill-update.md`.
 
+When writing the PR description: write each paragraph or bullet as one
+physical line, however long. GitHub renders a single newline in a PR body
+as a hard line break, unlike standard markdown where it'd soft-wrap — a
+paragraph hard-wrapped at your editor's line length shows up as several
+short stub lines instead of flowing to the box width. Let your editor
+soft-wrap on display; don't insert real newlines mid-paragraph.
+
 ## Sample data
 
 If your PR includes a sample transcript, deal export, or any other example
