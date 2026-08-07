@@ -28,9 +28,8 @@ Also ships:
   that proves each one actually catches what it claims to.
 - A Claude Code plugin (`/plugin marketplace add zime-ai/zime-gtm-skills`),
   alongside clone-and-copy and git-submodule install paths.
-- `EVALS.md`'s three-tier eval methodology, and a worked example
-  (`evals/runs/2026-07-28-cyber-pain-finder-prior/`) comparing a skill-aided
-  run against an unaided one.
+- `EVALS.md`'s three-tier eval methodology, and a worked example comparing
+  a skill-aided run against an unaided one.
 - `CONTRIBUTING.md` / `MAINTAINING.md` documenting the full skill-authoring,
   review, and landing process, and the IP boundary on what's fair to draw
   from Zime's own product.
