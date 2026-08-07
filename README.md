@@ -1,5 +1,7 @@
 # zime-gtm-skills
 
+![zime-gtm-skills](.github/images/social-preview-cropped.png)
+
 [![Skills](https://img.shields.io/badge/skills-16-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
