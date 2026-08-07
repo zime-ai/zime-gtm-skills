@@ -7,12 +7,12 @@ plus 2 ported from the TrueFoundry pre-POC deck (KPI funnel at slide 9, the
 
 | # | Slide | Varies | Fixed |
 |---|---|---|---|
-| 1 | Title | `CLIENT`, `CLIENT_SHORT` | layout, subtitle copy |
+| 1 | Title | `CLIENT`, `CLIENT_SHORT`, `DECK_TITLE_LINE1`, `DECK_TITLE_LINE2`, `DECK_SUBTITLE` (last 3 depend on deck type — see SKILL.md step 1) | layout |
 | 2 | "What does {{CHAMPION_FIRST}} want to drive?" | `CHAMPION_FIRST`, `CHAMPION_GOAL` (verbatim) | initiative chip catalogue |
 | 3 | Current blockers (fixed at 3) | `BLOCKER_1..3_{TITLE,DESC}` | "CURRENT BLOCKERS" label, numbering |
 | 4 | Root cause | `INITIATIVE_NAME`, `RUBRIC_NAME`, `ROOT_CAUSE_1..2` | "×10+ products..." framing |
 | 5 | Impact / risk tiles (fixed at 4) | `RISK_HEADLINE`, `RISK_1..4_{LABEL,STAT,DESC}` | tile layout |
-| 6 | Champion quote + immediate needs (fixed at 5; **optional** — drop for decks with no champion quote yet) | `CHAMPION_QUOTE`, `CHAMPION_TITLE`, `NEED_1..5_{TITLE,DESC}` | — |
+| 6 | Champion quote + immediate needs (fixed at 5; **optional** — drop for decks with no champion quote yet) | `CHAMPION_QUOTE`, `CHAMPION_TITLE`, `CHAMPION_FIRST_UPPER` (header reads "{{CHAMPION_FIRST_UPPER}}'S IMMEDIATE NEED"), `NEED_1..5_{TITLE,DESC}` | — |
 | 7 | "You have two options. Pick one" | — | fully fixed |
 | 8 | Introducing | `STEP1_SUBTITLE`, `STEP2_TITLE` | "Step 1 - Build your best practices" |
 | 9 | KPI funnel (ported from TrueFoundry; **pre-POC decks only**, drop otherwise) | `CLIENT_TOOLS`, `KPI_*_LINE` | "You have data & insights..." |
@@ -36,6 +36,15 @@ plus 2 ported from the TrueFoundry pre-POC deck (KPI funnel at slide 9, the
 
 ## Known limitations
 
+- **Slide 1 title and slide 6 header used to be baked-in literal copy from
+  the Astra POC-review source deck** ("POC DAY 7 REVIEW" and "SURAJ'S
+  IMMEDIATE NEED"), not tokens — so any deck built with the other deck type,
+  or any champion who isn't literally named Suraj, silently got the wrong
+  title/header with no error from `fill.py`. Fixed by tokenizing both
+  (`DECK_TITLE_LINE1/2`, `DECK_SUBTITLE`, `CHAMPION_FIRST_UPPER`) — see
+  rows 1 and 6 above. If a future template swap reintroduces literal text
+  from whichever deck it was last filled from, `tokens.py`'s slide-1/6
+  output going token-free again is the tell.
 - **Slide 10 diagram** — only `NEED_5_TITLE` is tokenized (it happens to
   repeat verbatim from slide 6 in both source decks). The rest of the
   diagram's box labels ("Sales Strategy", "MQLs", "Commercials and Terms")

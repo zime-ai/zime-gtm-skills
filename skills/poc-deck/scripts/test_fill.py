@@ -12,7 +12,7 @@ from fill import fill
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "..", "assets", "template.pptx")
-SPEC = os.path.join(HERE, "..", "examples", "astra_deck_spec.json")
+SPEC = os.path.join(HERE, "..", "examples", "deck_spec.example.json")
 OUT = "/tmp/poc_deck_test_out.pptx"
 
 

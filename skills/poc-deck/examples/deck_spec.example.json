@@ -7,7 +7,12 @@
     "CLIENT_SHORT_UPPER": "ASTRA",
     "CLIENT_UPPER": "ASTRA SECURITY",
 
+    "DECK_TITLE_LINE1": "POC DAY 7 REVIEW",
+    "DECK_TITLE_LINE2": "Building Astra’s Sales Execution System",
+    "DECK_SUBTITLE": "Based on past won deals and industry best practices",
+
     "CHAMPION_FIRST": "Suraj",
+    "CHAMPION_FIRST_UPPER": "SURAJ",
     "CHAMPION_TITLE": "Director of Sales",
     "CHAMPION_GOAL": "To have a Inbound system that will get to 30% conversion on 350 MQLs per month",
     "CHAMPION_QUOTE": "“I want to run inbound like a machine”",
@@ -49,7 +54,7 @@
     "NEED_5_TITLE": "Consistent Qualification",
     "NEED_5_DESC": "One bar, every rep",
 
-    "STEP1_SUBTITLE": "Learns what makes you winat Discovery & Qualification",
+    "STEP1_SUBTITLE": "Learns what makes you win at Discovery & Qualification",
     "STEP2_TITLE": "Step 2 - Apply it to every deal",
 
     "METRIC_PRODUCTIVITY": "10X",

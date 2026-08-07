@@ -18,8 +18,17 @@ Ask if not stated:
 
 - **Pre-POC proposal** — ends in the 3-week POV plan (slide 20) and the KPI
   funnel (slide 9). `drop_slides` should NOT include 9 or 20.
+  `DECK_TITLE_LINE1`: `"Helping {{CLIENT}} Scale"`, `DECK_TITLE_LINE2`:
+  `"Without Losing Context"`, `DECK_SUBTITLE`: `"Prepared for {{CLIENT}}  ·
+  Confidential"` (repeats the slide's own footer — no cleaner source exists).
 - **POC review / close** — ends in demo screens + next steps.
-  `drop_slides: [9, 20]`.
+  `drop_slides: [9, 20]`. `DECK_TITLE_LINE1`: `"POC DAY 7 REVIEW"`,
+  `DECK_TITLE_LINE2`: `"Building {{CLIENT_SHORT}}'s Sales Execution
+  System"`, `DECK_SUBTITLE`: `"Based on past won deals and industry best
+  practices"`.
+
+The title slide (slide 1) is the one place fixed copy changes per deck
+type — set the three tokens above per type, don't reuse one set for both.
 
 Also drop slide 27 (FAINT rubric appendix) if the chosen initiative isn't
 qualification — it's Zime's qualification-specific methodology, not generic.
@@ -28,6 +37,8 @@ qualification — it's Zime's qualification-specific methodology, not generic.
 
 1. **Champion** — name, title, and their goal **verbatim** from a
    transcript. Quote it, don't paraphrase, and note which call it's from.
+   Set both `CHAMPION_FIRST` and `CHAMPION_FIRST_UPPER` (slide 6's header
+   uses the uppercase form).
 2. **Chosen initiative** — one from the catalogue on slide 12 (discovery,
    qualification, expansion, cross-sell, churn, POC success, ...). Drives
    `INITIATIVE_NAME`, `RUBRIC_NAME`, and the rubric appendix choice above.
@@ -65,7 +76,7 @@ Fixed-copy voice rules: `references/copy-patterns.md`.
 ## 4. Run it
 
 1. Write a `deck_spec.json` (schema and example in
-   `scripts/fill.py`'s docstring and `examples/astra_deck_spec.json`).
+   `scripts/fill.py`'s docstring and `examples/deck_spec.example.json`).
 2. `python3 scripts/tokens.py` if unsure which tokens the template currently
    needs — it's the live source of truth, not this file.
 3. `python3 scripts/fill.py deck_spec.json out.pptx`
