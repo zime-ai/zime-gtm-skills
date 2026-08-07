@@ -1,14 +1,10 @@
 # zime-gtm-skills
 
-![zime-gtm-skills](.github/images/social-preview-cropped.png)
-
-<p align="center">
-<a href="skills/"><img src="https://img.shields.io/badge/skills-16-blue" alt="Skills"></a>
-<a href="https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml"><img src="https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg" alt="validate"></a>
-<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-black.svg" alt="License: MIT"></a>
-<a href="https://agentskills.io"><img src="https://img.shields.io/badge/spec-agentskills.io-informational" alt="Agent Skills spec"></a>
-<a href="https://zime.ai"><img src="https://img.shields.io/badge/by-zime.ai-000000" alt="Zime"></a>
-</p>
+[![Skills](https://img.shields.io/badge/skills-16-blue)](skills/)
+[![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
+[![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
+[![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
 here. 16 [Agent Skills](https://agentskills.io) that audit sales call
