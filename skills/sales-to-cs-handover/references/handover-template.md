@@ -46,8 +46,8 @@ in generated output.
 - [ ] Playbook resources (Tribal knowledge / Existing playbooks / QBR and onboarding SOPs if any)
 - [ ] Decision maker name, role, and Day 14 demo slot confirmed
 - [ ] Champion name and seniority confirmed
-- [ ] Company Drive folder created and shared with AV and Sajan (add all client-related documents/sheets in the folder)
-- [ ] Slack channel created and AV and Sajan added
+- [ ] Company Drive folder created and shared with {current ops contacts} (add all client-related documents/sheets in the folder)
+- [ ] Slack channel created and {current ops contacts} added
 - [ ] What NOT to do list completed — client sensitivities documented
 - [ ] At least one open question or risk flagged for CS (or explicitly confirmed as none)
 
@@ -252,6 +252,10 @@ gap only exists inside the numbered template.
 
 ## Reconciliation notes
 
+- "{current ops contacts}" was "AV and Sajan" (literal names) in both
+  samples — templatized since who's on ops rotation isn't a per-deal fact
+  and will go stale the moment either person's role changes; ask who's
+  current before filling.
 - Checklist item "Playbook resources (Tribal knowledge / Existing
   playbooks / QBR and onboarding SOPs if any)" is TrueFoundry-only in the
   samples; kept in the canonical checklist since it's a superset union, not

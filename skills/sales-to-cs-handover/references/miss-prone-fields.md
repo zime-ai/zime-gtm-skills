@@ -33,7 +33,11 @@ what's *said*.
 
 ## Persona vocabulary — motivation vs. posture, personal vs. org-level
 
-Both samples do this well; use them as the calibration.
+Both samples do this well; use them as the calibration. Copy the
+*structure* (personal want, sourced to what that person said), not the
+tool names or domain — "Fireflies," "manual review," "pentesting" etc.
+below are what those specific stakeholders said, not defaults to reuse for
+an unrelated client's tools.
 
 | Bad (org-level want / adjective) | Good (personal want / behavioral instruction) | Source |
 | --- | --- | --- |

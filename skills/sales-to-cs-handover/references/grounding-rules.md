@@ -22,6 +22,10 @@ this list without asking; consistency matters more than expressiveness here.
 
 ## Fields requiring a provenance note (append after the value)
 
+Examples below are Astra's actual filled values, shown to demonstrate the
+*note style* — copy the phrasing pattern, not the domain (pentesting,
+MeetGeek) or the tool names, which are specific to that deal.
+
 | Field | Note required | Example |
 | --- | --- | --- |
 | "What they do" (§2) | Source only from the pasted transcripts. If no transcript states it, use `TBC` — never web search or prior knowledge to fill it. The one sample exception (Astra's public-info note) reflects a manual step the AE took outside this skill's scope, not a sourcing path this skill should take on its own. | Astra: "...continuous penetration testing... *Note: from public information, not from either call.*" — that note-style is what to reuse only if the user explicitly supplies outside research as a pasted source; the skill itself never goes looking for it. |
