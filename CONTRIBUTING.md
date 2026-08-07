@@ -39,6 +39,10 @@ Opening a PR for a new skill or a skill update? The default PR template
 covers both; for the fuller per-case checklist see
 `.github/PULL_REQUEST_TEMPLATE/new-skill.md` or `skill-update.md`.
 
+PR-Agent's automated `/review` only runs on PRs from branches of this repo —
+GitHub withholds secrets from fork PRs, so it can't run there. A PR from a
+fork gets maintainer review instead, same bar, just a human doing it.
+
 When writing the PR description: write each paragraph or bullet as one
 physical line, however long. GitHub renders a single newline in a PR body
 as a hard line break, unlike standard markdown where it'd soft-wrap — a

@@ -3,6 +3,9 @@
 PLAN.md
 .tmp/
 
+# Local-only maintainer skills and per-machine settings -- never public.
+.claude/
+
 # Real client data — transcripts, ground truth, hand labels, cases that
 # reference them, and any eval run output derived from them (company names,
 # deal details, real people). Never public. Only evals/framework/* (the
@@ -13,7 +16,6 @@ evals/cases/
 evals/labels/
 evals/baseline-*.json
 evals/runs/*
-!evals/runs/2026-07-28-cyber-pain-finder-prior/
 __pycache__/
 
 # scripts/scan-content.py's client-name denylist: real client/person names,

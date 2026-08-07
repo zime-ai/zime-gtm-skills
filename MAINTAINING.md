@@ -23,26 +23,11 @@ already has**: call transcripts and CRM exports, never a live connection.
 ## The rubric-authoring flow
 
 Each skill's rubric is grounded in Zime's internal initiative/checklist
-taxonomy (curated call-quality question sets, refined across many real
-client engagements). Checklist question text is customer-visible in the Zime
-product and is fine to draw on directly — see "The IP boundary" below for
-what's still off-limits. The process for turning a motion into a public
-rubric:
-
-1. Pull the target motion's checklist titles and question text from the
-   internal taxonomy.
-2. Drop items that recur across most motions (~10 generic-core titles:
-   things like general feedback capture, active-listening notes, call
-   summary, next-meeting logistics, objection logging, action items), since
-   these make every motion look the same and add no distinguishing content.
-   Keep them only where genuinely load-bearing for that specific motion.
-3. Keep the **distinctive** items: the ones specific to this motion.
-4. **Write each surviving item up as a full rubric dimension**: what the
-   dimension is, what good coverage looks like, what a miss looks like.
-   Question text can be reused as-is or adapted; the surrounding rubric prose
-   (the "what good/miss looks like" framing) is still written fresh for this
-   repo, not copy-pasted from internal scoring guides.
-5. Drop junk/orphaned entries.
+taxonomy: customer-visible checklist question text (see "The IP boundary"
+below for what's still off-limits), pruned down to the items distinctive to
+that motion, then written up fresh as a full rubric dimension — what it is,
+what good coverage looks like, what a miss looks like. The prose framing is
+never copy-pasted from an internal scoring guide.
 
 ## The IP boundary, and how it's enforced
 
@@ -93,13 +78,9 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   `skills-ref` CI validator both iterate `skills/*/`, and the README's
   `cp -r skills/* .agents/skills/` install line would copy the nesting dirs
   as if they were skills themselves.
-- Zime's internal taxonomy has 31 initiatives. 15 are covered once the 11
-  stage skills (each named after and scoped to one initiative) are counted
-  alongside the 4 initiative skills. The other 16, mostly named
-  methodologies (MEDDPICC, FAINT, Sandler, Challenger, Sell the Dream, SQL to
-  Qualify, Persona-based discovery, POC success, and others), are not
-  built. This was a deliberate proof-set decision, not an oversight; expand
-  it the same way the first 4 were built (Part 2 of the restructure plan).
+- This 16-skill set is a deliberate proof-set, not the full catalogue —
+  several named methodologies aren't built yet, see the README's Roadmap.
+  Expand it the same way the first 4 initiative skills were built.
 
 ## Verification state, honestly
 
@@ -129,13 +110,11 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   (not the rubric author) gold-labeling sample transcripts. See `EVALS.md`
   for the full methodology and why this tier can't be automated.
 
-`skills/*/evals/evals.json` exist for all 16 skills. Schema was fixed this
-pass: they previously used `assertions` (the harness reads `expectations`)
-and repo-root-relative `files` paths (the harness wants skill-root-relative),
-so **none of the original 11 had ever actually been runnable** before now.
-Every eval also now carries at least one expectation a
-format-compliant-but-shallow output would fail, per `EVALS.md`'s
-falsifying-expectation rule. They remain declarative, not run in CI.
+`skills/*/evals/evals.json` exist for all 16 skills, using `expectations`
+(not `assertions`) with skill-root-relative `files` paths. Every eval carries
+at least one expectation a format-compliant-but-shallow output would fail,
+per `EVALS.md`'s falsifying-expectation rule. They remain declarative, not
+run in CI.
 
 Full eval methodology, the format-vs-insight distinction, and the tier
 structure now live in `EVALS.md`. Read that before adding or changing any
@@ -143,12 +122,9 @@ eval, not just this section.
 
 ## Deferred work (on hold by decision, not forgotten)
 
-- **Plugin manifest + distribution**: reversed at public launch.
-  `.claude-plugin/plugin.json` + `marketplace.json` now ship (`/plugin
-  marketplace add zime-ai/zime-gtm-skills`). The original reasoning (wait
-  for organic traction) held while the repo was private; a launch-day repo
-  needs a one-line install path more than it needs to wait. `npx skills add`
-  support is still deferred.
+- **`npx skills add` support**: the Claude Code plugin path
+  (`.claude-plugin/plugin.json` + `marketplace.json`) already ships; this
+  alternate install path is still deferred.
 - **Running the evals in CI**: turn `evals/evals.json` from a spec into an
   actual check, likely by invoking each skill against its eval prompts with
   a small harness and comparing against the expectations.
@@ -243,6 +219,10 @@ Actions), and since this is a public repo, confirm "Require approval for all
 outside collaborators" is on for fork PRs, otherwise a malicious fork PR can
 run the workflow against that secret unapproved.
 
+Fork PRs never see the secret regardless (GitHub withholds it), so the job's
+`if:` skips them outright rather than running and failing. See
+`CONTRIBUTING.md` — fork PRs get maintainer review instead.
+
 ## Landing a skill on main
 
 "Building skills at scale" above covers writing and validating a skill.
@@ -277,15 +257,11 @@ repo metadata) once the relevant safety gate has passed (`./validate-skills.sh`
 at minimum; for skill content, the create-validate-iterate loop above). This
 is narrower than it sounds: **merging a PR into `main` stays a human decision**
 via PR review (`CONTRIBUTING.md` + the automated PR-Agent pass), not something
-Claude does itself. This is a deliberate exception to the workspace-wide rule
-in the other four Zime repos, where a bad push is costly in a way it isn't
-here. See the workspace `zime-worktree` skill for that rule and why it's
-tighter there.
+Claude does itself.
 
 `git commit --author=` still applies, no `Co-Authored-By: Claude` trailer,
 ever. `scripts/pr-prep.sh` enforces both mechanically before any push.
 
-**Never push `internal_skills`.** It holds work that must not be public
-(the build/launch plan, product-coupled skill drafts, internal decks).
+**Never push `internal_skills`.** It holds work that must not be public.
 Branches are as world-readable as `main` on a public repo, so parking WIP on
 a branch does not hide it. Keep it local only.

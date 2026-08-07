@@ -15,7 +15,11 @@ permissions:
 
 jobs:
   pr_agent:
-    if: ${{ github.event.pull_request.draft == false && github.event.sender.type != 'Bot' }}
+    # Same-repo only: fork PRs never see secrets.ANTHROPIC_KEY (GitHub
+    # withholds it), so the run would just fail. Skip cleanly instead of
+    # burning a failing run -- fork PRs get maintainer review, not bot
+    # review, see CONTRIBUTING.md.
+    if: ${{ github.event.pull_request.draft == false && github.event.sender.type != 'Bot' && github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
     steps:
       - name: PR Agent

@@ -12,9 +12,8 @@ expectations, run the skill, and grade the output. But if the same person
 a 100% pass rate proves nothing: the transcript was written to contain
 exactly what the rubric hunts for.
 
-A prior benchmark run against an early `pain-finder` draft (kept at
-`evals/runs/2026-07-28-cyber-pain-finder-prior/`, see its own README) showed
-`1.0` vs `0.51` pass rate with/without the skill. Read closely, 4 of its 5
+A prior benchmark run against an early `pain-finder` draft (run output not
+retained) showed `1.0` vs `0.51` pass rate with/without the skill. Read closely, 4 of its 5
 expectations checked *format* (was a category tag present, was a confidence
 line present, was a quote present) and only one checked substance. The
 benchmark's own analyzer said as much: the underlying model already finds
