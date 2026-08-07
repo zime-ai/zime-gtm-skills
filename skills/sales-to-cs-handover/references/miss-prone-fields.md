@@ -48,6 +48,20 @@ yes, it's org-level, not personal — rewrite from what that specific person
 said. The test for "CS posture": does it tell CS what to *do* the next time
 they talk to this person? If it only describes a vibe, add the instruction.
 
+## §8 "Marching orders for CS" — differentiation test
+
+§8's four fields are easy to conflate the same way persona's Motivation/CS
+posture are — a "focus first" item, a "first interaction" item, and a
+"chase" item can all plausibly restate the same underlying fact. Test each
+before placing it:
+
+| Field | Test |
+| --- | --- |
+| "What CS and FDE should focus on first" | A work-item CS should prioritize — typically a Zime-owed action item (see the insight-export routing map below) |
+| "Key things to do in the first client interaction" | A behavior/tone instruction specific to the *first* call, not a standing priority |
+| "Key things NOT to do or say — client sensitivities" | A do-not instruction tied to a specific person or topic named in a source |
+| "Open questions / Objections / Blockers … CS to chase" | A still-open question/objection Sales couldn't close — overlaps with §9 by design, per the reconciliation notes in `handover-template.md` |
+
 ## Insight-export routing map
 
 When a pasted source is a Zime insight export (structured Call summary /

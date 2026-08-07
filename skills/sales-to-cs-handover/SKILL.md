@@ -39,8 +39,11 @@ would miss. For each field:
 
 1. Search the inventoried sources for evidence.
 2. If found, fill it and note which source(s) it came from (informal tracking
-   for your own accuracy — the output doc itself does not carry citations,
-   matching both samples).
+   for your own accuracy). If that call has a recording URL (a raw
+   transcript's own `𝐙𝐢𝐦𝐞 𝐫𝐞𝐜𝐨𝐫𝐝𝐢𝐧𝐠:` line, or an insight export's per-item
+   evidence URL), cite it per `grounding-rules.md`'s citation rule — this is
+   new behavior the astra/truefoundry ground-truth samples predate, so don't
+   flag a mismatch against them on this point.
 3. If not found, apply the correct unknown marker from `grounding-rules.md`.
    Never fill from web search, prior knowledge, or a "reasonable for this
    kind of company" guess, even if the result would read plausibly — a
@@ -49,16 +52,27 @@ would miss. For each field:
 4. If the field requires a provenance note (What they do; ROI they are
    targeting) apply it per `grounding-rules.md`.
 
+Before moving on, re-scan the filled template a second time, field by field,
+and confirm every `{placeholder}` was actually replaced — by evidenced text
+or by a marker from `grounding-rules.md`'s table. A field that is still
+empty or omitted at this point is a defect to fix now, not a gap to record
+later.
+
 **Done when:** every field in the template has either evidenced content or
 an unknown marker — none silently blank.
 
-## Step 3 — Close the four miss-prone areas
+## Step 3 — Close the five miss-prone areas
 
-These four are where filling opportunistically (Step 2) reliably falls
+These five are where filling opportunistically (Step 2) reliably falls
 short, confirmed independently by both a blind test run and the person who
-does this by hand today. Run all four explicitly, every time. Full detail
+does this by hand today. Run all five explicitly, every time. Full detail
 in `references/miss-prone-fields.md`; the rules themselves:
 
+- **Client context pass** — before finalizing §2, check off each of its five
+  fields individually (Client name and website; What they do; Sales
+  motion/Team size; Sales tools; Team structure): name the source line it
+  came from, or apply the correct marker per `grounding-rules.md` if
+  genuinely unaddressed. Never leave §2 after a single generic Step 2 pass.
 - **Roster pass** — before finalizing §3, list every human named anywhere in
   any source, including people mentioned but never present on a call. Each
   one gets a §3 row or is explicitly excluded with a reason.
@@ -84,9 +98,10 @@ in `references/miss-prone-fields.md`; the rules themselves:
   own systems) against the sources; every hit gets a line with a handling
   note, same as an objection.
 
-**Done when:** every named human is placed or excluded, all three roles are
-resolved or marked unidentified, every stakeholder's motivation/posture pair
-is personal/behavioral (not org-level/adjective), and §9 holds every
+**Done when:** every §2 field is checked off with a source or a marker,
+every named human is placed or excluded, all three roles are resolved or
+marked unidentified, every stakeholder's motivation/posture pair is
+personal/behavioral (not org-level/adjective), and §9 holds every
 answered-but-live objection plus every risk-checklist hit.
 
 ## Step 4 — Propose the acceptance checklist

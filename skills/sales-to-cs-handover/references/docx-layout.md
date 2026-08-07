@@ -47,6 +47,10 @@ re-derivation — don't re-summarize or reorder anything while converting.
   the live template's "chip" styling for these three fields specifically.
 - Open gaps block renders as a distinct callout-style table, matching its
   position directly under the CS-accepts row in the samples.
+- A trailing citation marker (see `grounding-rules.md`'s citation rule)
+  renders as a standard small hyperlink — blue, underlined, no pill/badge
+  (that styling is reserved for the three link fields above) — right after
+  the fact it points to, never on its own line.
 
 These hex values are read off the live Google Doc template by eye, not
 sourced from an official brand kit — close, not guaranteed pixel-exact.

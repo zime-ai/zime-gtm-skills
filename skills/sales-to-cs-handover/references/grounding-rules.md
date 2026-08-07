@@ -55,6 +55,54 @@ created, Slack channel created) are almost always unchecked from transcripts
 alone, since transcripts record conversations, not paperwork state — that's
 expected, not a skill failure.
 
+## Citing a fact back to its source call
+
+When a source carries a citable pointer — a raw transcript's own
+`𝐙𝐢𝐦𝐞 𝐫𝐞𝐜𝐨𝐫𝐢𝐧𝐝𝐢𝐧𝐠:` URL at the call header, or an insight export's per-item
+evidence URL — a fact pulled from it gets a trailing linked citation, not a
+bare parenthetical:
+
+- Raw transcript: link is the whole call's recording URL. Every fact drawn
+  from that call links to the same URL — coarse (call-level, not
+  timestamp-level), since that's the only pointer a raw transcript offers.
+- Insight export: link is that item's own evidence URL when present, finer
+  than the call-level link.
+- Placement: append after the fact as a small linked marker, e.g. "...absent
+  from every call since (08 Jun) \[[source](URL)\]" — the fact's own text
+  stays plain, matching the word-budget rules below; the marker is not a
+  second fact.
+- If a fact draws on more than one source, cite the first/primary one only —
+  don't stack links.
+- No pointer in the source (most raw transcripts without a recording URL,
+  and both existing ground-truth samples) → no citation at all. Never invent
+  one.
+
+**Fail-safe: default is no marker, not a broken one.** This is additive
+formatting on top of an otherwise-complete fact — a missing or malformed
+link must never take the fact down with it. Concretely:
+- A URL must be copied verbatim from the source, character for character.
+  Never construct, complete, or guess one from a partial ID, a call title,
+  or a pattern seen on another call ("this one's probably .../recordings/N+1").
+  If the copy would be uncertain, that's the same as no pointer — omit the
+  marker.
+- Never emit the `[source](...)` bracket/paren syntax with an empty, `TBC`,
+  or placeholder URL inside it — that renders as a dead link or literal
+  brackets in the doc, worse than the plain fact alone. If there's no real
+  URL, skip the whole marker, not just the URL portion.
+- One malformed or missing link on one fact is never a reason to withhold
+  the fact itself, blank the field, or fall back to an unknown marker
+  (`TBC`) — the fact still stands on its own evidence per the normal rules
+  above; the citation is strictly optional decoration on top of it.
+- When genuinely unsure whether something in a source is a real recording
+  URL (vs. a Drive link, a Slack link, or other artifact link meant for a
+  different field), treat it as not a citable pointer — false negative
+  (no citation) is always the safe failure, never a false positive (linking
+  to the wrong artifact).
+
+This is new behavior beyond the astra/truefoundry ground-truth samples,
+which predate this rule and carry zero citations — don't treat their
+absence of links as a mismatch to fix.
+
 ## Numeric / dated claims
 
 Every price, headcount, or date pulled into the doc must be traceable to a
@@ -83,6 +131,16 @@ in §9) is in `miss-prone-fields.md`.
 | One-line field (NDA status, pilot cohort, sales motion) | ~5–30 words | "7 reps" / "$99/user/month - TBD after negotiation" |
 | Narrative block (Primary pain, Key hooks, What CS should focus on first) | ~35–60 words | Astra's "Primary pain" cell is 27 words; TrueFoundry's is 34 |
 | Stakeholder table cell (Motivation, CS posture) | ~8–25 words | See `miss-prone-fields.md` persona table |
+
+§2's "Sales motion/Team size", "Sales tools", and "Team structure" describe
+the *client's* existing sales organization as stated on a call — not Zime's
+proposed process or the POC's own structure. Watch for the two getting
+mentioned in the same call and attributed to the wrong side.
+
+§4's "Primary pain" is easy to conflate with "Key hooks that landed" —
+Primary pain is the problem stated in the client's own words/situation
+(something broken or costly *before* Zime), not the capability that resolved
+it; the capability belongs in "Key hooks" instead.
 
 A field that would run over budget gets trimmed, not split across cells or
 padded with connective prose. No preamble inside any field ("It appears
