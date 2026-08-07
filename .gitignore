@@ -3,6 +3,7 @@
 PLAN.md
 .tmp/
 .claude/skills/
+.claude/skills/
 
 # Real client data — transcripts, ground truth, hand labels, cases that
 # reference them, and any eval run output derived from them (company names,
