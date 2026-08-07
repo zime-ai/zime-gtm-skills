@@ -111,7 +111,7 @@ the call, and every Missed or Partial is falsifiable against the transcript
 next to it.
 </details>
 
-Run it yourself, nothing of your own required:
+Run it yourself:
 
 ```bash
 git clone https://github.com/zime-ai/zime-gtm-skills.git
