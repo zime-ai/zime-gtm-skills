@@ -2,11 +2,15 @@
 
 ![zime-gtm-skills](.github/images/social-preview-cropped.png)
 
+<p align="center">
+
 [![Skills](https://img.shields.io/badge/skills-16-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
+
+</p>
 
 If you're building call-review or deal-inspection tooling in-house, start
 here. 16 [Agent Skills](https://agentskills.io) that audit sales call
