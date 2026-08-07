@@ -80,6 +80,7 @@ what to fix, not just which script ran.
 | `no-injection` | `scripts/scan-content.py` — no prompt-injection patterns in `skills/*/SKILL.md` or `references/` |
 | `no-hidden-unicode` | `scripts/scan-content.py` — no zero-width/bidi-override/homoglyph chars |
 | `no-client-names` | `scripts/scan-content.py` — local-only, needs a gitignored `.private/client-denylist.txt`; skips (not a failure) when that file is absent, including in CI |
+| `sample-required` | `validate-skills.sh` — every skill with `zime:dimension: stage` or `initiative` must have `assets/` (at least one file) and `evals/evals.json`; `vertical-context` skills are exempt, they're loaded by other skills rather than run directly |
 
 ## The two hard content rules
 

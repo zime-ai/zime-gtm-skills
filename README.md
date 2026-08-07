@@ -31,6 +31,18 @@ argue anyone out of building.
 **Contributions welcome**: see [CONTRIBUTING.md](CONTRIBUTING.md). Found a
 bug or have a question? [Open an issue](https://github.com/zime-ai/zime-gtm-skills/issues).
 
+- [See it work](#see-it-work)
+- [Quick install](#quick-install)
+- [How these fit together](#how-these-fit-together)
+- [Coverage: three dimensions, not one](#coverage-three-dimensions-not-one)
+- [Where this stops](#where-this-stops)
+- [Available skills](#available-skills)
+- [Repository structure](#repository-structure)
+- [FAQ](#faq)
+- [Installation](#installation)
+- [Built by Zime](#built-by-zime)
+- [License](#license)
+
 ## See it work
 
 Same synthetic call, same model, two ways: a plain "review this call"
@@ -258,7 +270,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 
 | Skill | Provides | Verticals |
 |---|---|---|
-| [vertical-context](skills/vertical-context/) | Buyer titles, compliance drivers, domain vocabulary, specialized pain taxonomy | cybersecurity, healthcare, fintech |
+| [vertical-context](skills/vertical-context/) | Buyer titles, compliance drivers, domain vocabulary, specialized pain taxonomy (domain-expert review pending) | cybersecurity, healthcare, fintech |
 <!-- SKILLS:END -->
 
 </details>
@@ -267,6 +279,48 @@ All 11 stage motions are covered; the initiative set is five skills today.
 New skills welcome, see [CONTRIBUTING.md](CONTRIBUTING.md). For how these
 are tested, and what that testing can and can't prove, see
 [EVALS.md](EVALS.md).
+
+## Repository structure
+
+```
+zime-gtm-skills/
+├── .claude-plugin/
+│   ├── marketplace.json       # /plugin marketplace add zime-ai/zime-gtm-skills
+│   └── plugin.json
+├── skills/
+│   └── skill-name/
+│       ├── SKILL.md          # required
+│       ├── references/       # optional, the rubric lives here
+│       ├── assets/           # synthetic sample transcript/CSV
+│       └── evals/            # declarative evals.json
+├── validate-skills.sh         # local, zero-dep frontmatter/layout check
+├── scripts/                    # check-docs-sync.sh, scan-content.py, pr-prep.sh
+├── tests/                      # fixture tests for the validators above
+├── evals/                       # eval methodology assets, see EVALS.md
+├── CONTRIBUTING.md
+├── MAINTAINING.md              # process + decisions, for picking this repo back up
+├── LICENSE
+└── README.md
+```
+
+## FAQ
+
+**Do I need an API key or any credentials?** No. Every skill is a markdown
+rubric your agent reads and applies to a file you already have. Nothing
+here calls out to a service, and nothing you feed a skill leaves your
+machine beyond whatever your agent's own model call already sends.
+
+**My agent isn't picking up the skill.** Claude Code reads
+`.claude/skills/`, not `.agents/skills/` — if you installed via Option 2 or
+3 below for Claude Code specifically, copy (or symlink) into `.claude/skills/`
+instead. For other agents, confirm they read the
+[Agent Skills spec](https://agentskills.io) format and that the skill
+directory is where that agent expects it.
+
+**A skill's output doesn't look right.** If it's the rubric itself — a
+missed dimension, a wrong classification — that's the most useful kind of
+issue, see [CONTRIBUTING.md](CONTRIBUTING.md#ways-to-help). If it's install
+or tooling breaking, [open a bug report](https://github.com/zime-ai/zime-gtm-skills/issues/new/choose).
 
 ## Installation
 
@@ -287,9 +341,8 @@ cp -r zime-gtm-skills/skills/* .agents/skills/
 Or copy just the one skill you want: `cp -r zime-gtm-skills/skills/deep-discovery .agents/skills/`.
 
 > [!TIP]
-> Claude Code reads `.claude/skills/`, not `.agents/skills/`. If you're
-> installing for Claude Code specifically outside the plugin flow above,
-> copy there instead (or symlink one to the other).
+> Claude Code reads `.claude/skills/`, not `.agents/skills/` — see the
+> [FAQ](#faq) if your agent isn't picking the skill up.
 
 ### Option 3: Git submodule
 
@@ -298,6 +351,12 @@ git submodule add https://github.com/zime-ai/zime-gtm-skills.git .agents/zime-gt
 ```
 
 Update later with `git submodule update --remote`.
+
+## Built by Zime
+
+[Zime](https://zime.ai) builds sales-call analytics; this repo is the
+rubric layer we'd rather hand over than gatekeep. If it's useful, a star
+helps other GTM/RevOps teams find it. Business inquiries: support@zime.ai.
 
 ## License
 

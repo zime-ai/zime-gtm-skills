@@ -41,6 +41,10 @@ metadata:
 
 Fixture content, not a real skill.
 EOF
+    mkdir -p "$dir/skills/demo-skill/assets"
+    echo "fixture sample, not a real transcript" > "$dir/skills/demo-skill/assets/sample.txt"
+    mkdir -p "$dir/skills/demo-skill/evals"
+    echo '{"cases":[]}' > "$dir/skills/demo-skill/evals/evals.json"
 
     cat > "$dir/README.md" <<'EOF'
 [![Skills](https://img.shields.io/badge/skills-1-blue)](skills/)
@@ -167,6 +171,19 @@ rm -rf "$T"
 # Case 9: clean fixture passes
 T=$(mktemp -d); make_clean_fixture "$T"
 expect_exit_contains "clean fixture passes" 0 "1 passed, 0 with warnings, 0 failed" "$VALIDATE_SKILLS" "$T"
+rm -rf "$T"
+
+# Case 14: runnable skill (stage/initiative) missing assets/ and evals/ fails
+T=$(mktemp -d); make_clean_fixture "$T"
+rm -rf "$T/skills/demo-skill/assets" "$T/skills/demo-skill/evals"
+expect_exit_contains "runnable skill missing sample fails" 1 "sample-required" "$VALIDATE_SKILLS" "$T"
+rm -rf "$T"
+
+# Case 15: vertical-context skill missing assets/ and evals/ is exempt, passes
+T=$(mktemp -d); make_clean_fixture "$T"
+rm -rf "$T/skills/demo-skill/assets" "$T/skills/demo-skill/evals"
+sed -i.bak 's/zime:dimension: stage/zime:dimension: vertical-context/' "$T/skills/demo-skill/SKILL.md"
+expect_exit_contains "vertical-context skill exempt from sample-required" 0 "1 passed, 0 with warnings, 0 failed" "$VALIDATE_SKILLS" "$T"
 rm -rf "$T"
 
 # Case 13: private eval dir un-ignored (needs a git repo + partial .gitignore)

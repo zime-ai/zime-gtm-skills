@@ -28,8 +28,12 @@ Every skill must:
   nested reference chains
 - Pass `./validate-skills.sh` locally (fast, zero dependencies) and
   `skills-ref validate skills/<skill-name>` (this runs in CI on every PR)
-- Ship with a synthetic or fully anonymized sample file in `assets/` so the
-  skill is runnable with nothing of the contributor's own
+- If the skill is runnable on its own (`zime:dimension` is `stage` or
+  `initiative`): ship a synthetic or fully anonymized sample file in
+  `assets/` and an `evals/evals.json`, so the skill is runnable with nothing
+  of the contributor's own. Reference-only packs (`zime:dimension:
+  vertical-context`) are loaded by other skills rather than run directly and
+  are exempt from this one.
 
 Opening a PR for a new skill or a skill update? The default PR template
 covers both; for the fuller per-case checklist see
