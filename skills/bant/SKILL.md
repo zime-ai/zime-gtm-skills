@@ -6,7 +6,6 @@ metadata:
   zime:category: cross-stage
   zime:dimension: initiative
   zime:initiative: BANT
-  zime:vertical-aware: true
   zime:input-modes: transcript,csv
 ---
 
@@ -44,10 +43,6 @@ Read the transcript, then score it against each criterion in
 
 Close with a single **Advance / Advance with a specific follow-up question /
 Do not advance yet** call, and the one thing that would change your answer.
-
-If `skills/vertical-context/` is available and a vertical is named, use its
-pack for plausible budget ranges and buyer titles as context only — never
-as a substitute for what the transcript actually says.
 
 ### CSV mode (`.csv`)
 

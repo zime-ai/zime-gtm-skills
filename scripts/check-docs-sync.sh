@@ -81,7 +81,7 @@ orphans=$(comm -13 <(echo "$actual_skills") <(echo "$table_skills") | grep -c .)
 # vertical-context skills are deliberately excluded from this table — they
 # aren't a stage or an initiative, they're context other skills load.
 
-coverage_block=$(awk '/## Coverage: three dimensions/{f=1} /## Where this stops/{f=0} f' "$README")
+coverage_block=$(awk '/## Coverage: [a-z]+ dimensions/{f=1} /## Where this stops/{f=0} f' "$README")
 coverage_skills=$(grep -oE '\| `[a-z0-9-]+`' <<< "$coverage_block" | sed -E 's/\| `([a-z0-9-]+)`/\1/' | sort -u)
 
 for d in "$SKILLS_DIR"/*/; do
@@ -90,7 +90,7 @@ for d in "$SKILLS_DIR"/*/; do
     dimension=$(grep "zime:dimension:" <<< "$frontmatter" | sed 's/.*zime:dimension: *//' | tr -d ' ')
     [[ "$dimension" == "vertical-context" ]] && continue
     if ! grep -qx "$name" <<< "$coverage_skills"; then
-        echo -e "${RED}FAIL${NC} $name ($dimension) missing from the 'Coverage: three dimensions' table"
+        echo -e "${RED}FAIL${NC} $name ($dimension) missing from the 'Coverage' table"
         ((ISSUES++))
     fi
 done

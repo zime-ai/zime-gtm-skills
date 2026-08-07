@@ -101,6 +101,15 @@ for skill_dir in "$SKILLS_DIR"/*/; do
         elif grep -q '"assertions"' "$evals_file"; then
             errors+=("evals/evals.json uses 'assertions' — schema requires 'expectations'")
         fi
+    elif [[ "$dimension" == "stage" || "$dimension" == "initiative" ]]; then
+        errors+=("missing evals/evals.json (required for runnable skills, see sample-required rule)")
+    fi
+
+    if [[ "$dimension" == "stage" || "$dimension" == "initiative" ]]; then
+        assets_dir="${skill_dir}assets"
+        if [[ ! -d "$assets_dir" ]] || [[ -z "$(ls -A "$assets_dir" 2>/dev/null)" ]]; then
+            errors+=("missing assets/ sample file (required for runnable skills, see sample-required rule)")
+        fi
     fi
 
     for sub in "$skill_dir"*/; do

@@ -1,0 +1,43 @@
+name: Something's broken
+description: Install, a script, or a skill itself doesn't work as documented
+title: "[bug] "
+labels: [bug]
+body:
+  - type: dropdown
+    id: install-method
+    attributes:
+      label: How did you install
+      options:
+        - Claude Code plugin
+        - Clone and copy
+        - Git submodule
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent and version
+      placeholder: e.g. Claude Code 2.x, Cursor, Windsurf
+    validations:
+      required: true
+  - type: input
+    id: skill
+    attributes:
+      label: Skill (if applicable)
+      placeholder: e.g. deep-discovery, or leave blank for a repo-wide issue
+    validations:
+      required: false
+  - type: textarea
+    id: command
+    attributes:
+      label: Command you ran
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual
+      description: What you expected to happen, and what happened instead. Paste the exact error if there was one.
+    validations:
+      required: true
