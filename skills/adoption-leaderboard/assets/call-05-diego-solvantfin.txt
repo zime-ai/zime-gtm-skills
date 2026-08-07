@@ -1,0 +1,48 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+Rep: Diego Ruiz (diego.ruiz@vendorco.com)
+Customer: Renee Castillo, Director of Revenue Operations — Solvant Financial (renee.castillo@solvantfin.com)
+Call type: Quarterly business review
+
+Diego: Renee, good to catch up — congrats on the promotion, by the way, I
+saw the announcement. How's the new scope treating you?
+
+Renee: Ha, thanks, it's a lot more surface area but I'm enjoying it.
+
+Diego: Well deserved. Let's get into it — usage is up nicely this quarter,
+license count went from 30 to 41, and API call volume is up 60%.
+
+Renee: Yeah, we rolled it out to the collections team in April and it's
+gone well.
+
+Diego: That's great. Since collections is now in here too, have you all
+run into anything the platform doesn't cover yet?
+
+Renee: Actually yes — collections has been asking about a dunning-sequence
+automation piece, since right now they're stitching that together with a
+separate tool.
+
+Diego: Noted, I'll get you details on that module. Is there a competing
+tool they've mentioned in that conversation?
+
+Renee: They looked at one called Ramp Collect before landing with us, but
+said it didn't integrate as cleanly with our ledger.
+
+Diego: Good to know. Any concerns heading into renewal I should be aware
+of?
+
+Renee: Honestly the only thing finance will ask about is whether the
+integration maintenance cost stays flat — it went up once already and they
+noticed.
+
+Diego: Got it, I'll bring pricing clarity on that ahead of the renewal
+conversation. How's the collections team feeling about it day to day?
+
+Renee: Really positive, actually. Our head of collections told me last
+week that reconciliation that used to take her team two days now takes
+about half a day.
+
+Diego: That's a strong number, I'll make sure that's in the renewal case.
+Anything else before we close out?
+
+Renee: No, I think you've got it all. Talk soon.

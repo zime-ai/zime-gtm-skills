@@ -1,0 +1,24 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+Rep: Sam Whitfield (sam.whitfield@vendorco.com)
+Customer: Kevin Osei, Support Team Lead — Brightwell Retail (kevin.osei@brightwellretail.com)
+Call type: Quarterly business review
+
+Sam: Hey Kevin, good to see you. How was the trip you mentioned last time,
+did you make it out to the coast?
+
+Kevin: We did, it was great, thanks for remembering.
+
+Sam: Nice. Okay, let's get into the numbers — usage was flat this
+quarter, same 15 seats as last time.
+
+Kevin: That tracks, we haven't added headcount.
+
+Sam: Understood. Any issues to flag on your end?
+
+Kevin: Nothing major. It works, it does what we need.
+
+Sam: Good to hear. I'll send the summary deck over after this. Anything
+else?
+
+Kevin: No, that's it. Thanks, Sam.

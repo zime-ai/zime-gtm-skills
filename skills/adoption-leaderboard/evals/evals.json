@@ -1,0 +1,57 @@
+{
+  "skill_name": "adoption-leaderboard",
+  "evals": [
+    {
+      "id": 1,
+      "name": "adoption-leaderboard-eval-1-full-run",
+      "prompt": "run adoption-leaderboard on skills/adoption-leaderboard/assets/",
+      "expected_output": "Scores all six calls against the five behavior checklists, resolves four reps from speaker names and email domains (Jordan Lee, Amara Okafor, Diego Ruiz, Sam Whitfield), and produces one leaderboard table sorted by overall adoption ascending. Diego Ruiz ranks highest given the Solvant Financial call's dense behavior coverage (rapport, four of five upsell items, two renewal items, positive tone, two value-realization items with direct quotes). Jordan Lee and Sam Whitfield rank near the bottom given calls with little beyond a customer-experience read. No projection table, no email or outreach step.",
+      "files": [
+        "assets/call-01-jordan-meridian.txt",
+        "assets/call-02-jordan-lakeview.txt",
+        "assets/call-03-amara-northbridge.txt",
+        "assets/call-04-amara-crestpoint.txt",
+        "assets/call-05-diego-solvantfin.txt",
+        "assets/call-06-sam-brightwell.txt"
+      ],
+      "expectations": [
+        "Exactly one table is shown, rows ordered by overall adoption ascending",
+        "Columns are Rep, Adoption, then one column per behavior title (never BH1/BH2 codes)",
+        "Diego Ruiz has the highest overall adoption of the four reps",
+        "Sam Whitfield's single call is flagged as low-confidence given only one call exists for that rep",
+        "At least one cited quote is a specific, concrete detail (a number, name, or quoted phrase) rather than a generic paraphrase",
+        "No second/projected table, no email draft, no mailto link, no 'book a demo' or similar outreach language anywhere in the output"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "adoption-leaderboard-eval-2-scoring-discipline",
+      "prompt": "run adoption-leaderboard on skills/adoption-leaderboard/assets/call-05-diego-solvantfin.txt",
+      "expected_output": "Scores this single call against all five behaviors' checklist items with a 1 or 0 per item, a quote for each 1, and no hedging language (no 'borderline', 'arguably', 'roughly') on any individual mark. Rapport is 1 (the promotion/congratulations exchange). At least three of the five Upsell opportunities items score 1, citing the dunning-sequence automation request and the named competitor 'Ramp Collect'. Value realization cites the 'two days... about half a day' reconciliation-time quote.",
+      "files": [
+        "assets/call-05-diego-solvantfin.txt"
+      ],
+      "expectations": [
+        "Every checklist item scored is exactly 1 or 0, no partial-credit language",
+        "No hedging qualifier appears on any individual item score",
+        "Rapport (CH1.1) scores 1 with the promotion exchange as evidence",
+        "Value realization cites the specific reconciliation-time quote, not a generic paraphrase",
+        "The competitor name 'Ramp Collect' is cited as evidence for the competitor-mention checklist item"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "adoption-leaderboard-eval-3-low-confidence-single-call",
+      "prompt": "run adoption-leaderboard on skills/adoption-leaderboard/assets/call-06-sam-brightwell.txt",
+      "expected_output": "Scores the one available call for Sam Whitfield and marks the rep's result as low-confidence given only one call exists, per the edge-handling rule in references/scoring.md, rather than presenting a single-call score with the same confidence as a multi-call rep.",
+      "files": [
+        "assets/call-06-sam-brightwell.txt"
+      ],
+      "expectations": [
+        "Sam Whitfield's result is explicitly marked as based on one call, low confidence",
+        "Rapport scores 1 given the personal follow-up about the trip",
+        "Does not fabricate scores for behaviors with no transcript evidence (Upsell and Renewal items score 0, not omitted or guessed)"
+      ]
+    }
+  ]
+}

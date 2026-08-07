@@ -1,0 +1,26 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+Rep: Jordan Lee (jordan.lee@vendorco.com)
+Customer: Priya Shah, Ops Manager — Meridian Freight (priya.shah@meridianfreight.com)
+Call type: Quarterly business review
+
+Jordan: Hi Priya, thanks for jumping on. Should be quick today — I've got
+your usage numbers pulled up, want to walk through the quarter?
+
+Priya: Sure, go ahead.
+
+Jordan: Great. So overall logins are steady, about 40 active users. Ticket
+volume through the platform is up 12% quarter over quarter.
+
+Priya: Okay.
+
+Jordan: Any blockers on your end I should know about?
+
+Priya: Not really, it's working fine. The dispatch team still finds the
+reporting export a bit slow, but they've gotten used to it.
+
+Jordan: Got it, I'll note that. Anything else before we wrap?
+
+Priya: No, I think that covers it.
+
+Jordan: Perfect, I'll send the usage deck over. Talk next quarter.

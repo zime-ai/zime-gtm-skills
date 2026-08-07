@@ -1,0 +1,25 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+Rep: Amara Okafor (amara.okafor@vendorco.com)
+Customer: Linda Farrow, Finance Ops Lead — Crestpoint Capital (linda.farrow@crestpointcap.com)
+Call type: Quarterly business review
+
+Amara: Hi Linda, thanks for the time. Let's go through this quarter's
+usage together.
+
+Linda: Sure, go ahead.
+
+Amara: Seat usage held flat at 22 licensed users. No open support tickets
+this quarter.
+
+Linda: That matches what I'd expect. We haven't had any real issues.
+
+Amara: Good to hear. Anything on the roadmap for your team that might
+change how you use the platform?
+
+Linda: Not that I know of. It's mostly steady-state for us right now.
+
+Amara: Understood. I'll send the QBR summary over by end of day. Thanks
+for the time, Linda.
+
+Linda: Sounds good, talk next quarter.
