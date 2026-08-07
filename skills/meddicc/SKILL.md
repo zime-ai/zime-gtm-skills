@@ -6,7 +6,6 @@ metadata:
   zime:category: cross-stage
   zime:dimension: initiative
   zime:initiative: MEDDICC
-  zime:vertical-aware: true
   zime:input-modes: transcript,csv
 ---
 
@@ -48,12 +47,6 @@ Read the transcript, then score it against each letter in
 
 Close with the **single biggest qualification risk** if this deal were
 forecast today, and what call or action would close it.
-
-If `skills/vertical-context/` is available and a vertical is named, load the
-matching reference pack and use its vocabulary/priors for Economic buyer and
-Decision process — but never let the pack override what the transcript
-actually shows; an inferred buyer title from the pack is not a substitute for
-the transcript naming who signs.
 
 ### CSV mode (`.csv`)
 

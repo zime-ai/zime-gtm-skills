@@ -107,12 +107,13 @@ is. Treat evals as the source of truth for "does this skill actually work,"
 not the `skills-ref`/`validate-skills.sh` structural checks, which only
 catch frontmatter and layout errors.
 
-## Three dimensions: stage, initiative, vertical
+## Two dimensions: stage, initiative
 
 Skills cover deal stage and initiative as ordinary, flat skills
 (`zime:dimension: stage` or `initiative` in frontmatter), never nested
 under a `skills/stage/` or `skills/initiative/` directory, since that breaks
-the install command above and both validators. Vertical is different: it's
-one skill, `skills/vertical-context/`, holding a reference pack per industry
-that any other skill loads on request. See `MAINTAINING.md`'s "Three
-dimensions" section for the full rationale and current coverage.
+the install command above and both validators. A third axis,
+`vertical-context` (a reference pack per industry any other skill can load
+on request), was pulled off `main` before public launch pending
+domain-expert review — see `MAINTAINING.md`'s "Two dimensions" and
+"Deferred work" sections, and the `vertical-context` branch.

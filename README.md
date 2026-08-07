@@ -1,22 +1,20 @@
 # zime-gtm-skills
 
-[![Skills](https://img.shields.io/badge/skills-17-blue)](skills/)
+[![Skills](https://img.shields.io/badge/skills-16-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 17 [Agent Skills](https://agentskills.io) that audit sales call
+here. 16 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
 that reads the Agent Skills spec.
 
-Three axes: **deal stage** (discovery through renewal), **initiative**
-(MEDDICC, BANT, pain identification: frameworks that run at any stage), and
-**vertical** (industry context packs that specialize any skill's output for
-cybersecurity, healthcare, or fintech).
+Two axes: **deal stage** (discovery through renewal) and **initiative**
+(MEDDICC, BANT, pain identification: frameworks that run at any stage).
 
 The rule every skill here is built on: **an uncited finding doesn't ship.**
 Every dimension a skill marks Covered, Partial, or Missed points at a direct
@@ -34,7 +32,7 @@ bug or have a question? [Open an issue](https://github.com/zime-ai/zime-gtm-skil
 - [See it work](#see-it-work)
 - [Quick install](#quick-install)
 - [How these fit together](#how-these-fit-together)
-- [Coverage: three dimensions, not one](#coverage-three-dimensions-not-one)
+- [Coverage: two dimensions, not one](#coverage-two-dimensions-not-one)
 - [Where this stops](#where-this-stops)
 - [Available skills](#available-skills)
 - [Repository structure](#repository-structure)
@@ -140,8 +138,8 @@ See [Installation](#installation) below for the submodule option and the
 
 ## How these fit together
 
-17 skills: 11 stage motions laid out across the deal lifecycle, 5 cross-stage
-initiative skills, and 1 shared vertical-context pack loaded by the others.
+16 skills: 11 stage motions laid out across the deal lifecycle and 5
+cross-stage initiative skills.
 
 ```mermaid
 %%{init: {"flowchart": {"nodeSpacing": 65, "rankSpacing": 90, "padding": 20}, "themeVariables": {"fontSize": "20px"}}}%%
@@ -170,39 +168,28 @@ Unlike some agent-skill collections, there's no foundational context skill
 every other one depends on, and no required order. Each skill is independent:
 one call transcript (or CRM export) in, one evidence-cited audit out.
 
-## Coverage: three dimensions, not one
+## Coverage: two dimensions, not one
 
 **Stage** and **initiative** are both skills: a flat set, no nesting.
-**Vertical** is different: it's shared context any stage or initiative skill
-can load (`skills/vertical-context/`), rather than a separate skill per
-industry. That keeps the cost additive (skills + verticals) instead of
-multiplicative (skills × verticals).
 
-| | Stage | Initiative | Vertical-aware |
-|---|---|---|---|
-| `deep-discovery` | Discovery | n/a | n/a |
-| `meeting-to-qualify` | Qualify | n/a | n/a |
-| `technical-discovery` | Technical discovery | n/a | n/a |
-| `improve-demo` | Demo | n/a | n/a |
-| `pilot-to-conversion` | Pilot | n/a | n/a |
-| `negotiation-closing` | Negotiation | n/a | n/a |
-| `first-call-rampup` | Any (coaching) | n/a | n/a |
-| `onboarding-journey` | Onboarding | n/a | n/a |
-| `customer-success` | Post-sale review | n/a | n/a |
-| `churn-prevention` | Renewal risk | n/a | n/a |
-| `upsell-expansion` | Expansion | n/a | n/a |
-| `meddicc` | Any | MEDDICC | ✅ |
-| `bant` | Any (early) | BANT | ✅ |
-| `pain-finder` | Any | Identify pain | ✅ |
-| `next-step-commitment` | Any | Next step commitment | n/a |
-| `adoption-leaderboard` | Any (post-sale) | Behavior adoption | n/a |
-
-Vertical-aware today: 3 skills (`meddicc`, `bant`, `pain-finder`). Extending
-the overlay to the stage skills is tracked in `MAINTAINING.md`.
-
-Vertical packs available today: **cybersecurity, healthcare, fintech**;
-see `skills/vertical-context/`. Domain-expert review pending, see that
-skill's status note.
+| | Stage | Initiative |
+|---|---|---|
+| `deep-discovery` | Discovery | n/a |
+| `meeting-to-qualify` | Qualify | n/a |
+| `technical-discovery` | Technical discovery | n/a |
+| `improve-demo` | Demo | n/a |
+| `pilot-to-conversion` | Pilot | n/a |
+| `negotiation-closing` | Negotiation | n/a |
+| `first-call-rampup` | Any (coaching) | n/a |
+| `onboarding-journey` | Onboarding | n/a |
+| `customer-success` | Post-sale review | n/a |
+| `churn-prevention` | Renewal risk | n/a |
+| `upsell-expansion` | Expansion | n/a |
+| `meddicc` | Any | MEDDICC |
+| `bant` | Any (early) | BANT |
+| `pain-finder` | Any | Identify pain |
+| `next-step-commitment` | Any | Next step commitment |
+| `adoption-leaderboard` | Any (post-sale) | Behavior adoption |
 
 **Roadmap.** The named methodologies (MEDDPICC, FAINT, Sandler, Challenger,
 Sell the Dream, and others) aren't built yet. See `MAINTAINING.md`'s
@@ -232,7 +219,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 ## Available skills
 
 <details open>
-<summary>17 skills across new business, post-sale, cross-stage initiative, and vertical context</summary>
+<summary>16 skills across new business, post-sale, and cross-stage initiative</summary>
 
 <!-- SKILLS:START -->
 **New business**
@@ -262,15 +249,9 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 |---|---|---|
 | [meddicc](skills/meddicc/) | MEDDICC coverage — Metrics, Economic buyer, Decision criteria, Decision process, Identify pain, Champion, Competition | transcript or CRM export |
 | [bant](skills/bant/) | BANT coverage — Budget, Authority, Need, Timeline — lighter-weight, early-stage qualification | transcript or CRM export |
-| [pain-finder](skills/pain-finder/) | Ranked pain points with confidence and evidence, optionally specialized by vertical | transcript |
+| [pain-finder](skills/pain-finder/) | Ranked pain points with confidence and evidence | transcript |
 | [next-step-commitment](skills/next-step-commitment/) | Whether a call ended in a real, dated, two-sided commitment vs. a vague "we'll circle back" | transcript or CRM export |
 | [adoption-leaderboard](skills/adoption-leaderboard/) | Ranks reps by adoption of five fixed winning behaviors (rapport, upsell signals, renewal risk, customer experience, value realization) across recent calls, lowest first | transcript or connector |
-
-**Vertical context (not run directly, loaded by other skills)**
-
-| Skill | Provides | Verticals |
-|---|---|---|
-| [vertical-context](skills/vertical-context/) | Buyer titles, compliance drivers, domain vocabulary, specialized pain taxonomy (domain-expert review pending) | cybersecurity, healthcare, fintech |
 <!-- SKILLS:END -->
 
 </details>

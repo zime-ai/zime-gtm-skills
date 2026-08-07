@@ -6,7 +6,6 @@ metadata:
   zime:category: cross-stage
   zime:dimension: initiative
   zime:initiative: Next step commitment
-  zime:vertical-aware: false
   zime:input-modes: transcript,csv
 ---
 

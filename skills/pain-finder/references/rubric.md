@@ -1,9 +1,6 @@
-# Pain-finder rubric (generic taxonomy)
+# Pain-finder rubric
 
-Used when no vertical is named. A vertical pack in
-`skills/vertical-context/references/` may supply a specialized variant of
-these five buckets — see that skill for the contract governing how packs may
-and may not change this.
+Used for every pain-finder run.
 
 ## Five generic buckets
 

@@ -5,9 +5,9 @@ All notable changes to this repo are documented here. Format loosely follows
 
 ## [1.0.0] — Initial public release
 
-17 Agent Skills across three axes — deal stage, cross-stage initiative, and
-vertical context — each auditing a transcript or CRM export against a
-GTM rubric with a quote or timestamp behind every finding.
+16 Agent Skills across two axes — deal stage and cross-stage initiative —
+each auditing a transcript or CRM export against a GTM rubric with a quote
+or timestamp behind every finding.
 
 **Stage** (11): `deep-discovery`, `meeting-to-qualify`, `technical-discovery`,
 `improve-demo`, `pilot-to-conversion`, `negotiation-closing`,
@@ -17,8 +17,9 @@ GTM rubric with a quote or timestamp behind every finding.
 **Initiative** (5): `meddicc`, `bant`, `pain-finder`, `next-step-commitment`,
 `adoption-leaderboard`.
 
-**Vertical context** (1): `vertical-context` — cybersecurity, healthcare,
-fintech packs loaded by the skills above.
+A third axis, `vertical-context` (industry reference packs for
+cybersecurity, healthcare, fintech), was built but held back from this
+release pending domain-expert review — see the `vertical-context` branch.
 
 Also ships:
 - `validate-skills.sh`, `scripts/check-docs-sync.sh`,

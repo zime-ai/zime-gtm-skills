@@ -64,10 +64,6 @@
     {
       "prompt": "Sweep this pipeline export for deals missing discovery fields.",
       "should_trigger": "deep-discovery"
-    },
-    {
-      "prompt": "Load the cybersecurity vertical context so I can specialize this pain-finder run for an infosec buyer.",
-      "should_trigger": "vertical-context"
     }
   ]
 }
