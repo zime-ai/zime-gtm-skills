@@ -1,0 +1,46 @@
+{
+  "skill": "call-prep-note",
+  "cases": [
+    {
+      "id": "tier1-transcript-only",
+      "description": "One past transcript, no config, no CRM — the common OSS starting point.",
+      "prompt": "Prep me for my call with Northwind Robotics tomorrow. Here's the last call: [paste skills/call-prep-note/assets/sample-transcripts.md, Call 1 only]",
+      "expectations": [
+        "Note has exactly 4 parts: Hook, Win condition, Your 3 moves, Watch out for",
+        "Hook cites the price objection with a quote or paraphrase attributed to Sam Patel",
+        "Exactly 3 moves, numbered literally 1. 2. 3., none repeated",
+        "No AMA links, no utm_ params, no 'how top reps do this' labels",
+        "No em-dashes anywhere in the note"
+      ]
+    },
+    {
+      "id": "tier0-no-transcript",
+      "description": "Meeting named, nothing else — no transcript, no config, no CRM.",
+      "prompt": "Prep note for my call with Northwind Robotics this afternoon.",
+      "expectations": [
+        "Skill asks at most 3 targeted questions before generating",
+        "Never refuses outright and never silently returns nothing",
+        "Hook uses the 'no history yet' state, not an invented risk"
+      ]
+    },
+    {
+      "id": "tier2-two-calls-plus-config",
+      "description": "Two chronological transcripts of the same account plus a written prep-note-config.md with a custom stage ladder.",
+      "prompt": "Prep me for the Northwind Robotics follow-up call. Both past calls attached: [paste skills/call-prep-note/assets/sample-transcripts.md, both calls]. My prep-note-config.md defines stage 'Evaluation' with exit criteria: success criteria written, POC owner named, decision date set.",
+      "expectations": [
+        "Moves reference the configured stage's exit criteria, not the generic fallback ladder",
+        "Ranks Call 2 above Call 1 as the more recent, same-attendee call",
+        "Win condition names Dana Cole and a concrete, call-specific result, not the deal outcome"
+      ]
+    },
+    {
+      "id": "internal-call-suppression",
+      "description": "All attendees share the user's own domain.",
+      "prompt": "Prep note for my 1:1 sync with our own eng lead, both of us @acme.com.",
+      "expectations": [
+        "Output is exactly: 'No prep note. This looks like an internal call.'",
+        "No hook, win condition, moves, or watch-outs printed"
+      ]
+    }
+  ]
+}
