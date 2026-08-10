@@ -6,8 +6,8 @@ for the format every skill here follows.
 
 ## Ways to help
 
-- **New motion rubrics**: a new skill for a motion not yet covered (see the
-  README's skill table for what's missing). Open an issue first with the
+- **New motion rubrics**: a new skill for a motion not yet covered (see
+  [ROADMAP.md](ROADMAP.md) for what's missing). Open an issue first with the
   motion and the dimensions you'd propose, so the shape gets agreed before
   you write the whole thing.
 - **Rubric corrections**: if a skill's rubric got something wrong or missed
@@ -35,9 +35,11 @@ Every skill must:
   vertical-context`) are loaded by other skills rather than run directly and
   are exempt from this one.
 
-Opening a PR for a new skill or a skill update? The default PR template
-covers both; for the fuller per-case checklist see
-`.github/PULL_REQUEST_TEMPLATE/new-skill.md` or `skill-update.md`.
+Opening a PR for a new skill or a skill update? Target the `dev` branch, not
+`main` — `main` only moves forward in batches once a release checklist has
+run. The default PR template covers both cases; for the fuller per-case
+checklist see `.github/PULL_REQUEST_TEMPLATE/new-skill.md` or
+`skill-update.md`.
 
 PR-Agent's automated `/review` only runs on PRs from branches of this repo —
 GitHub withholds secrets from fork PRs, so it can't run there. A PR from a

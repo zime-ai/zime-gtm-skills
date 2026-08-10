@@ -79,6 +79,13 @@ Ceiling notes.
 <!-- SKILLS:END -->
 
 </details>
+
+All 1 stage motions are covered; the initiative set is 0 skills today.
+EOF
+    cat > "$dir/ROADMAP.md" <<'EOF'
+## Phase 1
+
+- [x] demo-skill
 EOF
     ( cd "$dir" && git init -q && printf 'evals/transcripts/\nevals/gt/\nevals/cases/\nevals/labels/\n' > .gitignore )
 }
@@ -224,6 +231,24 @@ rm -rf "$T"
 T=$(mktemp -d); make_clean_fixture "$T"
 sed -i.bak 's/\*\*New business\*\*/\*\*Post-sale\*\*/' "$T/README.md"
 expect_exit_contains "wrong section fails" 1 "expects 'New business'" "$CHECK_DOCS_SYNC" "$T"
+rm -rf "$T"
+
+# Case 16: ROADMAP.md missing the shipped skill's checkbox
+T=$(mktemp -d); make_clean_fixture "$T"
+sed -i.bak '/- \[x\] demo-skill/d' "$T/ROADMAP.md"
+expect_exit_contains "unchecked ROADMAP box fails" 1 "no checked box in ROADMAP.md" "$CHECK_DOCS_SYNC" "$T"
+rm -rf "$T"
+
+# Case 17: ROADMAP.md checks off a skill that doesn't exist on disk
+T=$(mktemp -d); make_clean_fixture "$T"
+echo "- [x] ghost-skill" >> "$T/ROADMAP.md"
+expect_exit_contains "orphan ROADMAP box fails" 1 "no matching skills/ directory exists" "$CHECK_DOCS_SYNC" "$T"
+rm -rf "$T"
+
+# Case 18: stage/initiative closing line out of sync
+T=$(mktemp -d); make_clean_fixture "$T"
+sed -i.bak 's/is 0 skills today/is 5 skills today/' "$T/README.md"
+expect_exit_contains "wrong initiative sub-count fails" 1 "closing line says 5 initiative skills" "$CHECK_DOCS_SYNC" "$T"
 rm -rf "$T"
 
 echo ""
