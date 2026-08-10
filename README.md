@@ -141,31 +141,39 @@ See [Installation](#installation) below for the submodule option and the
 29 skills: 20 stage motions laid out across the deal lifecycle and 9
 cross-stage initiative skills.
 
-```mermaid
-%%{init: {"flowchart": {"nodeSpacing": 65, "rankSpacing": 90, "padding": 20}, "themeVariables": {"fontSize": "20px"}}}%%
-flowchart LR
-    subgraph nb["New business"]
-        direction LR
-        sq[sql-to-qualify] --> dd[deep-discovery]
-        dd --> mq[meeting-to-qualify]
-        mq --> td[technical-discovery]
-        td --> id[improve-demo]
-        id --> qtp[qualify-to-poc]
-        qtp --> pc[pilot-to-conversion]
-        pc --> nc[negotiation-closing]
-    end
-    subgraph ps["Post-sale"]
-        direction LR
-        oj[onboarding-journey] --> cs[customer-success]
-    end
-    nb --> ps
-    fcr["first-call-rampup, coaching at any stage"]
-    cp["churn-prevention, renewal risk"]
-    ue["upsell-expansion, expansion opportunity"]
-    pbd["persona-based-discovery, persona-adapted lens on discovery"]
-    ps -.-> cp
-    ps -.-> ue
-    dd -.-> pbd
+```d2
+direction: right
+
+nb: New business {
+  sq: sql-to-qualify
+  dd: deep-discovery
+  mq: meeting-to-qualify
+  td: technical-discovery
+  id: improve-demo
+  qtp: qualify-to-poc
+  pc: pilot-to-conversion
+  nc: negotiation-closing
+
+  sq -> dd -> mq -> td -> id -> qtp -> pc -> nc
+}
+
+ps: Post-sale {
+  oj: onboarding-journey
+  cs: customer-success
+
+  oj -> cs
+}
+
+nb -> ps
+
+fcr: first-call-rampup, coaching at any stage
+cp: churn-prevention, renewal risk
+ue: upsell-expansion, expansion opportunity
+pbd: persona-based-discovery, persona-adapted lens on discovery
+
+ps -> cp: {style.stroke-dash: 3}
+ps -> ue: {style.stroke-dash: 3}
+nb.dd -> pbd: {style.stroke-dash: 3}
 ```
 
 Unlike some agent-skill collections, there's no foundational context skill
