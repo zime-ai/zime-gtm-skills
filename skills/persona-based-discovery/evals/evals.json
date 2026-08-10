@@ -1,0 +1,48 @@
+{
+  "skill_name": "persona-based-discovery",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "run persona-based-discovery on skills/persona-based-discovery/assets/sample-transcript.txt",
+      "expected_output": "Identifies both personas on the call (Dan as technical evaluator, Claire as economic buyer) up front, then scores each of the five dimensions in references/rubric.md separately per persona where they diverge. Every dimension gets a Status (Covered/Partial/Missed/Unclear) with a direct quote or timestamp as evidence. Notes that the technical proof point (API/webhook SLA, SOC 2) went to Dan and the ROI/payback numbers went to Claire, and that the next steps (sandbox access vs. a business-case one-pager) were split by persona rather than identical. Closes with 2-3 concrete next steps.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Identifies each persona present on the call before scoring dimensions",
+        "Scores dimensions separately per persona where the call treated them differently",
+        "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
+        "Recognizes that proof points and next steps were tailored per persona (technical proof + sandbox for the evaluator, ROI numbers + one-pager for the economic buyer)",
+        "Closes with a small number of concrete next steps, not a full recap"
+      ],
+      "name": "persona-based-discovery-eval-1"
+    },
+    {
+      "id": 2,
+      "prompt": "run persona-based-discovery on a transcript of a call with only one persona in the room, who was well-adapted to throughout",
+      "expected_output": "States plainly that only one persona was present rather than penalizing the call for not covering personas that were never on the line. Scores the five dimensions against that one persona and does not mark dimensions Missed purely because there was no second persona to contrast against.",
+      "files": [],
+      "expectations": [
+        "States explicitly when only one persona was present on the call",
+        "Does not penalize the call for lacking a second persona that was never on the line",
+        "Applies the reads-well-too check from references/rubric.md before finalizing a mostly-Missed read"
+      ],
+      "name": "persona-based-discovery-eval-2"
+    },
+    {
+      "id": 3,
+      "prompt": "run persona-based-discovery on skills/persona-based-discovery/assets/sample-pipeline.csv",
+      "expected_output": "Treats this as a structural hygiene sweep, not a call-quality audit, and says so explicitly. Checks each deal row for whether every listed contact has non-trivial role/persona data (title, persona tag). Outputs a table sorted by deal value descending, surfacing Cascade Health and Alpine Retail as the highest-value deals with missing contact-role data. Makes no claim about whether any rep actually adapted to those personas on a call.",
+      "files": [
+        "assets/sample-pipeline.csv"
+      ],
+      "expectations": [
+        "States explicitly that CSV mode is a structural check, not a call-quality claim",
+        "Flags rows/contacts missing role or persona data",
+        "Output is sorted by deal value descending",
+        "Does not claim to know what happened on any specific call from CRM fields alone"
+      ],
+      "name": "persona-based-discovery-eval-3"
+    }
+  ]
+}

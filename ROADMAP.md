@@ -9,10 +9,9 @@ every `skills/<name>/` directory must have a matching `- [x] <name>` line
 below, and no checked line may name a directory that doesn't exist. When you
 land a skill, check its box in the same PR — don't leave that for later.
 
-**In flight:** phase 1 qualification/discovery gaps (`qualify-to-poc`,
-`sql-to-qualify`, `persona-based-discovery`). `sell-the-dream` pulled from
-this batch — no canonical single-source framework behind the name (unlike
-meddicc/bant/faint), needs scoping before it's buildable.
+`sell-the-dream` has no canonical single-source framework behind the name
+(unlike meddicc/bant/faint) — needs scoping before it's buildable, pulled
+from the batch that shipped the other two qualification gaps below.
 
 ## Phase 1 — Initiative & stage skills
 
@@ -26,14 +25,14 @@ Every framework and deal motion the playbook tracks today.
 - [x] sandler
 - [x] challenger
 - [ ] sell-the-dream
-- [ ] sql-to-qualify
-- [ ] qualify-to-poc
+- [x] sql-to-qualify
+- [x] qualify-to-poc
 
 **Discovery**
 - [x] deep-discovery
 - [x] technical-discovery
 - [x] meeting-to-qualify
-- [ ] persona-based-discovery
+- [x] persona-based-discovery
 
 **Demo**
 - [x] improve-demo

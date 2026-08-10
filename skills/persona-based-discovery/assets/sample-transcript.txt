@@ -1,0 +1,55 @@
+Call: Northwind Logistics — Discovery
+Attendees: Priya Shah (Rep, Vendor Co), Dan Ortega (VP Engineering, Northwind), Claire Beaumont (CFO, Northwind)
+
+[00:01:12] Priya: Thanks for making time, both of you. Dan, before we get
+into it, can you walk me through your role and what you're on the hook for
+here?
+
+[00:01:30] Dan: Sure — I run the platform team. If this breaks in prod at
+2am, it's my pager going off. I care about how it integrates with our
+existing stack and what happens when it fails.
+
+[00:02:05] Priya: Got it. And Claire, what's your stake in this one?
+
+[00:02:20] Claire: I sign off on anything over $50k annually. I need to
+know this pays for itself within a year, realistically.
+
+[00:03:00] Priya: Makes sense. So Dan, on the integration side — we expose
+a REST API and a webhook layer, and our on-call runbook includes automatic
+failover to a queued retry rather than dropping events. Happy to walk
+through the architecture diagram if useful.
+
+[00:03:40] Dan: Yeah, send that over. What's your SLA on the webhook
+delivery?
+
+[00:03:55] Priya: 99.9% within 30 seconds, contractually. I'll send the
+doc.
+
+[00:04:30] Priya: Claire, on the cost side — customers your size typically
+see about 15 hours a month of manual reconciliation work disappear, which
+at your team's loaded rate works out to roughly $18k/year in recovered
+time, against a $22k annual contract. So payback lands under 18 months
+for most of our customers in your range.
+
+[00:05:10] Claire: That's helpful. What if the integration takes longer
+than planned — does the pricing hold if implementation runs long?
+
+[00:05:25] Priya: Good question — pricing is annual and fixed regardless
+of how long implementation takes, so that's not a risk on the cost side.
+
+[00:06:00] Dan: I do want to flag — our security team will want a SOC 2
+report and a review of how you handle data at rest before we'd move
+forward.
+
+[00:06:15] Priya: Understood, I'll get you the SOC 2 report and our data
+retention policy today.
+
+[00:07:00] Priya: So for next steps — Dan, I'd like to get you sandbox
+access so your team can test the webhook integration directly against a
+staging environment before committing to anything. Claire, I'll put
+together a one-pager with the ROI numbers we just walked through so you
+have something to bring to your budget review.
+
+[00:07:30] Dan: That works for me.
+
+[00:07:35] Claire: Send the one-pager and I'll take it from there.

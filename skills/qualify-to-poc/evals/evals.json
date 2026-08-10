@@ -1,0 +1,47 @@
+{
+  "skill_name": "qualify-to-poc",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "run qualify-to-poc on skills/qualify-to-poc/assets/sample-transcript.txt",
+      "expected_output": "Scores the POC-kickoff call against every dimension in references/rubric.md (success criteria defined and agreed, technical scope agreed, stakeholders identified and committed, POC timeline and exit criteria set, resourcing confirmed). Every dimension gets a Status (Covered/Partial/Missed/Unclear) and, for anything not fully covered, a one-line Note. Every finding is backed by a direct quote or timestamp from the transcript — no unsourced findings. Closes with a go/no-go/needs-one-more-call read and the dimension(s) that decided it.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every dimension in the rubric gets a Status",
+        "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
+        "No finding is asserted without evidence",
+        "Closes with a single go/no-go/needs-one-more-call read naming the deciding dimension(s)",
+        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call"
+      ],
+      "name": "qualify-to-poc-eval-1"
+    },
+    {
+      "id": 2,
+      "prompt": "run qualify-to-poc on a transcript of a kickoff call that, by any reasonable read, locked down success criteria, scope, stakeholders, timeline, and resourcing thoroughly and left little unaddressed",
+      "expected_output": "The audit does not come back mostly Missed/Partial just because the rubric has multiple dimensions. The rubric.md 'reads-well-too' check is applied before finalizing: if a clearly well-run kickoff still reads as mostly gaps, the evidence bar is loosened rather than reported as-is.",
+      "files": [],
+      "expectations": [
+        "A genuinely well-run kickoff call is not scored as mostly Missed",
+        "The reads-well-too check from references/rubric.md is applied before the audit is finalized"
+      ],
+      "name": "qualify-to-poc-eval-2"
+    },
+    {
+      "id": 3,
+      "prompt": "run qualify-to-poc on skills/deep-discovery/assets/sample-pipeline.csv",
+      "expected_output": "Treats this as a structural hygiene sweep, not a call-quality audit, and says so explicitly. Checks each deal row entering or in pilot/POC stage for whether fields corresponding to the rubric's dimensions (success criteria, technical scope, stakeholders, timeline/exit criteria, resourcing) are present and non-trivial. Outputs a table sorted by deal value descending so the highest-value gaps surface first. Makes no claim about what was actually said on any call.",
+      "files": [
+        "../deep-discovery/assets/sample-pipeline.csv"
+      ],
+      "expectations": [
+        "States explicitly that CSV mode is a structural check, not a call-quality claim",
+        "Flags rows missing rubric-relevant fields",
+        "Output is sorted by deal value descending",
+        "Does not claim to know what happened on any specific call from CRM fields alone"
+      ],
+      "name": "qualify-to-poc-eval-3"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+SQL Follow-Up Call — Northwind Retail Group
+Rep: Dana Ruiz (AE, Zime)
+Prospect: Marcus Webb (Ops Manager, Northwind Retail Group)
+Duration: 14 min
+
+[00:00] Dana: Hey Marcus, thanks for hopping on. I saw you downloaded our
+call-coaching whitepaper last week — figured I'd check in and see what
+prompted that.
+
+[00:22] Marcus: Yeah, honestly our support team's been getting hammered.
+We had two escalations last month where a rep gave a customer wrong return
+policy info and it turned into a whole thing on Twitter. My director asked
+me to look into whether call monitoring could catch that kind of thing
+before it happens again.
+
+[01:10] Dana: Got it — so this is less "nice to have" and more "we had an
+incident and need a fix." Who else is feeling that pressure besides your
+director?
+
+[01:30] Marcus: Our support ops lead, Priya, is probably the one who'd
+actually run point on rolling this out day to day. I can loop her in. I
+don't have budget authority myself, but my director controls the CX tools
+budget and she's already asked me twice this week if we've found anything.
+
+[02:15] Dana: That's helpful. Any rough sense of budget range, or is that
+still totally open?
+
+[02:40] Marcus: Nothing locked, but we spent about $40k last year on a
+different QA tool we ended up not renewing, so I'd guess we're in a similar
+range if this actually solves the problem.
+
+[03:05] Dana: Makes sense. Are you looking at anyone else for this, or is
+this your first real look?
+
+[03:20] Marcus: We poked at Gong a while back for sales calls, totally
+different use case though. For support-specific monitoring, no, this is
+the first vendor conversation we've had.
+
+[03:45] Dana: Okay. Given the incident pressure, is there a timeline your
+director's pushing for, or is this more exploratory right now?
+
+[04:00] Marcus: She wants something in place before our Q4 peak season,
+so realistically we need to have picked a direction in the next month or
+so.
+
+[04:30] Dana: That's a real deadline. Let's get a session on the calendar
+with you, Priya, and your director if she can make it — I want to walk
+through how the escalation-detection piece would've caught that Twitter
+incident specifically. Does next Thursday at 2pm work for the three of you?
+
+[04:50] Marcus: Let me check with Priya but that should work. I'll send
+the invite with Sarah — that's my director — cc'd.
+
+[05:05] Dana: Perfect, I'll follow up with the invite today.
