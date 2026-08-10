@@ -45,12 +45,12 @@ Every framework and deal motion the playbook tracks today.
 - [x] negotiation-closing
 
 **Deal-stage pipeline checks** (work from an exported deal list, not a single call)
-- [ ] evaluation-pipeline-check
-- [ ] prospect-pipeline-check
-- [ ] qualify-pipeline-check
-- [ ] negotiation-pipeline-check
-- [ ] poc-pilot-pipeline-check
-- [ ] won-pipeline-check
+- [x] evaluation-pipeline-check
+- [x] prospect-pipeline-check
+- [x] qualify-pipeline-check
+- [x] negotiation-pipeline-check
+- [x] poc-pilot-pipeline-check
+- [x] won-pipeline-check
 
 **Deal registration**
 - [ ] new-business-registration

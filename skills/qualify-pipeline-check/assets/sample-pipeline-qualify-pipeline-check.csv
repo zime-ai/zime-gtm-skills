@@ -1,0 +1,11 @@
+deal_name,stage,amount,buyer_name,buyer_role,pain,budget,close_date,procurement_timeline,next_step,status,meddicc_score
+Acme Corp,Qualify,50000,Jane Doe,Economic Buyer,Manual reconciliation costs 10 hours/week,45000-55000,2026-11-01,2026-10-15,Technical deep-dive call scheduled 2026-08-20,Active,78
+Globex Inc,Qualify,,,,Team lacks visibility into pipeline health,,2026-08-25,2026-11-01,,Active,
+Initech,Qualify,30000,Bill Lumbergh,VP Ops,,25000,2026-12-01,2026-11-15,Follow-up call 2026-08-18,Active,65
+Umbrella Corp,Qualify,,Alice Marcus,Economic Buyer,Compliance risk from manual audit trail gaps,,2026-10-05,2026-09-20,,Active,70
+Wayne Enterprises,Qualify,80000,Lucius Fox,Decision Maker,Losing deals due to slow proposal turnaround,75000,2026-08-15,2026-10-01,Proposal review 2026-08-14,Active,82
+Stark Industries,Qualify,60000,Pepper Potts,Economic Buyer,Engineering team duplicating work across tools,60000,2026-11-20,2026-11-01,,Active,74
+Wonka Industries,Qualify,40000,Augustus Gloop,VP Sales,No visibility into which reps are missing quota,40000,2026-12-10,2026-11-20,Demo 2026-08-19,Active,
+Hooli,Qualify,95000,Gavin Belson,Economic Buyer,Losing 15% of leads to slow follow-up response time,90000,2026-12-15,2026-11-30,Contract redlines due 2026-08-21,Active,88
+Soylent Corp,Qualify,,,,,,2026-08-16,2026-11-10,,Active,
+Pied Piper,Discovery,20000,Richard Hendricks,,,,2026-09-01,,,Active,

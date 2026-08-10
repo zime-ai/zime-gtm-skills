@@ -1,0 +1,11 @@
+deal_name,stage,contact_role,paper_status,discount_pct,approver,close_date,original_close_date,close_plan,signer_role
+Acme Corp,Negotiation,VP Sales,,35,,2026-07-01,2026-05-15,,
+Globex Inc,Negotiation,Procurement Manager,In redline,12,Jane Doe (CFO),2026-09-30,2026-09-30,Shared MAP doc v3,VP Legal
+Initech,Negotiation,Sales Manager,Not started,15,,2026-09-15,2026-09-15,Mutual plan shared 8/1,CFO
+Umbrella Corp,Negotiation,General Counsel,Redline in progress,40,,2026-08-31,2026-08-31,Yes - shared doc,CEO
+Stark Industries,Negotiation,Legal Counsel,MSA signed by legal in review,18,,2026-07-20,2026-07-20,Doc shared,COO
+Wayne Enterprises,Negotiation,Finance Director,Redlines exchanged,20,,2026-09-01,2026-09-01,,CFO
+Hooli,Negotiation,Procurement Lead,MSA redlines in progress,10,Legal Ops,2026-09-10,2026-09-10,Shared timeline doc,
+Wonka Industries,Negotiation,Legal Counsel,Final redline review,15,General Counsel,2026-09-20,2026-09-20,MAP shared and tracked weekly,CEO
+Soylent Corp,Negotiation,Sales Rep,,30,,2026-08-05,,,CFO
+Pied Piper,Proposal,CTO,,50,,2026-06-01,2026-06-01,,

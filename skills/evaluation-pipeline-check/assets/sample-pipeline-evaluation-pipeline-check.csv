@@ -1,0 +1,11 @@
+deal_name,stage,deal_value,success_criteria,champion,evaluation_end,days_in_stage,security_review,last_activity_date
+Acme Corp,Technical Evaluation,120000,"Migrate 3 pilot teams; latency under 200ms",Priya Shah (VP Eng - technical champion),2026-08-25,20,In Progress,2026-08-08
+Globex Inc,Technical Evaluation,45000,,Devon Ruiz (Champion),2026-08-30,15,,2026-08-07
+Initech,Evaluating,200000,"Pass SOC2 review; integrate with Okta",,2026-09-10,25,Not started,2026-08-01
+Umbrella LLC,Tech Eval,30000,"Load test at 10x peak traffic",Sam Okafor (Champion),,10,,2026-08-09
+Soylent Co,Technical Evaluation,150000,,,,90,,2026-06-01
+Wayne Enterprises,Technical Evaluation,80000,"Validate SSO and data residency",Lucius Fox (Technical Champion),2026-09-01,60,In Progress,2026-08-05
+Stark Industries,Evaluation pipeline,25000,"Confirm API rate limits meet volume",Pepper Potts (Champion),2026-08-20,12,,2026-08-09
+Hooli,Technical Evaluation,60000,"Run 2-week proof of value",Erlich Bachman (Champion),2026-08-28,18,Not started,2026-05-01
+Dunder Mifflin,Negotiation,55000,"Finalize contract terms",Michael Scott (Champion),2026-08-15,5,Signed,2026-08-09
+Pied Piper,Technical Evaluation,110000,"Benchmark compression ratio vs incumbent",Gilfoyle (Champion),2026-09-05,30,,2026-07-20
