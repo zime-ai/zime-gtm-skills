@@ -1,0 +1,32 @@
+direction: right
+
+nb: New business {
+  sq: sql-to-qualify
+  dd: deep-discovery
+  mq: meeting-to-qualify
+  td: technical-discovery
+  id: improve-demo
+  qtp: qualify-to-poc
+  pc: pilot-to-conversion
+  nc: negotiation-closing
+
+  sq -> dd -> mq -> td -> id -> qtp -> pc -> nc
+}
+
+ps: Post-sale {
+  oj: onboarding-journey
+  cs: customer-success
+
+  oj -> cs
+}
+
+nb -> ps
+
+fcr: first-call-rampup, coaching at any stage
+cp: churn-prevention, renewal risk
+ue: upsell-expansion, expansion opportunity
+pbd: persona-based-discovery, persona-adapted lens on discovery
+
+ps -> cp: {style.stroke-dash: 3}
+ps -> ue: {style.stroke-dash: 3}
+nb.dd -> pbd: {style.stroke-dash: 3}
