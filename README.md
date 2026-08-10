@@ -141,32 +141,15 @@ See [Installation](#installation) below for the submodule option and the
 32 skills: 23 stage motions laid out across the deal lifecycle and 9
 cross-stage initiative skills.
 
-```mermaid
-%%{init: {"flowchart": {"nodeSpacing": 65, "rankSpacing": 90, "padding": 20}, "themeVariables": {"fontSize": "20px"}}}%%
-flowchart LR
-    subgraph nb["New business"]
-        direction LR
-        sq[sql-to-qualify] --> dd[deep-discovery]
-        dd --> mq[meeting-to-qualify]
-        mq --> td[technical-discovery]
-        td --> id[improve-demo]
-        id --> qtp[qualify-to-poc]
-        qtp --> pc[pilot-to-conversion]
-        pc --> pocs[poc-success]
-        pocs --> nc[negotiation-closing]
-    end
-    subgraph ps["Post-sale"]
-        direction LR
-        oj[onboarding-journey] --> cs[customer-success]
-    end
-    nb --> ps
-    fcr["first-call-rampup, coaching at any stage"]
-    cp["churn-prevention, renewal risk"]
-    ue["upsell-expansion, expansion opportunity"]
-    pbd["persona-based-discovery, persona-adapted lens on discovery"]
-    ps -.-> cp
-    ps -.-> ue
-    dd -.-> pbd
+![Skill map](assets/skill-map.svg)
+
+Source: [`assets/skill-map.d2`](assets/skill-map.d2), built with
+[d2](https://github.com/d2lang/d2). GitHub doesn't render `d2` code blocks
+inline (only `mermaid`), so the diagram ships pre-rendered as SVG — regen
+after editing the source with:
+
+```bash
+d2 assets/skill-map.d2 assets/skill-map.svg --theme 0 --dark-theme 200 --pad 60 --scale 1.5
 ```
 
 Unlike some agent-skill collections, there's no foundational context skill
