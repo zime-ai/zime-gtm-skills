@@ -70,27 +70,27 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
 
 - **Stage** and **initiative**. `zime:dimension` in frontmatter is `stage`
   or `initiative`. The 11 original skills are stage skills; `meddicc`,
-  `bant`, `pain-finder`, and `next-step-commitment` are initiative skills
-  that run at any stage.
+  `bant`, `pain-finder`, `next-step-commitment`, `meddpicc`, `faint`,
+  `sandler`, and `challenger` are initiative skills that run at any stage.
 - Do **not** nest skills under `skills/stage/` or `skills/initiative/`
   directories. It was considered and rejected. The Agent Skills spec pins
   `name` to the directory name, `validate-skills.sh` and the pinned
   `skills-ref` CI validator both iterate `skills/*/`, and the README's
   `cp -r skills/* .agents/skills/` install line would copy the nesting dirs
   as if they were skills themselves.
-- This 16-skill set is a deliberate proof-set, not the full catalogue —
+- This 20-skill set is a deliberate proof-set, not the full catalogue —
   several named methodologies aren't built yet, see the README's Roadmap.
   Expand it the same way the first 4 initiative skills were built.
 
 ## Verification state, honestly
 
-- **Structural validation**: all 16 skills pass `./validate-skills.sh`
+- **Structural validation**: all 20 skills pass `./validate-skills.sh`
   (which now also checks `zime:dimension` is present/valid, and that any
   `evals/evals.json` parses and uses `expectations`, not `assertions`) and
   the pinned `skills-ref validate` in CI.
 - **Functional validation**: only `deep-discovery` has actually been run
   end-to-end against its sample transcript and had its output read for
-  correctness. The other 15 have evals written (see below) but have not
+  correctness. The other 19 have evals written (see below) but have not
   been manually run.
 - **CSV mode**: has never been exercised on any skill. A shared synthetic
   pipeline export exists at `skills/deep-discovery/assets/sample-pipeline.csv`.
@@ -110,7 +110,7 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   (not the rubric author) gold-labeling sample transcripts. See `EVALS.md`
   for the full methodology and why this tier can't be automated.
 
-`skills/*/evals/evals.json` exist for all 16 skills, using `expectations`
+`skills/*/evals/evals.json` exist for all 20 skills, using `expectations`
 (not `assertions`) with skill-root-relative `files` paths. Every eval carries
 at least one expectation a format-compliant-but-shallow output would fail,
 per `EVALS.md`'s falsifying-expectation rule. They remain declarative, not
@@ -128,7 +128,7 @@ eval, not just this section.
 - **Running the evals in CI**: turn `evals/evals.json` from a spec into an
   actual check, likely by invoking each skill against its eval prompts with
   a small harness and comparing against the expectations.
-- **The other 16 initiative skills**: see "Two dimensions" above.
+- **The other 12 initiative skills**: see "Two dimensions" above.
 - **The `vertical-context` skill** (a third axis: industry reference packs
   for cybersecurity, healthcare, fintech, loaded by other skills on request)
   was pulled off `main` before public launch — it never got the
@@ -140,7 +140,7 @@ eval, not just this section.
   bookkeeping once there are installed users who need to detect updates.
 - **Auto-regenerating the README's skill table** from the `SKILL.md`
   frontmatter (the reference repo this was adapted from has a
-  `sync-skills.js` for this): not worth it yet at 16 skills; the
+  `sync-skills.js` for this): not worth it yet at 20 skills; the
   `<!-- SKILLS:START/END -->` markers are already in place for whenever it is.
 
 ## Building skills at scale

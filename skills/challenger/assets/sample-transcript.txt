@@ -1,0 +1,47 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+Call: Brightfield Manufacturing <> Vendor (Rep: Sam)
+Stage: Second call, ops lead + a scheduling coordinator on the line
+
+Sam: Last time you mentioned scheduling changes take a while to propagate
+to the floor. Still the main pain point?
+
+Prospect (Ravi, Ops Lead): Yeah, still the big one. When a shift change
+comes in, it takes our coordinator most of a morning to manually update the
+boards and text the leads.
+
+Sam: Right — and here's something we see a lot in plants your size: teams
+usually assume the fix is "make the manual update faster," but the real
+cost is usually the two or three hours after the update where the floor is
+running on stale information nobody flagged. That gap is where the
+mis-picks and rework actually happen, not the update itself.
+
+Ravi: Huh. That's... actually true, we had a mis-pick last week that came
+from someone working off yesterday's board.
+
+Sam: That tracks with what we've seen elsewhere. For your coordinator here
+specifically — Priya, right? — the win isn't just less typing, it's that
+the floor sees the change live instead of on a lag, so she's not the one
+getting blamed when something slips through that gap.
+
+Coordinator (Priya): Honestly that would be a relief, I get pulled into
+those conversations a lot.
+
+Sam: What's your rough timeline for getting something live?
+
+Ravi: We'd want this in before our Q4 peak, so end of September realistically.
+
+Sam: End of September works, we can definitely hit that.
+
+Ravi: And budget — we were thinking somewhere under $15k for the first year,
+is that workable?
+
+Sam: We can make that number work.
+
+Ravi: Great. What's the actual product look like?
+
+Sam: It's a live board sync — floor displays update the second a schedule
+change is approved, no manual re-typing, and it logs who approved what for
+your audit trail.
+
+Ravi: Okay, send over pricing and we'll take a look internally.

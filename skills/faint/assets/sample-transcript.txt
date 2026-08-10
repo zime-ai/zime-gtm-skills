@@ -1,0 +1,56 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+[00:00] Rep (Dana): Thanks for hopping on — I know this was a cold outreach,
+so I'll keep it short. Before I dive in, can I ask what made you take the
+call?
+
+[00:14] Prospect (Marcus, Ops Lead): Honestly, your subject line caught me
+at the right time. We're not actively shopping for anything, but I had ten
+minutes and figured I'd hear you out.
+
+[00:29] Dana: Fair enough. What does your team spend most of its time on
+day to day?
+
+[00:35] Marcus: Mostly coordinating shipments across three warehouses. It's
+fine, it's not broken, we just do it the way we've always done it.
+
+[01:10] Dana: Got it. A lot of teams tell us that right up until they see
+how much manual re-keying is actually happening. Mind if I show you
+something quick?
+
+[01:20] Marcus: Sure, go ahead.
+
+[02:45] Dana: [shares screen, walks through a dashboard example]
+
+[03:30] Marcus: Okay, that's actually interesting — I didn't realize you
+could cross-reference the warehouse feeds like that automatically. Can you
+send me a one-pager on how that part works? I'd want to poke at it before
+I say anything more.
+
+[03:50] Dana: Absolutely, I'll send that today. Is that something you'd be
+the one deciding on, or would others weigh in?
+
+[04:05] Marcus: I'd bring it to my director if we ever got serious about
+it, but honestly we haven't talked about changing anything on this. It's
+not a priority right now, more of a "huh, didn't know that existed" moment
+for me.
+
+[04:30] Dana: That's helpful to know. Money aside — if something like this
+made sense, is spend the kind of thing your org could absorb, or would it
+need a whole new budget line?
+
+[04:40] Marcus: We're not tight on cash, if it was worth it we could
+probably just fold it into the ops tooling spend, nobody would blink at a
+reasonable number. It's more that nobody's asked for it.
+
+[05:10] Dana: Understood. Any sense of timing — is there anything coming up,
+a renewal, a busy season, that would make this worth revisiting?
+
+[05:20] Marcus: Not that I can point to. Maybe around year-end planning we
+look at tooling in general, but that's true every year and nothing ever
+really comes of it.
+
+[05:40] Dana: That's fair. I'll send the one-pager today and follow up in
+a couple weeks — sound okay?
+
+[05:45] Marcus: Yeah, send it over, I'll take a look.

@@ -1,0 +1,58 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+Call: Cascade Freight Co-op <> Vendor (Rep: Talia)
+Stage: Late-stage call, three weeks after verbal approval from the champion
+
+Talia: Last time we spoke, Ravi, you said the team was ready to move
+forward. Where do things stand on your end?
+
+Prospect (Ravi, VP Operations): Still ready on our side. We're losing about
+$42,000 a quarter in double-booked freight because our dispatch board and
+our carrier portal don't talk to each other — that's the number I took to
+my leadership, and it landed.
+
+Talia: Good, that's the number we'll build the business case around. Who
+signs off on a deal this size?
+
+Ravi: Our CFO, Deb Okafor, has final approval on anything over $75k
+annually. She's bought into the pain, she just hasn't been on a call with
+us directly — I've been the one relaying everything.
+
+Talia: Understood. On the evaluation side, is price the main driver, or is
+something else weighing more?
+
+Ravi: Integration effort, honestly. We got burned two years ago by a vendor
+whose implementation dragged four months past what they quoted. If your
+onboarding timeline is real, that matters more to us than shaving a few
+points off price.
+
+Talia: Fair. And how does a deal like this actually move internally once
+you're ready — is it just you and Deb, or others?
+
+Ravi: I recommend, Deb approves the budget, and then it typically goes to
+our ops committee for a final nod, mostly a formality at that point.
+
+Talia: Got it. Now that we're past the "are we doing this" question — has
+anyone on your side flagged what happens once we're ready to paper this?
+Legal review, procurement, security questionnaire, anything like that?
+
+Ravi: Honestly, I haven't thought that far ahead. We've never really needed
+a formal procurement process for a vendor this size before, so I'm not
+sure. I'd guess our legal team would want to look at the contract, but I
+couldn't tell you who or how long that usually takes.
+
+Talia: That's useful to know now rather than in week six. I'll send over
+our standard MSA so your legal team has something concrete to start
+reviewing, and let's get a name for whoever on your side actually signs —
+sounds like that might not be Deb herself.
+
+Ravi: Good call. I'll ask internally and get back to you on who that is.
+
+Talia: One more thing — is there anyone else you're evaluating, or is this
+a single-vendor conversation at this point?
+
+Ravi: At this point it's really just you. We looked at one competitor
+early on but didn't get far enough to compare seriously.
+
+Talia: Appreciate the context. I'll follow up with the MSA today, and
+let's set a checkpoint next week once you've got a name for the signer.

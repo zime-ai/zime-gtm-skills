@@ -1,13 +1,13 @@
 # zime-gtm-skills
 
-[![Skills](https://img.shields.io/badge/skills-16-blue)](skills/)
+[![Skills](https://img.shields.io/badge/skills-20-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 16 [Agent Skills](https://agentskills.io) that audit sales call
+here. 20 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
@@ -138,7 +138,7 @@ See [Installation](#installation) below for the submodule option and the
 
 ## How these fit together
 
-16 skills: 11 stage motions laid out across the deal lifecycle and 5
+20 skills: 11 stage motions laid out across the deal lifecycle and 9
 cross-stage initiative skills.
 
 ```mermaid
@@ -186,14 +186,18 @@ one call transcript (or CRM export) in, one evidence-cited audit out.
 | `churn-prevention` | Renewal risk | n/a |
 | `upsell-expansion` | Expansion | n/a |
 | `meddicc` | Any | MEDDICC |
+| `meddpicc` | Any | MEDDPICC |
+| `faint` | Any (early) | FAINT |
+| `sandler` | Any | Sandler Submarine |
+| `challenger` | Any | Challenger Sale |
 | `bant` | Any (early) | BANT |
 | `pain-finder` | Any | Identify pain |
 | `next-step-commitment` | Any | Next step commitment |
 | `adoption-leaderboard` | Any (post-sale) | Behavior adoption |
 
-**Roadmap.** The named methodologies (MEDDPICC, FAINT, Sandler, Challenger,
-Sell the Dream, and others) aren't built yet. See `MAINTAINING.md`'s
-deferred work, or [contribute one](CONTRIBUTING.md).
+**Roadmap.** Other named methodologies (Sell the Dream, SQL to Qualify,
+and others) aren't built yet. See `MAINTAINING.md`'s deferred work, or
+[contribute one](CONTRIBUTING.md).
 
 ## Where this stops
 
@@ -219,7 +223,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 ## Available skills
 
 <details open>
-<summary>16 skills across new business, post-sale, and cross-stage initiative</summary>
+<summary>20 skills across new business, post-sale, and cross-stage initiative</summary>
 
 <!-- SKILLS:START -->
 **New business**
@@ -248,6 +252,10 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 | Skill | Audits | Input |
 |---|---|---|
 | [meddicc](skills/meddicc/) | MEDDICC coverage — Metrics, Economic buyer, Decision criteria, Decision process, Identify pain, Champion, Competition | transcript or CRM export |
+| [meddpicc](skills/meddpicc/) | MEDDPICC coverage — MEDDICC plus Paper Process: legal/procurement/security review, signature path, redlines | transcript or CRM export |
+| [faint](skills/faint/) | FAINT coverage — Funds, Authority, Interest, Need, Timing, for buyers with no articulated need yet | transcript or CRM export |
+| [sandler](skills/sandler/) | Sandler Submarine coverage — bonding & rapport, up-front contract, pain, budget, decision, fulfillment, post-sell | transcript or CRM export |
+| [challenger](skills/challenger/) | Challenger Sale coverage — teach, tailor, take control, and the commercial-teaching pitch arc | transcript or CRM export |
 | [bant](skills/bant/) | BANT coverage — Budget, Authority, Need, Timeline — lighter-weight, early-stage qualification | transcript or CRM export |
 | [pain-finder](skills/pain-finder/) | Ranked pain points with confidence and evidence | transcript |
 | [next-step-commitment](skills/next-step-commitment/) | Whether a call ended in a real, dated, two-sided commitment vs. a vague "we'll circle back" | transcript or CRM export |
@@ -256,7 +264,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 
 </details>
 
-All 11 stage motions are covered; the initiative set is five skills today.
+All 11 stage motions are covered; the initiative set is nine skills today.
 New skills welcome, see [CONTRIBUTING.md](CONTRIBUTING.md). For how these
 are tested, and what that testing can and can't prove, see
 [EVALS.md](EVALS.md).

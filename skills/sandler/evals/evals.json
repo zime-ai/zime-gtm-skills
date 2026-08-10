@@ -1,0 +1,49 @@
+{
+  "skill_name": "sandler",
+  "evals": [
+    {
+      "id": 1,
+      "name": "sandler-eval-1",
+      "prompt": "run sandler on skills/sandler/assets/sample-transcript.txt",
+      "expected_output": "Scores the call against all seven submarine compartments in order. Bonding and Rapport is Covered (the conference small talk, matching Kim's tone). Up-Front Contract is Covered (the stated 25-minute agenda with permission to walk away). Pain is Missed or Partial and flagged as a sequence violation — Sam pitches the routing engine off a vague 'we do get a lot of returns' rather than surfacing a specific, quantified pain first. Budget is Missed (never raised at all). Decision is Partial (Kim mentions checking with her director, but Sam never clarifies the process or timeline). Fulfillment is Missed (Sam declares next steps settled — 'let's get this moving' — rather than framing it as tentative, and Kim's hesitant 'Oh — sure, I guess' is evidence the close wasn't a real mutual agreement). Post-Sell is Missed (the call ends on a bare 'any other questions?' with no reinforcing or reversing step). Closes with the single biggest submarine violation — pitching before Pain was earned — as the top risk, not a full recap.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "All seven Sandler compartments receive a Status, in submarine order",
+        "Bonding and Rapport and Up-Front Contract are scored Covered",
+        "Pain is scored Missed or Partial and explicitly called a sequence violation for pitching before pain was surfaced",
+        "Budget is scored Missed because no budget number, range, or process was ever raised",
+        "Fulfillment is scored Missed and cites Kim's hesitant agreement as evidence the close was assumed rather than mutual",
+        "Post-Sell is scored Missed and distinguishes the bare 'any other questions' from a real reinforcing or reversing step",
+        "Closes with a single named biggest submarine violation and a concrete next step, not a full recap",
+        "Cites at least one direct quote from the transcript rather than a generic paraphrase that could apply to any call"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "sandler-eval-2-reads-well-too",
+      "prompt": "run sandler on a transcript of a first discovery call that, by any reasonable read, went well for a call at that early stage and never got near a close",
+      "expected_output": "Compartments a first call could not reasonably reach (typically Fulfillment and Post-Sell, often Decision) are scored Not applicable rather than Missed. The audit does not read as mostly gaps just because the submarine has seven compartments and an early call cannot reach the closing ones.",
+      "files": [],
+      "expectations": [
+        "Compartments unreachable at this call's stage are marked Not applicable, not Missed",
+        "A genuinely strong early call is not scored as mostly Missed",
+        "The reads-well-too check from references/rubric.md is applied before the audit is finalized"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "sandler-eval-3-csv",
+      "prompt": "run sandler on a CRM pipeline export csv with deal rows missing several Sandler-relevant fields",
+      "expected_output": "Treats this as a structural hygiene sweep, not a call-quality audit, and says so explicitly. Flags each deal row for missing Sandler-relevant fields (budget confirmed, decision process, next-step commitment). Output is a table sorted by deal value descending. Makes no claim about what was actually discussed on any specific call.",
+      "files": [],
+      "expectations": [
+        "States explicitly that CSV mode is a structural check, not a call-quality claim",
+        "Flags rows missing Sandler-relevant fields",
+        "Output is sorted by deal value descending",
+        "Does not claim to know what happened on any specific call from CRM fields alone"
+      ]
+    }
+  ]
+}
