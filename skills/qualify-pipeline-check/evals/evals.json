@@ -1,0 +1,48 @@
+{
+  "skill_name": "qualify-pipeline-check",
+  "evals": [
+    {
+      "id": 1,
+      "name": "qualify-pipeline-check-eval-1-scope",
+      "prompt": "run qualify-pipeline-check on skills/qualify-pipeline-check/assets/sample-pipeline-qualify-pipeline-check.csv",
+      "expected_output": "Reports 9 of 10 rows in scope (Pied Piper excluded, stage = Discovery). Soylent Corp is flagged on all six checks and sorted first. Globex Inc is flagged on five checks. Acme Corp and Hooli come back Clean on every check. Closing lines state '7 of 9 deals in Qualify pipeline flagged' and name 'no next step' as the single most common flag.",
+      "files": [
+        "assets/sample-pipeline-qualify-pipeline-check.csv"
+      ],
+      "expectations": [
+        "States 9 rows in scope out of 10 total, excluding the Discovery-stage Pied Piper row",
+        "Soylent Corp is flagged on all six checks and appears first in the table",
+        "Acme Corp and Hooli are scored Clean on every check",
+        "Every flagged row cites the specific column name and cell value that triggered each flag, e.g. buyer_role = (empty) or close_date = 2026-08-16",
+        "Closing lines report '7 of 9 deals in Qualify pipeline flagged' and identify 'no next step' as the most common flag",
+        "Output is a single markdown table with columns Deal, Flags, Evidence, Suggested action, followed only by the two closing lines"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "qualify-pipeline-check-eval-2-column-missing",
+      "prompt": "run qualify-pipeline-check on a Qualify-stage pipeline export csv that has no meddicc_score or any other qualification-framework column at all",
+      "expected_output": "The qualification-record check reports Unknown (column missing) for every in-scope row, stated once up front, rather than being scored Flagged or Clean and never inferred from another column.",
+      "files": [],
+      "expectations": [
+        "The qualification-record check is reported as Unknown (column missing) rather than Flagged or Clean",
+        "The missing-column state is stated once up front rather than repeated per row",
+        "No value for the missing check is inferred from any other column"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "qualify-pipeline-check-eval-3-reads-well-too",
+      "prompt": "run qualify-pipeline-check on skills/qualify-pipeline-check/assets/sample-pipeline-qualify-pipeline-check.csv and confirm the healthy deals are not flagged",
+      "expected_output": "Acme Corp and Hooli, which have a named economic buyer with a role, a specific stated pain, a budget or deal value, a close date at or after the stated procurement timeline, a next step, and a filled qualification score, are returned Clean on all six checks.",
+      "files": [
+        "assets/sample-pipeline-qualify-pipeline-check.csv"
+      ],
+      "expectations": [
+        "Acme Corp is Clean on all six checks",
+        "Hooli is Clean on all six checks",
+        "Neither healthy deal is flagged for a check it plainly satisfies"
+      ]
+    }
+  ]
+}

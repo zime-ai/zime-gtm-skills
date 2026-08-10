@@ -1,0 +1,28 @@
+{
+  "cases": [
+    {
+      "prompt": "Run sql-to-qualify on the sample transcript.",
+      "files": ["assets/sample-transcript.txt"],
+      "expectations": [
+        "Scores all five rubric dimensions with a Status of Covered, Partial, or Missed",
+        "Marks contact reachability as Covered or Partial since Marcus lacks budget authority but names Priya and Sarah as a path to the decision-maker",
+        "Marks pain restated in the prospect's own words as Covered, citing the Twitter escalation incident in Marcus's own language rather than the whitepaper download",
+        "Marks budget/urgency plausibility as Covered or Partial, citing the ~$40k prior QA tool spend and the Q4 peak-season deadline",
+        "Marks competitive awareness as Covered or Partial, citing that Gong was evaluated for a different use case and no support-monitoring vendor has been engaged yet",
+        "Marks concrete next meeting booked as Covered, citing the specific Thursday 2pm session with Marcus, Priya, and Sarah",
+        "Closes with a single advance / disqualify / needs one more touch read naming the deciding dimension(s)",
+        "Cites a direct quote or timestamp as evidence for each non-Unclear dimension"
+      ]
+    },
+    {
+      "prompt": "Run sql-to-qualify on a CRM export CSV of SQL-stage leads.",
+      "files": [],
+      "expectations": [
+        "Treats the file as a structural hygiene sweep rather than a call-quality audit",
+        "Checks rows marked SQL or later for populated, non-trivial contact role, stated pain, budget/urgency signal, and next-meeting date fields",
+        "Outputs a table with lead name, days since SQL, stage, and dimensions missing, sorted by days since SQL descending",
+        "States explicitly that this checks whether fields were filled in, not whether the underlying call was good"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+deal_name,stage,owner,cs_owner,created_date,close_date,won_date,kickoff_date,deal_value,contract_value,value_reason,contract_term,contract_id,probability
+Acme Corp,Closed Won,Jane Doe,Sam CS,2026-05-01,2026-06-15,2026-06-15,2026-06-20,50000,50000,,12 months,OF-1001,100%
+Globex Inc,Closed Won,Jane Doe,Alex CS,2026-04-10,2026-05-30,2026-05-30,2026-06-05,75000,70000,annual discount applied,24 months,OF-1002,100%
+Initech LLC,Closed Won,Mike Ross,,2026-03-01,2026-04-01,2026-04-01,2026-04-10,30000,30000,,12 months,OF-1003,100%
+Umbrella Co,Closed Won,Mike Ross,Alex CS,2026-02-01,2026-03-15,2026-03-15,,40000,40000,,12 months,OF-1004,100%
+Soylent Corp,Closed Won,Jane Doe,Sam CS,2026-01-10,2026-02-20,2026-02-20,2026-02-25,20000,,,,OF-1005,100%
+Hooli,Closed Won,Mike Ross,Alex CS,2026-06-01,2026-05-01,2026-05-01,2026-05-10,60000,60000,,12 months,OF-1006,100%
+Stark Industries,Closed Won,Jane Doe,Sam CS,2026-01-01,2026-02-01,2026-02-01,2026-02-10,90000,90000,,36 months,,100%
+Wayne Enterprises,Closed Won,,Alex CS,2026-03-01,2026-04-01,2026-04-01,2026-04-05,25000,25000,,12 months,OF-1008,60%
+Wonka Industries,Closed Won,Mike Ross,,2026-02-15,2026-03-20,2026-03-20,2026-03-25,55000,45000,,12 months,,100%
+Aperture Science,Negotiation,Jane Doe,,2026-07-01,2026-08-01,,,120000,,,,,50%

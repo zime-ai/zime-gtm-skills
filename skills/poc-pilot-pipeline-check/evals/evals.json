@@ -1,0 +1,47 @@
+{
+  "skill_name": "poc-pilot-pipeline-check",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "run poc-pilot-pipeline-check on skills/poc-pilot-pipeline-check/assets/sample-pipeline-poc-pilot-pipeline-check.csv",
+      "expected_output": "Filters to rows in the POC/pilot stage, reporting how many of the export's total rows were in scope. Runs all six checks from references/rubric.md against every in-scope row (no written exit criteria, no conversion date, past its own end date, no executive sponsor, no usage/milestone evidence, open-ended). Every flagged deal cites the column name and actual cell value that triggered the flag. Outputs one markdown table (Deal, Flags, Evidence, Suggested action) sorted flagged-first, most-flags-first, followed by 'N of M deals in <stage> flagged' and the single most common flag. Acme Corp and Globex come back Clean since they have exit criteria, a conversion date, a sponsor, and recorded usage.",
+      "files": [
+        "assets/sample-pipeline-poc-pilot-pipeline-check.csv"
+      ],
+      "expectations": [
+        "Reports how many rows were in scope (POC/pilot stage) out of the export's total",
+        "Every flagged deal cites the column name and the actual cell value that triggered the flag",
+        "Output is a single markdown table with columns Deal, Flags, Evidence, Suggested action",
+        "Flagged deals are listed first, most flags first",
+        "Closes with 'N of M deals in <stage> flagged' and the single most common flag, and nothing else (no scores or grades)",
+        "Acme Corp and Globex are reported Clean, not flagged"
+      ],
+      "name": "poc-pilot-pipeline-check-eval-1"
+    },
+    {
+      "id": 2,
+      "prompt": "run poc-pilot-pipeline-check on a pipeline export where the exit_criteria, sponsor, and usage columns are missing entirely (not just empty cells)",
+      "expected_output": "For each check whose required column is absent from the export, the skill reports that check as Unknown (column missing), stated once up front, rather than inferring the value from another column or silently skipping the check.",
+      "files": [],
+      "expectations": [
+        "Checks whose columns are missing are reported as Unknown (column missing), not Flagged or Clean",
+        "The missing-column note is stated once up front rather than repeated per row",
+        "No value is inferred from a different column to fill the gap"
+      ],
+      "name": "poc-pilot-pipeline-check-eval-2"
+    },
+    {
+      "id": 3,
+      "prompt": "run poc-pilot-pipeline-check on skills/poc-pilot-pipeline-check/assets/sample-pipeline-poc-pilot-pipeline-check.csv",
+      "expected_output": "Wonka Industries, which is in the Negotiation stage, is excluded from the flagged/clean table entirely since it falls outside the POC/pilot stage filter.",
+      "files": [
+        "assets/sample-pipeline-poc-pilot-pipeline-check.csv"
+      ],
+      "expectations": [
+        "Wonka Industries (Negotiation stage) does not appear in the output table",
+        "The in-scope row count excludes Wonka Industries"
+      ],
+      "name": "poc-pilot-pipeline-check-eval-3"
+    }
+  ]
+}

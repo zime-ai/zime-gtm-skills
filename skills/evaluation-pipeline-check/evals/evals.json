@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "prompt": "Run evaluation-pipeline-check on assets/sample-pipeline-evaluation-pipeline-check.csv",
+      "files": ["assets/sample-pipeline-evaluation-pipeline-check.csv"],
+      "expectations": [
+        "Reports 9 of 10 rows in scope (Dunder Mifflin excluded, stage is Negotiation)",
+        "Soylent Co is flagged with the most flags: no success criteria, no champion, no evaluation end date, running long, no security/procurement review, and stalled",
+        "Initech is flagged for no technical champion, citing champion = (empty)",
+        "Globex Inc is flagged for no success criteria, citing success_criteria = (empty)",
+        "Umbrella LLC is flagged for no evaluation end date, citing evaluation_end = (empty)",
+        "Wayne Enterprises is flagged for running long, citing its days_in_stage value against the computed median",
+        "Hooli is flagged for stalled activity, citing its last_activity_date against the computed median gap",
+        "Pied Piper is flagged for no security/procurement review, citing its above-median deal value and empty security_review cell",
+        "Acme Corp and Stark Industries return Clean on every check",
+        "Every flag cites a column name and the actual cell value that triggered it",
+        "No day-count or dollar threshold is hardcoded; medians are stated as computed from this export"
+      ]
+    },
+    {
+      "prompt": "Run evaluation-pipeline-check on a CSV missing a champion column entirely",
+      "files": [],
+      "expectations": [
+        "The no-technical-champion check reports Unknown (column missing) for every in-scope row",
+        "The missing-column note is stated once, up front, not repeated per row",
+        "No champion value is inferred from another column"
+      ]
+    }
+  ]
+}

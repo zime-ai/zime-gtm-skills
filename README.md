@@ -1,13 +1,13 @@
 # zime-gtm-skills
 
-[![Skills](https://img.shields.io/badge/skills-20-blue)](skills/)
+[![Skills](https://img.shields.io/badge/skills-29-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 20 [Agent Skills](https://agentskills.io) that audit sales call
+here. 29 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
@@ -138,7 +138,7 @@ See [Installation](#installation) below for the submodule option and the
 
 ## How these fit together
 
-20 skills: 11 stage motions laid out across the deal lifecycle and 9
+29 skills: 20 stage motions laid out across the deal lifecycle and 9
 cross-stage initiative skills.
 
 ```mermaid
@@ -146,10 +146,12 @@ cross-stage initiative skills.
 flowchart LR
     subgraph nb["New business"]
         direction LR
-        dd[deep-discovery] --> mq[meeting-to-qualify]
+        sq[sql-to-qualify] --> dd[deep-discovery]
+        dd --> mq[meeting-to-qualify]
         mq --> td[technical-discovery]
         td --> id[improve-demo]
-        id --> pc[pilot-to-conversion]
+        id --> qtp[qualify-to-poc]
+        qtp --> pc[pilot-to-conversion]
         pc --> nc[negotiation-closing]
     end
     subgraph ps["Post-sale"]
@@ -160,8 +162,10 @@ flowchart LR
     fcr["first-call-rampup, coaching at any stage"]
     cp["churn-prevention, renewal risk"]
     ue["upsell-expansion, expansion opportunity"]
+    pbd["persona-based-discovery, persona-adapted lens on discovery"]
     ps -.-> cp
     ps -.-> ue
+    dd -.-> pbd
 ```
 
 Unlike some agent-skill collections, there's no foundational context skill
@@ -174,12 +178,21 @@ one call transcript (or CRM export) in, one evidence-cited audit out.
 
 | | Stage | Initiative |
 |---|---|---|
+| `sql-to-qualify` | SQL to qualify | n/a |
 | `deep-discovery` | Discovery | n/a |
+| `persona-based-discovery` | Discovery | n/a |
 | `meeting-to-qualify` | Qualify | n/a |
 | `technical-discovery` | Technical discovery | n/a |
 | `improve-demo` | Demo | n/a |
+| `qualify-to-poc` | Qualify to POC | n/a |
 | `pilot-to-conversion` | Pilot | n/a |
 | `negotiation-closing` | Negotiation | n/a |
+| `prospect-pipeline-check` | Prospect pipeline | n/a |
+| `qualify-pipeline-check` | Qualify pipeline | n/a |
+| `evaluation-pipeline-check` | Evaluation pipeline | n/a |
+| `poc-pilot-pipeline-check` | POC/pilot pipeline | n/a |
+| `negotiation-pipeline-check` | Negotiation pipeline | n/a |
+| `won-pipeline-check` | Won pipeline | n/a |
 | `first-call-rampup` | Any (coaching) | n/a |
 | `onboarding-journey` | Onboarding | n/a |
 | `customer-success` | Post-sale review | n/a |
@@ -195,8 +208,8 @@ one call transcript (or CRM export) in, one evidence-cited audit out.
 | `next-step-commitment` | Any | Next step commitment |
 | `adoption-leaderboard` | Any (post-sale) | Behavior adoption |
 
-**Roadmap.** Other named methodologies (Sell the Dream, SQL to Qualify,
-and others) aren't built yet. See [ROADMAP.md](ROADMAP.md), or
+**Roadmap.** Other named methodologies and motions aren't built yet.
+See [ROADMAP.md](ROADMAP.md), or
 [contribute one](CONTRIBUTING.md).
 
 ## Where this stops
@@ -223,20 +236,29 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 ## Available skills
 
 <details open>
-<summary>20 skills across new business, post-sale, and cross-stage initiative</summary>
+<summary>29 skills across new business, post-sale, and cross-stage initiative</summary>
 
 <!-- SKILLS:START -->
 **New business**
 
 | Skill | Audits | Input |
 |---|---|---|
+| [sql-to-qualify](skills/sql-to-qualify/) | Whether a freshly-assigned SQL is a real opportunity — right contact, pain in their own words, rough budget/urgency fit, competitive awareness, concrete next meeting | transcript or CRM export |
 | [deep-discovery](skills/deep-discovery/) | Early-stage discovery call quality — pain, trigger, decision process, budget/timeline, procurement, competition, rapport | transcript (`.txt`/`.vtt`/`.json`/`.md`) or CRM export (`.csv`) |
+| [persona-based-discovery](skills/persona-based-discovery/) | Whether a discovery call was actually tailored to the buyer persona in the room — role ID, pain framing, proof points, objection handling, next step | transcript or CRM export |
 | [meeting-to-qualify](skills/meeting-to-qualify/) | Whether a deal is real — authority, budget plausibility, urgency, fit, competitive situation, concrete next step | transcript or CRM export |
 | [technical-discovery](skills/technical-discovery/) | Whether a POC is set up to succeed — current stack, future-state fit, scope clarity, technical stakeholders, resourcing | transcript or CRM export |
 | [improve-demo](skills/improve-demo/) | Demo quality — tailoring, stakeholder presence, engagement, competitive differentiation, clear next step | transcript or CRM export |
+| [qualify-to-poc](skills/qualify-to-poc/) | Whether a POC kickoff is set up to succeed before it starts — success criteria, technical scope, stakeholder commitment, timeline/exit criteria, resourcing | transcript or CRM export |
 | [pilot-to-conversion](skills/pilot-to-conversion/) | Pilot/POC health — plan alignment, technical readiness, user engagement, results against criteria, conversion path | transcript or CRM export |
 | [negotiation-closing](skills/negotiation-closing/) | Late-stage deal momentum — pricing reaction, procurement progress, contracting awareness, closure timeline | transcript or CRM export |
 | [first-call-rampup](skills/first-call-rampup/) | New-rep foundational technique — opening, open-ended questioning, pain uncovering, pitch clarity, rapport | transcript only |
+| [prospect-pipeline-check](skills/prospect-pipeline-check/) | A prospect-stage pipeline export for deals with no two-way engagement — no reply, no meeting held, single-threaded and unanswered, aged with no activity | CRM export (`.csv`) or connector |
+| [qualify-pipeline-check](skills/qualify-pipeline-check/) | A pipeline export for deals advanced past Qualify with no economic buyer, stated pain, budget signal, next step, or a close date that fits the procurement cycle | CRM export (`.csv`) or connector |
+| [evaluation-pipeline-check](skills/evaluation-pipeline-check/) | A pipeline export for technical evaluations running with no success criteria, technical champion, or end date — plus evaluations running long or stalled against the export's own norms | CRM export (`.csv`) or connector |
+| [poc-pilot-pipeline-check](skills/poc-pilot-pipeline-check/) | A pipeline export for POCs and pilots with no written exit criteria, conversion date, or executive sponsor, and POCs already past their own end date | CRM export (`.csv`) or connector |
+| [negotiation-pipeline-check](skills/negotiation-pipeline-check/) | A pipeline export for negotiation-stage deals with no paper process started, no approver on a discount, no named signer, or a close date that has already slipped | CRM export (`.csv`) or connector |
+| [won-pipeline-check](skills/won-pipeline-check/) | A closed-won export for missing handoff data — CS owner, kickoff date, signed value/term, contract reference — and won/close date inconsistencies | CRM export (`.csv`) or connector |
 
 **Post-sale**
 
@@ -264,7 +286,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 
 </details>
 
-All 11 stage motions are covered; the initiative set is 9 skills today.
+All 20 stage motions are covered; the initiative set is 9 skills today.
 New skills welcome, see [CONTRIBUTING.md](CONTRIBUTING.md). For how these
 are tested, and what that testing can and can't prove, see
 [EVALS.md](EVALS.md).

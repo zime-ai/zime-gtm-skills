@@ -3,6 +3,35 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.0.0] — 29 skills, ROADMAP.md, dev/main release flow
+
+29 Agent Skills (up from 16 at 1.0.0), 20 stage + 9 initiative, plus the
+process this repo now ships work through: `ROADMAP.md` tracks what's built
+and what's next, work lands on `dev` and ships to `main` in batched,
+fully-gated releases (this entry is the first one cut that way).
+
+**New initiative skills** (4): `meddpicc`, `faint`, `sandler`, `challenger`.
+
+**New stage skills** (9): `sql-to-qualify`, `qualify-to-poc`,
+`persona-based-discovery`, and the deal-stage pipeline-check family —
+`prospect-pipeline-check`, `qualify-pipeline-check`,
+`evaluation-pipeline-check`, `poc-pilot-pipeline-check`,
+`negotiation-pipeline-check`, `won-pipeline-check`. The pipeline-check six
+are a new input class for this repo: no transcript mode, they read a `.csv`
+deal export and flag deals that can't pass their own stage's exit test,
+citing the column and cell value behind every flag.
+
+Also ships:
+- `ROADMAP.md` — every phase-1 skill tracked as a checkbox, machine-checked
+  against `skills/*/` by `scripts/check-docs-sync.sh`'s `roadmap-in-sync`
+  rule so this file can't silently drift the way this changelog once did.
+- `dev` as the integration branch for skill PRs; `main` only moves in
+  batched, fully-validated releases via the new `gtm-release` skill.
+- `scripts/check-pr-diff-identity.py` — scans every PR's actual diff for the
+  operator's own git identity or a home-directory path right after
+  `gh pr create`, since the PR is already public by the time a pre-push gate
+  could catch it.
+
 ## [1.0.0] — Initial public release
 
 16 Agent Skills across two axes — deal stage and cross-stage initiative —

@@ -1,0 +1,50 @@
+{
+  "skill_name": "won-pipeline-check",
+  "evals": [
+    {
+      "id": 1,
+      "name": "won-pipeline-check-eval-1-scope-and-flags",
+      "prompt": "run won-pipeline-check on skills/won-pipeline-check/assets/sample-pipeline-won-pipeline-check.csv",
+      "expected_output": "9 of the 10 rows are in scope (Aperture Science is stage Negotiation, out of scope). Initech LLC is flagged for no CS/onboarding owner (cs_owner empty). Umbrella Co is flagged for no kickoff date (kickoff_date empty). Soylent Corp is flagged for no signed value or term (contract_value and contract_term both empty). Hooli is flagged for date inconsistency (won_date 2026-05-01 before created_date 2026-06-01). Stark Industries is flagged for no signed-contract reference (contract_id empty). Wayne Enterprises is flagged as an orphaned record (owner empty, and probability 60% while stage is Closed Won). Wonka Industries is flagged for multiple things: no CS owner, no signed-contract reference, and no signed value/term (contract_value 45000 differs from deal_value 55000 with value_reason empty). Acme Corp and Globex Inc come back Clean.",
+      "files": [
+        "assets/sample-pipeline-won-pipeline-check.csv"
+      ],
+      "expectations": [
+        "States 9 of 10 rows in scope, with Aperture Science excluded for not being Closed Won",
+        "Flags Initech LLC for missing CS/onboarding owner and cites cs_owner = (empty)",
+        "Flags Umbrella Co for missing kickoff date and cites kickoff_date = (empty)",
+        "Flags Soylent Corp for missing signed value or term and cites the empty contract_value and/or contract_term cells",
+        "Flags Hooli for date inconsistency and cites both won_date and created_date values",
+        "Flags Stark Industries for missing signed-contract reference and cites contract_id = (empty)",
+        "Flags Wayne Enterprises as an orphaned record and cites either the empty owner or the 60% probability on a Closed Won row",
+        "Flags Wonka Industries for at least the missing CS owner and missing contract reference",
+        "Scores Acme Corp and Globex Inc as Clean",
+        "Output is a single markdown table with columns Deal, Flags, Evidence, Suggested action, flagged deals first and sorted by most flags first",
+        "Closes with 'N of M deals in Won pipeline flagged' and the single most common flag, and nothing else (no scores, grades, or invented percentages)"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "won-pipeline-check-eval-2-reads-well-too",
+      "prompt": "run won-pipeline-check on a closed-won pipeline export where every deal has a CS owner, kickoff date, signed contract value and term, consistent dates, a contract reference, and a Closed forecast category",
+      "expected_output": "Every deal in the export comes back Clean. The reads-well-too check from references/rubric.md is applied before finalizing, so a genuinely complete record is not nitpicked into a flag.",
+      "files": [],
+      "expectations": [
+        "All deals in a fully-complete export are scored Clean, none flagged",
+        "The reads-well-too check from references/rubric.md is applied before the audit is finalized"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "won-pipeline-check-eval-3-missing-column",
+      "prompt": "run won-pipeline-check on a closed-won pipeline export that has no contract ID or order form column at all",
+      "expected_output": "The no-signed-contract-reference check reports Unknown (column missing) for every row, stated once up front, rather than being silently skipped or guessed from another column. The other five checks still run normally where their columns are present.",
+      "files": [],
+      "expectations": [
+        "States once, up front, that the contract-reference column is missing",
+        "Reports the no-signed-contract-reference check as Unknown (column missing) for every row rather than inferring it from another column",
+        "Still runs the other five checks normally"
+      ]
+    }
+  ]
+}

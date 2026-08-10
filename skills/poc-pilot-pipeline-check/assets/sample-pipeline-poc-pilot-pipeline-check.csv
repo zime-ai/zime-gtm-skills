@@ -1,0 +1,11 @@
+deal_name,deal_value,stage,exit_criteria,poc_start_date,poc_end_date,conversion_date,decision,sponsor,poc_status,usage
+Acme Corp,45000,POC,"3 reps hit 80% adoption of the dashboard in 30 days",2026-06-01,2026-09-01,2026-09-05,,VP of Sales,live,"12 of 15 seats active weekly"
+Globex,120000,Pilot,"Reduce ticket resolution time by 20% vs baseline",2026-05-15,2026-07-15,2026-07-20,converted,CTO,converted,"Baseline vs week 8 report attached"
+Initech,30000,POC,,2026-06-10,2026-09-10,2026-09-15,,Director of Ops,live,"Weekly login count steady"
+Umbrella Corp,80000,POC,"Integrate with existing ticketing system without data loss",2026-06-20,,,,VP of Support,live,"3 of 10 seats active"
+Soylent Corp,55000,Pilot,"Cut onboarding time in half for new hires",2026-03-01,2026-06-01,,,Head of People,live,"No update since kickoff"
+Stark Industries,200000,POC,"Demonstrate API throughput above 500 req/s",2026-06-25,2026-09-25,2026-10-01,,,live,"Load test scheduled week 6"
+Wayne Enterprises,95000,Pilot,"Sales team logs 50 calls/week through the tool",2026-07-01,2026-09-30,2026-10-05,,VP of Revenue,live,
+Hooli,60000,POC,,2025-11-01,,,,Head of Engineering,live,
+Wonka Industries,40000,Negotiation,"Match discount to competitor offer",2026-07-01,2026-08-01,2026-08-15,,VP of Finance,active,"n/a"
+Aperture Science,150000,POC,,2026-04-01,2026-06-01,,,,live,

@@ -67,6 +67,11 @@ fixtures (missing frontmatter, un-ignored private dirs, a leaked home path,
 an injection pattern, ...) so a CI failure has been shown to actually catch
 something, not just assumed to. Run it after touching any validator.
 
+`scripts/check-pr-diff-identity.py <base> <head>` is different from the
+three above: it's diff-scoped, not tree-scoped, and runs automatically
+*after* `scripts/pr-prep.sh` opens a PR rather than before — see the
+`operator-identity` rule above.
+
 ## Rule registry
 
 Every automated check enforces a named rule, so a CI failure line points at
@@ -83,6 +88,7 @@ what to fix, not just which script ran.
 | `no-hidden-unicode` | `scripts/scan-content.py` — no zero-width/bidi-override/homoglyph chars |
 | `no-client-names` | `scripts/scan-content.py` — local-only, needs a gitignored `.private/client-denylist.txt`; skips (not a failure) when that file is absent, including in CI |
 | `sample-required` | `validate-skills.sh` — every skill with `zime:dimension: stage` or `initiative` must have `assets/` (at least one file) and `evals/evals.json`; `vertical-context` skills are exempt, they're loaded by other skills rather than run directly |
+| `operator-identity` | `scripts/check-pr-diff-identity.py` — scans a PR's actual diff (not the whole tree) for the operator's own `git config user.name`/`user.email`, or a home-directory path; `scripts/pr-prep.sh` runs it *after* `gh pr create`, since the PR is already public by then, this can only warn, not block |
 
 ## The two hard content rules
 

@@ -252,6 +252,40 @@ expect_exit_contains "wrong initiative sub-count fails" 1 "closing line says 5 i
 rm -rf "$T"
 
 echo ""
+echo "-- scripts/check-pr-diff-identity.py --"
+IDENTITY_CHECK="python3 $REPO_ROOT/scripts/check-pr-diff-identity.py"
+
+T=$(mktemp -d)
+( cd "$T" && git init -q -b main && git config user.name "Fake Operator" && git config user.email "fake@example.com" )
+echo "base content" > "$T/file.md"
+( cd "$T" && git add -A && git commit -q -m base )
+( cd "$T" && git checkout -q -b feature )
+echo "Reach out to Fake Operator about this" >> "$T/file.md"
+( cd "$T" && git add -A && git commit -q -m head )
+expect_exit_contains "operator name in diff fails" 1 "operator-name" $IDENTITY_CHECK main feature "$T"
+rm -rf "$T"
+
+T=$(mktemp -d)
+( cd "$T" && git init -q -b main && git config user.name "Fake Operator" && git config user.email "fake@example.com" )
+echo "base content" > "$T/file.md"
+( cd "$T" && git add -A && git commit -q -m base )
+( cd "$T" && git checkout -q -b feature )
+echo "See /Users/fakeoperator/notes for details" >> "$T/file.md"
+( cd "$T" && git add -A && git commit -q -m head )
+expect_exit_contains "home path in diff fails" 1 "home-path" $IDENTITY_CHECK main feature "$T"
+rm -rf "$T"
+
+T=$(mktemp -d)
+( cd "$T" && git init -q -b main && git config user.name "Fake Operator" && git config user.email "fake@example.com" )
+echo "base content" > "$T/file.md"
+( cd "$T" && git add -A && git commit -q -m base )
+( cd "$T" && git checkout -q -b feature )
+echo "Nothing personal in this line" >> "$T/file.md"
+( cd "$T" && git add -A && git commit -q -m head )
+expect_exit_contains "clean diff passes" 0 "Clean" $IDENTITY_CHECK main feature "$T"
+rm -rf "$T"
+
+echo ""
 echo "-- scripts/scan-content.py --"
 
 expect_exit_contains "real repo passes" 0 "Clean" $SCAN_CONTENT "$REPO_ROOT"
