@@ -1,0 +1,48 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+Call: Harborview Retail <> Vendor (Rep: Sam)
+Stage: First call, single stakeholder
+
+Sam: Hey Kim, good to finally get some time. How's the week treating you —
+I saw on LinkedIn you just got back from the retail ops conference?
+
+Kim: Ha, yeah, it was a lot. Good to be back at my desk honestly.
+
+Sam: I bet. Before we dive in, here's what I'd love to cover in our 25
+minutes: I'll ask a few questions about how your team handles returns
+processing today, and by the end we'll both know honestly whether this is
+worth a follow-up or not — no pressure either way. Sound fair?
+
+Kim: Yeah, that works.
+
+Sam: Great. So, our platform automates the returns triage step — routes
+items to restock, liquidation, or disposal automatically instead of a
+person eyeballing each one. Customers usually see about a 40% cut in
+processing time. Would that be useful for your team?
+
+Kim: I mean, sure, that sounds nice. We do get a lot of returns.
+
+Sam: Exactly, and that's where most retailers leave money on the table.
+Let me show you how the routing engine actually works...
+
+Kim: Okay, yeah, go ahead.
+
+Sam: [walks through product screens] So as you can see, once a return
+hits our system it's auto-classified in under a second. What questions do
+you have on the mechanics so far?
+
+Kim: None yet, seems straightforward.
+
+Sam: Perfect. So given what you've seen, I think this is a great fit for
+Harborview. Let's get this moving — I'll send over a contract this week
+and we can have you live by end of month.
+
+Kim: Oh — sure, I guess. Let me just check with my director first before
+anything's final, but yeah, send it over.
+
+Sam: Sounds good, I'll get that to you today. Any other questions before
+we wrap?
+
+Kim: No, I think that covers it. Thanks, Sam.
+
+Sam: Great, talk soon!

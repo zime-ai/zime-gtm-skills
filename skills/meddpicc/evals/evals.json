@@ -1,0 +1,48 @@
+{
+  "skill_name": "meddpicc",
+  "evals": [
+    {
+      "id": 1,
+      "name": "meddpicc-eval-1",
+      "prompt": "run meddpicc on skills/meddpicc/assets/sample-transcript.txt",
+      "expected_output": "Scores the call against all eight MEDDPICC letters. Metrics is Covered (the $42,000/quarter double-booked-freight figure). Economic buyer is Partial (Deb is named and her threshold known, but she has not been on a call). Decision criteria is Covered (integration effort, informed by a past vendor's four-month overrun). Decision process is Covered (Ravi recommends, Deb approves, ops committee is a formality). Paper process is Missed: no procurement process identified, no legal contact named, no signer confirmed, no timeline estimate, despite the deal being three weeks past verbal approval. Identify pain is Covered (the dispatch-board/carrier-portal disconnect). Champion is Covered or Partial (Ravi relayed the pain number to leadership and it landed, but hasn't yet moved anything on the paperwork side). Competition is Partial (one competitor looked at early, not compared seriously — thin but present). Closes with Paper process as the single biggest qualification risk and a concrete next step (get a named signer, send the MSA).",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "All eight MEDDPICC letters receive a Status, including Paper process",
+        "Metrics is scored Covered and cites the $42,000/quarter figure",
+        "Paper process is scored Missed, not Not applicable, given the deal is three weeks past verbal approval",
+        "Paper process's evidence/note names a specific gap (no procurement process known, no signer confirmed, or no timeline) rather than a generic 'paperwork risk' line",
+        "Economic buyer notes Deb is named but not yet directly engaged, not simply Covered",
+        "Closes with Paper process as the single biggest qualification risk and a concrete next step, not a full recap",
+        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "meddpicc-eval-2-reads-well-too",
+      "prompt": "run meddpicc on a transcript of a first discovery call that, by any reasonable read, went well for a call at that early stage",
+      "expected_output": "Letters that a first call could not reasonably have covered (typically Paper process and Decision process, and often Economic buyer direct engagement) are scored Not applicable rather than Missed. The audit does not read as mostly gaps just because MEDDPICC has eight letters and a first call cannot cover all of them equally.",
+      "files": [],
+      "expectations": [
+        "Letters unreachable at this call's stage, especially Paper process, are marked Not applicable, not Missed",
+        "A genuinely strong first call is not scored as mostly Missed",
+        "The reads-well-too check from references/rubric.md is applied before the audit is finalized"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "meddpicc-eval-3-csv",
+      "prompt": "run meddpicc on a CRM pipeline export csv with deal rows missing several MEDDPICC fields, including paper-process fields",
+      "expected_output": "Treats this as a structural hygiene sweep, not a call-quality audit, and says so explicitly. Flags each deal row for missing MEDDPICC-relevant fields, including a Paper process field (signer, contract stage, or security-review status) where absent. Output is a table sorted by deal value descending. Makes no claim about what was actually discussed on any specific call.",
+      "files": [],
+      "expectations": [
+        "States explicitly that CSV mode is a structural check, not a call-quality claim",
+        "Flags rows missing MEDDPICC-relevant fields, including a Paper process field where absent",
+        "Output is sorted by deal value descending",
+        "Does not claim to know what happened on any specific call from CRM fields alone"
+      ]
+    }
+  ]
+}

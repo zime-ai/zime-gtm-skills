@@ -1,0 +1,48 @@
+{
+  "skill_name": "faint",
+  "evals": [
+    {
+      "id": 1,
+      "name": "faint-eval-1",
+      "prompt": "run faint on skills/faint/assets/sample-transcript.txt",
+      "expected_output": "Scores the call against all five FAINT criteria. Funds is Covered (Marcus says the org isn't tight on cash and could fold spend into existing ops tooling budget). Authority is Partial (Marcus would bring it to his director, but is not the decision-maker himself). Interest is Covered (Marcus says the dashboard example is actually interesting and asks for a one-pager). Need is Partial, not Missed, because Interest was Covered and the rubric's Interest-before-Need rule applies — Need is framed as not yet surfaced rather than a disqualifying gap. Timing is Partial or Missed (Marcus can only point to a vague year-end planning cycle that historically hasn't led anywhere). Closes with the single biggest qualification risk — most likely the lack of a named problem or Marcus's limited authority — and a concrete next step.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "All five FAINT criteria receive a Status",
+        "Funds is scored Covered and cites Marcus saying the org is not tight on cash",
+        "Authority is scored Partial and notes Marcus would bring it to his director rather than deciding himself",
+        "Interest is scored Covered and cites Marcus calling the dashboard example interesting and asking for a one-pager",
+        "Need is scored Partial rather than Missed, with reasoning that references Interest being Covered, not a generic paraphrase",
+        "Closes with a single named biggest qualification risk and a concrete next step, not a full recap",
+        "Cites at least one specific, concrete detail from the transcript (a quote or timestamp) rather than a generic paraphrase that could apply to any call"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "faint-eval-2-interest-before-need",
+      "prompt": "run faint on a transcript of an outbound call where the prospect had no stated problem going in, but the rep clearly built genuine curiosity and got a concrete follow-up request",
+      "expected_output": "Need is not scored Missed purely because no problem was named — the audit applies the Interest-before-Need rule from references/rubric.md and treats strong Interest as reason to read weak Need as \"not yet surfaced\" rather than a disqualifier. The overall read does not treat the call as a qualification failure.",
+      "files": [],
+      "expectations": [
+        "Need is scored Partial rather than Missed when Interest is Covered",
+        "The audit explicitly reasons about Interest before penalizing Need, per the rubric's Interest-before-Need section",
+        "A call that built genuine interest is not scored as an overall qualification failure just because Need wasn't stated"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "faint-eval-3-csv",
+      "prompt": "run faint on a CRM pipeline export csv with deal rows missing several FAINT fields",
+      "expected_output": "Treats this as a structural hygiene sweep, not a call-quality audit, and says so explicitly. Flags each deal row for missing FAINT-relevant fields. Output is a table sorted by deal value descending. Makes no claim about what was actually discussed on any specific call.",
+      "files": [],
+      "expectations": [
+        "States explicitly that CSV mode is a structural check, not a call-quality claim",
+        "Flags rows missing FAINT-relevant fields",
+        "Output is sorted by deal value descending",
+        "Does not claim to know what happened on any specific call from CRM fields alone"
+      ]
+    }
+  ]
+}
