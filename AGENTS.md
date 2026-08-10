@@ -32,6 +32,7 @@ zime-gtm-skills/
 ├── validate-skills.sh         # local, zero-dep frontmatter/layout check
 ├── CONTRIBUTING.md
 ├── MAINTAINING.md              # process + decisions, for picking this repo back up
+├── ROADMAP.md                   # what's built, what's next
 ├── LICENSE
 └── README.md
 ```
@@ -76,6 +77,7 @@ what to fix, not just which script ran.
 | `frontmatter-contract` | `validate-skills.sh` — name/description/dimension/line-count |
 | `private-data-ignored` | `validate-skills.sh` — `evals/{transcripts,gt,cases,labels}` stay gitignored |
 | `readme-in-sync` | `scripts/check-docs-sync.sh` |
+| `roadmap-in-sync` | `scripts/check-docs-sync.sh` — every `skills/*` dir has a `- [x]` line in `ROADMAP.md` and vice versa |
 | `no-home-paths` | `scripts/scan-content.py` — no `/Users/<name>` or `C:\Users\<name>` in tracked files |
 | `no-injection` | `scripts/scan-content.py` — no prompt-injection patterns in `skills/*/SKILL.md` or `references/` |
 | `no-hidden-unicode` | `scripts/scan-content.py` — no zero-width/bidi-override/homoglyph chars |

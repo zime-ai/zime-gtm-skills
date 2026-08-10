@@ -78,9 +78,9 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   `skills-ref` CI validator both iterate `skills/*/`, and the README's
   `cp -r skills/* .agents/skills/` install line would copy the nesting dirs
   as if they were skills themselves.
-- This 20-skill set is a deliberate proof-set, not the full catalogue —
-  several named methodologies aren't built yet, see the README's Roadmap.
-  Expand it the same way the first 4 initiative skills were built.
+- This 20-skill set is a deliberate proof-set, not the full catalogue — see
+  `ROADMAP.md` for what's built and what's next. Expand it the same way the
+  first 4 initiative skills were built.
 
 ## Verification state, honestly
 
@@ -128,7 +128,6 @@ eval, not just this section.
 - **Running the evals in CI**: turn `evals/evals.json` from a spec into an
   actual check, likely by invoking each skill against its eval prompts with
   a small harness and comparing against the expectations.
-- **The other 12 initiative skills**: see "Two dimensions" above.
 - **The `vertical-context` skill** (a third axis: industry reference packs
   for cybersecurity, healthcare, fintech, loaded by other skills on request)
   was pulled off `main` before public launch — it never got the
@@ -223,16 +222,19 @@ Fork PRs never see the secret regardless (GitHub withholds it), so the job's
 `if:` skips them outright rather than running and failing. See
 `CONTRIBUTING.md` — fork PRs get maintainer review instead.
 
-## Landing a skill on main
+## Landing a skill on dev
 
 "Building skills at scale" above covers writing and validating a skill.
 Separately: every one of the README's several count/table surfaces has to be
-updated by hand when a skill actually lands, or `main` starts shipping a
+updated by hand when a skill actually lands, or `dev` starts shipping a
 stale README. `scripts/check-docs-sync.sh` (wired into CI and into
 `scripts/pr-prep.sh`) catches a skipped step, but it doesn't do the step for
-you — steps 2-5 below are hand-edits by design, not generated, since the
+you — steps 2-6 below are hand-edits by design, not generated, since the
 "Audits" column and the coverage-table cells are prose judgment calls, not
 something derivable from frontmatter.
+
+Skill branches PR into `dev`, not `main` — see "Releasing dev to main" below
+for how `dev` reaches `main`.
 
 1. Skill directory complete: `SKILL.md`, `references/`, `assets/`,
    `evals/evals.json`.
@@ -244,11 +246,30 @@ something derivable from frontmatter.
    summary and its input modes.
 4. `README.md` — add a row to the "Coverage" table.
 5. `README.md` — if it's a stage skill, place it in the mermaid diagram.
-6. `MAINTAINING.md` — strike it from "Deferred work" if it was listed there.
+6. `ROADMAP.md` — check the skill's box under its phase-1 group.
+   `check-docs-sync.sh`'s `roadmap-in-sync` rule fails the PR if this is
+   skipped.
 7. `./validate-skills.sh` && `./scripts/check-docs-sync.sh` — both must exit 0.
 8. `scripts/pr-prep.sh <worktree-path> "<PR title>"` — re-runs both gates,
-   pushes, opens the PR. PR-Agent reviews automatically.
-9. Merging to `main` is still a human decision. Unchanged by any of the above.
+   pushes, opens the PR against `dev`. PR-Agent reviews automatically.
+9. Merging to `dev` is still a human decision. Unchanged by any of the above.
+
+## Releasing dev to main
+
+`dev` is where skill PRs land; `main` only moves forward in batches, once a
+release checklist has run. This is `main`'s only job: stay release-quality
+so a `git clone` always gets something that's actually been checked as a
+whole, not skill-by-skill drift.
+
+The `gtm-release` skill (`.claude/skills/gtm-release/`, local-only, same as
+the other batch-landing skills) operationalizes this: it re-derives all five
+README count surfaces plus the GitHub repo description from what's actually
+in `skills/` (not from what individual skill PRs claimed), runs all four
+validators, adds the `CHANGELOG.md` entry, and opens the `dev` → `main` PR.
+Same human-merge rule applies — see "Who runs git commands" below.
+
+Run it whenever a batch of `dev`-landed skills is ready to ship, not on a
+fixed cadence.
 
 ## Who runs git commands
 

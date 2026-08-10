@@ -196,7 +196,7 @@ one call transcript (or CRM export) in, one evidence-cited audit out.
 | `adoption-leaderboard` | Any (post-sale) | Behavior adoption |
 
 **Roadmap.** Other named methodologies (Sell the Dream, SQL to Qualify,
-and others) aren't built yet. See `MAINTAINING.md`'s deferred work, or
+and others) aren't built yet. See [ROADMAP.md](ROADMAP.md), or
 [contribute one](CONTRIBUTING.md).
 
 ## Where this stops
@@ -264,7 +264,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 
 </details>
 
-All 11 stage motions are covered; the initiative set is nine skills today.
+All 11 stage motions are covered; the initiative set is 9 skills today.
 New skills welcome, see [CONTRIBUTING.md](CONTRIBUTING.md). For how these
 are tested, and what that testing can and can't prove, see
 [EVALS.md](EVALS.md).
@@ -288,6 +288,7 @@ zime-gtm-skills/
 ├── evals/                       # eval methodology assets, see EVALS.md
 ├── CONTRIBUTING.md
 ├── MAINTAINING.md              # process + decisions, for picking this repo back up
+├── ROADMAP.md                  # what's built, what's next
 ├── LICENSE
 └── README.md
 ```
