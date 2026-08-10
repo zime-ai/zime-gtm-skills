@@ -1,0 +1,47 @@
+{
+  "skill_name": "prospect-pipeline-check",
+  "evals": [
+    {
+      "id": 1,
+      "name": "prospect-pipeline-check-eval-1",
+      "prompt": "run prospect-pipeline-check on skills/prospect-pipeline-check/assets/sample-pipeline-prospect-pipeline-check.csv",
+      "expected_output": "All 10 rows are in scope (all stage=Prospect). 8 of 10 deals are flagged. Acme Corp and Soylent Corp carry the most flags (Soylent hits all six: no engagement, no meeting held, single-threaded unresponsive, aged with no activity, placeholder/zero value, close date in the past). Stark Industries and Hooli come back Clean with no flags. The most common flag across flagged deals is 'No meeting held'. Every flagged row cites a specific column and cell value.",
+      "files": [
+        "assets/sample-pipeline-prospect-pipeline-check.csv"
+      ],
+      "expectations": [
+        "Reports rows in scope (10) against total rows in the export (10)",
+        "Flags 8 of 10 deals and states 'N of M deals in Prospect pipeline flagged' with N=8, M=10",
+        "Soylent Corp is flagged for all six checks, citing amount = 0 and close_date = 2026-06-01 among its evidence",
+        "Stark Industries and Hooli are returned Clean with no flags",
+        "States the single most common flag across flagged deals as 'No meeting held'",
+        "Every flagged deal's evidence cites an actual column name and cell value, not a generic paraphrase",
+        "Output is a single markdown table with columns Deal, Flags, Evidence, Suggested action, flagged deals first and sorted by most flags first",
+        "Does not invent any score, letter grade, or percentage not derivable from the six flags"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "prospect-pipeline-check-eval-2-reads-well-too",
+      "prompt": "run prospect-pipeline-check on a prospect-stage pipeline export containing a deal with multiple engaged contacts, a completed meeting, and a logged reply from the prospect",
+      "expected_output": "That deal is returned Clean across all six checks rather than flagged on a technicality. The reads-well-too check from references/rubric.md is applied before finalizing.",
+      "files": [],
+      "expectations": [
+        "A deal with genuine two-way engagement (reply, completed meeting, multiple contacts) is not flagged on any check",
+        "The reads-well-too check from references/rubric.md is applied before the audit is finalized"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "prospect-pipeline-check-eval-3-missing-column",
+      "prompt": "run prospect-pipeline-check on a prospect-stage pipeline export that has no meetings_held or meeting_outcome column",
+      "expected_output": "The 'No meeting held' check reports Unknown (column missing) for every row, stated once up front rather than repeated per row, and the value is never inferred from another column (e.g. from the replied column).",
+      "files": [],
+      "expectations": [
+        "States once, up front, that the meetings column is missing",
+        "Reports 'No meeting held' as Unknown (column missing) rather than Flagged or Clean for affected rows",
+        "Does not infer meeting activity from an unrelated column like replied or last_activity_date"
+      ]
+    }
+  ]
+}

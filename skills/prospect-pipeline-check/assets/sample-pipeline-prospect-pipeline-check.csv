@@ -1,0 +1,11 @@
+deal,owner,stage,created_date,last_activity_date,close_date,amount,contacts,meetings_held,meeting_outcome,replied
+Acme Corp,Dana,Prospect,2026-01-05,2026-01-05,2026-09-01,50000,1,0,,No
+Globex Inc,Dana,Prospect,2026-06-01,2026-07-20,2026-07-01,50000,2,1,Completed,Yes
+Initech,Rick,Prospect,2026-07-01,2026-07-01,2026-10-01,32000,2,0,,Yes
+Umbrella LLC,Rick,Prospect,2026-06-15,2026-08-01,2026-11-01,45000,1,1,No-show,No
+Wayne Enterprises,Dana,Prospect,2025-10-01,2025-10-05,2026-09-01,28000,2,0,,No
+Stark Industries,Priya,Prospect,2026-07-20,2026-08-08,2026-09-15,75000,3,1,Completed,Yes
+Hooli,Priya,Prospect,2026-05-10,2026-08-09,2026-10-01,60000,2,2,Completed,Yes
+Soylent Corp,Rick,Prospect,2026-02-01,2026-02-03,2026-06-01,0,1,0,,No
+Massive Dynamic,Dana,Prospect,2026-06-20,2026-06-20,2026-09-01,50000,1,0,,No
+Cyberdyne Systems,Priya,Prospect,2026-01-15,2026-01-20,2026-03-01,41000,2,1,Cancelled,No

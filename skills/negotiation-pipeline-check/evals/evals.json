@@ -1,0 +1,17 @@
+{
+  "cases": [
+    {
+      "prompt": "run negotiation-pipeline-check on skills/negotiation-pipeline-check/assets/sample-pipeline-negotiation-pipeline-check.csv",
+      "files": ["assets/sample-pipeline-negotiation-pipeline-check.csv"],
+      "expectations": [
+        "Reports 9 of 10 rows in scope (Pied Piper excluded, stage = Proposal, not Negotiation).",
+        "Acme Corp is flagged with the most flags: no legal/procurement/finance contact, paper process not started, discount without approval, close date slipped, no mutual close plan, and signature path unnamed.",
+        "Soylent Corp is flagged for no legal/procurement/finance contact, paper process not started, discount without approval, and close date slipped.",
+        "Globex Inc and Wonka Industries are reported Clean across all six checks.",
+        "Every flagged row cites the specific column name and cell value that triggered each flag, not just the flag name.",
+        "Discount-without-approval is derived from the median discount across in-scope rows, not a hardcoded percentage.",
+        "Output is a single markdown table (Deal, Flags, Evidence, Suggested action) with flagged deals first, most-flagged first, followed by exactly two closing lines: an 'N of M deals in negotiation flagged' line and the single most common flag."
+      ]
+    }
+  ]
+}
