@@ -9,8 +9,10 @@ every `skills/<name>/` directory must have a matching `- [x] <name>` line
 below, and no checked line may name a directory that doesn't exist. When you
 land a skill, check its box in the same PR — don't leave that for later.
 
-**In flight:** phase 1 qualification/discovery gaps (`sell-the-dream`,
-`sql-to-qualify`, `persona-based-discovery`).
+**In flight:** phase 1 qualification/discovery gaps (`qualify-to-poc`,
+`sql-to-qualify`, `persona-based-discovery`). `sell-the-dream` pulled from
+this batch — no canonical single-source framework behind the name (unlike
+meddicc/bant/faint), needs scoping before it's buildable.
 
 ## Phase 1 — Initiative & stage skills
 
