@@ -123,6 +123,66 @@ while IFS= read -r line; do
     fi
 done <<< "$table_block"
 
+# --- 6. Stage/initiative sub-counts, README's closing line ---------------
+# "All N stage motions are covered; the initiative set is K skills today."
+# The badge/opening/how-these-fit-together/summary anchors above only check
+# the total; this is the one line that checks the stage-vs-initiative split.
+
+stage_actual=0
+initiative_actual=0
+for d in "$SKILLS_DIR"/*/; do
+    frontmatter=$(awk '/^---$/{c++;next} c==1' "${d}SKILL.md" 2>/dev/null)
+    dimension=$(grep "zime:dimension:" <<< "$frontmatter" | sed 's/.*zime:dimension: *//' | tr -d ' ')
+    case "$dimension" in
+        stage)      ((stage_actual++)) ;;
+        initiative) ((initiative_actual++)) ;;
+    esac
+done
+
+closing_line=$(grep -oE 'All [0-9]+ stage motions are covered; the initiative set is [0-9]+ skills' "$README")
+if [[ -z "$closing_line" ]]; then
+    echo -e "${RED}FAIL${NC} count anchor not found: stage/initiative closing line"
+    echo "   README wording changed; update scripts/check-docs-sync.sh to match."
+    ((ISSUES++))
+else
+    stage_said=$(grep -oE 'All [0-9]+' <<< "$closing_line" | grep -oE '[0-9]+')
+    initiative_said=$(grep -oE 'is [0-9]+ skills' <<< "$closing_line" | grep -oE '[0-9]+')
+    [[ "$stage_said" != "$stage_actual" ]] && {
+        echo -e "${RED}FAIL${NC} closing line says $stage_said stage motions, but $stage_actual skill dirs are zime:dimension: stage"
+        ((ISSUES++))
+    }
+    [[ "$initiative_said" != "$initiative_actual" ]] && {
+        echo -e "${RED}FAIL${NC} closing line says $initiative_said initiative skills, but $initiative_actual skill dirs are zime:dimension: initiative"
+        ((ISSUES++))
+    }
+fi
+
+# --- 7. ROADMAP.md agreement (roadmap-in-sync) ----------------------------
+# Every shipped skill must be checked off; no checked box may name a
+# directory that doesn't exist.
+
+ROADMAP="ROADMAP.md"
+if [[ ! -f "$ROADMAP" ]]; then
+    echo -e "${RED}FAIL${NC} ROADMAP.md not found"
+    ((ISSUES++))
+else
+    roadmap_checked=$(grep -oE '^- \[x\] [a-z0-9-]+' "$ROADMAP" | sed -E 's/^- \[x\] //' | sort -u)
+
+    comm -23 <(echo "$actual_skills") <(echo "$roadmap_checked") | while read -r s; do
+        [[ -z "$s" ]] && continue
+        echo -e "${RED}FAIL${NC} $s exists in skills/ but has no checked box in ROADMAP.md"
+    done
+    roadmap_missing=$(comm -23 <(echo "$actual_skills") <(echo "$roadmap_checked") | grep -c .)
+    ((ISSUES += roadmap_missing))
+
+    comm -13 <(echo "$actual_skills") <(echo "$roadmap_checked") | while read -r s; do
+        [[ -z "$s" ]] && continue
+        echo -e "${RED}FAIL${NC} ROADMAP.md checks off $s but no matching skills/ directory exists"
+    done
+    roadmap_orphans=$(comm -13 <(echo "$actual_skills") <(echo "$roadmap_checked") | grep -c .)
+    ((ISSUES += roadmap_orphans))
+fi
+
 echo ""
 echo "================================================================"
 if [[ $ISSUES -gt 0 ]]; then

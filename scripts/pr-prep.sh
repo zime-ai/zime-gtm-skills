@@ -24,7 +24,7 @@ usage() {
 
 [ $# -ge 2 ] || usage
 WT="$1"; TITLE="$2"
-BASE="main"
+BASE="${PR_BASE:-dev}"
 
 [ -d "$WT/.git" ] || [ -f "$WT/.git" ] || { echo "Not a worktree: $WT"; exit 1; }
 cd "$WT"
