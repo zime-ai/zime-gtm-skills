@@ -149,7 +149,7 @@ inline (only `mermaid`), so the diagram ships pre-rendered as SVG — regen
 after editing the source with:
 
 ```bash
-d2 assets/skill-map.d2 assets/skill-map.svg --theme 0 --dark-theme 200 --pad 40
+d2 assets/skill-map.d2 assets/skill-map.svg --theme 0 --dark-theme 200 --pad 60 --scale 1.5
 ```
 
 Unlike some agent-skill collections, there's no foundational context skill
