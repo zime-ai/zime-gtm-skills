@@ -133,3 +133,13 @@ echo
 echo "Pushing and opening PR..."
 git push -u origin "$BRANCH"
 gh pr create --base "$BASE" --title "$TITLE" --body-file "$PR_BODY_FILE"
+
+# Post-PR check: the PR is already public at this point, so this can only
+# warn, not block -- it's the one thing no pre-push gate above catches,
+# since it needs the actual diff against $BASE, not the working tree.
+echo
+echo "Checking the PR diff for operator identity / home paths..."
+python3 scripts/check-pr-diff-identity.py "origin/$BASE" "$BRANCH" || {
+  echo
+  echo "WARNING: review the PR above immediately -- it's already public."
+}
