@@ -1,0 +1,48 @@
+{
+  "skill_name": "new-business-registration",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "run new-business-registration on skills/new-business-registration/assets/sample-registrations.csv",
+      "expected_output": "Treats this as a structural hygiene sweep of the registration export, not a call-quality audit, and says so explicitly. For each registration row, flags each of the six rubric.md dimensions (legal entity + domain, duplicate/conflict check, source attribution, ICP fit, requested support, expiry) as missing or present. Output is a table by company/entity with dimensions missing. Correctly identifies Globex Inc and Hooli as the rows missing the most fields, and Acme Corp and Wayne Enterprises as fully populated. Does not invent a named framework for deal registration.",
+      "files": [
+        "assets/sample-registrations.csv"
+      ],
+      "expectations": [
+        "States explicitly that CSV mode is a structural check, not a call-quality claim",
+        "Flags each of the six rubric dimensions as missing or present per row",
+        "Correctly identifies rows with the most missing fields (Globex Inc, Hooli) versus fully populated rows (Acme Corp, Wayne Enterprises)",
+        "Does not imply a named canonical framework exists for deal registration",
+        "Never invents internal scoring weights or approval thresholds"
+      ],
+      "name": "new-business-registration-eval-1"
+    },
+    {
+      "id": 2,
+      "prompt": "run new-business-registration on skills/new-business-registration/assets/sample-transcript.txt",
+      "expected_output": "Scores the registration-review call against every dimension in references/rubric.md. Every dimension gets a Status (Covered/Partial/Missed) and, for anything not fully covered, a one-line Note, with Evidence as a direct quote from the transcript or Unclear rather than guessed. Applies the reads-well-too check first, and since this call is clean (entity, domain, dedup check, source, ICP reasoning, support ask, and expiry are all explicitly stated), the audit should not come back mostly Missed.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every dimension in the rubric gets a Status",
+        "Every finding cites a quote from the transcript, or is marked Unclear rather than guessed",
+        "The reads-well-too check from references/rubric.md is applied before the audit is finalized",
+        "A clean, fully-covered registration call is not scored as mostly Missed",
+        "Closes with a clear read on whether the registration is ready to approve"
+      ],
+      "name": "new-business-registration-eval-2"
+    },
+    {
+      "id": 3,
+      "prompt": "run new-business-registration on a registration record for a partner-sourced end-client rather than a new-logo opportunity a rep found directly",
+      "expected_output": "Either declines to audit or flags that this looks like a partner-sourced end-client registration, and points to end-client-registration as the correct skill instead of silently applying the new-business rubric to a motion it wasn't built for.",
+      "files": [],
+      "expectations": [
+        "Recognizes when the input is a partner-sourced end-client registration rather than a new-logo one",
+        "Points to end-client-registration as the appropriate skill instead of silently misapplying this rubric"
+      ],
+      "name": "new-business-registration-eval-3"
+    }
+  ]
+}
