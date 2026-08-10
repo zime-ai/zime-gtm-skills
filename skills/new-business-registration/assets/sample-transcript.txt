@@ -1,0 +1,37 @@
+Registration review call — Acme Corp
+Participants: Dana (AE), Priya (RevOps)
+
+Dana: Wanted to walk you through the Acme Corp registration before it goes
+in.
+
+Priya: Go ahead. What's the legal entity on this?
+
+Dana: Acme Corporation Inc, domain is acme.com. I pulled that off their
+website footer, not just the name on the business card.
+
+Priya: Good. Did you run it against the account list first?
+
+Dana: Yeah, checked CRM and the partner portal — no existing owner, no open
+opportunity under that domain. Clean.
+
+Priya: How'd you find them?
+
+Dana: Outbound. I prospected into their VP of Ops after seeing they raised
+a Series C.
+
+Priya: And why do you think they're a fit for us?
+
+Dana: Mid-market manufacturing, around 400 employees — that's squarely our
+target segment. Their stack also matches what we usually displace.
+
+Priya: What are you asking for on the registration?
+
+Dana: Standard deal registration protection. Not asking for technical
+resources yet, too early.
+
+Priya: Expiry?
+
+Dana: I set it for ninety days out, September first. If it's not moved by
+then it falls off and I'd need to re-register.
+
+Priya: That's everything I need. This one's clean, I'll approve it.

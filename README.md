@@ -1,13 +1,13 @@
 # zime-gtm-skills
 
-[![Skills](https://img.shields.io/badge/skills-29-blue)](skills/)
+[![Skills](https://img.shields.io/badge/skills-32-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 29 [Agent Skills](https://agentskills.io) that audit sales call
+here. 32 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
@@ -138,7 +138,7 @@ See [Installation](#installation) below for the submodule option and the
 
 ## How these fit together
 
-29 skills: 20 stage motions laid out across the deal lifecycle and 9
+32 skills: 23 stage motions laid out across the deal lifecycle and 9
 cross-stage initiative skills.
 
 ```mermaid
@@ -152,7 +152,8 @@ flowchart LR
         td --> id[improve-demo]
         id --> qtp[qualify-to-poc]
         qtp --> pc[pilot-to-conversion]
-        pc --> nc[negotiation-closing]
+        pc --> pocs[poc-success]
+        pocs --> nc[negotiation-closing]
     end
     subgraph ps["Post-sale"]
         direction LR
@@ -178,6 +179,8 @@ one call transcript (or CRM export) in, one evidence-cited audit out.
 
 | | Stage | Initiative |
 |---|---|---|
+| `new-business-registration` | Registration | n/a |
+| `end-client-registration` | Registration | n/a |
 | `sql-to-qualify` | SQL to qualify | n/a |
 | `deep-discovery` | Discovery | n/a |
 | `persona-based-discovery` | Discovery | n/a |
@@ -186,6 +189,7 @@ one call transcript (or CRM export) in, one evidence-cited audit out.
 | `improve-demo` | Demo | n/a |
 | `qualify-to-poc` | Qualify to POC | n/a |
 | `pilot-to-conversion` | Pilot | n/a |
+| `poc-success` | POC/pilot exit | n/a |
 | `negotiation-closing` | Negotiation | n/a |
 | `prospect-pipeline-check` | Prospect pipeline | n/a |
 | `qualify-pipeline-check` | Qualify pipeline | n/a |
@@ -236,13 +240,15 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 ## Available skills
 
 <details open>
-<summary>29 skills across new business, post-sale, and cross-stage initiative</summary>
+<summary>32 skills across new business, post-sale, and cross-stage initiative</summary>
 
 <!-- SKILLS:START -->
 **New business**
 
 | Skill | Audits | Input |
 |---|---|---|
+| [new-business-registration](skills/new-business-registration/) | A new-logo deal-registration record for completeness — entity identification, duplicate/conflict check, source attribution, ICP fit, expiry window | CRM export (`.csv`) or transcript |
+| [end-client-registration](skills/end-client-registration/) | A partner/reseller's end-client deal registration — partner identity, end-client entity kept distinct, engagement scope, conflict check against direct pipeline, permission to engage, commercial terms, expiry | CRM export (`.csv`) or transcript |
 | [sql-to-qualify](skills/sql-to-qualify/) | Whether a freshly-assigned SQL is a real opportunity — right contact, pain in their own words, rough budget/urgency fit, competitive awareness, concrete next meeting | transcript or CRM export |
 | [deep-discovery](skills/deep-discovery/) | Early-stage discovery call quality — pain, trigger, decision process, budget/timeline, procurement, competition, rapport | transcript (`.txt`/`.vtt`/`.json`/`.md`) or CRM export (`.csv`) |
 | [persona-based-discovery](skills/persona-based-discovery/) | Whether a discovery call was actually tailored to the buyer persona in the room — role ID, pain framing, proof points, objection handling, next step | transcript or CRM export |
@@ -251,6 +257,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 | [improve-demo](skills/improve-demo/) | Demo quality — tailoring, stakeholder presence, engagement, competitive differentiation, clear next step | transcript or CRM export |
 | [qualify-to-poc](skills/qualify-to-poc/) | Whether a POC kickoff is set up to succeed before it starts — success criteria, technical scope, stakeholder commitment, timeline/exit criteria, resourcing | transcript or CRM export |
 | [pilot-to-conversion](skills/pilot-to-conversion/) | Pilot/POC health — plan alignment, technical readiness, user engagement, results against criteria, conversion path | transcript or CRM export |
+| [poc-success](skills/poc-success/) | A completed POC/pilot's exit review — each success criterion verdict-ed with evidence, end-user validation, sponsor sign-off, production-readiness blockers, commercial next step | transcript or CRM export |
 | [negotiation-closing](skills/negotiation-closing/) | Late-stage deal momentum — pricing reaction, procurement progress, contracting awareness, closure timeline | transcript or CRM export |
 | [first-call-rampup](skills/first-call-rampup/) | New-rep foundational technique — opening, open-ended questioning, pain uncovering, pitch clarity, rapport | transcript only |
 | [prospect-pipeline-check](skills/prospect-pipeline-check/) | A prospect-stage pipeline export for deals with no two-way engagement — no reply, no meeting held, single-threaded and unanswered, aged with no activity | CRM export (`.csv`) or connector |
@@ -286,7 +293,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 
 </details>
 
-All 20 stage motions are covered; the initiative set is 9 skills today.
+All 23 stage motions are covered; the initiative set is 9 skills today.
 New skills welcome, see [CONTRIBUTING.md](CONTRIBUTING.md). For how these
 are tested, and what that testing can and can't prove, see
 [EVALS.md](EVALS.md).
