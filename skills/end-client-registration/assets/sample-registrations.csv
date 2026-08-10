@@ -1,0 +1,9 @@
+registration_id,partner_name,partner_contact,end_client_name,engagement_scope,conflict_check_done,end_client_contact,permission_confirmed,margin_tier,deal_type,registration_date,expiry_date
+REG-1001,Northbridge Consulting,Dana Wells,Larkspur Freight Co,Sourced the lead and will lead technical implementation,Yes - no open house opportunity found,Priya Anand (Ops Director),Yes,20% discount tier,resell,2026-06-02,2026-09-02
+REG-1002,Northbridge Consulting,Dana Wells,Meridian Legal Group,Referral only,,Sam Ito,Yes,15% referral fee,referral,2026-06-10,2026-09-10
+REG-1003,Cascade Partners,Rick Osei,Cascade Partners,Full resell and ongoing management,Yes - no conflict,,No,,resell,2026-06-14,
+REG-1004,Cascade Partners,Rick Osei,Thornwood Retail,General support,Yes - no conflict,Maya Chen,Yes,25% discount tier,resell,2026-06-18,2026-09-18
+REG-1005,Ridgeline Advisors,,Foxglove Manufacturing,Sourced the lead only,Yes - no conflict,Jon Voss (VP Ops),Yes,10% referral fee,referral,2026-06-20,2026-09-20
+REG-1006,Ridgeline Advisors,Elena Marsh,Union Point Logistics,Sourced lead and technical implementation,Yes - no conflict,Deepa Rao,No response yet - contact not confirmed,20% discount tier,resell,2026-06-22,2026-09-22
+REG-1007,Harbor & Vale Group,Owen Kato,Brightline Health Systems,Sourced the lead and will lead implementation and ongoing support,Yes - no open house opportunity found,Lena Fischer (Director of IT),Yes,18% discount tier,resell,2026-07-01,2026-10-01
+REG-1008,Harbor & Vale Group,Owen Kato,Silvercreek Insurance,Referral only,Yes - existing house AE has an active opportunity with this account,Tara Singh,Yes,12% referral fee,referral,2026-07-03,2026-10-03

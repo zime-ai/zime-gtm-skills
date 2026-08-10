@@ -1,0 +1,47 @@
+{
+  "skill_name": "poc-success",
+  "evals": [
+    {
+      "id": 1,
+      "name": "poc-success-eval-1",
+      "prompt": "run poc-success on skills/poc-success/assets/sample-transcript.txt",
+      "expected_output": "Each of the two agreed success criteria (dispatch-error rate, integration stability) is verdict-ed individually as Covered, with the 12% to 5.5% baseline comparison cited for the error rate. End-user validation is Partial since Priya only confirmed with two of three dispatchers. Sponsor sign-off is Covered (Owen explicitly calls it a pass). Production-readiness blockers is Covered (the outstanding security review is named explicitly). What was not delivered (billing integration) is Covered and stated as non-fatal. Commercial next step is Covered with Nadia as owner and dates named. Closes with a single pass/fail/inconclusive read, most plausibly a pass, not a restated summary.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Each success criterion (error rate, integration stability) receives its own individual Status rather than one blended verdict",
+        "The error-rate criterion cites the 12% to 5.5% baseline comparison, not just an unquantified 'it improved'",
+        "End-user validation is scored Partial or similar, not Covered, since one of three dispatchers was never consulted",
+        "Sponsor sign-off is scored Covered and cites Owen's explicit statement that it counts as a pass",
+        "Production-readiness blockers is scored Covered and cites the outstanding security review as a named blocker before full production",
+        "The undelivered billing integration is identified and explicitly stated as non-fatal to the deal",
+        "Closes with a single pass/fail/inconclusive call, not a restated per-dimension summary"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "poc-success-eval-2-reads-well-too",
+      "prompt": "run poc-success on a transcript of an exit review that clearly established a strong, fully validated pass on every dimension",
+      "expected_output": "The audit scores dimensions as Covered rather than nitpicking a genuinely strong exit review into Partials. The reads-well-too check is applied before finalizing.",
+      "files": [],
+      "expectations": [
+        "A genuinely strong, well-documented exit review is not scored as mostly Partial or Missed",
+        "The reads-well-too check from references/rubric.md is applied before the audit is finalized"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "poc-success-eval-3-csv",
+      "prompt": "run poc-success on a CRM pipeline export csv containing deal rows whose POC end date has passed with no outcome field populated",
+      "expected_output": "Treats this as a structural hygiene sweep, not a call-quality audit, and says so explicitly. Flags each deal row past its POC end date with an empty or trivial outcome field. Output is a table sorted by deal value descending, including days past end date. Makes no claim about whether the pilot itself actually succeeded.",
+      "files": [],
+      "expectations": [
+        "States explicitly that CSV mode checks whether an outcome was recorded, not whether the pilot actually succeeded",
+        "Flags rows where the POC end date has passed and the outcome field is empty or trivial",
+        "Output is sorted by deal value descending and includes days past end date",
+        "Does not claim to know whether any specific pilot actually passed based on CRM fields alone"
+      ]
+    }
+  ]
+}

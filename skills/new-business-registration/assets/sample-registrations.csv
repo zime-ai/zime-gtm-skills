@@ -1,0 +1,8 @@
+company,legal_entity,domain,submitted_by,submitted_date,duplicate_check_run,source,icp_fit_notes,requested_support,expiry_date
+Acme Corp,Acme Corporation Inc,acme.com,Dana,2026-06-01,Yes,Outbound prospecting,Mid-market manufacturing fits target segment,Deal registration protection,2026-09-01
+Globex Inc,,globex.com,Rick,2026-06-15,No,,,,
+Initech,Initech LLC,initech.com,Priya,2026-07-01,Yes,Referral from existing customer,,Technical resources for POC,2026-10-01
+Umbrella LLC,,,Rick,2026-07-10,No,Inbound web form,Healthcare vertical matches ICP,,
+Wayne Enterprises,Wayne Enterprises Corp,wayne.com,Dana,2026-07-20,Yes,Event lead - GTM Summit,Enterprise segment fits target ICP,Marketing co-sell support,2026-10-20
+Stark Industries,Stark Industries Inc,starkindustries.com,Priya,2026-08-01,Yes,Outbound prospecting,,Deal registration protection,
+Hooli,,hooli.com,Rick,2026-08-05,No,,SMB segment - below target ICP threshold,,

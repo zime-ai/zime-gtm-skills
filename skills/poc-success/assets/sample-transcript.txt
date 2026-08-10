@@ -1,0 +1,49 @@
+POC exit review — Fictional Vendor Co. x Bramwell Logistics
+Participants: Nadia Farouk (AE), Owen Petrescu (VP Operations, Bramwell),
+Priya Nair (Ops Lead, Bramwell)
+[Synthetic transcript for demo purposes only — no real company or person]
+
+00:05 Nadia: Thanks for making time, both of you. Let's go through the
+four weeks against what we agreed at kickoff. We set two things: cut the
+dispatch-error rate by half, and confirm the dispatch integration held up
+under real load.
+
+00:20 Priya: On the error rate, we went from 12% down to 5.5% over the
+four weeks. That's better than the half-off target.
+
+00:32 Nadia: And the integration itself?
+
+00:35 Priya: Held up fine, no downtime we noticed, pulling live data the
+whole time.
+
+00:50 Nadia: Priya, how did the floor dispatchers find it day to day, not
+just you?
+
+00:58 Priya: I checked in with two of the three dispatchers last week.
+Both said it was faster than the old system. The third's been out sick, so
+I don't have his read yet.
+
+01:20 Nadia: Owen, from where you sit — does a 5.5% error rate and a clean
+integration count as a pass for you?
+
+01:28 Owen: It does. I'm comfortable calling this a win and moving to
+contract.
+
+01:40 Nadia: Great, I'll get that in writing today. On what's left — we
+never tested the billing system integration this round, that was out of
+scope from the start. Does that block moving forward?
+
+01:55 Owen: No, that's a phase-two conversation once we're live on
+dispatch. Not a blocker for signing.
+
+02:10 Nadia: One thing I want to flag — your security team hasn't done a
+formal review of the integration yet. That'll need to happen before this
+goes into full production, separate from the pilot result itself.
+
+02:22 Owen: Fair, I'll get our security lead looped in this week.
+
+02:35 Nadia: So next step: I'll send the contract draft by Friday, and
+we'll target a security review sign-off from your side by the 20th before
+we go live. I'll own getting the paperwork moving.
+
+02:50 Owen: Works for me.
