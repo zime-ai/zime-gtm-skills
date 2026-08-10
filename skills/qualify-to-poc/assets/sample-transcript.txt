@@ -1,0 +1,40 @@
+POC kickoff call — Fictional Vendor Co. x Bramwell Logistics
+Participants: Nadia Farouk (AE), Owen Petrescu (VP Operations, Bramwell)
+[Synthetic transcript for demo purposes only — no real company or person]
+
+00:03 Nadia: Good to have this locked in, Owen. Before we set anything up,
+let's nail down what a successful four weeks looks like for you.
+
+00:12 Owen: Fair. If it cuts our dispatch-error rate by half, that's a win
+for us. Anything less and I can't take it to the board.
+
+00:30 Nadia: Half the error rate, four weeks — I'll put that in writing and
+send it over for sign-off today.
+
+00:40 Owen: Works for me, I'll get it signed by end of week.
+
+00:55 Nadia: On scope — we'll connect to your dispatch system for the
+pilot, but we're leaving your billing system out of it this round. That
+integration's a separate conversation once we're past the pilot.
+
+01:20 Owen: Agreed, billing's not part of this test.
+
+01:35 Nadia: Who's going to be hands-on day to day checking results?
+
+01:42 Owen: That'll be Priya, my ops lead. She's expecting your onboarding
+email.
+
+02:00 Nadia: And at the end, who actually signs off that this passed or
+didn't?
+
+02:08 Owen: That's me. If Priya says the numbers hold up, I approve moving
+to a contract.
+
+02:25 Nadia: Let's set dates — kickoff this Friday, four weeks out puts us
+at review on the 28th. I'll send a calendar hold for that.
+
+02:40 Owen: Works. I'll make sure Priya has time blocked for setup in week
+one, that's usually where these things stall for us.
+
+03:00 Nadia: Appreciate you flagging that. I'll check in with her midweek
+to make sure the integration's actually running before we lose time.
