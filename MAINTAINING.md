@@ -81,6 +81,9 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
 - This 32-skill set is a deliberate proof-set, not the full catalogue — see
   `ROADMAP.md` for what's built and what's next. Expand it the same way the
   first 4 initiative skills were built.
+- README's "How these fit together" skill map is a plain ASCII diagram in a
+  fenced code block (not `mermaid`/`d2`) — keeps it legible at README width
+  without an image asset to regenerate.
 
 ## Verification state, honestly
 

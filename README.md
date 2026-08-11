@@ -141,15 +141,36 @@ See [Installation](#installation) below for the submodule option and the
 32 skills: 23 stage motions laid out across the deal lifecycle and 9
 cross-stage initiative skills.
 
-![Skill map](assets/skill-map.svg)
+```
+New business
 
-Source: [`assets/skill-map.d2`](assets/skill-map.d2), built with
-[d2](https://github.com/d2lang/d2). GitHub doesn't render `d2` code blocks
-inline (only `mermaid`), so the diagram ships pre-rendered as SVG — regen
-after editing the source with:
+┌────────────────┐     ┌────────────────┐     ┌────────────────────┐
+│ sql-to-qualify │ ──▶ │ deep-discovery │ ──▶ │ meeting-to-qualify │
+└────────────────┘     └────────────────┘     └────────────────────┘
+                                                         │
+                                                         ▼
+┌─────────────────────┐     ┌──────────────┐     ┌────────────────┐
+│ technical-discovery │ ◀── │ improve-demo │ ◀── │ qualify-to-poc │
+└─────────────────────┘     └──────────────┘     └────────────────┘
+           │
+           ▼
+┌─────────────────────┐     ┌─────────────┐     ┌─────────────────────┐
+│ pilot-to-conversion │ ──▶ │ poc-success │ ──▶ │ negotiation-closing │
+└─────────────────────┘     └─────────────┘     └─────────────────────┘
+                                                           │
+                                                           ▼
 
-```bash
-d2 assets/skill-map.d2 assets/skill-map.svg --theme 0 --dark-theme 200 --pad 60 --scale 1.5
+                                                     Post-sale
+
+                                                ┌────────────────────┐     ┌──────────────────┐
+                                                │ onboarding-journey │ ──▶ │ customer-success │
+                                                └────────────────────┘     └──────────────────┘
+
+Runs alongside, not in the chain:
+  • persona-based-discovery — persona-adapted lens on discovery
+  • first-call-rampup       — coaching, at any stage
+  • churn-prevention        — renewal risk, post-sale
+  • upsell-expansion        — expansion opportunity, post-sale
 ```
 
 Unlike some agent-skill collections, there's no foundational context skill
