@@ -39,7 +39,7 @@ Every framework and deal motion the playbook tracks today.
 
 **POC & pilot**
 - [x] pilot-to-conversion
-- [ ] poc-success
+- [x] poc-success
 
 **Negotiation & closing**
 - [x] negotiation-closing
@@ -53,8 +53,8 @@ Every framework and deal motion the playbook tracks today.
 - [x] won-pipeline-check
 
 **Deal registration**
-- [ ] new-business-registration
-- [ ] end-client-registration
+- [x] new-business-registration
+- [x] end-client-registration
 
 **Post-sale**
 - [x] onboarding-journey

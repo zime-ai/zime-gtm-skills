@@ -1,0 +1,53 @@
+{
+  "skill_name": "end-client-registration",
+  "evals": [
+    {
+      "id": 1,
+      "name": "end-client-registration-eval-1-csv",
+      "prompt": "run end-client-registration on skills/end-client-registration/assets/sample-registrations.csv",
+      "expected_output": "REG-1003 flags heavily: end_client_name repeats the partner name (entity not distinct), permission_confirmed is No, no end_client_contact, margin_tier is blank, and expiry_date is blank. REG-1002 flags for a blank conflict_check_done. REG-1005 flags for a blank partner_contact. REG-1006 flags for permission_confirmed showing no contact response yet. REG-1004 flags for a vague engagement_scope ('General support'). REG-1008 flags because conflict_check_done states an existing house AE has an active opportunity with the account — a real conflict, not a missing check. REG-1001 and REG-1007 come back clean or close to it. Output is one table, flagged rows first ordered by most flags, each flag citing the actual column/value.",
+      "files": [
+        "assets/sample-registrations.csv"
+      ],
+      "expectations": [
+        "REG-1003 is flagged for the end client being conflated with the partner (end_client_name equals partner_name)",
+        "REG-1008 is flagged for a real conflict against the direct/house pipeline, distinct from rows merely missing the conflict check",
+        "REG-1002 or another row is flagged for a missing conflict check specifically because conflict_check_done is empty",
+        "At least one row is flagged for missing or unconfirmed end-client permission to engage",
+        "At least one row is flagged for missing commercial terms or a missing expiry/validity window",
+        "Every flag cites the specific column name and cell value that triggered it, not a generic description",
+        "REG-1001 and REG-1007 are not flagged on every dimension — at least one row reads as clean or near-clean",
+        "Output ends with a count of flagged registrations out of the total and the single most common flag"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "end-client-registration-eval-2-transcript",
+      "prompt": "run end-client-registration on skills/end-client-registration/assets/sample-transcript.txt",
+      "expected_output": "Partner identity is Covered (Rick from Cascade Partners, submitting directly). End-client entity is Covered (Thornwood Retail, kept distinct from Cascade). Engagement scope is Covered (source the lead plus implementation and ongoing account management). Conflict check is Missed or Partial (Rick assumed the portal ran it automatically; Riley has to run it separately, it wasn't done before submission). Permission to engage is Covered (Maya Chen took two calls and asked for pricing). Commercial terms is Partial or Missed (Rick tries to carry over a 25% tier from a prior unrelated deal, which Riley explicitly rejects as not applying to this registration). Registration expiry is Covered (a 90-day protection window is set). Closes with a single Approve / Approve pending follow-ups / Do not approve call, most plausibly approve-pending given the outstanding conflict check and commercial terms.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "All seven rubric dimensions receive a Status",
+        "Conflict check is scored Missed or Partial, not Covered, since Rick explicitly did not run it and assumed it was automatic",
+        "Commercial terms is scored Missed or Partial, not Covered, since Riley explicitly rejects carrying over the 25% tier from a different deal",
+        "End-client entity and permission-to-engage are scored Covered, citing Thornwood/Maya Chen specifics rather than a generic paraphrase",
+        "Registration expiry is scored Covered and cites the 90-day protection window",
+        "Closes with a single approve/do-not-approve call and the one thing that would change it, not a restated summary of every dimension"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "end-client-registration-eval-3-reads-well-too",
+      "prompt": "run end-client-registration on a registration record that clearly has every dimension covered cleanly",
+      "expected_output": "The audit scores it clean across the board rather than nitpicking a genuinely complete registration into flags or Partials. The reads-well-too check is applied before finalizing. No canonical-framework standard is implied to exist.",
+      "files": [],
+      "expectations": [
+        "A genuinely complete registration is not flagged or scored mostly Partial/Missed",
+        "The reads-well-too check from references/rubric.md is applied before the audit is finalized",
+        "Does not imply a named canonical framework for deal registration exists"
+      ]
+    }
+  ]
+}

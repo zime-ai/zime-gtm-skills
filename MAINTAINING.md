@@ -78,19 +78,22 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   `skills-ref` CI validator both iterate `skills/*/`, and the README's
   `cp -r skills/* .agents/skills/` install line would copy the nesting dirs
   as if they were skills themselves.
-- This 29-skill set is a deliberate proof-set, not the full catalogue — see
+- This 32-skill set is a deliberate proof-set, not the full catalogue — see
   `ROADMAP.md` for what's built and what's next. Expand it the same way the
   first 4 initiative skills were built.
+- README's "How these fit together" skill map is a plain ASCII diagram in a
+  fenced code block (not `mermaid`/`d2`) — keeps it legible at README width
+  without an image asset to regenerate.
 
 ## Verification state, honestly
 
-- **Structural validation**: all 29 skills pass `./validate-skills.sh`
+- **Structural validation**: all 32 skills pass `./validate-skills.sh`
   (which now also checks `zime:dimension` is present/valid, and that any
   `evals/evals.json` parses and uses `expectations`, not `assertions`) and
   the pinned `skills-ref validate` in CI.
 - **Functional validation**: only `deep-discovery` has actually been run
   end-to-end against its sample transcript and had its output read for
-  correctness. The other 28 have evals written (see below) but have not
+  correctness. The other 31 have evals written (see below) but have not
   been manually run.
 - **CSV mode**: has never been exercised on any skill. A shared synthetic
   pipeline export exists at `skills/deep-discovery/assets/sample-pipeline.csv`.
@@ -110,7 +113,7 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   (not the rubric author) gold-labeling sample transcripts. See `EVALS.md`
   for the full methodology and why this tier can't be automated.
 
-`skills/*/evals/evals.json` exist for all 29 skills, using `expectations`
+`skills/*/evals/evals.json` exist for all 32 skills, using `expectations`
 (not `assertions`) with skill-root-relative `files` paths. Every eval carries
 at least one expectation a format-compliant-but-shallow output would fail,
 per `EVALS.md`'s falsifying-expectation rule. They remain declarative, not

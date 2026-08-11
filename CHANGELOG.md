@@ -3,6 +3,22 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.1.0] — 32 skills, registration coverage
+
+32 Agent Skills (up from 29 at 2.0.0), 23 stage + 9 initiative.
+
+**New stage skills** (3): `poc-success` (a completed POC/pilot's exit
+review — success criteria verdicts, end-user validation, sponsor sign-off,
+production-readiness blockers), `new-business-registration` (a new-logo
+deal-registration record for completeness), `end-client-registration` (a
+partner/reseller's end-client deal registration, kept distinct from direct
+pipeline).
+
+Also: README's "How these fit together" skill map moved off a Mermaid/d2
+diagram to a plain ASCII flowchart in a fenced code block — the rendered
+image scaled down to unreadable at README width; the fixed-width text
+version doesn't have that failure mode.
+
 ## [2.0.0] — 29 skills, ROADMAP.md, dev/main release flow
 
 29 Agent Skills (up from 16 at 1.0.0), 20 stage + 9 initiative, plus the
