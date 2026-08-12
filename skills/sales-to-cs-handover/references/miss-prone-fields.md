@@ -31,15 +31,17 @@ explicitly says the NDA is unsigned, not "NDA status wasn't mentioned").
 Absence of a topic is not evidence of the risk; only surface a risk from
 what's *said*.
 
-**Named-account anecdotes as evidence, not just the abstract risk.** When a
-source attaches a named-account story to a risk or objection already
-derived above, carry the account name and its one-clause outcome as the
-line's evidence instead of stating the risk abstractly. Worked example
-(Fyno, Rohit Jain): "champion ≠ close — DCB Bank (champion convinced, CEO
-overrode) and Federal Bank (deal stalled a year when the approving
-authority changed, not the champion)." Guard: this only dresses up a
-risk/objection the checklist already surfaced — a war story is not itself a
-new §9 line, and this is never licence to import an anecdote unrelated to
+**Named-account anecdotes as evidence, not just the abstract risk** (instance
+of `grounding-rules.md`'s "Specificity survives compression" rule — same
+failure shape, different content: a concrete name instead of a concrete
+number). When a source attaches a named-account story to a risk or
+objection already derived above, carry the account name and its one-clause
+outcome as the line's evidence instead of stating the risk abstractly.
+Worked example (Fyno, Rohit Jain): "champion ≠ close — DCB Bank (champion
+convinced, CEO overrode) and Federal Bank (deal stalled a year when the
+approving authority changed, not the champion)." Guard: this only dresses up
+a risk/objection the checklist already surfaced — a war story is not itself
+a new §9 line, and this is never licence to import an anecdote unrelated to
 an existing risk.
 
 ## Persona vocabulary — motivation vs. posture, personal vs. org-level

@@ -58,8 +58,18 @@ or by a marker from `grounding-rules.md`'s table. A field that is still
 empty or omitted at this point is a defect to fix now, not a gap to record
 later.
 
+Run a second, separate re-scan for specificity: for every field that states
+a claim with a number, name, date, or quote behind it in the source, check
+that the filled text still contains that specific — not only your
+restatement of it (full rule in `grounding-rules.md`'s "Specificity survives
+compression"). Caught in practice: a team-size field that named a headcount
+in the transcript but got filled as "small team, count not stated." Put the
+specific back before moving on — this is a defect to fix now, same as an
+unreplaced placeholder, not a gap to record later.
+
 **Done when:** every field in the template has either evidenced content or
-an unknown marker — none silently blank.
+an unknown marker — none silently blank — and no field states a claim while
+dropping the specific number/name/date the source gave for it.
 
 ## Step 3 — Close the five miss-prone areas
 

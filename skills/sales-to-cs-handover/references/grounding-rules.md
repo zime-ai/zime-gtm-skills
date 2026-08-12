@@ -127,6 +127,27 @@ This is new behavior beyond the astra/truefoundry ground-truth samples,
 which predate this rule and carry zero citations — don't treat their
 absence of links as a mismatch to fix.
 
+## Specificity survives compression — the rule behind the two below
+
+A general failure mode, found by tracing two separate Fyno misses back to
+one cause: the skill had *found* the underlying claim in both cases (an
+experience gap; a champion-doesn't-guarantee-close risk) and then, while
+compressing the field to budget, kept the abstract restatement and dropped
+the concrete evidence that made it checkable — a number in one case, two
+named accounts in the other.
+
+**The predicate:** before finalizing any field, check whether it still
+contains the specific noun, number, date, or name the source actually gave,
+or only your restatement of it. If only the restatement survived, put the
+specific back — cutting connective prose from around it — before applying
+any word budget. This is the general form; "Keep the number" below and
+`miss-prone-fields.md`'s named-account rule are its two known instances so
+far, each with category-specific handling (how to normalize a spoken number;
+how to avoid importing an unrelated anecdote) that the general form alone
+doesn't cover. Treat any future miss that fits this shape (a verbatim quote,
+a competitor name, a job title, a specific date) as a third instance of this
+same rule, not a new one-off patch.
+
 ## Numeric / dated claims
 
 Every price, headcount, or date pulled into the doc must be traceable to a
@@ -136,17 +157,17 @@ name the discrepancy inline — e.g. "10 (updated from 5 on the earlier call)"
 — never silently pick one. A scope or number that changed mid-cycle is
 itself a signal CS should see, not noise to suppress.
 
-**Keep the number, don't paraphrase it into a duration.** When a source
-states a specific quantity tied to a claim (call/deal volume, headcount, %,
-₹/$ amount, a ratio), carry the number itself into the doc — never convert
-it into a qualitative or duration-only phrase. If the speaker's own point is
-a contrast, keep both sides of it. Worked example (Fyno, Rohit Jain): the
-transcript states *"~1,000 calls, my team would have had 10-15"* — the
-field should read "~1,000 calls vs. 10-15 for his team", not "4 years of
-founder-led judgment" (the duration alone drops the concrete, quotable
-stat). Numbers spoken as words ("thousand calls") are normalized to digits;
-add `~` when the speaker was visibly approximating, not stating an exact
-count.
+**Keep the number, don't paraphrase it into a duration** (instance of the
+specificity rule above). When a source states a specific quantity tied to a
+claim (call/deal volume, headcount, %, ₹/$ amount, a ratio), carry the
+number itself into the doc — never convert it into a qualitative or
+duration-only phrase. If the speaker's own point is a contrast, keep both
+sides of it. Worked example (Fyno, Rohit Jain): the transcript states
+*"~1,000 calls, my team would have had 10-15"* — the field should read
+"~1,000 calls vs. 10-15 for his team", not "4 years of founder-led judgment"
+(the duration alone drops the concrete, quotable stat). Numbers spoken as
+words ("thousand calls") are normalized to digits; add `~` when the speaker
+was visibly approximating, not stating an exact count.
 
 ## §9 objections — answered is not closed
 
@@ -172,6 +193,13 @@ in §9) is in `miss-prone-fields.md`.
 the *client's* existing sales organization as stated on a call — not Zime's
 proposed process or the POC's own structure. Watch for the two getting
 mentioned in the same call and attributed to the wrong side.
+
+§1's "Pilot cohort" is the client's **team headcount** running the POC (e.g.
+"7 reps") — the same population as §2's Team size, not the count of
+accounts/deals the POC will analyze. Both ground-truth samples fill it this
+way; a field-audit re-run independently picked the accounts/deals reading on
+two fresh generations, so this is stated explicitly now rather than left to
+be inferred from the field's short label.
 
 §4's "Primary pain" is easy to conflate with "Key hooks that landed" —
 Primary pain is the problem stated in the client's own words/situation
