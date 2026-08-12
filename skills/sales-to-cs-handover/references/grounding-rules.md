@@ -20,6 +20,26 @@ Never leave a field silently blank with no marker — that reads as "checked
 and found nothing" instead of "not covered." Never invent a marker not in
 this list without asking; consistency matters more than expressiveness here.
 
+## Literal, not prescriptive — by design
+
+This skill transcribes; it does not compose the confident, prescriptive
+framing a human handover author sometimes adds (e.g. stating POC exit
+criteria as fact when no call actually set one). That's a deliberate
+choice, not an omission — never invent a fact to match a more assertive
+ground-truth sample's tone.
+
+But a bare unknown marker is not the end state either: pair it with a
+one-line next-step telling CS what to go establish, phrased as an action,
+not as a finding. Worked example: "No numeric exit criteria discussed —
+Rohit prioritized quality over speed. CS to agree exit criteria before the
+brain demo." — the first clause stays literal/sourced, the second is an
+instruction, not a claim about what the transcript said.
+
+The astra/truefoundry ground-truth samples, and any client's own GT doc,
+may be more prescriptive than this on purpose (human editorial judgment
+added after the fact) — a diff against them on this specific axis is not a
+defect to fix.
+
 ## Fields requiring a provenance note (append after the value)
 
 Examples below are Astra's actual filled values, shown to demonstrate the
@@ -116,6 +136,18 @@ name the discrepancy inline — e.g. "10 (updated from 5 on the earlier call)"
 — never silently pick one. A scope or number that changed mid-cycle is
 itself a signal CS should see, not noise to suppress.
 
+**Keep the number, don't paraphrase it into a duration.** When a source
+states a specific quantity tied to a claim (call/deal volume, headcount, %,
+₹/$ amount, a ratio), carry the number itself into the doc — never convert
+it into a qualitative or duration-only phrase. If the speaker's own point is
+a contrast, keep both sides of it. Worked example (Fyno, Rohit Jain): the
+transcript states *"~1,000 calls, my team would have had 10-15"* — the
+field should read "~1,000 calls vs. 10-15 for his team", not "4 years of
+founder-led judgment" (the duration alone drops the concrete, quotable
+stat). Numbers spoken as words ("thousand calls") are normalized to digits;
+add `~` when the speaker was visibly approximating, not stating an exact
+count.
+
 ## §9 objections — answered is not closed
 
 An objection raised on a call and answered by Sales stays in §9 as live,
@@ -149,7 +181,11 @@ it; the capability belongs in "Key hooks" instead.
 A field that would run over budget gets trimmed, not split across cells or
 padded with connective prose. No preamble inside any field ("It appears
 that…", "Based on the calls…", restating the field's own label before
-answering it) — go straight to the fact.
+answering it) — go straight to the fact. Trim connective prose first — a
+stated number or a named account (see "Numeric / dated claims" above and
+`miss-prone-fields.md`'s risk checklist) is the last thing cut, never the
+first; those are the concrete, quotable content the budget exists to
+protect room for.
 
 ## "Any additional context" (§10) and appendix
 
