@@ -1,0 +1,42 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+Call: Solstice CRM <> Harbor Retail Group (Rep: Morgan)
+Stage: First demo call
+
+Morgan: Thanks for making time today, Alex. Walk me through what's
+prompting the search right now?
+
+Alex (Director of Sales Ops, Harbor Retail Group): Sure. Our reps are
+spending way too much time on manual reporting — I'd guess six hours a
+week per rep just pulling numbers into spreadsheets. And leads sit
+unassigned for a day or two before anyone even sees them.
+
+Morgan: Got it — reporting overhead and lead routing lag. That tracks with
+a lot of what we solve for retail teams your size. Let me show you the
+dashboard and the auto-routing rules.
+
+[demo of dashboard and routing rules]
+
+Alex: This looks like it could save us a lot of that six hours. The
+routing piece especially — that's been a real pain point for the team.
+
+Morgan: Great, glad it's landing. Given what you've described, I'll put
+together a proposal with pricing for the two tiers we discussed and send
+it over by this Thursday so you have it ahead of your Friday leadership
+sync.
+
+Alex: Perfect, Thursday works well, that gives us time to look at it
+before Friday.
+
+Morgan: On the technical side — anything else you'd want to see before
+moving forward?
+
+Alex: Yeah, I mean, at some point we'd probably want our IT team to take
+a look at how the integration with our existing POS system would actually
+work. Not sure when they'd have bandwidth for that though, it's not really
+my call to schedule them.
+
+Morgan: Makes sense, that's a fair thing to check. I'll get the proposal
+to you Thursday and we can figure out the IT conversation from there.
+
+Alex: Sounds good, thanks Morgan.

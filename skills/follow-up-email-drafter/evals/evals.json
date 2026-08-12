@@ -1,0 +1,36 @@
+{
+  "skill_name": "follow-up-email-drafter",
+  "evals": [
+    {
+      "id": 1,
+      "name": "follow-up-email-drafter-eval-1-mixed-grounding",
+      "prompt": "run follow-up-email-drafter on skills/follow-up-email-drafter/assets/sample-transcript.txt",
+      "expected_output": "A drafted email that states the pricing proposal by Thursday as an agreed fact (heard, quoted from the call), and treats the IT/integration review as an open item the rep proposes rather than a stated commitment — it either phrases it as a suggestion (e.g. 'happy to loop in your IT team whenever works') or leaves it out of the email body, never presenting it as something scheduled or agreed. A separate grounding notes section below the email lists the Thursday proposal as heard with its quote, and the IT/integration item as proposed/to-confirm, without either heard/inferred tag appearing inside the email itself.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Email body states the Thursday pricing proposal as an agreed next step",
+        "Email body does NOT state the IT/integration team review as an agreed or scheduled commitment (no stated date, no 'we will schedule' phrasing presented as fact)",
+        "If the IT/integration item appears in the email body at all, it is phrased as the rep's own proposal or suggestion, not a recap of something agreed",
+        "A grounding notes section appears below the drafted email, separate from the email itself",
+        "Grounding notes tag the Thursday proposal as heard and include the supporting quote",
+        "Grounding notes flag the IT/integration item as proposed or needing confirmation before sending, not as a settled fact",
+        "The words 'heard' or 'inferred' do not appear inside the drafted email itself (subject or body)",
+        "Does not fabricate a specific date, number, or name for the IT/integration review that was never stated on the call"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "follow-up-email-drafter-eval-2-nothing-concrete",
+      "prompt": "run follow-up-email-drafter on a transcript where the call was a friendly introductory chat with no next step discussed and nothing concrete agreed",
+      "expected_output": "States plainly that the call produced no concrete next step, then drafts a minimal 'great talking with you' recap email with no invented ask, date, or next step. Grounding notes reflect that there is little or nothing to tag as heard, rather than inventing claims to fill out the section.",
+      "files": [],
+      "expectations": [
+        "States explicitly that the call ended without a concrete next step, rather than silently drafting as if one existed",
+        "Drafted email is a minimal recap/thank-you email and does not include a fabricated next step, date, or ask",
+        "Grounding notes do not list invented heard or proposed items that weren't actually discussed"
+      ]
+    }
+  ]
+}
