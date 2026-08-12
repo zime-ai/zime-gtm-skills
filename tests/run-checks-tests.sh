@@ -193,6 +193,27 @@ sed -i.bak 's/zime:dimension: stage/zime:dimension: vertical-context/' "$T/skill
 expect_exit_contains "vertical-context skill exempt from sample-required" 0 "1 passed, 0 with warnings, 0 failed" "$VALIDATE_SKILLS" "$T"
 rm -rf "$T"
 
+# Case 19: intelligence skill is a valid dimension, still runnable (not exempt)
+T=$(mktemp -d); make_clean_fixture "$T"
+rm -rf "$T/skills/demo-skill/assets" "$T/skills/demo-skill/evals"
+sed -i.bak 's/zime:dimension: stage/zime:dimension: intelligence/' "$T/skills/demo-skill/SKILL.md"
+expect_exit_contains "intelligence skill missing sample still fails sample-required" 1 "sample-required" "$VALIDATE_SKILLS" "$T"
+rm -rf "$T"
+
+# Case 20: intelligence skill with assets/ and evals/ passes, and is exempt
+# from the Coverage table check-docs-sync.sh runs for stage/initiative skills
+# (same exemption vertical-context gets, for the same reason: neither a
+# stage nor an initiative).
+T=$(mktemp -d); make_clean_fixture "$T"
+sed -i.bak 's/zime:dimension: stage/zime:dimension: intelligence/' "$T/skills/demo-skill/SKILL.md"
+# demo-skill is no longer the fixture's one stage skill, so the closing
+# line's stage sub-count needs to agree — same fixture-consistency need as
+# every other case above, unrelated to the thing this case is testing.
+sed -i.bak 's/All 1 stage motions are covered/All 0 stage motions are covered/' "$T/README.md"
+expect_exit_contains "intelligence skill with sample passes validate-skills.sh" 0 "1 passed, 0 with warnings, 0 failed" "$VALIDATE_SKILLS" "$T"
+expect_exit_contains "intelligence skill exempt from Coverage table check" 0 "" "$CHECK_DOCS_SYNC" "$T"
+rm -rf "$T"
+
 # Case 13: private eval dir un-ignored (needs a git repo + partial .gitignore)
 T=$(mktemp -d); make_clean_fixture "$T"
 ( cd "$T" && git init -q && printf 'evals/transcripts/\nevals/gt/\nevals/labels/\n' > .gitignore )
