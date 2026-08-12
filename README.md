@@ -1,13 +1,13 @@
 # zime-gtm-skills
 
-[![Skills](https://img.shields.io/badge/skills-32-blue)](skills/)
+[![Skills](https://img.shields.io/badge/skills-34-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 32 [Agent Skills](https://agentskills.io) that audit sales call
+here. 34 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
@@ -138,8 +138,9 @@ See [Installation](#installation) below for the submodule option and the
 
 ## How these fit together
 
-32 skills: 23 stage motions laid out across the deal lifecycle and 9
-cross-stage initiative skills.
+34 skills: 23 stage motions laid out across the deal lifecycle, 9
+cross-stage initiative skills, and 2 deal-intelligence skills that write
+something forward — a plan, a digest — instead of grading a call.
 
 ```
 New business
@@ -216,6 +217,11 @@ one call transcript (or CRM export) in, one evidence-cited audit out.
 | `next-step-commitment` | Any | Next step commitment |
 | `adoption-leaderboard` | Any (post-sale) | Behavior adoption |
 
+**A third class, not in this table: deal intelligence.** `mutual-action-plan`
+and `deal-risk-digest` don't grade a call against a rubric — they write
+something forward, so a Stage/Initiative pair doesn't fit them. See the
+"Deal intelligence" group in [Available skills](#available-skills) instead.
+
 **Roadmap.** Other named methodologies and motions aren't built yet.
 See [ROADMAP.md](ROADMAP.md), or
 [contribute one](CONTRIBUTING.md).
@@ -244,7 +250,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 ## Available skills
 
 <details open>
-<summary>32 skills across new business, post-sale, and cross-stage initiative</summary>
+<summary>34 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
 
 <!-- SKILLS:START -->
 **New business**
@@ -293,6 +299,13 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 | [pain-finder](skills/pain-finder/) | Ranked pain points with confidence and evidence | transcript |
 | [next-step-commitment](skills/next-step-commitment/) | Whether a call ended in a real, dated, two-sided commitment vs. a vague "we'll circle back" | transcript or CRM export |
 | [adoption-leaderboard](skills/adoption-leaderboard/) | Ranks reps by adoption of five fixed winning behaviors (rapport, upsell signals, renewal risk, customer experience, value realization) across recent calls, lowest first | transcript or connector |
+
+**Deal intelligence**
+
+| Skill | Audits | Input |
+|---|---|---|
+| [mutual-action-plan](skills/mutual-action-plan/) | Writes a mutual action plan from a call — milestones from today to signature, each with an owner on both sides and a date, tagged `heard` or `inferred` | transcript or CRM export |
+| [deal-risk-digest](skills/deal-risk-digest/) | Ranks a whole pipeline export by risk — past-due close date against low probability, stage age, vague next step, single-threaded contact | CRM export (`.csv`) |
 <!-- SKILLS:END -->
 
 </details>

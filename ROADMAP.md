@@ -81,7 +81,7 @@ there.
 **Seller-facing, single deal**
 - [ ] call-prep
 - [ ] deal-highlights
-- [ ] mutual-action-plan
+- [x] mutual-action-plan
 - [ ] executive-briefing
 - [ ] champion-tracker
 - [ ] competitor-battlecard
@@ -91,7 +91,7 @@ there.
 - [ ] wbr-report-generator
 - [ ] forecast-review
 - [ ] pipeline-review
-- [ ] deal-risk-digest
+- [x] deal-risk-digest
 - [ ] win-loss-brief
 - [ ] stuck-deal-digest
 - [ ] rep-ramp-status-digest
