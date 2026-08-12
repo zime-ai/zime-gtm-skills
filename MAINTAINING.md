@@ -64,7 +64,7 @@ data of the user's own. Rules for any sample file (transcript or CSV):
 2. **Never expose anything that isn't already customer-visible in the Zime
    product**: see the IP boundary section above.
 
-## Two dimensions: stage, initiative
+## Two dimensions: stage, initiative — plus a third, intelligence
 
 Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
 
@@ -78,7 +78,15 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   `skills-ref` CI validator both iterate `skills/*/`, and the README's
   `cp -r skills/* .agents/skills/` install line would copy the nesting dirs
   as if they were skills themselves.
-- This 32-skill set is a deliberate proof-set, not the full catalogue — see
+- **`intelligence`** is a third `zime:dimension` value, added for
+  `ROADMAP.md`'s phase-2 "deal intelligence" skills: `mutual-action-plan`
+  and `deal-risk-digest` write something forward (a plan, a digest) instead
+  of grading a call against a rubric, so neither `stage` nor `initiative`
+  fit — see the frontmatter contract in `AGENTS.md`. They still ship
+  `assets/` + `evals/evals.json` like any runnable skill; the only
+  exemption they get is from the README's Coverage table, which doesn't
+  have a column for them.
+- This 34-skill set is a deliberate proof-set, not the full catalogue — see
   `ROADMAP.md` for what's built and what's next. Expand it the same way the
   first 4 initiative skills were built.
 - README's "How these fit together" skill map is a plain ASCII diagram in a
@@ -87,16 +95,21 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
 
 ## Verification state, honestly
 
-- **Structural validation**: all 32 skills pass `./validate-skills.sh`
+- **Structural validation**: all 34 skills pass `./validate-skills.sh`
   (which now also checks `zime:dimension` is present/valid, and that any
   `evals/evals.json` parses and uses `expectations`, not `assertions`) and
   the pinned `skills-ref validate` in CI.
-- **Functional validation**: only `deep-discovery` has actually been run
-  end-to-end against its sample transcript and had its output read for
-  correctness. The other 31 have evals written (see below) but have not
+- **Functional validation**: `deep-discovery` and `deal-risk-digest` have
+  actually been run end-to-end against their sample data and had output
+  checked for correctness — `deal-risk-digest`'s build independently
+  recomputed every row of its sample CSV and confirmed the eval's required
+  ranking held. The other 32 have evals written (see below) but have not
   been manually run.
-- **CSV mode**: has never been exercised on any skill. A shared synthetic
-  pipeline export exists at `skills/deep-discovery/assets/sample-pipeline.csv`.
+- **CSV mode**: exercised for the first time by `deal-risk-digest` (see
+  above) — that skill is CSV-only. Still unexercised as a *secondary* input
+  mode on every `stage`/`initiative` skill that also accepts `.csv`. A
+  shared synthetic pipeline export exists at
+  `skills/deep-discovery/assets/sample-pipeline.csv`.
 - **CI-catches-a-broken-PR test**: fixed. `tests/run-checks-tests.sh` runs
   `validate-skills.sh`, `scripts/check-docs-sync.sh`, and
   `scripts/scan-content.py` against scratch fixtures with a deliberately
@@ -113,7 +126,7 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   (not the rubric author) gold-labeling sample transcripts. See `EVALS.md`
   for the full methodology and why this tier can't be automated.
 
-`skills/*/evals/evals.json` exist for all 32 skills, using `expectations`
+`skills/*/evals/evals.json` exist for all 34 skills, using `expectations`
 (not `assertions`) with skill-root-relative `files` paths. Every eval carries
 at least one expectation a format-compliant-but-shallow output would fail,
 per `EVALS.md`'s falsifying-expectation rule. They remain declarative, not

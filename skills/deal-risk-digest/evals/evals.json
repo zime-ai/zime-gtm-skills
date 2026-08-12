@@ -1,0 +1,47 @@
+{
+  "skill_name": "deal-risk-digest",
+  "evals": [
+    {
+      "id": 1,
+      "name": "deal-risk-digest-eval-1-ranking-and-scoring",
+      "prompt": "run deal-risk-digest on skills/deal-risk-digest/assets/sample-pipeline-deal-risk.csv",
+      "expected_output": "Fairview Logistics ranks first (High risk, 6 points: past close date + low probability, stage age over 45 days, vague next step 'Follow up', single-threaded contact). Cobalt Freight Partners ranks second (High risk, 3 points: past close date 2025-02-14 + low probability 20%, nothing else triggered). Ashgrove Dental Partners ranks next (Medium risk, 2 points: blank next step and single-threaded contact). Driftwood Realty Group, Terra Foods Co-op, and Solstice Robotics each score Medium risk at 1 point (stage age, blank next step, and single-threaded contact respectively), sorted by deal value descending so Driftwood (88000) leads Terra Foods (33000) which leads Solstice (26000). Meridian Health Systems and Bluewater Analytics score Low risk at 0 points. Critically, Cobalt Freight Partners (54000, 3 points) ranks above Driftwood Realty Group (88000, 1 point) despite Driftwood's larger deal value, because Cobalt's past-close-date-plus-low-probability signal outweighs Driftwood's stage-age-only signal.",
+      "files": [
+        "assets/sample-pipeline-deal-risk.csv"
+      ],
+      "expectations": [
+        "Fairview Logistics ranks first, rated High risk, citing the past close date plus low probability, stage age, vague next step, and single-threaded contact",
+        "Cobalt Freight Partners is rated High risk citing only the past close date (2025-02-14) plus low probability (20%) signal",
+        "Cobalt Freight Partners ranks strictly above Driftwood Realty Group, even though Driftwood's deal value (88000) is larger than Cobalt's (54000) — the compound past-close-date-and-low-probability signal outranks a stage-age-only signal regardless of deal size",
+        "Driftwood Realty Group is rated Medium risk citing stage age (long time in current stage) and not the past-close-date signal, since its close date is in the future",
+        "Meridian Health Systems and Bluewater Analytics both score Low risk with no signals cited",
+        "Output is a single markdown table with columns Deal, Risk, Reasons, Evidence, sorted highest risk first with ties broken by larger deal value",
+        "Every scored signal cites the actual column name and cell value behind it",
+        "Closes with 'N of M deals rated High risk' and the single most common risk signal, and nothing else (no invented scores or percentages beyond the rubric's point system)"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "deal-risk-digest-eval-2-reads-well-too",
+      "prompt": "run deal-risk-digest on a pipeline export where every deal has a future close date, a confident probability, a recent stage entry, a specific next step, and more than one contact",
+      "expected_output": "Every deal in the export scores Low risk with 0 points. The reads-well-too check from references/rubric.md is applied before finalizing, so a genuinely healthy deal is not nitpicked into a risk score.",
+      "files": [],
+      "expectations": [
+        "All deals in a fully-healthy export score Low risk with 0 points",
+        "The reads-well-too check from references/rubric.md is applied before the digest is finalized"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "deal-risk-digest-eval-3-missing-column",
+      "prompt": "run deal-risk-digest on a pipeline export that has no contacts or stakeholders column at all",
+      "expected_output": "The single-threaded-contact signal contributes zero points for every row, stated once up front, rather than being silently skipped or guessed from another column. The other four signals still score normally where their columns are present.",
+      "files": [],
+      "expectations": [
+        "States once, up front, that the contacts/stakeholders column is missing",
+        "Scores the single-threaded-contact signal as contributing zero points for every row rather than inferring it from another column",
+        "Still scores the other four signals normally"
+      ]
+    }
+  ]
+}
