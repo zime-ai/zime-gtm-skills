@@ -90,8 +90,8 @@ for skill_dir in "$SKILLS_DIR"/*/; do
     dimension=$(echo "$frontmatter" | grep "zime:dimension:" | head -1 | sed 's/.*zime:dimension: *//' | tr -d ' ')
     if [[ -z "$dimension" ]]; then
         errors+=("missing 'zime:dimension' metadata field")
-    elif [[ "$dimension" != "stage" && "$dimension" != "initiative" && "$dimension" != "vertical-context" ]]; then
-        errors+=("invalid zime:dimension '$dimension' (must be stage, initiative, or vertical-context)")
+    elif [[ "$dimension" != "stage" && "$dimension" != "initiative" && "$dimension" != "vertical-context" && "$dimension" != "intelligence" ]]; then
+        errors+=("invalid zime:dimension '$dimension' (must be stage, initiative, vertical-context, or intelligence)")
     fi
 
     evals_file="${skill_dir}evals/evals.json"
@@ -101,11 +101,11 @@ for skill_dir in "$SKILLS_DIR"/*/; do
         elif grep -q '"assertions"' "$evals_file"; then
             errors+=("evals/evals.json uses 'assertions' — schema requires 'expectations'")
         fi
-    elif [[ "$dimension" == "stage" || "$dimension" == "initiative" ]]; then
+    elif [[ "$dimension" == "stage" || "$dimension" == "initiative" || "$dimension" == "intelligence" ]]; then
         errors+=("missing evals/evals.json (required for runnable skills, see sample-required rule)")
     fi
 
-    if [[ "$dimension" == "stage" || "$dimension" == "initiative" ]]; then
+    if [[ "$dimension" == "stage" || "$dimension" == "initiative" || "$dimension" == "intelligence" ]]; then
         assets_dir="${skill_dir}assets"
         if [[ ! -d "$assets_dir" ]] || [[ -z "$(ls -A "$assets_dir" 2>/dev/null)" ]]; then
             errors+=("missing assets/ sample file (required for runnable skills, see sample-required rule)")

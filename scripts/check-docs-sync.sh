@@ -78,8 +78,10 @@ orphans=$(comm -13 <(echo "$actual_skills") <(echo "$table_skills") | grep -c .)
 ((ISSUES += orphans))
 
 # --- 4. Coverage table agreement (stage + initiative skills only) --------
-# vertical-context skills are deliberately excluded from this table — they
-# aren't a stage or an initiative, they're context other skills load.
+# vertical-context and intelligence skills are deliberately excluded from
+# this table — they aren't a stage or an initiative: vertical-context is
+# context other skills load, intelligence writes rather than grades and
+# gets its own README group instead (see check 5 below).
 
 coverage_block=$(awk '/## Coverage: [a-z]+ dimensions/{f=1} /## Where this stops/{f=0} f' "$README")
 coverage_skills=$(grep -oE '\| `[a-z0-9-]+`' <<< "$coverage_block" | sed -E 's/\| `([a-z0-9-]+)`/\1/' | sort -u)
@@ -88,7 +90,7 @@ for d in "$SKILLS_DIR"/*/; do
     name=$(basename "$d")
     frontmatter=$(awk '/^---$/{c++;next} c==1' "${d}SKILL.md" 2>/dev/null)
     dimension=$(grep "zime:dimension:" <<< "$frontmatter" | sed 's/.*zime:dimension: *//' | tr -d ' ')
-    [[ "$dimension" == "vertical-context" ]] && continue
+    [[ "$dimension" == "vertical-context" || "$dimension" == "intelligence" ]] && continue
     if ! grep -qx "$name" <<< "$coverage_skills"; then
         echo -e "${RED}FAIL${NC} $name ($dimension) missing from the 'Coverage' table"
         ((ISSUES++))
@@ -100,10 +102,11 @@ done
 # macOS ships bash 3.2 (no associative arrays) — a case statement instead.
 expected_section_for() {
     case "$1" in
-        new-business)  echo "New business" ;;
-        post-sale)     echo "Post-sale" ;;
-        cross-stage)   echo "Initiative (cross-stage)" ;;
-        cross-cutting) echo "Vertical context" ;;
+        new-business)     echo "New business" ;;
+        post-sale)        echo "Post-sale" ;;
+        cross-stage)      echo "Initiative (cross-stage)" ;;
+        cross-cutting)    echo "Vertical context" ;;
+        deal-intelligence) echo "Deal intelligence" ;;
     esac
 }
 
