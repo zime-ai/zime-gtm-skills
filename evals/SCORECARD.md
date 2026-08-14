@@ -37,6 +37,18 @@ scenario with no real sample file behind it, unrunnable even once a runner
 is wired up. None have been run through the `with_skill`/`without_skill`
 benchmark loop.
 
+## Illustrative self-authored run (not Tier 3) — `meddicc`
+
+**Not a Tier 0/3 number, and not counted in the table above.** Same author
+behind transcript, gold label, and grading prompt — a demonstration of the
+isolated-run/isolated-grade mechanism, not third-party or human-verified
+evidence. Full caveats and result: `evals/illustrative/README.md`. Headline,
+read with that caveat: 4/4 gold findings recalled, 0 outright
+hallucinations, but 4/7 dimension agreement and no credit on the
+out-of-rubric finding — the skill's real run resolved every constructed
+ambiguity toward more confidence than the transcript supports, on all
+three deliberately ambiguous spots in the sample.
+
 ## Tier 0 framework: landed and runnable
 
 `evals/framework/` (promptfoo-backed, isolated RUN/GAP/LEARN stages,

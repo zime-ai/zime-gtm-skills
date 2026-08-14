@@ -1,0 +1,74 @@
+Call: Fernway Freight <> RouteIQ — Second call (post-demo)
+Participants: Dana Okafor (VP of Operations, Fernway Freight), Marcus Lin (Account Executive, RouteIQ)
+Date: undated (synthetic)
+
+Marcus: Dana, thanks for making time. Last time we walked through the
+dispatch and route-optimization demo — wanted to pick up from there. How's
+the week been?
+
+Dana: Honestly, rough. We missed our on-time-delivery SLA with Brightside
+Retail last month. Contract says 95% on-time or we eat a penalty — we hit
+89%. That's about $40,000 we're paying back this quarter. And Brightside's
+ops director called our CEO directly about it, which is never fun.
+
+Marcus: That's a real number. Do you know specifically what drove the miss?
+
+Dana: Mostly dispatcher error — manual routing, three of our five
+dispatchers are covering routes by hand with a whiteboard and a lot of
+tribal knowledge. When one of them is out, the backup doesn't route as
+efficiently and it cascades. Actually, that's a bigger issue than people
+realize — two of our senior dispatchers are retiring in the next 18
+months, and neither of the two people we'd want to backfill with wants to
+learn the manual process. It's not written down anywhere. I lose sleep
+over that more than the Brightside penalty, if I'm honest, but nobody
+upstairs is asking about it yet.
+
+Marcus: That's a real risk on its own. Let's come back to the SLA piece —
+what's the target you need to hit consistently?
+
+Dana: Contractually 95% on-time for our top three accounts. Realistically
+I'd like to be at 97%+ across the board so we're not always right at the
+line.
+
+Marcus: Got it. Walk me through who else needs to be involved if we moved
+forward with something like RouteIQ.
+
+Dana: I can approve tooling spend up to $50,000 myself. Anything past that
+technically needs CFO or COO sign-off — I haven't actually run a deal like
+that past our COO before, so I can't tell you exactly how that
+conversation goes. Budget-wise, this isn't a line item we have sitting
+around; I'd probably have to make the case as a headcount-avoidance thing
+instead of asking for new budget outright. But if the tool basically pays
+for itself by killing the SLA penalties, that's an easier ask than it
+sounds. Anyway — back to the retirements, that's really what's keeping me
+up.
+
+Marcus: Understood. Is there a formal process you'd run this through —
+like a pilot period, a security review, anything like that?
+
+Dana: We haven't done a vendor pilot for something like this before, so
+honestly I don't know what our process would look like. I'd guess IT
+wants to look at it since it'd touch our dispatch system, but I haven't
+talked to them yet.
+
+Marcus: That's fine, we can figure that out together. Last thing — are you
+looking at anyone else for this, or is it just us right now?
+
+Dana: Just you, for now. This came out of the Brightside mess, not some
+big vendor search. If it works, I honestly don't have the bandwidth to
+also go run a bake-off.
+
+Marcus: Fair enough. So if RouteIQ could show it directly reduces
+dispatcher error and gets you comfortably above 97%, does that solve the
+problem for you?
+
+Dana: It would solve the SLA piece, yeah. This could actually fix our
+biggest headache. I just — I haven't figured out yet how I'd even bring
+this to the COO, or whether I'd loop in IT before or after that
+conversation. I need to think about sequencing on my end.
+
+Marcus: Makes sense. I'll follow up with a one-pager on the ROI math
+against the Brightside penalty specifically, and some questions about your
+dispatch system for when you're ready to loop in IT.
+
+Dana: That'd help. Thanks, Marcus.
