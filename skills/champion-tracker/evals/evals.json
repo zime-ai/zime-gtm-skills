@@ -1,0 +1,51 @@
+{
+  "skill_name": "champion-tracker",
+  "evals": [
+    {
+      "id": 1,
+      "name": "champion-tracker-eval-1-strengthening-trend",
+      "prompt": "Run champion-tracker on both calls from the Cascade Freight deal, in order.",
+      "expected_output": "An action ledger with a row per cited instance across both calls: Devon's lines tagged Sentiment throughout, Priya's call-1 line about flagging procurement 'next week' tagged Sentiment/plan (not yet Action), and Priya's call-2 lines (looping in procurement, pushing back on Marcus in the Monday leadership sync, setting up the security call) tagged Action. Priya named the strongest champion candidate. Trend reported as 'strengthening', citing Priya's shift from a plan in call 1 to confirmed actions in call 2.",
+      "files": [
+        "assets/sample-call-1.txt",
+        "assets/sample-call-2.txt"
+      ],
+      "expectations": [
+        "Devon's lines in both calls are tagged Sentiment only, never Action, and Devon is never named the champion or a champion candidate despite the enthusiastic language",
+        "Priya's call 1 line about flagging procurement 'next week' is treated as a plan/Sentiment, not yet Action, since it hadn't happened yet",
+        "Priya's call 2 lines (looping in procurement, pushing back on Marcus in the Monday leadership sync, setting up the security call) are tagged Action, each citing its quote",
+        "Priya is named the strongest champion candidate",
+        "The trend read is 'strengthening', citing Priya's shift from a plan in call 1 to confirmed actions in call 2",
+        "Every ledger row cites its quote; no row appears without one"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "champion-tracker-eval-2-single-call-insufficient-history",
+      "prompt": "Run champion-tracker on just the first Cascade Freight call.",
+      "expected_output": "An action ledger from the single call, with trend reported as 'insufficient history' rather than a guessed direction, since only one call was given.",
+      "files": [
+        "assets/sample-call-1.txt"
+      ],
+      "expectations": [
+        "Trend is reported as 'insufficient history', not guessed in either direction, since only one call was given",
+        "Devon's enthusiastic lines are tagged Sentiment, not Action",
+        "Priya's 'I'll flag this to our procurement team next week' is tagged Sentiment/plan, not Action, since nothing had happened yet"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "champion-tracker-eval-3-no-champion-only-a-friend",
+      "prompt": "Run champion-tracker on the Brightwell Retail call.",
+      "expected_output": "An action ledger where every row for both named contacts is tagged Sentiment, with the headline finding stated plainly as 'no champion, only a friend' rather than softened into generic positive language.",
+      "files": [
+        "assets/sample-call-no-champion.txt"
+      ],
+      "expectations": [
+        "Every row for both Renee and Tomas is tagged Sentiment; neither has an Action row",
+        "The headline finding states plainly that there is no champion, only enthusiastic contacts (e.g. 'no champion, only a friend') rather than being softened into language like 'strong stakeholder engagement'",
+        "No contact is named a champion or champion candidate"
+      ]
+    }
+  ]
+}

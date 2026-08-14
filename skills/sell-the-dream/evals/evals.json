@@ -1,0 +1,39 @@
+{
+  "skill_name": "sell-the-dream",
+  "evals": [
+    {
+      "id": 1,
+      "name": "sell-the-dream-eval-1-vision-led",
+      "prompt": "run sell-the-dream on skills/sell-the-dream/assets/sample-transcript.txt, scoring only CALL 1 (vision-led)",
+      "expected_output": "All five elements score Covered. Element 1 cites the rep naming the shift from annual underwriting to continuous, real-time risk scoring before mentioning the product. Element 2 cites the split between carriers who move now winning renewals versus carriers on annual reviews losing renewals and facing costlier reinsurance treaties. Element 3 cites the eighteen-month target-state picture (live risk score, real-time reinsurer feed, renewal conversations starting from what changed) stated before any feature is named. Element 4 cites the data unification layer and real-time scoring engine each tied to a specific named obstacle. Element 5 cites the mid-size commercial carrier's six-weeks-to-four-days renewal prep story. The sequencing check finds no violation: features were introduced after the change, stakes, and promised land were established.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "All five elements each receive a Status",
+        "Element 1 is scored Covered and cites the shift from annual underwriting reviews to continuous real-time risk scoring, not a generic 'market is changing' statement",
+        "Element 3 is scored Covered and cites the future-state description (live risk score, real-time reinsurer feed) as distinct from any named product feature",
+        "Element 4 is scored Covered and cites at least one feature (data unification layer or real-time scoring engine) tied back to a specific obstacle named earlier",
+        "Element 5 is scored Covered and cites the six-weeks-to-four-days renewal prep customer story",
+        "The sequencing check explicitly states no sequencing violation was found for this call",
+        "Cites at least one specific, concrete detail from the transcript rather than a generic paraphrase"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "sell-the-dream-eval-2-sequencing-violation",
+      "prompt": "run sell-the-dream on skills/sell-the-dream/assets/sample-transcript.txt, scoring only CALL 2 (feature-first)",
+      "expected_output": "Element 1 and Element 2 score Missed or Partial, since the rep opens with the platform's features rather than naming a change in the world or its stakes. Element 3 scores Missed or Partial, since no future-state promised land is described before the features. Element 4 scores Covered or Partial for the features themselves being described, but the audit does not let that Covered status stand alone. The audit explicitly flags a sequencing violation: the rep pitched the real-time scoring engine, data unification layer, and dashboard first, and only gestured at 'the whole industry is moving toward continuous underwriting' afterward, as an aside rather than an established narrative, before returning immediately to another feature (the reporting export). This is called out as a named sequencing violation, separate from the per-element scoring.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Element 1 and Element 2 are scored Missed or Partial for this call, not Covered",
+        "The audit identifies the 'the whole industry is moving toward continuous underwriting' line as a bolted-on, after-the-fact vision statement rather than a Covered element 1",
+        "A sequencing violation is explicitly flagged as a distinct, named finding, not merged silently into one element's Note",
+        "The sequencing violation finding states that features (scoring engine, data unification layer, dashboard) were introduced before any change-in-the-world or promised-land framing",
+        "The audit does not stop at scoring each element in isolation as if order did not matter"
+      ]
+    }
+  ]
+}
