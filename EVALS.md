@@ -37,11 +37,39 @@ This repo reports them separately, on purpose.
   number that survives a skeptical read, and it requires a human-authored
   gold label, see below.
 
-## Three tiers
+## Four tiers, numbered 0-3
+
+### Tier 0: gap diff vs. ground truth (isolated, automated, no human per-run)
+
+`evals/framework/eval.sh <skill>` runs a real dataset of cases
+(`evals/cases/*.yaml`) through promptfoo: an isolated RUN stage (the skill
++ its transcript only), an isolated GAP stage (`judge.py` — output + ground
+truth + transcript, never `SKILL.md`) that majority-votes N independent
+judge samples per ground-truth field, and an optional LEARN stage that
+proposes rubric fixes without ever touching the skill itself. Full detail
+in `evals/framework/README.md`.
+
+The one-time cost this tier is built to avoid paying per skill is a human
+gold-labeler. This repo doesn't have one on staff, so ground truth comes
+from two sources, kept structurally separate and never blended into one
+number:
+
+- **`evals/gt/`** — hand-authored ground truth (a real filled document, a
+  real handover a person actually wrote). Requires a human.
+- **`evals/gt-web/`** — a real named expert's already-published critique of
+  a real call, autonomously harvested (see `evals/gt-web/README.md`).
+  Covers only what public call-coaching content exists for — stage-motion
+  skills, not deal-intelligence/writer skills. A case opts into this by
+  setting `gt_dir: gt-web` instead of the default `gt`.
+
+Either way, `calibrate.py` computes Cohen's kappa between the judge's
+verdict and a second human labeler to catch judge/rubric drift — for
+`evals/gt-web/` cases there is no second human labeler, so this check is
+reported as **N/A**, not silently skipped.
 
 ### Tier 1: trigger evals (automated)
 
-Does the *right* skill fire for a given prompt? With 16 skills now in the
+Does the *right* skill fire for a given prompt? With 41 skills now in the
 repo, several with overlapping descriptions (`deep-discovery` vs
 `technical-discovery` vs `pain-finder` vs `meddicc` can all sound like "audit
 this call"), description collision is a real risk that no amount of rubric
@@ -79,13 +107,14 @@ transcript can be re-scored every time a rubric changes.
 
 Required, no automated substitute exists:
 
-- **Gold labels** (above): without them there's no recall denominator and
-  every number is self-referential.
-- **Blind transcript authorship.** A gold transcript must be written from a
-  persona/situation brief, without reference to the rubric it will be
-  scored against. It must contain at least one real pain that maps to no
-  rubric bucket, and omit at least one dimension the rubric expects to see.
-  If the rubric author writes the transcript, the result gets discarded.
+- **Gold labels** (`evals/gt/` cases): without them there's no recall
+  denominator and every number is self-referential.
+- **Blind transcript authorship** (`evals/gt/` cases). A gold transcript
+  must be written from a persona/situation brief, without reference to the
+  rubric it will be scored against. It must contain at least one real pain
+  that maps to no rubric bucket, and omit at least one dimension the rubric
+  expects to see. If the rubric author writes the transcript, the result
+  gets discarded.
 - **At least one falsifying expectation per eval.** Every eval in this repo
   carries an expectation that a format-compliant-but-shallow output would
   fail: the guard against a benchmark that's 4-of-5 format checks.
@@ -95,10 +124,24 @@ Not required, do not spend time here:
 - Trigger evals, schema/layout validation, format-compliance grading,
   `without_skill` baseline runs, benchmark aggregation, HTML report
   generation. All of this runs unattended.
+- **`evals/gt-web/` cases** specifically don't need a human transcript
+  author or a human labeler — the source's own published author fills that
+  role. What they still need, and don't get a pass on: the provenance gate
+  in `evals/gt-web/README.md` (real named author, dated, quoted, publicly
+  checkable), applied before a source is used, not after.
 
 ## Reproducing a run
 
 ```bash
+# Tier 0 (gap diff vs ground truth), any document-writing or call-grading skill:
+evals/framework/eval.sh <skill>                       # all cases for that skill
+evals/framework/eval.sh <skill> --baseline --learn     # promote to baseline, then LEARN
+python3 evals/framework/calibrate.py <skill> <case> evals/runs/<timestamp>  # judge-vs-human kappa (evals/gt/ cases only)
+
+# Tier 1 (trigger), any skill:
+python3 <skill-creator>/scripts/run_eval.py \
+  --eval-set evals/trigger-set.json
+
 # Tier 2 (format compliance), any skill:
 python3 <skill-creator>/scripts/run_eval.py \
   --eval-set skills/<name>/evals/evals.json \
@@ -117,11 +160,12 @@ authoring/testing skills, not itself a GTM skill.
 
 | Tier | Status |
 |---|---|
-| Tier 1 (trigger) | `evals/trigger-set.json` written (16 cases); not yet run |
-| Tier 2 (format) | Only the prior, non-reproducible `pain-finder` draft run (see above). None of the 16 shipped skills have been benchmarked yet: the `evals/evals.json` schema bug (`assertions` vs `expectations`, wrong file paths) blocked every one of them until this pass |
-| Tier 3 (gold-label insight) | Not started. Blocked on gold-labeled sample transcripts, by design done by a human, not the rubric author |
+| Tier 0 (gap diff) | Framework landed (`evals/framework/`, promptfoo-backed). `evals/gt-web/` harvest in progress — see `evals/SCORECARD.md` for which skills have a real ground-truth source and which don't |
+| Tier 1 (trigger) | `evals/trigger-set.json` written (16 cases, written when the repo had 16 skills — needs a pass to cover all 41); not yet run |
+| Tier 2 (format) | All 41 skills now carry a schema-valid `evals/evals.json` (3 were shipped with a nonstandard `{"cases"}` shape and have been fixed); none have actually been run through the benchmark loop yet, and most have at least one eval case with `files: []` (a described-but-not-backed scenario, unrunnable as-is) |
+| Tier 3 (gold-label insight) | The `evals/gt/` path is not started — blocked on a human gold-labeler this repo doesn't have. The `evals/gt-web/` path (this tier's practical substitute here) is what `evals/SCORECARD.md` reports |
 
-CSV mode has never been exercised on any skill. The intentionally-broken-
+CSV mode has never been exercised on most skills. The intentionally-broken-
 frontmatter CI test now runs (`tests/run-checks-tests.sh`, wired into CI).
 See `MAINTAINING.md`'s "Verification state" for the full picture, kept in
 sync with this file.

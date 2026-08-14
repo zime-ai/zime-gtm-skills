@@ -23,7 +23,7 @@ PASSED=0
 echo "Checking private eval data stays gitignored"
 echo "================================================================"
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    PRIVATE_DIRS=(evals/transcripts evals/gt evals/cases evals/labels)
+    PRIVATE_DIRS=(evals/transcripts evals/gt evals/cases evals/labels evals/gt-web)
     for d in "${PRIVATE_DIRS[@]}"; do
         # Probe a nested path, not the bare dir: a trailing-slash gitignore
         # pattern only matches an existing directory, and these dirs never

@@ -17,6 +17,15 @@ evals/cases/
 evals/labels/
 evals/baseline-*.json
 evals/runs/*
+evals/runs.jsonl
+evals/amendments.jsonl
+
+# Web-harvested ground truth: quoted excerpts of a third party's published
+# critique/transcript, copyright risk if redistributed wholesale. Only the
+# public citation registry (evals/gt-web/SOURCES.md) is public.
+evals/gt-web/*
+!evals/gt-web/SOURCES.md
+!evals/gt-web/README.md
 __pycache__/
 
 # scripts/scan-content.py's client-name denylist: real client/person names,

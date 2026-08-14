@@ -3,11 +3,9 @@
 Handoff for Tier 3 (see `EVALS.md`). Three situation briefs, one per
 vertical, deliberately **not** written by whoever authors rubrics, so the
 resulting transcripts aren't contaminated by knowing what the rubric hunts
-for. Give a brief to whoever writes the transcript (you or a teammate) —
-synthetic only, never a real call even lightly anonymized, same rule as
-`MAINTAINING.md`'s sample-transcript rules — and they should not read
-`references/rubric.md` or `skills/vertical-context/references/<vertical>.md`
-first.
+for. Give a brief to whoever writes the transcript (you, a teammate, or a
+lightly-anonymized real call); they should not read `references/rubric.md`
+or `skills/vertical-context/references/<vertical>.md` first.
 
 Each transcript needs, by construction:
 

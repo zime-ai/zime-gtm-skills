@@ -113,7 +113,18 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
 - **Structural validation**: all 41 skills pass `./validate-skills.sh`
   (which now also checks `zime:dimension` is present/valid, and that any
   `evals/evals.json` parses and uses `expectations`, not `assertions`) and
-  the pinned `skills-ref validate` in CI.
+  the pinned `skills-ref validate` in CI. 3 skills
+  (`evaluation-pipeline-check`, `negotiation-pipeline-check`,
+  `sql-to-qualify`) shipped with a nonstandard `{"cases"}` schema that this
+  check didn't catch — fixed to the canonical `{skill_name, evals}` shape.
+- **Tier 0 (gap diff vs. ground truth)**: the framework (`evals/framework/`,
+  promptfoo-backed) has landed. Ground truth comes from two sources, never
+  blended: `evals/gt/` (hand-authored, needs a human this repo doesn't
+  have) and `evals/gt-web/` (a real named expert's already-published call
+  critique, autonomously harvested — see `evals/gt-web/README.md` and
+  `evals/SCORECARD.md`). The web-sourced path only covers stage-motion
+  skills with public call-coaching content; deal-intelligence/writer skills
+  have no such content and carry no Tier 0 number by design, not omission.
 - **Functional validation**: `deep-discovery` and `deal-risk-digest` have
   actually been run end-to-end against their sample data and had output
   checked for correctness — `deal-risk-digest`'s build independently
@@ -137,9 +148,12 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   and confirming the output's vocabulary/framing actually changes. Blocked
   on `vertical-context` returning from its own branch after domain review —
   see "Two dimensions" above.
-- **Gold-label insight recall (Tier 3)**: not started. Blocked on a human
-  (not the rubric author) gold-labeling sample transcripts. See `EVALS.md`
-  for the full methodology and why this tier can't be automated.
+- **Gold-label insight recall (Tier 3)**: the `evals/gt/` path (a human,
+  not the rubric author, gold-labeling sample transcripts) is not started
+  and stays blocked — no such human is available. The `evals/gt-web/` path
+  is this repo's practical substitute: see `evals/SCORECARD.md` for actual
+  recall/precision numbers, scoped to the skills where a real published
+  critique exists. See `EVALS.md` for the full methodology.
 
 `skills/*/evals/evals.json` exist for all 41 skills, using `expectations`
 (not `assertions`) with skill-root-relative `files` paths. Every eval carries

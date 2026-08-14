@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+#
+# Skill eval framework config -- see evals/framework/README.md.
+# Internal tooling, not part of CI (EVALS.md explains why evals stay out of CI).
+description: zime-gtm-skills eval framework (Tier 0 -- gap diff vs ground truth)
+
+providers:
+  # Also relative to this config file's own directory, same as `tests:`
+  # below -- not the cwd eval.sh runs from.
+  - id: 'exec:framework/run_skill.sh'
+    label: skill-under-test
+
+prompts:
+  # Unused as text -- run_skill.sh drives the skill invocation itself from
+  # each test case's vars (skill, transcript). Kept because promptfoo
+  # requires a prompt to render per test. No '/' in the string: promptfoo
+  # treats any prompt containing one as a file-glob reference, resolves it
+  # against the filesystem, finds no match, and throws "no prompts" instead
+  # of falling back to literal text -- found while actually running this for
+  # the first time (EVALS.md's "never actually run" was true until now).
+  - '{{skill}} eval for {{transcript}}'
+
+# Real cases live in evals/cases/ (gitignored, private -- real client data).
+# See evals/cases.example.yaml for the pattern. Path is relative to this
+# config file's own directory, not the cwd eval.sh runs from -- a leading
+# "evals/" here doubles up to evals/evals/cases and silently matches nothing
+# (promptfoo logs it but doesn't fail the run, so this went unnoticed until
+# actually run for the first time).
+tests: file://cases/*.yaml

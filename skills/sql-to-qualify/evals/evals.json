@@ -1,7 +1,11 @@
 {
-  "cases": [
+  "skill_name": "sql-to-qualify",
+  "evals": [
     {
+      "id": 1,
+      "name": "sql-to-qualify-eval-1-sample-transcript",
       "prompt": "Run sql-to-qualify on the sample transcript.",
+      "expected_output": "All five rubric dimensions scored Covered/Partial/Missed with cited evidence, closing with a single advance/disqualify/needs-one-more-touch read naming the deciding dimension(s).",
       "files": ["assets/sample-transcript.txt"],
       "expectations": [
         "Scores all five rubric dimensions with a Status of Covered, Partial, or Missed",
@@ -15,7 +19,10 @@
       ]
     },
     {
+      "id": 2,
+      "name": "sql-to-qualify-eval-2-crm-export-csv",
       "prompt": "Run sql-to-qualify on a CRM export CSV of SQL-stage leads.",
+      "expected_output": "A structural hygiene sweep, not a call-quality audit: a table of lead name, days since SQL, stage, and dimensions missing, sorted by days since SQL descending, stating explicitly that this checks whether fields were filled in.",
       "files": [],
       "expectations": [
         "Treats the file as a structural hygiene sweep rather than a call-quality audit",
