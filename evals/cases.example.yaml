@@ -1,0 +1,20 @@
+# Example case, fictional client -- copy this pattern into evals/cases/<skill>.yaml
+# (gitignored, private) with a real transcript + ground truth pair.
+#
+# Required per case:
+#   - evals/transcripts/<transcript>.txt   the call transcript(s)
+#   - evals/gt/<gt>                        hand-authored ground truth (see evals/gt/README.md)
+#
+# `metadata.skill` is what `eval.sh <skill>` filters on; `vars.skill` is what
+# the provider and judge actually read.
+- description: acme-discovery-to-poc
+  vars:
+    skill: sales-to-cs-handover
+    transcript: acme
+    gt: acme--sales-to-cs-handover.md
+  metadata:
+    skill: sales-to-cs-handover
+    tier: happy-path # happy-path | missing-context | ambiguous | adversarial -- see MAINTAINING.md
+  assert:
+    - type: python
+      value: file://framework/judge.py

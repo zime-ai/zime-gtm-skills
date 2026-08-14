@@ -1,7 +1,11 @@
 {
-  "cases": [
+  "skill_name": "negotiation-pipeline-check",
+  "evals": [
     {
-      "prompt": "run negotiation-pipeline-check on skills/negotiation-pipeline-check/assets/sample-pipeline-negotiation-pipeline-check.csv",
+      "id": 1,
+      "name": "negotiation-pipeline-check-eval-1-full-pipeline-sweep",
+      "prompt": "Run negotiation-pipeline-check on skills/negotiation-pipeline-check/assets/sample-pipeline-negotiation-pipeline-check.csv",
+      "expected_output": "A single markdown table (Deal, Flags, Evidence, Suggested action) over the 9 in-scope rows (Pied Piper excluded, stage is Proposal not Negotiation), flagged deals first and most-flagged first, followed by an 'N of M deals in negotiation flagged' line and the single most common flag.",
       "files": ["assets/sample-pipeline-negotiation-pipeline-check.csv"],
       "expectations": [
         "Reports 9 of 10 rows in scope (Pied Piper excluded, stage = Proposal, not Negotiation).",
