@@ -1,0 +1,35 @@
+{
+  "skill_name": "deal-highlights",
+  "evals": [
+    {
+      "id": 1,
+      "name": "deal-highlights-eval-1-mixed-call",
+      "prompt": "run deal-highlights on skills/deal-highlights/assets/sample-transcript.txt",
+      "expected_output": "A short bulleted list (5-10 items) covering the price objection, the firm $140,000 budget number, the RouteWise competitive mention, the October/mid-September timeline pressure, and Sam's Friday revised-proposal commitment — each with its quote. The conference/flight small talk and the 'did you catch the game' exchange do not appear as highlights. Closes with a one-line summary of why this call matters.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Includes the price objection, citing Alex's line that the quote came in almost 30% above budget",
+        "Includes the $140,000 budget number, citing Alex's 'Finance capped us at $140,000... that's firm' line",
+        "Includes the RouteWise competitive mention, citing Alex naming them as a competitor being evaluated",
+        "Includes Sam's commitment to send a revised proposal by Friday, citing that line directly",
+        "Does NOT list the Denver conference / flight delay small talk as a highlight",
+        "Does NOT list the 'did you catch the game last night' exchange as a highlight",
+        "Every listed highlight carries a direct quote or timestamp — no highlight appears without one",
+        "Ends with a one-line 'why this call matters' summary a manager could read alone"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "deal-highlights-eval-2-thin-call",
+      "prompt": "run deal-highlights on a transcript that is almost entirely small talk and scheduling logistics, with no real commitment, objection, buying signal, competitive mention, risk, or number",
+      "expected_output": "A very short list (2-3 items or fewer) or an explicit statement that the call had little worth flagging, rather than padding out small talk into invented highlights.",
+      "files": [],
+      "expectations": [
+        "Does not pad the list to 5-10 items when the call doesn't support that many real highlights",
+        "Does not present small talk or scheduling logistics as a highlight just to fill space"
+      ]
+    }
+  ]
+}

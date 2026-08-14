@@ -1,13 +1,13 @@
 # zime-gtm-skills
 
-[![Skills](https://img.shields.io/badge/skills-34-blue)](skills/)
+[![Skills](https://img.shields.io/badge/skills-37-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 34 [Agent Skills](https://agentskills.io) that audit sales call
+here. 37 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
@@ -138,9 +138,10 @@ See [Installation](#installation) below for the submodule option and the
 
 ## How these fit together
 
-34 skills: 23 stage motions laid out across the deal lifecycle, 9
-cross-stage initiative skills, and 2 deal-intelligence skills that write
-something forward — a plan, a digest — instead of grading a call.
+37 skills: 23 stage motions laid out across the deal lifecycle, 9
+cross-stage initiative skills, and 5 deal-intelligence skills that write
+something forward — a plan, a digest, a drafted email — instead of grading
+a call.
 
 ```
 New business
@@ -217,10 +218,12 @@ one call transcript (or CRM export) in, one evidence-cited audit out.
 | `next-step-commitment` | Any | Next step commitment |
 | `adoption-leaderboard` | Any (post-sale) | Behavior adoption |
 
-**A third class, not in this table: deal intelligence.** `mutual-action-plan`
-and `deal-risk-digest` don't grade a call against a rubric — they write
-something forward, so a Stage/Initiative pair doesn't fit them. See the
-"Deal intelligence" group in [Available skills](#available-skills) instead.
+**A third class, not in this table: deal intelligence.** The 5
+`mutual-action-plan`/`deal-risk-digest`/`deal-highlights`/
+`follow-up-email-drafter`/`win-loss-brief` skills don't grade a call
+against a rubric — they write something forward, so a Stage/Initiative
+pair doesn't fit them. See the "Deal intelligence" group in
+[Available skills](#available-skills) instead.
 
 **Roadmap.** Other named methodologies and motions aren't built yet.
 See [ROADMAP.md](ROADMAP.md), or
@@ -250,7 +253,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 ## Available skills
 
 <details open>
-<summary>34 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
+<summary>37 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
 
 <!-- SKILLS:START -->
 **New business**
@@ -306,6 +309,9 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 |---|---|---|
 | [mutual-action-plan](skills/mutual-action-plan/) | Writes a mutual action plan from a call — milestones from today to signature, each with an owner on both sides and a date, tagged `heard` or `inferred` | transcript or CRM export |
 | [deal-risk-digest](skills/deal-risk-digest/) | Ranks a whole pipeline export by risk — past-due close date against low probability, stage age, vague next step, single-threaded contact | CRM export (`.csv`) |
+| [deal-highlights](skills/deal-highlights/) | Writes a short highlights digest of one call — a commitment, an objection, a buying signal, a competitive mention, a risk — each cited with its quote | transcript |
+| [follow-up-email-drafter](skills/follow-up-email-drafter/) | Drafts the follow-up email a rep sends after a call, grounded in what was heard vs. proposed, with grounding notes flagging which lines to confirm before sending | transcript |
+| [win-loss-brief](skills/win-loss-brief/) | Writes a brief on why one closed deal was won or lost — outcome plus 3-5 cited drivers, each tagged clear or tentative | transcript or CRM export |
 <!-- SKILLS:END -->
 
 </details>

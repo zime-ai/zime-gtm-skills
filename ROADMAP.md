@@ -80,19 +80,19 @@ there.
 
 **Seller-facing, single deal**
 - [ ] call-prep
-- [ ] deal-highlights
+- [x] deal-highlights
 - [x] mutual-action-plan
 - [ ] executive-briefing
 - [ ] champion-tracker
 - [ ] competitor-battlecard
-- [ ] follow-up-email-drafter
+- [x] follow-up-email-drafter
 
 **Manager & leader rituals**
 - [ ] wbr-report-generator
 - [ ] forecast-review
 - [ ] pipeline-review
 - [x] deal-risk-digest
-- [ ] win-loss-brief
+- [x] win-loss-brief
 - [ ] stuck-deal-digest
 - [ ] rep-ramp-status-digest
 
