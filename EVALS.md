@@ -160,7 +160,7 @@ authoring/testing skills, not itself a GTM skill.
 
 | Tier | Status |
 |---|---|
-| Tier 0 (gap diff) | Framework landed (`evals/framework/`, promptfoo-backed). `evals/gt-web/` harvest in progress — see `evals/SCORECARD.md` for which skills have a real ground-truth source and which don't |
+| Tier 0 (gap diff) | Framework landed (`evals/framework/`, promptfoo-backed). First `evals/gt-web/` harvest pass found zero qualifying sources — see `evals/SCORECARD.md` and `evals/gt-web/SOURCES.md` for the search record and what got rejected |
 | Tier 1 (trigger) | `evals/trigger-set.json` written (16 cases, written when the repo had 16 skills — needs a pass to cover all 41); not yet run |
 | Tier 2 (format) | All 41 skills now carry a schema-valid `evals/evals.json` (3 were shipped with a nonstandard `{"cases"}` shape and have been fixed); none have actually been run through the benchmark loop yet, and most have at least one eval case with `files: []` (a described-but-not-backed scenario, unrunnable as-is) |
 | Tier 3 (gold-label insight) | The `evals/gt/` path is not started — blocked on a human gold-labeler this repo doesn't have. The `evals/gt-web/` path (this tier's practical substitute here) is what `evals/SCORECARD.md` reports |

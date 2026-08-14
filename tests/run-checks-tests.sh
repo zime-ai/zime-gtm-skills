@@ -87,7 +87,7 @@ EOF
 
 - [x] demo-skill
 EOF
-    ( cd "$dir" && git init -q && printf 'evals/transcripts/\nevals/gt/\nevals/cases/\nevals/labels/\n' > .gitignore )
+    ( cd "$dir" && git init -q && printf 'evals/transcripts/\nevals/gt/\nevals/cases/\nevals/labels/\nevals/gt-web/\n' > .gitignore )
 }
 
 # --- assertion helpers -------------------------------------------------------
