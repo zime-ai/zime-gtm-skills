@@ -44,22 +44,22 @@ bug or have a question? [Open an issue](https://github.com/zime-ai/zime-gtm-skil
 ## See it work
 
 Real output from three skills, one per output shape, each run against its
-own bundled sample data — nothing invented for this README. Skim the
+own bundled sample data: nothing invented for this README. Skim the
 tables; the full run (quotes and all) is one click away in each
 `<details>`.
 
-### Transcript audit — `deep-discovery`
+### Transcript audit: `deep-discovery`
 
 Same synthetic call, two ways: a plain "review this call" prompt with no
 skill, and `deep-discovery` against
 `skills/deep-discovery/assets/sample-transcript.txt`.
 
-**Without the skill** — unaided, prompted "review this discovery call": a
+**Without the skill**, unaided, prompted "review this discovery call": a
 free-form paragraph. No repeatable structure, no consistent evidence
-format, findings and commentary interleaved — a different rep reading the
+format, findings and commentary interleaved; a different rep reading the
 same call would flag different things.
 
-**With `deep-discovery`** — same 9 dimensions, every run, each Covered/
+**With `deep-discovery`**, same 9 dimensions every run, each Covered/
 Partial/Missed tied to a quote:
 
 | Dimension | Result |
@@ -74,7 +74,7 @@ Partial/Missed tied to a quote:
 | 8. Competitive landscape | ✅ Covered |
 | 9. Rapport | ✅ Covered |
 
-8/9 Covered, 1 Partial, zero Missed — and zero fault-finding bias: a call
+8/9 Covered, 1 Partial, zero Missed, and zero fault-finding bias: a call
 that genuinely covered discovery well comes back reading well.
 
 <details>
@@ -114,18 +114,20 @@ Highest-leverage next steps:
 ```
 </details>
 
+Invoke it by name, like any Claude Code skill:
+
 ```bash
-claude "run deep-discovery on skills/deep-discovery/assets/sample-transcript.txt"
+claude "/deep-discovery skills/deep-discovery/assets/sample-transcript.txt"
 ```
 
-### CSV pipeline-sweep — `deal-risk-digest`
+### CSV pipeline-sweep: `deal-risk-digest`
 
-**Without the skill**: eyeball 8 CRM export rows by hand — no ranking, no
+**Without the skill**: eyeball 8 CRM export rows by hand, no ranking, no
 consistent signal, no tiebreak logic.
 
 **With `deal-risk-digest`** against
-`skills/deal-risk-digest/assets/sample-pipeline-deal-risk.csv` — ranked,
-most at-risk first, every flag cited to the cell behind it:
+`skills/deal-risk-digest/assets/sample-pipeline-deal-risk.csv`: ranked,
+most at-risk first, every flag cited to the cell behind it.
 
 | Deal | Risk | Signal |
 |---|---|---|
@@ -135,10 +137,10 @@ most at-risk first, every flag cited to the cell behind it:
 | Driftwood Realty Group | 🟡 Medium (1) | stage age |
 | Terra Foods Co-op | 🟡 Medium (1) | blank next step |
 | Solstice Robotics | 🟡 Medium (1) | single-threaded |
-| Meridian Health Systems | 🟢 Low (0) | — |
-| Bluewater Analytics | 🟢 Low (0) | — |
+| Meridian Health Systems | 🟢 Low (0) | none |
+| Bluewater Analytics | 🟢 Low (0) | none |
 
-Closing read: 2 of 8 deals rated High risk; the most common signal across
+Closing read: 2 of 8 deals rated High risk. The most common signal across
 flagged deals is past-due-and-unlikely (a close date already behind
 today, paired with under-50% probability).
 
@@ -165,30 +167,30 @@ All columns present, no signals skipped.
 </details>
 
 ```bash
-claude "run deal-risk-digest on skills/deal-risk-digest/assets/sample-pipeline-deal-risk.csv"
+claude "/deal-risk-digest skills/deal-risk-digest/assets/sample-pipeline-deal-risk.csv"
 ```
 
-### Document-writer — `champion-tracker`
+### Document-writer: `champion-tracker`
 
 **Without the skill**: a rep's own notes just say "good engagement from
-both stakeholders" — no way to tell who's actually selling internally vs.
+both stakeholders," no way to tell who's actually selling internally vs.
 who just likes the product.
 
 **With `champion-tracker`** against
-`skills/champion-tracker/assets/sample-call-1.txt` and `sample-call-2.txt`
-— one cited action ledger, one verdict per contact:
+`skills/champion-tracker/assets/sample-call-1.txt` and `sample-call-2.txt`:
+one cited action ledger, one verdict per contact.
 
 | Contact | Call | Tag | Why |
 |---|---|---|---|
-| Priya | 1 | 💬 Sentiment | "I'll flag this to procurement next week" — a plan, not done yet |
-| Devon | 1 | 💬 Sentiment | "Really excited about this" — enthusiasm |
-| Priya | 2 | ✅ Action | Looped in procurement — confirmed |
+| Priya | 1 | 💬 Sentiment | "I'll flag this to procurement next week," a plan, not done yet |
+| Devon | 1 | 💬 Sentiment | "Really excited about this," enthusiasm |
+| Priya | 2 | ✅ Action | Looped in procurement, confirmed |
 | Priya | 2 | ✅ Action | Pushed back on price for the deal in a leadership sync the rep wasn't in |
-| Devon | 2 | 💬 Sentiment | "I'll definitely be a happy user" — enthusiasm, still no action |
+| Devon | 2 | 💬 Sentiment | "I'll definitely be a happy user," enthusiasm, still no action |
 
-**Champion read**: Priya ✅ — 3 confirmed Action rows by call 2. Devon
-⚠️ — every row across both calls is Sentiment: a friend, not a champion.
-**Trend**: strengthening — an unconfirmed plan in call 1 became 3
+**Champion read**: Priya ✅, 3 confirmed Action rows by call 2. Devon
+⚠️, every row across both calls is Sentiment: a friend, not a champion.
+**Trend**: strengthening, an unconfirmed plan in call 1 became 3
 delivered actions in call 2.
 
 <details>
@@ -213,23 +215,23 @@ delivered actions in call 2.
 </details>
 
 ```bash
-claude "run champion-tracker on skills/champion-tracker/assets/sample-call-1.txt skills/champion-tracker/assets/sample-call-2.txt"
+claude "/champion-tracker skills/champion-tracker/assets/sample-call-1.txt skills/champion-tracker/assets/sample-call-2.txt"
 ```
 
-### Try any of the other 38
+### Try any other skill
 
-Same pattern, every skill — clone once, then point any skill at its own
-bundled sample:
+Same pattern, every skill: clone once, then invoke any skill by name
+against its own bundled sample.
 
 ```bash
 git clone https://github.com/zime-ai/zime-gtm-skills.git
 cd zime-gtm-skills
-claude "run <skill-name> on skills/<skill-name>/assets/<sample-file>"
+claude "/<skill-name> skills/<skill-name>/assets/<sample-file>"
 ```
 
 Every skill ships its own sample data and documents the exact filename(s)
-and command in its `SKILL.md`'s "Sample data" section — click through
-from the skill's row in [Available skills](#available-skills) below.
+and command in its `SKILL.md`'s "Sample data" section. Click through from
+the skill's row in [Available skills](#available-skills) below.
 
 ## Quick install
 
