@@ -40,17 +40,25 @@ benchmark loop.
 ## Illustrative self-authored runs (not Tier 3)
 
 **Not Tier 0/3 numbers, and not counted in the table above.** Same author
-(this Claude session) behind each skill's brief, transcript, gold label,
-and grading prompt — a demonstration of the isolated-run/isolated-grade
+(this Claude session) behind each skill's brief, artifact, gold label, and
+grading prompt — a demonstration of the isolated-run/isolated-grade
 mechanism, not third-party or human-verified evidence. This section grows
 by adding correlated anecdotes from one author/model, not independent
 proof — see each run's own README for full caveats before reading its
 number as more than that.
 
+Transcript-audit skills (findings-recall shape):
+
 | Skill | Recall | Hallucinations | Out-of-rubric finding | Dimension agreement | Notes |
 |---|---|---|---|---|---|
 | `meddicc` | 4/4 | 0 (1 soft overstatement) | No credit — folded into a rubric bucket | 4/7 | See `evals/illustrative/README.md` |
 | `challenger` | 4/4 | 0 | Full credit — surfaced as its own finding | 2/3 comparable | Gold guessed a rubric dimension the skill doesn't score — flagged as a gold-construction mismatch, not a skill defect. See `evals/illustrative/README-challenger.md` |
+
+CSV pipeline-sweep skills (row/ranking-accuracy shape):
+
+| Skill | Row/finding accuracy | Hallucinations | Notes |
+|---|---|---|---|
+| `deal-risk-digest` (Shape B) | 9/9 rows, 5/5 traps, ranking correct | 0 | Row-level accuracy and ranking perfect; the one aggregate summary line ("most common signal") was wrong and stated with no hedge. See `evals/illustrative/README-deal-risk-digest.md` |
 
 ## Tier 0 framework: landed and runnable
 
