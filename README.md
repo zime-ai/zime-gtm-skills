@@ -116,8 +116,8 @@ Highest-leverage next steps:
 
 Invoke it by name, like any Claude Code skill:
 
-```bash
-claude "/deep-discovery skills/deep-discovery/assets/sample-transcript.txt"
+```
+/deep-discovery skills/deep-discovery/assets/sample-transcript.txt
 ```
 
 ### CSV pipeline-sweep: `deal-risk-digest`
@@ -166,8 +166,8 @@ All columns present, no signals skipped.
 ```
 </details>
 
-```bash
-claude "/deal-risk-digest skills/deal-risk-digest/assets/sample-pipeline-deal-risk.csv"
+```
+/deal-risk-digest skills/deal-risk-digest/assets/sample-pipeline-deal-risk.csv
 ```
 
 ### Document-writer: `champion-tracker`
@@ -214,8 +214,8 @@ delivered actions in call 2.
 ```
 </details>
 
-```bash
-claude "/champion-tracker skills/champion-tracker/assets/sample-call-1.txt skills/champion-tracker/assets/sample-call-2.txt"
+```
+/champion-tracker skills/champion-tracker/assets/sample-call-1.txt skills/champion-tracker/assets/sample-call-2.txt
 ```
 
 ### Try any other skill
@@ -226,7 +226,12 @@ against its own bundled sample.
 ```bash
 git clone https://github.com/zime-ai/zime-gtm-skills.git
 cd zime-gtm-skills
-claude "/<skill-name> skills/<skill-name>/assets/<sample-file>"
+```
+
+Then, inside Claude Code or Claude Desktop:
+
+```
+/<skill-name> skills/<skill-name>/assets/<sample-file>
 ```
 
 Every skill ships its own sample data and documents the exact filename(s)
