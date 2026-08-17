@@ -3,6 +3,19 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [3.1.0] — illustrative evals + README rework
+
+No skill count change (still 41: 23 stage + 10 initiative + 8
+intelligence). Added illustrative self-authored evals (not Tier 3, see
+`evals/SCORECARD.md`) for the 8 remaining Shape B (CSV pipeline-sweep)
+skills: `evaluation-pipeline-check`, `negotiation-pipeline-check`,
+`prospect-pipeline-check`, `qualify-pipeline-check`,
+`poc-pilot-pipeline-check`, `won-pipeline-check`,
+`end-client-registration`, `new-business-registration`. Reworked README's
+"See it work" section to cover all three output shapes (transcript-audit,
+CSV pipeline-sweep, document-writer) with real isolated runs and a
+generalized "try any skill" instruction.
+
 ## [3.0.0] — 41 skills, deal-intelligence dimension, eval framework
 
 41 Agent Skills (up from 32 at 2.1.0), 23 stage + 10 initiative + 8
