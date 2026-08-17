@@ -3,6 +3,14 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [3.1.1] — README: drop Coverage table
+
+No skill count change (still 41: 23 stage + 10 initiative + 8
+intelligence). Removed README's "Coverage" table (duplicated the Available
+skills table's Stage/Initiative info with no added signal); "Where this
+stops" moved down to sit right above FAQ. `check-docs-sync.sh` and its
+fixture tests updated to match (one fewer check, one fewer test case).
+
 ## [3.1.0] — illustrative evals + README rework
 
 No skill count change (still 41: 23 stage + 10 initiative + 8
