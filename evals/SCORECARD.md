@@ -37,17 +37,20 @@ scenario with no real sample file behind it, unrunnable even once a runner
 is wired up. None have been run through the `with_skill`/`without_skill`
 benchmark loop.
 
-## Illustrative self-authored run (not Tier 3) — `meddicc`
+## Illustrative self-authored runs (not Tier 3)
 
-**Not a Tier 0/3 number, and not counted in the table above.** Same author
-behind transcript, gold label, and grading prompt — a demonstration of the
-isolated-run/isolated-grade mechanism, not third-party or human-verified
-evidence. Full caveats and result: `evals/illustrative/README.md`. Headline,
-read with that caveat: 4/4 gold findings recalled, 0 outright
-hallucinations, but 4/7 dimension agreement and no credit on the
-out-of-rubric finding — the skill's real run resolved every constructed
-ambiguity toward more confidence than the transcript supports, on all
-three deliberately ambiguous spots in the sample.
+**Not Tier 0/3 numbers, and not counted in the table above.** Same author
+(this Claude session) behind each skill's brief, transcript, gold label,
+and grading prompt — a demonstration of the isolated-run/isolated-grade
+mechanism, not third-party or human-verified evidence. This section grows
+by adding correlated anecdotes from one author/model, not independent
+proof — see each run's own README for full caveats before reading its
+number as more than that.
+
+| Skill | Recall | Hallucinations | Out-of-rubric finding | Dimension agreement | Notes |
+|---|---|---|---|---|---|
+| `meddicc` | 4/4 | 0 (1 soft overstatement) | No credit — folded into a rubric bucket | 4/7 | See `evals/illustrative/README.md` |
+| `challenger` | 4/4 | 0 | Full credit — surfaced as its own finding | 2/3 comparable | Gold guessed a rubric dimension the skill doesn't score — flagged as a gold-construction mismatch, not a skill defect. See `evals/illustrative/README-challenger.md` |
 
 ## Tier 0 framework: landed and runnable
 
