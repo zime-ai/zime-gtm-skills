@@ -1,0 +1,11 @@
+deal_name,stage,contact_role,paper_status,discount_pct,approver,close_date,original_close_date,close_plan,signer_role
+Vista Solutions,Negotiation,Legal Counsel,In progress,10,,2026-12-15,2026-12-15,Shared MAP v1,Legal Counsel
+Pinnacle Ventures,Negotiation,Procurement Manager,MSA signed,12,,2026-11-30,2026-11-30,Joint action plan,CFO
+Apex Tech,Negotiation,Sales Director,In progress,14,,2026-10-20,2026-10-20,Shared doc,VP Finance
+Zenith Corp,Negotiation,Finance Manager,Not started,10,,2026-09-15,2026-09-15,Agreed timeline,Chief Counsel
+Summit Industries,Negotiation,Finance Director,In progress,18,,2026-11-10,2026-11-10,Mutual close plan,CEO
+Nexus Digital,Negotiation,Legal Counsel,In progress,12,,2026-08-31,2026-08-15,Shared close plan,VP Legal
+Radius Analytics,Negotiation,Procurement Lead,Redline in progress,14,,2026-10-05,2026-10-05,,Legal Counsel
+Velocity Group,Negotiation,Legal Counsel,In progress,16,Jane Doe,2026-09-20,2026-09-20,Shared MAP,
+Catalyst Group,Negotiation,Legal Counsel,In progress,15,,2026-12-01,2026-12-01,Joint plan,Finance Director
+Atlas Group,Negotiation,Sales Manager,Pending,20,,2026-10-10,2026-10-10,,General Counsel

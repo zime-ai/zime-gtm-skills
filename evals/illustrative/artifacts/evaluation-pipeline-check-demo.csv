@@ -1,0 +1,9 @@
+deal_name,stage,deal_value,success_criteria,champion,evaluation_end,days_in_stage,security_review,last_activity_date
+Acme Systems,Technical Evaluation,150000,Pilot launch with 3 teams,Priya Shah,2026-08-30,20,In Progress,2026-08-15
+Globex Corp,Evaluation,80000,Pass SOC2 audit,Devon Ruiz,2026-09-15,15,Not started,2026-08-14
+Initech Holdings,Technical Eval,100000,,Raj Patel,2026-09-10,18,Not started,2026-08-13
+Umbrella Corp,Evaluating,110000,API integration test,Sam Okafor,2026-09-10,70,In Progress,2026-08-01
+Soylent Industries,Technical Evaluation,180000,Load test validation,James Wilson,2026-09-20,35,,2026-07-20
+Wayne Industries,Technical Evaluation,95000,SSO integration,Lucius Fox,2026-09-01,25,In Progress,2026-06-20
+Stark Corp,Tech Eval,200000,Rate limit compliance,,2026-09-05,12,Not started,2026-08-16
+Horizon Tech,Evaluation,130000,,Alex Turner,2026-09-10,20,In Progress,2026-08-12
