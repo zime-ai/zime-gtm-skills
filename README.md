@@ -32,10 +32,9 @@ bug or have a question? [Open an issue](https://github.com/zime-ai/zime-gtm-skil
 - [See it work](#see-it-work)
 - [Quick install](#quick-install)
 - [How these fit together](#how-these-fit-together)
-- [Coverage: two dimensions, not one](#coverage-two-dimensions-not-one)
-- [Where this stops](#where-this-stops)
 - [Available skills](#available-skills)
 - [Repository structure](#repository-structure)
+- [Where this stops](#where-this-stops)
 - [FAQ](#faq)
 - [Installation](#installation)
 - [Built by Zime](#built-by-zime)
@@ -298,79 +297,6 @@ Unlike some agent-skill collections, there's no foundational context skill
 every other one depends on, and no required order. Each skill is independent:
 one call transcript (or CRM export) in, one evidence-cited audit out.
 
-## Coverage: two dimensions, not one
-
-**Stage** and **initiative** are both skills: a flat set, no nesting.
-
-| | Stage | Initiative |
-|---|---|---|
-| `new-business-registration` | Registration | n/a |
-| `end-client-registration` | Registration | n/a |
-| `sql-to-qualify` | SQL to qualify | n/a |
-| `deep-discovery` | Discovery | n/a |
-| `persona-based-discovery` | Discovery | n/a |
-| `meeting-to-qualify` | Qualify | n/a |
-| `technical-discovery` | Technical discovery | n/a |
-| `improve-demo` | Demo | n/a |
-| `qualify-to-poc` | Qualify to POC | n/a |
-| `pilot-to-conversion` | Pilot | n/a |
-| `poc-success` | POC/pilot exit | n/a |
-| `negotiation-closing` | Negotiation | n/a |
-| `prospect-pipeline-check` | Prospect pipeline | n/a |
-| `qualify-pipeline-check` | Qualify pipeline | n/a |
-| `evaluation-pipeline-check` | Evaluation pipeline | n/a |
-| `poc-pilot-pipeline-check` | POC/pilot pipeline | n/a |
-| `negotiation-pipeline-check` | Negotiation pipeline | n/a |
-| `won-pipeline-check` | Won pipeline | n/a |
-| `first-call-rampup` | Any (coaching) | n/a |
-| `onboarding-journey` | Onboarding | n/a |
-| `customer-success` | Post-sale review | n/a |
-| `churn-prevention` | Renewal risk | n/a |
-| `upsell-expansion` | Expansion | n/a |
-| `meddicc` | Any | MEDDICC |
-| `meddpicc` | Any | MEDDPICC |
-| `faint` | Any (early) | FAINT |
-| `sandler` | Any | Sandler Submarine |
-| `challenger` | Any | Challenger Sale |
-| `bant` | Any (early) | BANT |
-| `pain-finder` | Any | Identify pain |
-| `next-step-commitment` | Any | Next step commitment |
-| `adoption-leaderboard` | Any (post-sale) | Behavior adoption |
-| `sell-the-dream` | Any | Vision selling |
-
-**A third class, not in this table: deal intelligence.** The 8
-`mutual-action-plan`/`deal-risk-digest`/`deal-highlights`/
-`follow-up-email-drafter`/`win-loss-brief`/`executive-briefing`/
-`champion-tracker`/`competitor-battlecard` skills don't grade a call
-against a rubric — they write something forward, so a Stage/Initiative
-pair doesn't fit them. See the "Deal intelligence" group in
-[Available skills](#available-skills) instead.
-
-**Roadmap.** Other named methodologies and motions aren't built yet.
-See [ROADMAP.md](ROADMAP.md), or
-[contribute one](CONTRIBUTING.md).
-
-## Where this stops
-
-Everything here runs on one file, in one session, with no memory. That's a
-design ceiling, and it's worth knowing before you build on it:
-
-- **One call at a time.** You point a skill at a transcript. Auditing every
-  call an org makes, as it happens, is a pipeline problem, not a rubric
-  problem.
-- **Snapshot, not trend.** Each run is independent. Nothing here tracks the
-  same rubric across a rep's quarter, a team, or a pipeline over time.
-- **Reads exports, never writes back.** A CRM `.csv` goes in. Nothing updates
-  a deal record or feeds a forecast.
-- **Rubrics are hand-written, not calibrated.** These dimensions come from
-  experience and community correction, not from regression against your own
-  won/lost data. A sound default, not a model fit to your motion.
-- **No rep or manager surface.** This is an engineer running a command.
-  Assignment, coaching loops, adoption tracking are out of scope.
-
-Past that ceiling you're building a platform, not a skill, and that's a much
-larger piece of work. It's the problem [Zime](https://zime.ai) works on.
-
 ## Available skills
 
 <details open>
@@ -469,6 +395,27 @@ zime-gtm-skills/
 ├── LICENSE
 └── README.md
 ```
+
+## Where this stops
+
+Everything here runs on one file, in one session, with no memory. That's a
+design ceiling, and it's worth knowing before you build on it:
+
+- **One call at a time.** You point a skill at a transcript. Auditing every
+  call an org makes, as it happens, is a pipeline problem, not a rubric
+  problem.
+- **Snapshot, not trend.** Each run is independent. Nothing here tracks the
+  same rubric across a rep's quarter, a team, or a pipeline over time.
+- **Reads exports, never writes back.** A CRM `.csv` goes in. Nothing updates
+  a deal record or feeds a forecast.
+- **Rubrics are hand-written, not calibrated.** These dimensions come from
+  experience and community correction, not from regression against your own
+  won/lost data. A sound default, not a model fit to your motion.
+- **No rep or manager surface.** This is an engineer running a command.
+  Assignment, coaching loops, adoption tracking are out of scope.
+
+Past that ceiling you're building a platform, not a skill, and that's a much
+larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 
 ## FAQ
 

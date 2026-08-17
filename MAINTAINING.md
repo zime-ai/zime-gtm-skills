@@ -92,8 +92,8 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   digest, a drafted email) instead of grading a call against a rubric, so
   neither `stage` nor `initiative` fit — see the frontmatter contract in
   `AGENTS.md`. They still ship `assets/` + `evals/evals.json` like any
-  runnable skill; the only exemption they get is from the README's
-  Coverage table, which doesn't have a column for them.
+  runnable skill; they get their own "Deal intelligence" group in the
+  README's Available skills table instead of a Stage/Initiative pair.
   `follow-up-email-drafter` is the first skill in this repo whose *output*
   is customer-facing text rather than an internal audit, digest, or plan —
   worth remembering if a future skill in this dimension needs the same
@@ -289,15 +289,13 @@ for how `dev` reaches `main`.
    under the right group (New business / Post-sale / Initiative (cross-stage)
    — matching the skill's `zime:category`), with a hand-written "Audits"
    summary and its input modes.
-4. `README.md` — add a row to the "Coverage" table.
-5. `README.md` — if it's a stage skill, place it in the mermaid diagram.
-6. `ROADMAP.md` — check the skill's box under its phase-1 group.
+4. `ROADMAP.md` — check the skill's box under its phase-1 group.
    `check-docs-sync.sh`'s `roadmap-in-sync` rule fails the PR if this is
    skipped.
-7. `./validate-skills.sh` && `./scripts/check-docs-sync.sh` — both must exit 0.
-8. `scripts/pr-prep.sh <worktree-path> "<PR title>"` — re-runs both gates,
+5. `./validate-skills.sh` && `./scripts/check-docs-sync.sh` — both must exit 0.
+6. `scripts/pr-prep.sh <worktree-path> "<PR title>"` — re-runs both gates,
    pushes, opens the PR against `dev`. PR-Agent reviews automatically.
-9. Merging to `dev` is still a human decision. Unchanged by any of the above.
+7. Merging to `dev` is still a human decision. Unchanged by any of the above.
 
 ## Releasing dev to main
 
