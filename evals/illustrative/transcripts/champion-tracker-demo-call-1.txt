@@ -1,0 +1,31 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+Call: SpectraVision <> Kestrel Tooling (Rep: Noor)
+Stage: Second call, evaluation
+Call 1 of 2 — this call
+
+Noor: Thanks for hopping back on. Last time we walked through the defect-
+detection module — how'd that land with the team?
+
+Callum (Plant Supervisor, Kestrel Tooling): Honestly it's exactly what we
+need. Our inspectors are squinting at parts under bad lighting all day,
+this would be a huge relief.
+
+Noor: Glad it resonated. Marisol, anything from your side?
+
+Marisol (Ops Director, Kestrel Tooling): The accuracy numbers you showed
+are compelling. I want to get this in front of our finance lead sometime
+soon so we can start scoping what budget this would need.
+
+Noor: That would help move things along.
+
+Callum: Yeah, I've been telling everyone on the floor about this. People
+are excited.
+
+Marisol: It's promising. Let me think about timing for that finance
+conversation and I'll circle back.
+
+Noor: Sounds good. Anything else before we wrap?
+
+Callum: Nope, just — really hope this happens. It'd make a real
+difference for the team.
