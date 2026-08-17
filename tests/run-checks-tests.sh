@@ -21,9 +21,8 @@ FAIL=0
 
 # --- fixture builder -------------------------------------------------------
 # A minimal but fully-valid repo: one skill (demo-skill), a README with all
-# four count anchors, the SKILLS:START/END table, and the coverage table —
-# every anchor both validators key off of. Each case copies this and breaks
-# exactly one thing.
+# four count anchors and the SKILLS:START/END table — every anchor both
+# validators key off of. Each case copies this and breaks exactly one thing.
 
 make_clean_fixture() {
     local dir="$1"
@@ -55,16 +54,6 @@ Stuff here. 1 [Agent Skills](https://agentskills.io) that audit things.
 
 1 skills: 1 stage motions laid out across the deal lifecycle.
 
-## Coverage: three dimensions, not one
-
-| | Stage | Initiative | Vertical-aware |
-|---|---|---|---|
-| `demo-skill` | Demo | n/a | n/a |
-
-## Where this stops
-
-Ceiling notes.
-
 ## Available skills
 
 <details open>
@@ -81,6 +70,10 @@ Ceiling notes.
 </details>
 
 All 1 stage motions are covered; the initiative set is 0 skills today.
+
+## Where this stops
+
+Ceiling notes.
 EOF
     cat > "$dir/ROADMAP.md" <<'EOF'
 ## Phase 1
@@ -200,10 +193,7 @@ sed -i.bak 's/zime:dimension: stage/zime:dimension: intelligence/' "$T/skills/de
 expect_exit_contains "intelligence skill missing sample still fails sample-required" 1 "sample-required" "$VALIDATE_SKILLS" "$T"
 rm -rf "$T"
 
-# Case 20: intelligence skill with assets/ and evals/ passes, and is exempt
-# from the Coverage table check-docs-sync.sh runs for stage/initiative skills
-# (same exemption vertical-context gets, for the same reason: neither a
-# stage nor an initiative).
+# Case 20: intelligence skill with assets/ and evals/ passes
 T=$(mktemp -d); make_clean_fixture "$T"
 sed -i.bak 's/zime:dimension: stage/zime:dimension: intelligence/' "$T/skills/demo-skill/SKILL.md"
 # demo-skill is no longer the fixture's one stage skill, so the closing
@@ -211,7 +201,6 @@ sed -i.bak 's/zime:dimension: stage/zime:dimension: intelligence/' "$T/skills/de
 # every other case above, unrelated to the thing this case is testing.
 sed -i.bak 's/All 1 stage motions are covered/All 0 stage motions are covered/' "$T/README.md"
 expect_exit_contains "intelligence skill with sample passes validate-skills.sh" 0 "1 passed, 0 with warnings, 0 failed" "$VALIDATE_SKILLS" "$T"
-expect_exit_contains "intelligence skill exempt from Coverage table check" 0 "" "$CHECK_DOCS_SYNC" "$T"
 rm -rf "$T"
 
 # Case 13: private eval dir un-ignored (needs a git repo + partial .gitignore)
