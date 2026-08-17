@@ -1,0 +1,68 @@
+Call: Corvid Underwriting <> ClaimFlow — First call (inbound, benchmark report download)
+Participants: Renata Ibbotson (VP of Claims Operations, Corvid Underwriting), Josh Ferreira (Account Executive, ClaimFlow)
+Date: undated (synthetic)
+
+Josh: Renata, thanks for grabbing time. Saw you downloaded our claims
+benchmark report — what caught your eye?
+
+Renata: Honestly, we're just stretched. Claims volume is up maybe 20% this
+year and we haven't grown headcount to match. My plan for next year's
+budget is basically "ask for three more adjusters."
+
+Josh: That's the instinct most claims leaders have — more volume, more
+people. Can I push on that a bit? We looked at retention data across
+about 400 mid-market brokerages last year, and headcount wasn't actually
+the variable that moved renewal rates. Claims cycle-time was. Brokerages
+that closed claims in under 10 days had renewal rates almost 15 points
+higher than ones averaging 20+ days, regardless of how well-staffed they
+were.
+
+Renata: Huh. We're definitely not under 10 days — probably closer to 18
+on average.
+
+Josh: Right, and here's the part that's specific to you, not a generic
+stat: your book skews heavily toward property claims, and property is the
+claim type where cycle-time hurts retention the most in that data —
+because it's usually tied to something visibly broken in a customer's
+life, a roof, a pipe. A slow property claim is a much more visible bad
+experience than a slow auto claim. So for your specific mix, cycle-time
+is probably a sharper lever than it would be for a brokerage with a more
+auto-heavy book.
+
+Renata: That's... actually a fair point. We do get the worst complaints on
+property claims specifically.
+
+Josh: So the headcount plan might solve a volume problem but not
+necessarily the retention problem you actually care about — more
+adjusters doesn't automatically make each claim move faster if the
+bottleneck is process, not people.
+
+Renata: I mean, more people does help though. We're genuinely underwater.
+
+Josh: It probably helps some, sure — I'm not saying don't hire. I'm saying
+if the board's asking about retention specifically, three more adjusters
+working the same slow process gets you more claims closed at the same
+slow pace, not necessarily faster claims. Actually — has the board been
+asking about this?
+
+Renata: Yeah, actually, one of our board members has been asking pointed
+questions in the last two meetings about "why aren't we automating
+claims yet" — I think he sits on another insurer's board too and hears
+things. It's not the main thing driving this call, we've had claims
+backlog forever, but it's been in the background lately.
+
+Josh: That's useful context. So if I'm hearing you right — the volume
+problem is real, but the thing that actually gets measured and reported
+on is retention, and there's now a board voice pushing on automation
+specifically.
+
+Renata: Yeah, that's fair.
+
+Josh: What I'd want to show you next is what cycle-time reduction
+specifically looks like on the property-claims workflow, since that's
+your highest-leverage spot. Would it maybe make sense to loop your team
+in on that at some point, if it's useful?
+
+Renata: Yeah, probably. Let me think about who should be in that.
+
+Josh: Sounds good — I'll send over a couple of times.
