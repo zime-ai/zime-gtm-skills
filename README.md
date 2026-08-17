@@ -43,35 +43,42 @@ bug or have a question? [Open an issue](https://github.com/zime-ai/zime-gtm-skil
 
 ## See it work
 
-Same synthetic call, same model, two ways: a plain "review this call"
-prompt with no skill, and `deep-discovery` against
+Real output from three skills, one per output shape, each run against its
+own bundled sample data — nothing invented for this README. Skim the
+tables; the full run (quotes and all) is one click away in each
+`<details>`.
+
+### Transcript audit — `deep-discovery`
+
+Same synthetic call, two ways: a plain "review this call" prompt with no
+skill, and `deep-discovery` against
 `skills/deep-discovery/assets/sample-transcript.txt`.
 
+**Without the skill** — unaided, prompted "review this discovery call": a
+free-form paragraph. No repeatable structure, no consistent evidence
+format, findings and commentary interleaved — a different rep reading the
+same call would flag different things.
+
+**With `deep-discovery`** — same 9 dimensions, every run, each Covered/
+Partial/Missed tied to a quote:
+
+| Dimension | Result |
+|---|---|
+| 1. Pain & business impact | ✅ Covered |
+| 2. Current state & tooling | ✅ Covered |
+| 3. Trigger — why now | ✅ Covered |
+| 4. Desired outcome | ✅ Covered |
+| 5. Decision process | ✅ Covered |
+| 6. Budget & timeline | ⚠️ Partial |
+| 7. Procurement & buying path | ✅ Covered |
+| 8. Competitive landscape | ✅ Covered |
+| 9. Rapport | ✅ Covered |
+
+8/9 Covered, 1 Partial, zero Missed — and zero fault-finding bias: a call
+that genuinely covered discovery well comes back reading well.
+
 <details>
-<summary><b>Without the skill</b>: unaided, prompted "review this discovery call"</summary>
-
-```
-Discovery call feedback — Northwind x Vendor Co:
-
-Strong:
-- Quantified pain: 8-10 hrs/week dispatcher time chasing exceptions.
-- Got compelling event: lost account last quarter + board-mandated
-  ops review this quarter.
-- Got economic buyer + threshold: CFO approves anything over $40k/year.
-
-Gaps:
-1. No next step. Call ends on rapport with zero concrete action.
-2. Budget not probed directly — got the approval threshold, not the
-   actual budget range.
-3. Timeline vague — "before Q3 planning" never pinned to a date.
-```
-
-No structure that repeats across calls, no consistent evidence format,
-findings and gaps interleaved with commentary.
-</details>
-
-<details open>
-<summary><b>With <code>deep-discovery</code></b></summary>
+<summary>Full output, with quotes behind every result</summary>
 
 ```
 1. Pain & business impact — Covered
@@ -105,19 +112,124 @@ Highest-leverage next steps:
 1. Nail a real budget number, not just the approval gate.
 2. Pin a hard decision date, not "before Q3 planning."
 ```
-
-Same nine dimensions, every run: a rep gets the same read whoever's on
-the call, and every Missed or Partial is falsifiable against the transcript
-next to it.
 </details>
 
-Run it yourself, nothing of your own required:
+```bash
+claude "run deep-discovery on skills/deep-discovery/assets/sample-transcript.txt"
+```
+
+### CSV pipeline-sweep — `deal-risk-digest`
+
+**Without the skill**: eyeball 8 CRM export rows by hand — no ranking, no
+consistent signal, no tiebreak logic.
+
+**With `deal-risk-digest`** against
+`skills/deal-risk-digest/assets/sample-pipeline-deal-risk.csv` — ranked,
+most at-risk first, every flag cited to the cell behind it:
+
+| Deal | Risk | Signal |
+|---|---|---|
+| Fairview Logistics | 🔴 High (6) | past-due + unlikely, stage age, vague next step, single-threaded |
+| Cobalt Freight Partners | 🔴 High (3) | past-due + unlikely |
+| Ashgrove Dental Partners | 🟡 Medium (2) | blank next step, single-threaded |
+| Driftwood Realty Group | 🟡 Medium (1) | stage age |
+| Terra Foods Co-op | 🟡 Medium (1) | blank next step |
+| Solstice Robotics | 🟡 Medium (1) | single-threaded |
+| Meridian Health Systems | 🟢 Low (0) | — |
+| Bluewater Analytics | 🟢 Low (0) | — |
+
+Closing read: 2 of 8 deals rated High risk; the most common signal across
+flagged deals is past-due-and-unlikely (a close date already behind
+today, paired with under-50% probability).
+
+<details>
+<summary>Full output, with the CSV cell behind every flag</summary>
+
+```
+All columns present, no signals skipped.
+
+| Deal | Risk | Reasons | Evidence |
+|---|---|---|---|
+| Fairview Logistics | High (6pts) | past-due+unlikely, stage age, vague next step, single-threaded | close_date = 2025-03-01 (past), probability = 25%; stage_entered_date = 2025-01-10 (584 days in stage); next_step = "Follow up"; contacts = "Greg Malone" |
+| Cobalt Freight Partners | High (3pts) | past-due+unlikely | close_date = 2025-02-14 (past), probability = 20% |
+| Ashgrove Dental Partners | Medium (2pts) | blank next step, single-threaded | next_step = (empty); contacts = "Dr. Lila Fenn" |
+| Driftwood Realty Group | Medium (1pt) | stage age | stage_entered_date = 2025-05-01 (473 days in stage) |
+| Terra Foods Co-op | Medium (1pt) | blank next step | next_step = (empty) |
+| Solstice Robotics | Medium (1pt) | single-threaded | contacts = "Priya Shah" |
+| Meridian Health Systems | Low (0pts) | none | — |
+| Bluewater Analytics | Low (0pts) | none | — |
+
+- 2 of 8 deals rated High risk
+- Most common risk signal across them: past-due and unlikely (close date past + probability below 50%)
+```
+</details>
+
+```bash
+claude "run deal-risk-digest on skills/deal-risk-digest/assets/sample-pipeline-deal-risk.csv"
+```
+
+### Document-writer — `champion-tracker`
+
+**Without the skill**: a rep's own notes just say "good engagement from
+both stakeholders" — no way to tell who's actually selling internally vs.
+who just likes the product.
+
+**With `champion-tracker`** against
+`skills/champion-tracker/assets/sample-call-1.txt` and `sample-call-2.txt`
+— one cited action ledger, one verdict per contact:
+
+| Contact | Call | Tag | Why |
+|---|---|---|---|
+| Priya | 1 | 💬 Sentiment | "I'll flag this to procurement next week" — a plan, not done yet |
+| Devon | 1 | 💬 Sentiment | "Really excited about this" — enthusiasm |
+| Priya | 2 | ✅ Action | Looped in procurement — confirmed |
+| Priya | 2 | ✅ Action | Pushed back on price for the deal in a leadership sync the rep wasn't in |
+| Devon | 2 | 💬 Sentiment | "I'll definitely be a happy user" — enthusiasm, still no action |
+
+**Champion read**: Priya ✅ — 3 confirmed Action rows by call 2. Devon
+⚠️ — every row across both calls is Sentiment: a friend, not a champion.
+**Trend**: strengthening — an unconfirmed plan in call 1 became 3
+delivered actions in call 2.
+
+<details>
+<summary>Full ledger, all 12 rows across both calls</summary>
+
+```
+| Contact | Call | Quote | Tag | Why |
+|---|---|---|---|---|
+| Priya | 1 | "I'll flag this to our procurement team next week so they can start looking at the contract terms" | Sentiment | future promise, not yet done |
+| Devon | 1 | "Honestly this would save us so much time." | Sentiment | praised time savings |
+| Priya | 1 | "The integration piece looks straightforward, which is a relief." | Sentiment | positive remark |
+| Devon | 1 | "Yeah I'm honestly really excited about this. Our team has been asking for something like this for months." | Sentiment | enthusiasm |
+| Priya | 1 | "I think it's a good fit. Let me get procurement looped in and we'll see what they come back with." | Sentiment | still a plan, not confirmed |
+| Devon | 1 | "No, this all looks great. Can't wait to get this rolled out." | Sentiment | enthusiasm |
+| Priya | 2 | "Good news — I looped in procurement last week, they're already reviewing the contract." | Action | looped in procurement (confirmed) |
+| Priya | 2 | "When Marcus in finance pushed back on the price in our Monday leadership sync, I pushed back and walked the room through why this is worth it." | Action | pushed back internally, room rep wasn't in |
+| Devon | 2 | "Yeah this is going to make everyone's life easier once it's live. I'm honestly thrilled about it." | Sentiment | enthusiasm |
+| Devon | 2 | "I mean, I'll definitely be a happy user. This is exactly the kind of thing we've needed." | Sentiment | enthusiasm, no action |
+| Priya | 2 | "I also set up a short call with our security team for Thursday so we can clear that before the contract review finishes." | Action | legwork, scheduled internal blocker-clearing |
+| Devon | 2 | "Agreed, sounds like it's all coming together nicely." | Sentiment | enthusiasm |
+```
+</details>
+
+```bash
+claude "run champion-tracker on skills/champion-tracker/assets/sample-call-1.txt skills/champion-tracker/assets/sample-call-2.txt"
+```
+
+### Try any of the other 38
+
+Same pattern, every skill — clone once, then point any skill at its own
+bundled sample:
 
 ```bash
 git clone https://github.com/zime-ai/zime-gtm-skills.git
 cd zime-gtm-skills
-claude "run deep-discovery on skills/deep-discovery/assets/sample-transcript.txt"
+claude "run <skill-name> on skills/<skill-name>/assets/<sample-file>"
 ```
+
+Every skill ships its own sample data and documents the exact filename(s)
+and command in its `SKILL.md`'s "Sample data" section — click through
+from the skill's row in [Available skills](#available-skills) below.
 
 ## Quick install
 
