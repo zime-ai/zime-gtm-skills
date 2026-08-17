@@ -1,0 +1,10 @@
+deal_name,stage,owner,cs_owner,created_date,close_date,won_date,kickoff_date,deal_value,contract_value,contract_term,contract_id,probability
+Sterling Corp,Closed Won,John Smith,Sarah Jones,2026-05-01,2026-06-15,2026-06-15,2026-06-20,50000,50000,12 months,SC-2001,100%
+Pinnacle Tech,Closed Won,Elena Rodriguez,Marcus Chen,2026-04-10,2026-05-30,2026-05-30,2026-06-05,75000,75000,24 months,PT-3002,100%
+North Ridge Solutions,Closed Won,James Wilson,,2026-03-15,2026-04-20,2026-04-20,2026-04-25,60000,60000,12 months,NR-1003,100%
+Vantage Group,Closed Won,Patricia Brown,David Kim,2026-02-01,2026-03-10,2026-03-10,,40000,40000,12 months,VG-2004,100%
+Cascade Industries,Closed Won,Michael Torres,Lisa Anderson,2026-01-10,2026-02-28,2026-02-28,2026-03-05,35000,,12 months,CI-1005,100%
+Apex Ventures,Closed Won,Rachel Greene,Tom Foster,2026-07-01,2026-09-15,2026-09-15,2026-09-20,90000,90000,36 months,AV-5006,100%
+Horizon Logistics,Closed Won,Kevin Zhang,Amanda Scott,2026-06-01,2026-07-15,2026-07-15,2026-07-20,55000,55000,12 months,,100%
+Zenith Partners,Closed Won,,Nicole Brown,2026-04-01,2026-05-10,2026-05-10,2026-05-15,65000,65000,24 months,ZP-4008,100%
+Nexus Financial,Closed Won,Brian Matthews,Jessica Lee,2026-05-15,2026-06-30,2026-06-30,2026-07-05,45000,45000,12 months,NF-2009,60%
