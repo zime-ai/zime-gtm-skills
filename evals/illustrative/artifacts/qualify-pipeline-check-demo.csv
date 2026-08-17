@@ -1,0 +1,11 @@
+deal_name,stage,amount,buyer_name,buyer_role,pain,budget,close_date,procurement_timeline,next_step,status,meddicc_score
+Tech Innovations Inc,Qualify,75000,Sarah Chen,Economic Buyer,Legacy system integration delays affecting revenue,70000-80000,2026-11-15,2026-11-01,Technical architecture review 2026-08-20,Active,85
+Global Logistics Solutions,Qualify,120000,Marcus Johnson,Decision Maker,Supply chain visibility gaps causing $2M annually,100000-140000,2026-12-01,2026-11-20,Budget approval review 2026-08-25,Active,92
+Phantom Startup,Qualify,,,,,2026-08-20,2026-09-15,,Active,
+Strategic Partners Ltd,Qualify,55000,Jennifer Lee,Economic Buyer,Fragmented customer data across systems,,2026-10-30,2026-10-15,Data architecture workshop 2026-08-22,Active,79
+Future Forward Consulting,Qualify,45000,Robert Evans,Decision Maker,Manual approval workflows causing 3-day delays,40000-50000,2026-09-15,2026-10-01,Workflow mapping session scheduled,Active,71
+Horizon Development Corp,Qualify,35000,,,Real-time reporting capability gap,30000-40000,2026-10-20,2026-10-01,Reporting demo scheduled 2026-08-23,Active,68
+Nexus Technologies,Qualify,65000,Amanda White,Economic Buyer,,60000-70000,2026-11-10,2026-10-25,Solution fit assessment 2026-08-24,Active,81
+Rapid Deployment Systems,Qualify,28000,David Park,Decision Maker,Deployment speed limiting customer onboarding,25000-30000,2026-08-25,2026-09-15,Performance review 2026-08-25,Active,72
+Velocity Analytics Group,Qualify,42000,Emily Rodriguez,Economic Buyer,Inability to track KPIs in real time,40000-45000,2026-11-05,2026-10-15,,Active,76
+Enterprise Solutions Partners,Qualify,88000,Christopher Adams,Economic Buyer,Integration complexity across legacy platforms,80000-95000,2026-12-20,2026-11-30,Architecture workshop 2026-08-26,Active,

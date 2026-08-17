@@ -1,0 +1,10 @@
+deal_name,deal_value,stage,exit_criteria,poc_start_date,poc_end_date,conversion_date,decision,sponsor,poc_status,usage
+Acme Corp,50000,POC,"50 users actively using dashboard daily",2026-06-05,2026-09-05,,VP of Sales,live,"45 active users daily"
+Globex Inc,75000,Pilot,"20% reduction in ticket resolution time",2026-05-15,2026-09-10,,CTO,live,"Weekly reduction measured"
+Zenith Solutions,45000,POC,,2026-07-01,2026-09-30,,Director of IT,live,"5 active users"
+Quantum Systems,120000,POC,,2026-06-10,,,live,"Preliminary assessment"
+NeoTech Corp,85000,POC,"Successful system integration without data loss",2026-05-10,2026-07-10,,VP of Engineering,live,"Initial testing complete"
+Zenith Analytics,65000,Pilot,"3 major use cases documented and validated",,2026-09-10,,Head of Product,live,"Use case 1 signed off"
+Prism Industries,35000,POC,"Production deployment successful",2026-07-10,2026-10-10,,Director of Operations,live,
+Stellar Labs,55000,POC,"Achieve 99.9% uptime in staging",2026-05-01,,,Head of Infrastructure,live,"Performance monitoring active"
+API Gateway Pro,40000,POC,"API integration complete and tested",2026-06-20,2026-09-20,,Senior Architect,live,"API calls being monitored"

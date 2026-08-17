@@ -1,0 +1,9 @@
+deal_name,stage,owner,created_date,last_activity_date,close_date,deal_value,contacts,meetings_held,meeting_outcome,prospect_replied
+TechStartup Inc,Prospect,Alice Johnson,2026-08-10,2026-08-15,2026-10-01,75000,John Smith; Mary Chen,1,Completed,Yes
+RetailBrand Ltd,Prospect,Bob Wilson,2026-08-05,2026-08-14,2026-09-30,85000,Sarah Lee; James Park; Kim Torres,2,Completed; Completed,Yes
+StaleVenture Corp,Prospect,Charlie Adams,2026-05-15,2026-05-16,2026-08-10,60000,David Foster,0,,No
+CrossStateServices,Prospect,Alice Johnson,2026-08-01,2026-08-14,2026-08-10,55000,Patricia Wong,1,Completed,Yes
+AgedOnceActive,Prospect,Bob Wilson,2026-06-19,2026-06-20,2026-11-15,45000,Michael Brown; Rachel Green,1,Completed,No
+SingleReply Inc,Prospect,Charlie Adams,2026-08-08,2026-08-15,2026-10-15,70000,Elena Reyes,1,Completed,Yes
+PlaceholderDeal LLC,Prospect,Alice Johnson,2026-07-13,2026-08-01,2026-09-15,,Frank Miller; Grace Smith,1,Completed,Yes
+NoEngagementVenture,Prospect,Bob Wilson,2026-07-05,2026-07-06,2026-11-20,68000,Grace Lee; Henry Davis,0,,No

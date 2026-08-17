@@ -1,0 +1,11 @@
+registration_id,partner_name,partner_contact,end_client_name,engagement_scope,conflict_check_done,end_client_contact,permission_confirmed,margin_tier,deal_type,registration_date,expiry_date
+REG-100,Vestor Analytics,Claire Morrison,TechCore Solutions,Sourced the lead and will lead technical implementation,Yes - no open house opportunity found,Rajesh Kumar (VP Engineering),Yes,20% discount tier,resell,2026-08-01,2026-11-01
+REG-101,Granite Solutions,Marcus Webb,Horizon Logistics Inc,Referral only,Yes - no conflict,Sofia Gonzalez,Yes,15% referral fee,referral,2026-08-02,2026-11-02
+REG-102,Northlake Partners,,Brandywine Financial,Sourced the lead and ongoing management,Yes - no conflict,Thomas Reeves,Yes,18% discount tier,resell,2026-08-03,2026-11-03
+REG-103,Northlake Partners,Janet Pierce,Northlake Partners,Full resell and ongoing management,Yes - no conflict,Elena Rossi,Yes,25% discount tier,resell,2026-08-04,2026-11-04
+REG-104,Clearline Tech,Dmitri Volkov,Echo Inc,General support and consulting,Yes - existing direct AE has an active opportunity with Echo Inc,Nora Chen,Yes,22% discount tier,resell,2026-08-05,2026-11-05
+REG-105,Watershed Equity,Amanda Lee,Pinecrest Ventures,Sourced the lead only,Yes - no conflict,Dev Chandra,No response yet - contact not confirmed,12% referral fee,referral,2026-08-06,2026-11-06
+REG-106,Axis Capital,Patricia Molina,Southbridge Trust,General support,Yes - no conflict,Victoria Cross,Yes,16% discount tier,resell,2026-08-07,2026-11-07
+REG-107,Pinnacle Advisory,Robert Foster,Meadowbrook Corp,Sourced the lead and will lead implementation,,James Wu,Yes,,resell,2026-08-08,2026-11-08
+REG-108,Meridian Group,Susan Kim,Cornerstone Energy,Sourced the lead and technical implementation,Yes - no conflict,Priya Anand,Yes,20% discount tier,resell,2026-08-09,
+REG-109,Fieldstone Advisors,Michael Zhang,Ashford Properties,Referral only,Yes - no conflict,Lucas Martinez,Yes,10% referral fee,referral,2026-08-10,2026-08-18

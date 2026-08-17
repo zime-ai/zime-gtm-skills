@@ -59,6 +59,14 @@ CSV pipeline-sweep skills (row/ranking-accuracy shape):
 | Skill | Row/finding accuracy | Hallucinations | Notes |
 |---|---|---|---|
 | `deal-risk-digest` (Shape B) | 9/9 rows, 5/5 traps, ranking correct | 0 | Row-level accuracy and ranking perfect; the one aggregate summary line ("most common signal") was wrong and stated with no hedge. See `evals/illustrative/README-deal-risk-digest.md` |
+| `evaluation-pipeline-check` | 8/8 rows, 3/3 traps | 0 | Perfect row-level flags and both closing lines correct. See `evals/illustrative/README-evaluation-pipeline-check.md` |
+| `negotiation-pipeline-check` | 10/10 rows | 0 | Perfect match against gold, including median-discount math and both closing lines. See `evals/illustrative/README-negotiation-pipeline-check.md` |
+| `prospect-pipeline-check` | 8/8 rows, 5/5 traps | 0 | Perfect row-level flags and both closing lines correct. See `evals/illustrative/README-prospect-pipeline-check.md` |
+| `qualify-pipeline-check` | 10/10 rows, 5/5 traps | 0 | Perfect row-level flags and both closing lines correct. See `evals/illustrative/README-qualify-pipeline-check.md` |
+| `poc-pilot-pipeline-check` | 6/9 rows, 5/5 core-logic traps | 0 | One deal's flag omitted entirely, one spurious flag invented on another row; both closing lines wrong as a result. See `evals/illustrative/README-poc-pilot-pipeline-check.md` |
+| `won-pipeline-check` | 9/9 rows, 8/8 traps | 0 | Every flag and evidence cell correct; table sort order and one closing line's phrasing were off. See `evals/illustrative/README-won-pipeline-check.md` |
+| `end-client-registration` | 8/10 rows, 3/5 traps | 1 (unrubriced near-expiry concern) | One false negative (vague scope), one false positive (over-strict on expiry), aggregate line collapsed distinct dimensions. See `evals/illustrative/README-end-client-registration.md` |
+| `new-business-registration` | 6/8 rows fully correct, 1 sloppy-but-right, 1 wrong | 0 | Introduced an unrubriced temporal-validity check on expiry dates the rubric doesn't ask for; also mild scope overreach into approval/remediation framing. See `evals/illustrative/README-new-business-registration.md` |
 
 Document-writer skills (row/field-diff shape):
 
