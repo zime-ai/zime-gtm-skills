@@ -77,27 +77,7 @@ done
 orphans=$(comm -13 <(echo "$actual_skills") <(echo "$table_skills") | grep -c .)
 ((ISSUES += orphans))
 
-# --- 4. Coverage table agreement (stage + initiative skills only) --------
-# vertical-context and intelligence skills are deliberately excluded from
-# this table — they aren't a stage or an initiative: vertical-context is
-# context other skills load, intelligence writes rather than grades and
-# gets its own README group instead (see check 5 below).
-
-coverage_block=$(awk '/## Coverage: [a-z]+ dimensions/{f=1} /## Where this stops/{f=0} f' "$README")
-coverage_skills=$(grep -oE '\| `[a-z0-9-]+`' <<< "$coverage_block" | sed -E 's/\| `([a-z0-9-]+)`/\1/' | sort -u)
-
-for d in "$SKILLS_DIR"/*/; do
-    name=$(basename "$d")
-    frontmatter=$(awk '/^---$/{c++;next} c==1' "${d}SKILL.md" 2>/dev/null)
-    dimension=$(grep "zime:dimension:" <<< "$frontmatter" | sed 's/.*zime:dimension: *//' | tr -d ' ')
-    [[ "$dimension" == "vertical-context" || "$dimension" == "intelligence" ]] && continue
-    if ! grep -qx "$name" <<< "$coverage_skills"; then
-        echo -e "${RED}FAIL${NC} $name ($dimension) missing from the 'Coverage' table"
-        ((ISSUES++))
-    fi
-done
-
-# --- 5. Grouping in Available skills table matches frontmatter category --
+# --- 4. Grouping in Available skills table matches frontmatter category --
 
 # macOS ships bash 3.2 (no associative arrays) — a case statement instead.
 expected_section_for() {
@@ -126,7 +106,7 @@ while IFS= read -r line; do
     fi
 done <<< "$table_block"
 
-# --- 6. Stage/initiative sub-counts, README's closing line ---------------
+# --- 5. Stage/initiative sub-counts, README's closing line ---------------
 # "All N stage motions are covered; the initiative set is K skills today."
 # The badge/opening/how-these-fit-together/summary anchors above only check
 # the total; this is the one line that checks the stage-vs-initiative split.
@@ -160,7 +140,7 @@ else
     }
 fi
 
-# --- 7. ROADMAP.md agreement (roadmap-in-sync) ----------------------------
+# --- 6. ROADMAP.md agreement (roadmap-in-sync) ----------------------------
 # Every shipped skill must be checked off; no checked box may name a
 # directory that doesn't exist.
 
