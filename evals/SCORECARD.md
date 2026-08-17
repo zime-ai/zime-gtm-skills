@@ -60,6 +60,12 @@ CSV pipeline-sweep skills (row/ranking-accuracy shape):
 |---|---|---|---|
 | `deal-risk-digest` (Shape B) | 9/9 rows, 5/5 traps, ranking correct | 0 | Row-level accuracy and ranking perfect; the one aggregate summary line ("most common signal") was wrong and stated with no hedge. See `evals/illustrative/README-deal-risk-digest.md` |
 
+Document-writer skills (row/field-diff shape):
+
+| Skill | Row accuracy | Extra rows | Hallucinations | Notes |
+|---|---|---|---|---|
+| `champion-tracker` (Shape C) | 7/7 gold rows, 0 wrong-tag | 4 (3 legit, 1 overreach) | 0 | Same author wrote this skill's own rubric — weakest blinding of the runs so far. Passed a planted stated-intention-vs-action trap, then failed the identical trap shape later, un-planted. See `evals/illustrative/README-champion-tracker.md` |
+
 ## Tier 0 framework: landed and runnable
 
 `evals/framework/` (promptfoo-backed, isolated RUN/GAP/LEARN stages,
