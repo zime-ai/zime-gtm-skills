@@ -1,0 +1,76 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+=== CALL 1: Vision-led (should score well, no sequencing violation) ===
+
+REP: Before I get into anything about our product, I want to start with
+what's happening in your market. Over the last two years, insurance
+carriers have moved from annual underwriting reviews to continuous,
+real-time risk scoring. That's not a trend, it's a structural shift in how
+underwriting works.
+
+PROSPECT: We've noticed our reinsurers asking for more frequent data too.
+
+REP: Right. And here's the split we're seeing: carriers who move to
+continuous underwriting now are renewing at better loss ratios and
+winning the accounts that used to go to whoever quoted fastest. The
+carriers still running annual reviews are losing renewals to competitors
+who can reprice risk mid-term, and some are seeing their reinsurance
+treaties get more expensive because they can't show real-time risk data.
+
+PROSPECT: That second part is basically what we're worried about with our
+Q3 renewal.
+
+REP: So picture where this goes for you in eighteen months: your
+underwriters open a file and see a live risk score instead of a static
+annual snapshot, your reinsurers get a real-time data feed instead of a
+quarterly export, and your renewal conversations start from "here's what
+changed since last quarter" instead of rebuilding the case from scratch
+every year. That's the target state, independent of any specific tool.
+
+PROSPECT: How do we actually get there, though?
+
+REP: Two obstacles stand between you and that. First, your underwriting
+data lives in four disconnected systems, so nobody can compute a live
+score even if they wanted to. Our data unification layer is built
+specifically to solve that — it's the piece that turns four disconnected
+feeds into one queryable risk profile. Second, your underwriters don't
+have a way to act on a live score even if they had one, so we built the
+real-time scoring engine to sit on top of the unified data and surface
+the number your underwriters actually use day to day.
+
+PROSPECT: Do you have anyone doing this today?
+
+REP: Yes — a mid-size commercial carrier we work with made this exact
+move last year. Before, their reinsurance treaty renewal took six weeks
+of manual data pulls and their loss ratio was trending against them.
+After switching to continuous scoring, their treaty renewal dropped to
+four days of prep, and they used the real-time data to negotiate a better
+rate on their last renewal. That's the same obstacle you just described.
+
+=== CALL 2: Feature-first, vision bolted on after (sequencing violation) ===
+
+REP: Great, thanks for hopping on. Let me just walk you through the
+platform. So we've got a real-time scoring engine, a data unification
+layer that pulls from your existing systems, and a renewal dashboard that
+auto-generates the reinsurer report.
+
+PROSPECT: Okay. What does the dashboard actually show?
+
+REP: It pulls live risk scores per policy and rolls them up into a
+portfolio view, so instead of your team building a renewal deck by hand,
+it's basically already built. You can filter by book of business, export
+straight to PDF, and it refreshes nightly.
+
+PROSPECT: That sounds useful, I guess. Is this something other carriers
+need right now?
+
+REP: Oh, for sure — I mean, the whole industry is moving toward
+continuous underwriting instead of annual reviews, so this kind of fits
+into that bigger vision of where carriers are headed. Anyway, want me to
+show you the reporting export next?
+
+PROSPECT: Sure.
+
+REP: So the export function lets you schedule a report to go out weekly,
+and there's a role-based permission setting so only underwriting leads
+see the raw scores.

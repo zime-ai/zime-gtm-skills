@@ -9,9 +9,14 @@ every `skills/<name>/` directory must have a matching `- [x] <name>` line
 below, and no checked line may name a directory that doesn't exist. When you
 land a skill, check its box in the same PR — don't leave that for later.
 
-`sell-the-dream` has no canonical single-source framework behind the name
-(unlike meddicc/bant/faint) — needs scoping before it's buildable, pulled
-from the batch that shipped the other two qualification gaps below.
+`sell-the-dream` was scoped by research before it was built: no canonical
+single-source "sell the dream" framework exists (every source that attaches
+steps to the phrase invents its own, and Guy Kawasaki's 1991 *Selling the
+Dream* is a real book but about evangelism marketing, not sales calls).
+The skill ships anchored on Andy Raskin's publicly published "5 Elements of
+a Great Sales Narrative" instead, with the phrase kept as the colloquial
+name, not a citation. See `skills/sell-the-dream/SKILL.md` for the full
+provenance note.
 
 ## Phase 1 — Initiative & stage skills
 
@@ -24,7 +29,7 @@ Every framework and deal motion the playbook tracks today.
 - [x] faint
 - [x] sandler
 - [x] challenger
-- [ ] sell-the-dream
+- [x] sell-the-dream
 - [x] sql-to-qualify
 - [x] qualify-to-poc
 
@@ -80,19 +85,19 @@ there.
 
 **Seller-facing, single deal**
 - [ ] call-prep
-- [ ] deal-highlights
-- [ ] mutual-action-plan
-- [ ] executive-briefing
-- [ ] champion-tracker
-- [ ] competitor-battlecard
-- [ ] follow-up-email-drafter
+- [x] deal-highlights
+- [x] mutual-action-plan
+- [x] executive-briefing
+- [x] champion-tracker
+- [x] competitor-battlecard
+- [x] follow-up-email-drafter
 
 **Manager & leader rituals**
 - [ ] wbr-report-generator
 - [ ] forecast-review
 - [ ] pipeline-review
-- [ ] deal-risk-digest
-- [ ] win-loss-brief
+- [x] deal-risk-digest
+- [x] win-loss-brief
 - [ ] stuck-deal-digest
 - [ ] rep-ramp-status-digest
 

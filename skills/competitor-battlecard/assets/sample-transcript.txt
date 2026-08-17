@@ -1,0 +1,60 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+Call: Cortex Analytics <> Palisade Freight (Rep: Jordan, Buyer: Sam, VP of Operations)
+Stage: Mid-stage, second call after initial demo
+
+00:03 Jordan: Thanks for making time again, Sam. Last time you mentioned
+the team was also looking at other options — where did that land?
+
+00:10 Sam: Yeah, I should've brought this up sooner. Our warehouse team
+already ran a two-week pilot with TrackWell last quarter, before you and I
+even started talking. So they're very much in the mix.
+
+00:24 Jordan: Got it, appreciate you telling me directly. How are they
+framing it internally?
+
+00:29 Sam: Honestly, TrackWell's the safe default for them at this point —
+the warehouse team already knows the tool, so switching to you is the one
+that needs to justify itself, not the other way around.
+
+00:41 Jordan: That's fair. What did the pilot show that you liked?
+
+00:46 Sam: Two things really stood out. First, their GPS ping frequency —
+we saw location updates every 15 seconds in the pilot, and when I asked
+your team during the demo, it sounded like yours defaults to 60.
+
+01:02 Jordan: That's accurate for the standard tier, yeah. We can raise the
+polling interval on the enterprise plan though — I can pull up a live
+account and show you what that looks like at 15 seconds if that's the
+number that matters here.
+
+01:15 Sam: That would help. Second thing — one of our ops leads mentioned
+TrackWell plugs straight into our TMS without any middleware, which was a
+big deal for our integration team given how much they hated the last
+implementation.
+
+01:30 Jordan: Understood. Let me ask — was that from the pilot itself, or
+something said secondhand?
+
+01:34 Sam: Secondhand, honestly. I haven't personally seen it work, it's
+just what got repeated in our internal debrief.
+
+01:40 Jordan: Okay. On the pricing side, did the pilot come with a number,
+or is that still open?
+
+01:45 Sam: Still open on our end. I'd guess TrackWell comes in cheaper
+since they're more established in freight, but nobody's actually quoted us
+yet, so take that with a grain of salt.
+
+01:58 Jordan: Appreciate the honesty. I'll get you a formal quote so it's
+an apples-to-apples comparison once you have theirs.
+
+02:05 Sam: That works. One more thing on my end — the pilot review flagged
+that TrackWell's dashboard doesn't split by route the way yours does, which
+actually worked in your favor internally.
+
+02:16 Jordan: Good to know. I'll make sure that shows up in the follow-up
+materials.
+
+02:20 Sam: Sounds good. I think that covers where things stand on that
+front.

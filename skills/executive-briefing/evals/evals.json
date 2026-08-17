@@ -1,0 +1,67 @@
+{
+  "skill_name": "executive-briefing",
+  "evals": [
+    {
+      "id": 1,
+      "name": "executive-briefing-eval-1-transcript-unstated-value",
+      "prompt": "run executive-briefing on skills/executive-briefing/assets/sample-transcript.txt",
+      "expected_output": "Deal snapshot: Astra Freight Holdings, late-stage/negotiation, close date September 30 (cited to Renata's quote), deal value stated as not mentioned anywhere on the call rather than estimated. Status paragraph covers the new CFO entering the approval loop, the mandated competitor re-look, and the hard budget-year cutoff. Three cited risks: (1) the CFO's undefined security review requirement introduced after he joined, (2) leadership's mandated re-comparison against Ferrovia before the board meeting, (3) the September 30 budget-year cutoff meaning slippage pushes the deal into next year entirely. The ask (a security review call with the CFO this week) is tagged inferred/the rep's own proposal, quoting Renata's non-commital reply, since no specific date or firm commitment was actually locked down.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "States the deal value was not stated anywhere on the call, rather than estimating one from seat count or deal size language",
+        "Cites the close date as September 30, quoting Renata's line tying it to the budget year closing",
+        "Names the CFO's newly-introduced, still-undefined security review requirement as a cited risk, quoting Renata's line that it 'wasn't a requirement before he got here'",
+        "Names the mandated re-comparison against Ferrovia as a cited risk, quoting that leadership asked them to look at Ferrovia again before the board meeting",
+        "Names the September 30 budget-year cutoff as a cited risk, quoting that missing it 'likely gets pushed into next year's budget entirely'",
+        "Tags the security-review-call ask as inferred (or equivalent label) and states it as the rep's proposal, not a confirmed commitment, quoting Renata's line that she won't promise a specific day",
+        "Every risk and the ask cites its quote"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "executive-briefing-eval-2-csv-structural-disclaimer",
+      "prompt": "run executive-briefing on Astra Freight Holdings from skills/executive-briefing/assets/sample-pipeline-executive-briefing.csv",
+      "expected_output": "States up front this is a structural claim built from the CSV row's own fields, not a call-quality claim. Snapshot: stage Negotiation, close_date 2026-09-30, deal_value cell is blank so the brief states the value is not stated in the export rather than inferring one. Cites next_step ('Security review call with CFO') and contacts (Renata Cole; Derek Voss) from their columns. The ask is tagged inferred, not heard, since the next_step cell names an action but the row has no date attached to it and no column pins which of the two contacts owns it. Does not invent the CFO/competitor narrative that only appears in the transcript.",
+      "files": [
+        "assets/sample-pipeline-executive-briefing.csv"
+      ],
+      "expectations": [
+        "States explicitly that a CSV-only brief is a structural claim, not a call-quality claim",
+        "Reports close_date = 2026-09-30 cited from its column",
+        "States the deal_value cell is blank/not stated rather than inferring a figure",
+        "Cites the next_step and contacts columns by name and value",
+        "Tags the ask as inferred (not heard), since the next_step cell has no date and no column ties it to one owner",
+        "Does not invent the CFO security-review or Ferrovia competitor narrative, since the CSV row alone doesn't state it"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "executive-briefing-eval-3-both-together-still-unstated",
+      "prompt": "run executive-briefing on skills/executive-briefing/assets/sample-transcript.txt and skills/executive-briefing/assets/sample-pipeline-executive-briefing.csv together for the Astra Freight Holdings deal",
+      "expected_output": "Even after checking the CRM row, deal value remains not stated anywhere (the call never gives a number and the CSV row's deal_value cell is blank), and the brief says so rather than backfilling one. The CSV row confirms the exact close date (2026-09-30) that the call stated in less precise terms.",
+      "files": [
+        "assets/sample-transcript.txt",
+        "assets/sample-pipeline-executive-briefing.csv"
+      ],
+      "expectations": [
+        "States that deal value is still not stated anywhere even after checking the CSV row, rather than inventing a figure once two sources are combined",
+        "Uses the CSV row to confirm or sharpen the close date (2026-09-30)",
+        "Does not treat the presence of a CSV row as license to estimate the missing deal value"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "executive-briefing-eval-4-missing-column",
+      "prompt": "run executive-briefing on a pipeline export for one deal that has no close_date column at all",
+      "expected_output": "States once, up front, that the close_date column is missing from the export, rather than guessing a close date from the stage or any other column.",
+      "files": [],
+      "expectations": [
+        "States once, up front, that the close_date column is missing",
+        "Does not infer a close date from the stage or any other column",
+        "Still reports the fields that other present columns support"
+      ]
+    }
+  ]
+}

@@ -1,7 +1,11 @@
 {
-  "cases": [
+  "skill_name": "evaluation-pipeline-check",
+  "evals": [
     {
+      "id": 1,
+      "name": "evaluation-pipeline-check-eval-1-full-pipeline-sweep",
       "prompt": "Run evaluation-pipeline-check on assets/sample-pipeline-evaluation-pipeline-check.csv",
+      "expected_output": "A flagged-first table over the 9 in-scope rows (Dunder Mifflin excluded, stage is Negotiation), each flag citing the column and cell value that triggered it, medians computed from the export rather than hardcoded thresholds.",
       "files": ["assets/sample-pipeline-evaluation-pipeline-check.csv"],
       "expectations": [
         "Reports 9 of 10 rows in scope (Dunder Mifflin excluded, stage is Negotiation)",
@@ -18,7 +22,10 @@
       ]
     },
     {
-      "prompt": "Run evaluation-pipeline-check on a CSV missing a champion column entirely",
+      "id": 2,
+      "name": "evaluation-pipeline-check-eval-2-missing-champion-column",
+      "prompt": "Run evaluation-pipeline-check on a CSV missing a champion column entirely.",
+      "expected_output": "A pipeline sweep where the no-technical-champion check reports Unknown (column missing) for every in-scope row, with a single missing-column note stated once up front rather than repeated per row.",
       "files": [],
       "expectations": [
         "The no-technical-champion check reports Unknown (column missing) for every in-scope row",

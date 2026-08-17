@@ -64,21 +64,44 @@ data of the user's own. Rules for any sample file (transcript or CSV):
 2. **Never expose anything that isn't already customer-visible in the Zime
    product**: see the IP boundary section above.
 
-## Two dimensions: stage, initiative
+## Two dimensions: stage, initiative — plus a third, intelligence
 
 Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
 
 - **Stage** and **initiative**. `zime:dimension` in frontmatter is `stage`
   or `initiative`. The 11 original skills are stage skills; `meddicc`,
   `bant`, `pain-finder`, `next-step-commitment`, `meddpicc`, `faint`,
-  `sandler`, and `challenger` are initiative skills that run at any stage.
+  `sandler`, `challenger`, and `sell-the-dream` are initiative skills that
+  run at any stage. `sell-the-dream` is the one to check before assuming
+  `zime:initiative` names a branded methodology — it doesn't (see its
+  `SKILL.md`'s provenance note): research found no canonical "sell the
+  dream" framework, so it ships anchored on Andy Raskin's publicly
+  published "5 Elements of a Great Sales Narrative" instead, with the
+  phrase kept only as the colloquial name.
 - Do **not** nest skills under `skills/stage/` or `skills/initiative/`
   directories. It was considered and rejected. The Agent Skills spec pins
   `name` to the directory name, `validate-skills.sh` and the pinned
   `skills-ref` CI validator both iterate `skills/*/`, and the README's
   `cp -r skills/* .agents/skills/` install line would copy the nesting dirs
   as if they were skills themselves.
-- This 32-skill set is a deliberate proof-set, not the full catalogue — see
+- **`intelligence`** is a third `zime:dimension` value, added for
+  `ROADMAP.md`'s phase-2 "deal intelligence" skills — `mutual-action-plan`,
+  `deal-risk-digest`, `deal-highlights`, `follow-up-email-drafter`,
+  `win-loss-brief`, `executive-briefing`, `champion-tracker`,
+  `competitor-battlecard` so far. They write something forward (a plan, a
+  digest, a drafted email) instead of grading a call against a rubric, so
+  neither `stage` nor `initiative` fit — see the frontmatter contract in
+  `AGENTS.md`. They still ship `assets/` + `evals/evals.json` like any
+  runnable skill; the only exemption they get is from the README's
+  Coverage table, which doesn't have a column for them.
+  `follow-up-email-drafter` is the first skill in this repo whose *output*
+  is customer-facing text rather than an internal audit, digest, or plan —
+  worth remembering if a future skill in this dimension needs the same
+  grounding-rule treatment (see its `SKILL.md`). `champion-tracker` reuses
+  `meddicc`'s Champion letter definition verbatim rather than inventing a
+  second standard — worth doing again whenever a new skill's concept
+  already has a home elsewhere in the repo.
+- This 41-skill set is a deliberate proof-set, not the full catalogue — see
   `ROADMAP.md` for what's built and what's next. Expand it the same way the
   first 4 initiative skills were built.
 - README's "How these fit together" skill map is a plain ASCII diagram in a
@@ -87,16 +110,32 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
 
 ## Verification state, honestly
 
-- **Structural validation**: all 32 skills pass `./validate-skills.sh`
+- **Structural validation**: all 41 skills pass `./validate-skills.sh`
   (which now also checks `zime:dimension` is present/valid, and that any
   `evals/evals.json` parses and uses `expectations`, not `assertions`) and
-  the pinned `skills-ref validate` in CI.
-- **Functional validation**: only `deep-discovery` has actually been run
-  end-to-end against its sample transcript and had its output read for
-  correctness. The other 31 have evals written (see below) but have not
+  the pinned `skills-ref validate` in CI. 3 skills
+  (`evaluation-pipeline-check`, `negotiation-pipeline-check`,
+  `sql-to-qualify`) shipped with a nonstandard `{"cases"}` schema that this
+  check didn't catch — fixed to the canonical `{skill_name, evals}` shape.
+- **Tier 0 (gap diff vs. ground truth)**: the framework (`evals/framework/`,
+  promptfoo-backed) has landed. Ground truth comes from two sources, never
+  blended: `evals/gt/` (hand-authored, needs a human this repo doesn't
+  have) and `evals/gt-web/` (a real named expert's already-published call
+  critique, autonomously harvested — see `evals/gt-web/README.md` and
+  `evals/SCORECARD.md`). The web-sourced path only covers stage-motion
+  skills with public call-coaching content; deal-intelligence/writer skills
+  have no such content and carry no Tier 0 number by design, not omission.
+- **Functional validation**: `deep-discovery` and `deal-risk-digest` have
+  actually been run end-to-end against their sample data and had output
+  checked for correctness — `deal-risk-digest`'s build independently
+  recomputed every row of its sample CSV and confirmed the eval's required
+  ranking held. The other 39 have evals written (see below) but have not
   been manually run.
-- **CSV mode**: has never been exercised on any skill. A shared synthetic
-  pipeline export exists at `skills/deep-discovery/assets/sample-pipeline.csv`.
+- **CSV mode**: exercised for the first time by `deal-risk-digest` (see
+  above) — that skill is CSV-only. Still unexercised as a *secondary* input
+  mode on every `stage`/`initiative` skill that also accepts `.csv`. A
+  shared synthetic pipeline export exists at
+  `skills/deep-discovery/assets/sample-pipeline.csv`.
 - **CI-catches-a-broken-PR test**: fixed. `tests/run-checks-tests.sh` runs
   `validate-skills.sh`, `scripts/check-docs-sync.sh`, and
   `scripts/scan-content.py` against scratch fixtures with a deliberately
@@ -109,11 +148,14 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   and confirming the output's vocabulary/framing actually changes. Blocked
   on `vertical-context` returning from its own branch after domain review —
   see "Two dimensions" above.
-- **Gold-label insight recall (Tier 3)**: not started. Blocked on a human
-  (not the rubric author) gold-labeling sample transcripts. See `EVALS.md`
-  for the full methodology and why this tier can't be automated.
+- **Gold-label insight recall (Tier 3)**: the `evals/gt/` path (a human,
+  not the rubric author, gold-labeling sample transcripts) is not started
+  and stays blocked — no such human is available. The `evals/gt-web/` path
+  is this repo's practical substitute: see `evals/SCORECARD.md` for actual
+  recall/precision numbers, scoped to the skills where a real published
+  critique exists. See `EVALS.md` for the full methodology.
 
-`skills/*/evals/evals.json` exist for all 32 skills, using `expectations`
+`skills/*/evals/evals.json` exist for all 41 skills, using `expectations`
 (not `assertions`) with skill-root-relative `files` paths. Every eval carries
 at least one expectation a format-compliant-but-shallow output would fail,
 per `EVALS.md`'s falsifying-expectation rule. They remain declarative, not

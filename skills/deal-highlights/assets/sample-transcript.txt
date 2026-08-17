@@ -1,0 +1,54 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+Call: Northgate Robotics <> Fernwood Logistics (Rep: Sam)
+Stage: Second call, discovery/evaluation
+
+Sam: Hey Alex, good to see you again — how was the rest of your week?
+
+Alex (Ops Director, Fernwood): Pretty good, just back from a conference in
+Denver, the flight home was rough though.
+
+Sam: Oh no, delays?
+
+Alex: Yeah, three hours sitting on the tarmac. Anyway, glad we could get
+this back on the calendar.
+
+Sam: Same. So last time we talked about the warehouse routing piece — where
+are you landing on that?
+
+Alex: We're still interested, but I'll be honest, the price is a sticking
+point. Your quote came in almost 30% above what we budgeted for this.
+
+Sam: I hear you. Let's dig into that. What's the actual number you're
+working with?
+
+Alex: Finance capped us at $140,000 for the year on this category. That's
+firm, it's not moving.
+
+Sam: Okay, that's useful to know. We can look at scaling the seat count to
+land closer to that.
+
+Alex: That would help. Also, full transparency, we're still evaluating
+RouteWise as well. They came in under budget, but their onboarding timeline
+is longer.
+
+Sam: Appreciate you telling me directly. Can I ask what's driving the
+timeline concern on their side?
+
+Alex: Their implementation team said 4 months. We need something live
+before peak season in October.
+
+Sam: We can commit to that. I'll get you a revised proposal at the
+$140,000 number by this Friday, and I'll include an implementation plan
+that gets you live by mid-September.
+
+Alex: That works. If the numbers hold and the timeline's real, I think we
+can move forward.
+
+Sam: Great, one more thing before we wrap — did you catch the game last
+night?
+
+Alex: Ha, no, I was too tired after that flight.
+
+Sam: Fair enough. I'll send that revised proposal Friday and we'll pick up
+from there.

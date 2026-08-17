@@ -1,0 +1,50 @@
+{
+  "skill_name": "competitor-battlecard",
+  "evals": [
+    {
+      "id": 1,
+      "name": "competitor-battlecard-eval-1-named-competitor-with-gap",
+      "prompt": "run competitor-battlecard on skills/competitor-battlecard/assets/sample-transcript.txt",
+      "expected_output": "Competitor named: TrackWell, cited from Sam's line about the warehouse team's prior pilot. Framing: TrackWell is the safe incumbent default, switching is what needs to justify itself. Claims: GPS ping frequency (clear, 15s vs 60s) and dashboard not splitting by route (favors Cortex) tagged clear; TMS integration without middleware and lower pricing tagged tentative/secondhand, quoted with Sam's own hedges. Rep countered the GPS frequency point (offering to demo the enterprise polling interval) and the pricing point (offering a formal quote). Left unanswered: the TMS/middleware integration claim, since the rep only asked whether it was firsthand and never actually addressed the claim itself. No fact about TrackWell appears that wasn't said on the call.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Names TrackWell as the competitor, citing Sam's line about the prior warehouse pilot",
+        "States the framing that TrackWell is the safe incumbent default and switching must justify itself, cited",
+        "Tags the GPS ping frequency claim (15s vs 60s) as clear, with its quote",
+        "Tags the TMS/middleware integration claim as tentative or secondhand, quoting Sam's own 'secondhand, honestly... just what got repeated' hedge rather than stating it as confirmed",
+        "Tags the pricing claim as tentative, quoting Sam's 'I'd guess... take that with a grain of salt' hedge rather than stating TrackWell is cheaper as fact",
+        "Cites the rep's counter on GPS frequency (offering to demo the enterprise-tier polling interval)",
+        "Cites the rep's counter on pricing (offering a formal quote for an apples-to-apples comparison)",
+        "Lists the TMS/middleware integration claim as left unanswered, since the rep only asked about its source and never actually addressed the claim",
+        "Does not state any fact about TrackWell's real product, pricing, or market position beyond what Sam said on this call",
+        "Every claim, framing line, and counter carries a direct quote or timestamp"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "competitor-battlecard-eval-2-no-competitor-named",
+      "prompt": "run competitor-battlecard on a transcript where the buyer never names a competitor, an alternative vendor, or a preference to stick with the status quo — the call is entirely about the buyer's own internal rollout timeline and stakeholders",
+      "expected_output": "States plainly, after checking, that no competitor was named on this call and stops there rather than inventing a hypothetical competitive frame or forcing the rest of the five-section template.",
+      "files": [],
+      "expectations": [
+        "States plainly that no competitor was named on this call",
+        "Stops after that statement rather than fabricating sections 2 through 5",
+        "Does not invent a hypothetical or generic competitive frame to fill the template"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "competitor-battlecard-eval-3-status-quo-counts-as-competitor",
+      "prompt": "run competitor-battlecard on a transcript where the buyer never names a rival vendor but says plainly they're leaning toward sticking with their current manual spreadsheet process instead of buying anything, citing the cost of switching",
+      "expected_output": "Treats 'staying with the current manual process' as the competitor per this skill's status-quo-counts rule, and writes the battlecard against that frame (how the buyer framed sticking with the status quo, what they said it does well enough, any rep counter, anything left unanswered) rather than saying no competitor was named.",
+      "files": [],
+      "expectations": [
+        "Identifies the status quo (staying with the current manual process) as the competitor for this call, not as 'no competitor named'",
+        "Does not require a named rival vendor to proceed with the battlecard",
+        "Every section is grounded in what the buyer actually said about staying with the status quo, with citations"
+      ]
+    }
+  ]
+}

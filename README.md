@@ -1,13 +1,13 @@
 # zime-gtm-skills
 
-[![Skills](https://img.shields.io/badge/skills-32-blue)](skills/)
+[![Skills](https://img.shields.io/badge/skills-41-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 32 [Agent Skills](https://agentskills.io) that audit sales call
+here. 41 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
@@ -138,8 +138,10 @@ See [Installation](#installation) below for the submodule option and the
 
 ## How these fit together
 
-32 skills: 23 stage motions laid out across the deal lifecycle and 9
-cross-stage initiative skills.
+41 skills: 23 stage motions laid out across the deal lifecycle, 10
+cross-stage initiative skills, and 8 deal-intelligence skills that write
+something forward — a plan, a digest, a drafted email — instead of grading
+a call.
 
 ```
 New business
@@ -215,6 +217,15 @@ one call transcript (or CRM export) in, one evidence-cited audit out.
 | `pain-finder` | Any | Identify pain |
 | `next-step-commitment` | Any | Next step commitment |
 | `adoption-leaderboard` | Any (post-sale) | Behavior adoption |
+| `sell-the-dream` | Any | Vision selling |
+
+**A third class, not in this table: deal intelligence.** The 8
+`mutual-action-plan`/`deal-risk-digest`/`deal-highlights`/
+`follow-up-email-drafter`/`win-loss-brief`/`executive-briefing`/
+`champion-tracker`/`competitor-battlecard` skills don't grade a call
+against a rubric — they write something forward, so a Stage/Initiative
+pair doesn't fit them. See the "Deal intelligence" group in
+[Available skills](#available-skills) instead.
 
 **Roadmap.** Other named methodologies and motions aren't built yet.
 See [ROADMAP.md](ROADMAP.md), or
@@ -244,7 +255,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 ## Available skills
 
 <details open>
-<summary>32 skills across new business, post-sale, and cross-stage initiative</summary>
+<summary>41 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
 
 <!-- SKILLS:START -->
 **New business**
@@ -293,11 +304,25 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 | [pain-finder](skills/pain-finder/) | Ranked pain points with confidence and evidence | transcript |
 | [next-step-commitment](skills/next-step-commitment/) | Whether a call ended in a real, dated, two-sided commitment vs. a vague "we'll circle back" | transcript or CRM export |
 | [adoption-leaderboard](skills/adoption-leaderboard/) | Ranks reps by adoption of five fixed winning behaviors (rapport, upsell signals, renewal risk, customer experience, value realization) across recent calls, lowest first | transcript or connector |
+| [sell-the-dream](skills/sell-the-dream/) | Whether a call builds a future-state vision before pitching product, scored against Andy Raskin's "5 Elements of a Great Sales Narrative" and flagged for feature-first sequencing violations | transcript |
+
+**Deal intelligence**
+
+| Skill | Audits | Input |
+|---|---|---|
+| [mutual-action-plan](skills/mutual-action-plan/) | Writes a mutual action plan from a call — milestones from today to signature, each with an owner on both sides and a date, tagged `heard` or `inferred` | transcript or CRM export |
+| [deal-risk-digest](skills/deal-risk-digest/) | Ranks a whole pipeline export by risk — past-due close date against low probability, stage age, vague next step, single-threaded contact | CRM export (`.csv`) |
+| [deal-highlights](skills/deal-highlights/) | Writes a short highlights digest of one call — a commitment, an objection, a buying signal, a competitive mention, a risk — each cited with its quote | transcript |
+| [follow-up-email-drafter](skills/follow-up-email-drafter/) | Drafts the follow-up email a rep sends after a call, grounded in what was heard vs. proposed, with grounding notes flagging which lines to confirm before sending | transcript |
+| [win-loss-brief](skills/win-loss-brief/) | Writes a brief on why one closed deal was won or lost — outcome plus 3-5 cited drivers, each tagged clear or tentative | transcript or CRM export |
+| [executive-briefing](skills/executive-briefing/) | Writes the short brief a rep sends upward on one deal — snapshot, status, risk, and the ask — each claim cited to a quote or a CSV column/cell | transcript or CRM export |
+| [champion-tracker](skills/champion-tracker/) | Builds a cited action ledger of who's actually acting like a champion across a deal's calls vs. who's just enthusiastic, and reads the trend | transcript |
+| [competitor-battlecard](skills/competitor-battlecard/) | Writes a battlecard for the competitor a buyer actually named on a call — their framing, the rep's counter, and what went unanswered, citing only the transcript | transcript |
 <!-- SKILLS:END -->
 
 </details>
 
-All 23 stage motions are covered; the initiative set is 9 skills today.
+All 23 stage motions are covered; the initiative set is 10 skills today.
 New skills welcome, see [CONTRIBUTING.md](CONTRIBUTING.md). For how these
 are tested, and what that testing can and can't prove, see
 [EVALS.md](EVALS.md).

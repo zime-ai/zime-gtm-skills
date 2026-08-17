@@ -1,0 +1,50 @@
+{
+  "skill_name": "win-loss-brief",
+  "evals": [
+    {
+      "id": 1,
+      "name": "win-loss-brief-eval-1-transcript-ambiguous-driver",
+      "prompt": "run win-loss-brief on skills/win-loss-brief/assets/sample-transcript.txt",
+      "expected_output": "Outcome: Bell Harbor Logistics, Closed Lost. Driver 1 (clear, competitive displacement): lost to Northlake on price, citing Priya's quote that Northlake's quote came in about 15% under and the CFO wouldn't sign off on the gap. Driver 2 (clear, champion strength or loss): champion Marcus was pulled onto another project and absent from the last two review calls, citing that quote. Driver 3 (tentative, timing/pricing-adjacent): a possible budget-tightening factor, cited with Priya's actual hedged quote ('There might be some of that too... I couldn't tell you if that's a real factor') and tagged tentative, not upgraded to a confident driver. Forward-looking notes reference the price gap and/or champion coverage, not generic advice.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "States the outcome as Closed Lost with the deal name and cites the close context",
+        "Names competitive displacement to Northlake on price as a clear driver, quoting the 15% price-gap line",
+        "Names champion loss (Marcus pulled onto another project, absent from recent calls) as a clear driver with its quote",
+        "Cites the budget/timing driver with Priya's actual hedged language ('might be some of that too', 'couldn't tell you if that's a real factor') rather than stating it as a confirmed reason",
+        "Tags the budget/timing driver as tentative (or equivalent hedge label), not as a clear/confident driver",
+        "Section 3's forward-looking notes are grounded in the drivers actually cited in section 2, not generic sales advice",
+        "Every driver has a cited quote"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "win-loss-brief-eval-2-csv-structural-disclaimer",
+      "prompt": "run win-loss-brief on Driftwood Retail from skills/win-loss-brief/assets/sample-pipeline-won-loss.csv",
+      "expected_output": "States up front this is a structural claim built from the CSV row's own fields, not a call-quality claim. Outcome: Closed Lost, close_date 2026-04-02, deal_value 30000. Driver: champion strength or loss, citing reason = 'Champion left company mid-cycle'. Competitor column is empty, so no competitor driver is invented.",
+      "files": [
+        "assets/sample-pipeline-won-loss.csv"
+      ],
+      "expectations": [
+        "States explicitly that a CSV-only brief is a structural claim, not a call-quality claim",
+        "Reports outcome Closed Lost with close_date and deal_value cited from their columns",
+        "Names champion strength or loss as a driver citing reason = 'Champion left company mid-cycle'",
+        "Does not invent a competitor driver since the competitor column is empty for this row"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "win-loss-brief-eval-3-missing-column",
+      "prompt": "run win-loss-brief on a closed-deal CSV export for a lost deal that has no competitor column at all",
+      "expected_output": "States once, up front, that the competitor column is missing from the export, rather than guessing a competitor from another column or silently omitting the gap.",
+      "files": [],
+      "expectations": [
+        "States once, up front, that the competitor column is missing",
+        "Does not infer a competitor from any other column",
+        "Still reports the drivers that other present columns support"
+      ]
+    }
+  ]
+}

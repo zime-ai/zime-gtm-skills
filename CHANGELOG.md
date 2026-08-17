@@ -3,6 +3,31 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [3.0.0] — 41 skills, deal-intelligence dimension, eval framework
+
+41 Agent Skills (up from 32 at 2.1.0), 23 stage + 10 initiative + 8
+intelligence.
+
+**New `intelligence` dimension** (8, all new): `mutual-action-plan`,
+`deal-risk-digest`, `deal-highlights`, `follow-up-email-drafter`,
+`win-loss-brief`, `executive-briefing`, `champion-tracker`,
+`competitor-battlecard`. These write something forward (a plan, a digest, a
+drafted email) instead of grading a call against a rubric, so neither
+`stage` nor `initiative` fit — see `MAINTAINING.md`'s "Two dimensions" for
+the frontmatter contract and the Coverage-table exemption they get.
+
+**New initiative skill** (1): `sell-the-dream`, anchored on Andy Raskin's
+publicly published "5 Elements of a Great Sales Narrative" (no canonical
+"sell the dream" framework exists — see the skill's provenance note).
+
+Also lands the Tier 0 eval framework (`evals/framework/*`, isolated
+RUN/GAP/LEARN stages, judge.py never sees SKILL.md) and `evals/gt-web/`, a
+web-sourced ground-truth mechanism using real published call critiques in
+place of hand-labeled transcripts, since Tier 3 gold-label recall stays
+blocked on having no in-house labeler. Four illustrative self-authored
+evals (`meddicc`, `challenger`, `deal-risk-digest`, `champion-tracker`) ship
+labeled explicitly as not Tier 3.
+
 ## [2.1.0] — 32 skills, registration coverage
 
 32 Agent Skills (up from 29 at 2.0.0), 23 stage + 9 initiative.

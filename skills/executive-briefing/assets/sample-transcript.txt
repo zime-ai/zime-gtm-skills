@@ -1,0 +1,71 @@
+[Synthetic transcript for demo purposes only — no real company or person]
+
+Call: Northbridge Analytics <> Astra Freight Holdings (Rep: Jonah)
+Stage: Late-stage, negotiation — deal still open
+
+00:03 Jonah: Renata, thanks for making time. Wanted to check in before
+next week's board update on your side.
+
+00:10 Renata (VP Operations, Astra Freight Holdings): Of course. Short
+version — we're still moving forward, but I want to be straight with you
+about a couple of things that came up.
+
+00:19 Jonah: Go ahead.
+
+00:21 Renata: Derek, our CFO, joined the exec team last month and he's
+now in the approval loop. He wants a security review before he signs off
+on anything — that wasn't a requirement before he got here.
+
+00:35 Jonah: Okay, that's manageable. Has he said what the review needs
+to cover?
+
+00:40 Renata: Not in detail yet. He mentioned SOC 2 and data residency,
+but I haven't pinned him down on a full list.
+
+00:49 Jonah: Understood. Second thing?
+
+00:52 Renata: Leadership asked us to also look at Ferrovia again before
+we sign anything. It's not that we prefer them — honestly I think we're
+further along with you — but the board wants to see we did a real
+comparison before approving a deal this size.
+
+01:10 Jonah: Do you know when that comparison needs to wrap up?
+
+01:14 Renata: Before the board meeting, so end of next week at the
+latest.
+
+01:19 Jonah: And where does that leave signature timing? Last time we
+spoke you mentioned end of September.
+
+01:25 Renata: That's still the target — September 30 is when our budget
+year closes, so if this doesn't sign by then it likely gets pushed into
+next year's budget entirely.
+
+01:38 Jonah: Got it. On value — I don't think we've actually put a
+number on this one since the seat count changed. What are we looking at
+now?
+
+01:46 Renata: Honestly, I'd have to check with procurement on the final
+number once Derek's team finishes sizing the rollout. I don't have it in
+front of me.
+
+01:55 Jonah: No problem, I'll follow up with procurement directly.
+
+01:58 Jonah: Given all that — could we get a security review call with
+Derek this week, so we're not scrambling in the last few days before the
+30th?
+
+02:07 Renata: I can try to get him on a call this week. I'm not going to
+promise a specific day yet, his calendar's a mess right now, but I'll
+push for it.
+
+02:15 Jonah: That'd help a lot. I'll send over our standard security
+package in the meantime so his team has something to start from.
+
+02:20 Renata: One more thing — I've been the only one driving this from
+our side day-to-day. If Derek's team ends up owning the security review
+directly, that's actually good, it means I'm not the only thread keeping
+this moving.
+
+02:34 Jonah: Appreciate you flagging all of that directly, Renata. I'll
+get the security package over today.

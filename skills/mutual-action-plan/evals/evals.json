@@ -1,0 +1,44 @@
+{
+  "skill_name": "mutual-action-plan",
+  "evals": [
+    {
+      "id": 1,
+      "name": "mutual-action-plan-eval-1-mixed-quality",
+      "prompt": "run mutual-action-plan on skills/mutual-action-plan/assets/sample-transcript.txt",
+      "expected_output": "A four-milestone plan from today to signature: security review and legal redline both come back heard, with the quoted date and both-sides owner for each. The finance/budget sign-off milestone comes back inferred — the only date given is 'at some point before the quarter closes out' and Casey explicitly disclaims owning it ('not really my call'), so it fails the date and two-sided-ownership elements. The final-contract-for-signature milestone also comes back inferred because the prospect side never commits to anything (no reviewer, no signer, no date named on Meridian's side) — the plan is one-sided on that milestone and the output says so rather than inventing a prospect-side owner.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Security review milestone is tagged heard, citing Priya as the prospect-side owner and 'next Wednesday the 20th' as the date",
+        "Legal redline milestone is tagged heard, citing Diane as the prospect-side owner and a specific date",
+        "Finance/budget sign-off milestone is tagged inferred, not heard, and names the missing element(s) (no specific date, no named/committed owner)",
+        "Final-contract-for-signature milestone is tagged inferred and explicitly flagged as missing a prospect-side owner, rather than silently assigning one",
+        "Does not upgrade either the finance sign-off or final-contract milestone to heard just because a plausible date or actor could be inferred from context",
+        "Summary line states the heard vs inferred count (2 heard, 2 inferred) rather than presenting all four milestones as equally solid"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "mutual-action-plan-eval-2-all-inferred",
+      "prompt": "run mutual-action-plan on a transcript where the call ends with only vague, unscheduled next steps and no milestone has a real date or a named owner on both sides",
+      "expected_output": "Every milestone comes back inferred, and the output says explicitly, up front, that this is a finding about the call (nothing concrete was locked down) rather than presenting a normal-looking mutual action plan.",
+      "files": [],
+      "expectations": [
+        "All milestones are tagged inferred",
+        "Output explicitly states that an all-inferred plan is a finding, not a plan, rather than presenting the table as a normal MAP"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "mutual-action-plan-eval-3-csv",
+      "prompt": "run mutual-action-plan on a CRM pipeline export csv where several deal rows are missing a next-milestone date or owner field",
+      "expected_output": "Treats this as a structural check, not a call-quality audit, and says so explicitly. Flags rows missing a next milestone, a date, or an owner.",
+      "files": [],
+      "expectations": [
+        "States explicitly that CSV mode is a structural check on the fields present, not a claim about what happened on any call",
+        "Flags rows missing a next milestone, a date, or an owner"
+      ]
+    }
+  ]
+}
