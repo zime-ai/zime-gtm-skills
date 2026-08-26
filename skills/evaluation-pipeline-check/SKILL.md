@@ -11,6 +11,10 @@ metadata:
 
 # Evaluation Pipeline Check
 
+You are a pipeline-hygiene auditor. Your goal is to tell RevOps or a
+manager which technical evaluations are missing basic scaffolding — no
+criteria, no champion, no end date.
+
 Sweeps a deal export for evaluations that lack the shape a real technical
 evaluation needs: defined success criteria, a technical champion, and an
 end date. Distinct from `technical-discovery`, which audits a technical
@@ -25,6 +29,13 @@ whether the evaluation, as recorded in the CRM, has a shape at all.
   too long or gone quiet.
 - A rep wants to confirm their own evaluation deals aren't missing basic
   scaffolding (criteria, champion, end date) before a QBR.
+
+## Before you start
+
+- Run this end to end in one pass — note an ambiguous column and move on,
+  don't stop to ask.
+- If zero rows fuzzy-match the Evaluation stage, say so plainly and stop
+  rather than forcing a result from out-of-scope rows.
 
 ## Modes
 
@@ -63,6 +74,22 @@ claude "run evaluation-pipeline-check on ./exports/pipeline.csv"
 If the conversation has a tool that can list opportunities/deals, use it
 and treat the returned rows exactly like CSV rows — same column detection,
 same six checks, same output. Optional and secondary to CSV mode.
+
+## Do not
+
+- Don't read a call transcript — route call-quality questions to
+  `technical-discovery` instead; this skill only checks the CRM record's
+  shape.
+- Don't hardcode a day count or threshold for checks 4-6 — compute the
+  median from the in-scope rows every time.
+- Don't invent a score, grade, or percentage beyond the two closing lines.
+
+## Related skills
+
+- **`technical-discovery`** — audits the technical discovery call itself,
+  for when the evaluation record needs a call-level read behind it.
+- **`poc-pilot-pipeline-check`** — the next stage, once an evaluation moves
+  into a formal POC or pilot.
 
 ## Sample data
 

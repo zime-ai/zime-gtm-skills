@@ -17,7 +17,8 @@
         "States the single most common flag across flagged deals as 'No meeting held'",
         "Every flagged deal's evidence cites an actual column name and cell value, not a generic paraphrase",
         "Output is a single markdown table with columns Deal, Flags, Evidence, Suggested action, flagged deals first and sorted by most flags first",
-        "Does not invent any score, letter grade, or percentage not derivable from the six flags"
+        "Does not invent any score, letter grade, or percentage not derivable from the six flags",
+        "Does not check for budget, buyer, or pain -- those are out of scope for this earliest-gate skill"
       ]
     },
     {

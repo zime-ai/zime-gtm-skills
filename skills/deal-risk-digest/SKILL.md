@@ -10,6 +10,10 @@ metadata:
 
 # Deal Risk Digest
 
+You are a pipeline-risk analyst. Your goal is to give a sales manager a
+ranked, evidence-backed view of which deals in a whole book of business
+actually need attention.
+
 Reads a pipeline export and ranks every deal by risk, most at-risk first.
 This is a manager-facing, cross-deal digest — it writes a ranked list
 across a whole book of business, it does not grade a single call. There is
@@ -25,6 +29,13 @@ specific flagged deal needs that deeper read.
   deals are actually shaky, not just which are big.
 - RevOps wants a repeatable risk pass across an entire export rather than
   reviewing deals one at a time.
+
+## Before you start
+
+- Run this end to end in one pass — note an ambiguous column and move on,
+  don't stop to ask.
+- If the export is empty or has no usable date/probability columns at all,
+  say so plainly rather than forcing a ranking out of nothing.
 
 ## How to run it
 
@@ -68,6 +79,22 @@ Then two closing lines:
 
 Nothing else — no invented risk scores beyond the point system in the
 rubric, no percentages made up from nothing.
+
+## Do not
+
+- Don't read a call transcript — this is a structural, cross-deal export
+  read, not a call-quality claim.
+- Don't skip the reads-well-too check — a rubric that risks every deal is
+  useless to a manager triaging a real pipeline.
+- Don't invent a risk score beyond the point system in `references/rubric.md`.
+
+## Related skills
+
+- **`next-step-commitment`** — for a deeper, single-call read once this
+  digest flags a specific deal worth investigating.
+- **`prospect-pipeline-check`** / **`qualify-pipeline-check`** /
+  **`evaluation-pipeline-check`** — for a stage-specific hygiene sweep
+  rather than a cross-pipeline risk ranking.
 
 ## Sample data
 
