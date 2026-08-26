@@ -1,0 +1,20 @@
+Call: Delft Materials <> Vendor — Mid-stage
+Participants: Robin (rep, vendor), Ops Director (Delft Materials)
+
+Robin: Thanks for walking me through the warehouse layout today, that was
+really helpful context.
+
+Ops Director: Of course, glad it was useful.
+
+Robin: I think there's real potential here given what you described about
+inventory counts going stale between physical audits.
+
+Ops Director: Yeah, it's definitely something we've been meaning to fix.
+
+Robin: Should we grab time next week to keep this moving?
+
+Ops Director: Sure, works for me.
+
+Robin: Great, I'll figure out a time that works. Talk soon.
+
+Ops Director: Sounds good, talk soon.

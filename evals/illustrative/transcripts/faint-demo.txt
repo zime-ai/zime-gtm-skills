@@ -1,0 +1,47 @@
+Call: Larkspur Goods <> Vendor — Outbound discovery (cold campaign response)
+Participants: Priya (rep, vendor), Ops Lead (Larkspur Goods)
+
+Priya: Thanks for taking the call — saw you responded to our campaign
+about warehouse automation. What caught your eye?
+
+Ops Lead: Honestly, just curious. We haven't really identified a specific
+pain point, just curious what's out there given how much we're growing.
+
+Priya: Totally fair, happy to just walk you through what this typically
+looks like. Can I ask a bit about how things run today?
+
+Ops Lead: Sure, go for it.
+
+Priya: What does your team currently use for warehouse ops?
+
+Ops Lead: Mostly a mix of spreadsheets and a legacy WMS we've had for
+years. Nothing fancy, but nothing's actively broken either.
+
+Priya: Got it. If I showed you what a modern setup could look like, would
+that be useful?
+
+Ops Lead: Yeah, actually, I'd like to see that. How does the onboarding
+side usually work? And is it something that plugs into existing barcode
+scanners or does it need new hardware?
+
+Priya: Good questions — I'll walk through both in the demo. On the budget
+side, is this something you'd have room for if it made sense?
+
+Ops Lead: We're not tight on cash right now, if this was worth it we
+could probably just fold it into next quarter's ops tooling budget.
+Nothing formally set aside, but it wouldn't be a fight internally.
+
+Priya: Good to know. Who else would be involved if this moved forward?
+
+Ops Lead: I'd bring it to my director if we ever got serious about it. I
+handle day-to-day ops decisions myself, but anything with real spend
+attached, she'd want to weigh in.
+
+Priya: Makes sense. Any particular timeline you're working against —
+anything driving urgency?
+
+Ops Lead: Not really, nothing specific. Just exploring at this point.
+
+Priya: Understood, no rush. Would a short demo make sense as a next step?
+
+Ops Lead: Yeah, I'd like that. Let's find time for it.

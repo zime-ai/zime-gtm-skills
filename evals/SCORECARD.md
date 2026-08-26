@@ -53,6 +53,13 @@ Transcript-audit skills (findings-recall shape):
 |---|---|---|---|---|---|
 | `meddicc` | 4/4 | 0 (1 soft overstatement) | No credit — folded into a rubric bucket | 4/7 | See `evals/illustrative/README.md` |
 | `challenger` | 4/4 | 0 | Full credit — surfaced as its own finding | 2/3 comparable | Gold guessed a rubric dimension the skill doesn't score — flagged as a gold-construction mismatch, not a skill defect. See `evals/illustrative/README-challenger.md` |
+| `meddpicc` | — | 0 | — | 4/8 exact match | Both planted traps (Paper process, Champion) avoided their designed lenient failure but missed gold's exact answer in opposite directions — one too strict, one too lenient. See `evals/illustrative/README-meddpicc.md` |
+| `faint` | — | 0 | — | 5/5 exact match | Clean pass — both planted traps (Authority from title alone, Need's absence given strong Interest) passed. See `evals/illustrative/README-faint.md` |
+| `sandler` | — | 0 | — | 7/7 exact match | Clean pass — both planted traps (Pain from a symptom mention, Fulfillment from a hedged "I guess, sure") passed, sequencing violation named correctly. See `evals/illustrative/README-sandler.md` |
+| `bant` | — | 0 | — | 4/4 exact match | All criteria matched gold including the planted Authority trap; closing advance-call line didn't carry the Authority-Partial finding through to its own follow-up recommendation. See `evals/illustrative/README-bant.md` |
+| `pain-finder` | 4/4 pains recalled, correct order | 0 | — | — | Both planted traps passed — a downplayed pain stayed Low confidence, a thin pain was reported rather than dropped. Category labels reworded from gold but evidence/confidence/order all matched. See `evals/illustrative/README-pain-finder.md` |
+| `next-step-commitment` | — | 0 | — | — | Single-verdict shape, not a scorecard. Planted trap (momentum-sounding language must not read as `Real commitment`) passed; verdict landed on `No commitment`, all 3 missing elements correctly named. See `evals/illustrative/README-next-step-commitment.md` |
+| `sell-the-dream` | — | 0 | — | 4/5 exact match | Sequencing violation (feature pitched before vision) caught with correct root cause; one element score (`Missed` vs. gold's `Covered`) double-counted the same order problem the sequencing section already flags. See `evals/illustrative/README-sell-the-dream.md` |
 
 CSV pipeline-sweep skills (row/ranking-accuracy shape):
 
