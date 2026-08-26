@@ -35,7 +35,8 @@
       "files": [],
       "expectations": [
         "Declines a .csv input rather than attempting a partial read",
-        "States plainly that this skill is transcript-only and why"
+        "States plainly that this skill is transcript-only and why",
+        "Does not attempt any partial or best-effort structural read of the CSV before declining"
       ],
       "name": "first-call-rampup-eval-3"
     }

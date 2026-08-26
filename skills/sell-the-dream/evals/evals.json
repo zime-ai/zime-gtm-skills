@@ -32,7 +32,8 @@
         "The audit identifies the 'the whole industry is moving toward continuous underwriting' line as a bolted-on, after-the-fact vision statement rather than a Covered element 1",
         "A sequencing violation is explicitly flagged as a distinct, named finding, not merged silently into one element's Note",
         "The sequencing violation finding states that features (scoring engine, data unification layer, dashboard) were introduced before any change-in-the-world or promised-land framing",
-        "The audit does not stop at scoring each element in isolation as if order did not matter"
+        "The audit does not stop at scoring each element in isolation as if order did not matter",
+        "Does not name or cite Corporate Visions' or Force Management's step names as if they were this skill's own scoring framework"
       ]
     }
   ]

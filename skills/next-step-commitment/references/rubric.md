@@ -6,24 +6,41 @@ resembling a next step at all) is No commitment.
 
 ## 1. Specific action
 
-Not "follow up," "circle back," or "stay in touch" — a named thing:
-a demo scheduled, a proposal sent for review, an intro made to a named
-stakeholder, a signed document reviewed by legal.
+**What it is.** A named thing that will happen next, not a vague promise
+to stay in touch — the sales-call equivalent of an assigned, ownable task
+rather than an open-ended intent.
+
+**Covered looks like:** a demo scheduled, a proposal sent for review, an
+intro made to a named stakeholder, a signed document reviewed by legal.
+**Missed looks like:** "follow up," "circle back," or "stay in touch," with
+no named deliverable behind it.
 
 ## 2. Date or concrete trigger
 
-Either an actual calendar date/time, or an event with an obvious, checkable
-occurrence ("once procurement responds to the security questionnaire").
-"Soon," "next quarter," or "early next year" with nothing more specific
-fails this element.
+**What it is.** Either an actual calendar date/time, or an event with an
+obvious, checkable occurrence — something either side could point to and
+say "that happened" or "that hasn't happened yet."
+
+**Covered looks like:** a named date/time, or a trigger like "once
+procurement responds to the security questionnaire." **Missed looks like:**
+"soon," "next quarter," or "early next year" with nothing more specific
+attached.
 
 ## 3. Two-sided ownership
 
-The prospect commits to doing something too — showing up to a scheduled
-call, looping in a stakeholder, reviewing a document by a date — not just
-the rep promising to send something. A commitment that is entirely the
-rep's to fulfill is not a real next step; it's a to-do item the rep gave
-themselves.
+**What it is.** Whether the prospect commits to doing something too —
+showing up to a scheduled call, looping in a stakeholder, reviewing a
+document by a date — versus the rep being the only party with something to
+do.
+
+**Covered looks like:** the prospect names a specific thing they'll do and
+by when. **Missed looks like:** the entire next step is the rep's to
+fulfill — a to-do item the rep gave themselves, not a mutual commitment.
+
+"I'll send you a proposal and you can take a look" is Missed on this
+element — no ownership handed back; "I'll send it Thursday, can you get me
+a yes/no by early next week so we lock the demo date" is Covered — the
+prospect now owns a deliverable with a deadline too.
 
 ## Verdicts
 

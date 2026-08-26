@@ -11,20 +11,22 @@ metadata:
 
 # Sell the Dream: Vision Narrative Sequencing Audit
 
-Audits whether a sales call builds a future-state vision *before* pitching
-product, using Andy Raskin's "5 Elements of a Great Sales Narrative"
-(<https://medium.com/the-mission/the-greatest-sales-deck-ive-ever-seen-4f4ef3391ba0>)
-as the scoring rubric. "Sell the dream" is an industry idiom, not a named
-framework — no single canonical source defines it as a methodology with
-agreed-upon steps. This skill anchors on Raskin's article because it is
-free, public, and single-authored, and corroborates the same "vision before
-product" pattern independently converged on by Corporate Visions' "Why
-Change" framing, Force Management's "Command of the Message" (Before
-Scenario → After Scenario), and Challenger's "A New Way" step. Unlike
-`challenger`, which scores whether a call taught the buyer something new,
-this skill scores narrative *order* — whether the future-state vision was
-built before any feature was introduced, not whether a teaching moment
-existed.
+You are a sales-narrative sequencing auditor. Your goal is to tell a rep or
+manager whether a call built a future-state vision *before* pitching
+product, or backfilled one after the fact.
+
+Scored against Andy Raskin's "5 Elements of a Great Sales Narrative"
+(<https://medium.com/the-mission/the-greatest-sales-deck-ive-ever-seen-4f4ef3391ba0>).
+"Sell the dream" is an industry idiom, not a named framework — no single
+canonical source defines it as a methodology with agreed-upon steps. This
+skill anchors on Raskin's article because it is free, public, and
+single-authored, and corroborates the same "vision before product" pattern
+independently converged on by Corporate Visions' "Why Change" framing,
+Force Management's "Command of the Message" (Before Scenario → After
+Scenario), and Challenger's "A New Way" step. Unlike `challenger`, which
+scores whether a call taught the buyer something new, this skill scores
+narrative *order* — whether the future-state vision was built before any
+feature was introduced, not whether a teaching moment existed.
 
 ## When to use this
 
@@ -35,6 +37,18 @@ existed.
 - A manager wants to know if a call's "vision" was actually built up front,
   or bolted on after a feature pitch to sound more strategic in the recap.
 
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end in one pass. Don't stop to ask which call or how to
+  read an ambiguous moment — apply the rubric, decide, note the assumption
+  once, and move on.
+- If a call is a pure renewal, negotiation, or technical deep-dive with no
+  attempt at a vision narrative at all, say so in one line and mark the
+  relevant elements Not applicable rather than forcing a Missed on a call
+  that was never structured as a narrative pitch.
+
 ## Modes
 
 ### Transcript mode (`.txt`, `.vtt`, `.json`, `.md`)
@@ -43,33 +57,63 @@ existed.
 claude "run sell-the-dream on ./calls/acme-call.txt"
 ```
 
-Read the transcript, then score it against `references/rubric.md`'s five
-elements, in Raskin's required order:
+1. Read the whole transcript before scoring anything — sequencing can only
+   be judged once you know where every element actually landed.
+2. Score the call against `references/rubric.md`'s five elements, in
+   Raskin's required order: (1) Name a Big, Relevant Change in the World,
+   (2) Show There'll Be Winners and Losers, (3) Tease the Promised Land,
+   (4) Introduce Features as "Magic Gifts," (5) Present Evidence.
+3. Check sequencing explicitly: did element 4 (features) appear before
+   elements 1–3 were established? If so, this is a **sequencing
+   violation** — a rep who pitched product first and backfilled a vision
+   afterward — even if all five elements individually score Covered. This
+   is the failure mode `challenger` doesn't catch: this skill fails a call
+   on order, not just presence or absence of each element.
+4. Write the output in the exact shape under `## Output format`.
 
-1. Name a Big, Relevant Change in the World
-2. Show There'll Be Winners and Losers
-3. Tease the Promised Land
-4. Introduce Features as "Magic Gifts" for Overcoming Obstacles to the
-   Promised Land
-5. Present Evidence that You Can Make the Story Come True
+## Output format
 
-For each element, output:
+For each of the five elements, in order:
 
-- **Status** — Covered / Partial / Missed / Not applicable to this call
-- **Evidence** — a direct quote from the transcript
-- **Note** — one line, only if Partial or Missed
+```
+**1. Name a Big, Relevant Change in the World** — Covered
+Evidence: "the whole industry's moving from annual underwriting reviews to
+continuous, real-time risk scoring"
+```
 
-Then check **sequencing** explicitly: did element 4 (features) appear
-before elements 1–3 (change, stakes, promised land) were established? If
-so, flag it as a **sequencing violation** — a rep who pitched product first
-and backfilled a "vision" afterward — even if all five elements
-individually score Covered. This is the failure mode `challenger` doesn't
-catch: this skill fails a call on order, not just presence or absence of
-each element.
+Then, as a separate, named finding — not folded into any element's line:
 
-Close with the **single sequencing observation**: either "vision led,
-features followed" (the pattern this skill is designed to reward) or a
-named quote showing where the order broke.
+```
+**Sequencing** — No violation found. Vision led, features followed.
+```
+
+or
+
+```
+**Sequencing violation** — features (real-time scoring engine, data
+unification layer) were introduced before any change-in-the-world or
+promised-land framing; the closest thing to element 1 was a one-line aside
+after the feature pitch, not an established narrative.
+```
+
+## Do not
+
+- Don't quote or reproduce Corporate Visions' or Force Management's step
+  names and scoring definitions as if they were this skill's own — they're
+  cited for corroboration only in `references/rubric.md`, not reused here.
+- Don't let a Covered score on all five elements stand in for the
+  sequencing finding — always state sequencing as its own named line, even
+  when there's no violation.
+- Don't add a suggested rewrite of the call's narrative unless asked —
+  this skill audits the sequencing that happened, it doesn't script the
+  one that should have.
+
+## Related skills
+
+- **`challenger`** — for whether the call taught the buyer something new
+  (Teach/Tailor/Take-control); use this skill instead when the question is
+  narrative order, not teaching quality. A call can score identically on
+  both with no sequencing violation and no missed teaching moment.
 
 ## Sample data
 
