@@ -15,7 +15,8 @@
         "Acme Corp and Hooli are scored Clean on every check",
         "Every flagged row cites the specific column name and cell value that triggered each flag, e.g. buyer_role = (empty) or close_date = 2026-08-16",
         "Closing lines report '7 of 9 deals in Qualify pipeline flagged' and identify 'no next step' as the most common flag",
-        "Output is a single markdown table with columns Deal, Flags, Evidence, Suggested action, followed only by the two closing lines"
+        "Output is a single markdown table with columns Deal, Flags, Evidence, Suggested action, followed only by the two closing lines",
+        "Does not read or infer anything from a call transcript -- this is a CRM record-hygiene check only"
       ]
     },
     {

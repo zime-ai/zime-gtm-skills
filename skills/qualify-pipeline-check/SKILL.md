@@ -11,6 +11,10 @@ metadata:
 
 # Qualify Pipeline Check
 
+You are a pipeline-hygiene auditor. Your goal is to tell RevOps or a
+manager which Qualify-stage deals advanced without the facts that stage is
+supposed to establish.
+
 Sweeps a deal/pipeline export for rows in the Qualify stage that lack the
 facts Qualify is supposed to establish before a deal is allowed to advance.
 This is a record-hygiene check, not a call-quality audit — it never reads a
@@ -26,6 +30,13 @@ asks only whether the CRM can prove qualification happened at all.
   deals are actually just aging Discovery deals with a stage label changed.
 - Before a pipeline review, to flag deals that will not survive real
   scrutiny on economic buyer, budget, or next step.
+
+## Before you start
+
+- Run this end to end in one pass — note any ambiguous column and move on,
+  don't stop to ask.
+- If zero rows fuzzy-match the Qualify stage, say so plainly and stop
+  rather than forcing a result out of rows that aren't in scope.
 
 ## Input
 
@@ -84,6 +95,23 @@ Then exactly two closing lines:
 
 Nothing else — no scores, no letter grades, no percentages invented from
 data that isn't there.
+
+## Do not
+
+- Don't read a transcript or infer what was said on a call — this is a
+  record-hygiene check only, route call-quality questions to
+  `meeting-to-qualify` or `sql-to-qualify`.
+- Don't infer a missing column's value from another column — report Unknown
+  instead.
+- Don't invent a score, grade, or percentage beyond the two closing lines.
+
+## Related skills
+
+- **`meeting-to-qualify`** / **`sql-to-qualify`** — audit the qualification
+  conversation itself, for when the CRM record needs a call-level read
+  behind it.
+- **`prospect-pipeline-check`** — the earlier gate, before budget/buyer/pain
+  are even in scope.
 
 ## Sample data
 
