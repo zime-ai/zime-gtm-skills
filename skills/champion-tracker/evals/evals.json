@@ -46,6 +46,17 @@
         "The headline finding states plainly that there is no champion, only enthusiastic contacts (e.g. 'no champion, only a friend') rather than being softened into language like 'strong stakeholder engagement'",
         "No contact is named a champion or champion candidate"
       ]
+    },
+    {
+      "id": 4,
+      "name": "champion-tracker-eval-4-silent-contact-excluded",
+      "prompt": "Run champion-tracker on a call transcript where a named contact is on the call but never says anything that is an act of internal selling or a statement of positive sentiment",
+      "expected_output": "That contact gets no row in the ledger at all -- the skill does not invent a row to pad the ledger or note their presence without a citable line.",
+      "files": [],
+      "expectations": [
+        "The silent/neutral contact has no row in the action ledger",
+        "No row is invented just to acknowledge a contact's presence on the call"
+      ]
     }
   ]
 }
