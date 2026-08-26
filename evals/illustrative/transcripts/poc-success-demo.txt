@@ -1,0 +1,54 @@
+Call: Thornbury Freight <> Vendor — POC exit review
+Participants: Casey (rep, vendor), Ops Champion (Thornbury Freight), two
+analysts who ran the pilot day to day
+
+Casey: Let's go through the four criteria we agreed at kickoff one by one.
+Query latency?
+
+Champion: Met — we averaged 1.4 seconds against the sub-2-second bar.
+
+Casey: Uptime?
+
+Champion: Met, no incidents during the pilot window.
+
+Casey: Report accuracy?
+
+Champion: Met — error rate dropped from 12% to 5%, which matches what we
+tracked against our own ticket log.
+
+Casey: And SSO integration?
+
+Champion: That one's not met, it's still pending on our side.
+
+Casey: Understood — I'll flag that as open. You two ran this day to day —
+does that match what you saw?
+
+Analyst 1: Yeah, the dashboard fully replaced our manual export process,
+that part's been solid.
+
+Analyst 2: Agreed, the latency improvement is real, we noticed it
+immediately.
+
+Casey: Good to hear directly. On sign-off — where does your VP land on
+this?
+
+Champion: She's thrilled, honestly. I haven't gotten her on a call about it
+yet but I know she'll be fine with it, she's been asking me for updates the
+whole time.
+
+Casey: Got it, I'll want that in writing once you connect with her.
+Anything left before this could go to production?
+
+Champion: The SOC 2 review our infosec team is running — targeted to close
+by the 15th, that's really the only open item.
+
+Casey: And mobile push notifications — that wasn't in scope for this pilot,
+right?
+
+Champion: Right, that's a phase-two thing for us, not something we need
+before signing.
+
+Casey: Great. I'll get a contract redline started so it's ready once the
+SOC 2 review closes and your VP confirms.
+
+Champion: Sounds good, appreciate you walking through it like this.

@@ -1,0 +1,46 @@
+Call: Kestrel Health <> Vendor — Discovery call
+Participants: Morgan (rep, vendor), Riley (Director of IT, Kestrel Health)
+
+Morgan: Thanks for hopping on, Riley. Before we get into it — what's your
+role look like day to day, and what would you actually be on the hook for
+with something like this?
+
+Riley: My title says Director of IT, but for something like this I'm the
+one in the weeds — I'd be the one testing the API and pushing it through
+our security review. Budget sign-off for anything this size actually sits
+with our CIO, I just make the technical call on whether it's viable.
+
+Morgan: Good to know, that'll shape how I walk you through this. You'd
+mentioned before the call that you get paged a lot around month-end batch
+jobs — is that still the pattern?
+
+Riley: Yeah, exactly. Webhook retries pile up around month-end and we get
+paged constantly for it.
+
+Morgan: That's actually the thing I want to show you — our retry backoff is
+configurable per endpoint, which is usually what fixes exactly that
+month-end spike pattern you're describing, rather than a flat retry
+interval hammering you at the same time everything else is under load.
+
+Riley: That's helpful, that's a real problem for us specifically, not just
+a nice-to-have.
+
+Morgan: On the security side — what's usually the sticking point for your
+review?
+
+Riley: Auth, mostly. Do you support SSO with our IdP?
+
+Morgan: Yep, SAML and OIDC both. I can get you our security whitepaper with
+the exact IdP integration details today.
+
+Riley: That'd help a lot.
+
+Morgan: Given all that, what I'd suggest is getting you sandbox access this
+week so you can actually test the retry behavior yourself against a
+simulated month-end load, rather than take my word for it.
+
+Riley: That works. I'd rather see it myself than sit through more slides.
+
+Morgan: I'll get that set up today. Anything else before we wrap?
+
+Riley: No, that covers it for now.
