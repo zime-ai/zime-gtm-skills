@@ -1,0 +1,46 @@
+Call: Palisade Retail <> Vendor — Qualification call
+Participants: Jamie (rep, vendor), Taylor (VP of Operations, Palisade Retail)
+
+Jamie: Thanks for the time, Taylor. What's driving you to look at this now?
+
+Taylor: We're getting audited next quarter and our access logs are a mess
+right now — that's the real driver here.
+
+Jamie: Got it. And where does a decision like this land internally — is
+that something you'd sign off on?
+
+Taylor: I'm VP of Ops, but for a purchase like this it actually goes
+through our procurement committee. I don't have final sign-off even at
+this level — that's a corporate-wide process for anything IT-related. I'd
+present the case, but the call isn't mine alone.
+
+Jamie: Understood. Any sense of budget for something like this?
+
+Taylor: There's a line item for compliance tooling this year. I couldn't
+tell you the exact ceiling off the top of my head.
+
+Jamie: And timing — is the audit driving a hard date?
+
+Taylor: Audit's in 10 weeks. We'd need something in place at least two
+weeks before that to have any confidence going in.
+
+Jamie: That lines up well with what we do — this is basically built for
+exactly that kind of access-log gap.
+
+Taylor: Yeah, from what you've described it sounds like a direct match for
+what we're missing.
+
+Jamie: Have you looked at anything else for this?
+
+Taylor: Not really, this came up fast because of the audit timeline.
+
+Jamie: Fair enough. What would be a good next step?
+
+Taylor: Let's get procurement on a call — Thursday at 2pm works on my end,
+I'll send the invite and loop them in directly.
+
+Jamie: Perfect, I'll prep something specific for the audit timeline for
+that call.
+
+Taylor: Sounds good. Honestly this whole area's been a slow-moving mess for
+us for a while, glad it's finally getting attention.
