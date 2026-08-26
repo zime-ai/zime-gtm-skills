@@ -1,0 +1,50 @@
+Call: Anchor Freight <> Vendor — Technical discovery call
+Participants: Devon (rep, vendor), Casey (Ops Director, Anchor Freight)
+
+Devon: Thanks for hopping on, Casey. What's the current setup look like on
+your end?
+
+Casey: We're on a legacy TMS. Data flows out through a nightly CSV export
+into our data warehouse — that's basically the whole pipeline right now.
+
+Devon: And what would you want that to look like instead?
+
+Casey: Real-time, honestly. Right now if a route status changes, we don't
+see it in reporting until the next morning. We want that live instead of
+overnight.
+
+Devon: Makes sense. If we were to pilot this, what would you want to test
+it against?
+
+Casey: Let's just pilot with our West region routes for a month, see how it
+goes.
+
+Devon: Got it — anything that has to stay untouched, or systems that are
+off-limits for the pilot?
+
+Casey: Hadn't really thought about that, let's just start and see what
+comes up.
+
+Devon: Who on your technical side would be looking at this closely — API
+behavior, data mapping, that kind of thing?
+
+Casey: Honestly I'm just really excited about this, I think the whole team
+is going to love having live data. I don't think we need to overthink who's
+involved.
+
+Devon: And for the pilot itself, how would we know it actually worked?
+
+Casey: I mean, it should just feel faster and more up to date than what we
+have now.
+
+Devon: On your side, who'd actually be around to help pull data or answer
+questions during the pilot?
+
+Casey: Our ops coordinator, Jamie, can support data pulls — she's got a few
+hours a week free for this kind of thing.
+
+Devon: Great, that helps. Let's get a kickoff on the calendar for next
+Tuesday, with Jamie included so we can start pulling sample data right
+away.
+
+Casey: Works for me, I'll get her looped in.

@@ -1,0 +1,42 @@
+Call: Briar Manufacturing <> Vendor — Demo call
+Participants: Alex (rep, vendor), Ops Lead (Briar Manufacturing) — same
+contact from the earlier discovery call, no new attendees
+
+Alex: Last time we talked, you mentioned shift-change handoffs were losing
+data between the outgoing and incoming crews — that's what I want to walk
+through today.
+
+Ops Lead: Okay, sounds good.
+
+Alex: So here's the handoff screen — instead of your team writing notes
+into the shared Excel log, both shifts see the same live board, and nothing
+closes out until the incoming shift acknowledges each item.
+
+Ops Lead: Mm-hm.
+
+Alex: And this replaces that Excel handoff log entirely — anything typed in
+there today would live here instead, with a timestamp and who entered it.
+
+Ops Lead: Okay, got it.
+
+Alex: Here's the reporting view, filtering by shift or by line.
+
+Ops Lead: Okay.
+
+Alex: And if two people update the same item at once, it flags the
+conflict instead of silently overwriting.
+
+Ops Lead: Does this handle partial shift overlaps — like when two shifts
+overlap for twenty minutes and both are touching the same line at once?
+
+Alex: Good question — yes, it timestamps both entries and shows them
+side-by-side rather than picking one, so nothing gets silently dropped
+during the overlap window.
+
+Ops Lead: That's actually the exact situation that trips up our Excel
+sheet today.
+
+Alex: Good to know. I'll get you a proposal by Friday with the handoff flow
+scoped specifically to your line structure.
+
+Ops Lead: Sounds fine, send it over.
