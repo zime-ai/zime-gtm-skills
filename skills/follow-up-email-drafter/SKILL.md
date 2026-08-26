@@ -10,13 +10,20 @@ metadata:
 
 # Follow-Up Email Drafter
 
-Drafts the actual follow-up email a rep sends after a call — subject line
-and body, ready to send. This is a different shape from most skills in
-this repo: the output itself is customer-facing text, not an internal
-audit, digest, or plan. That makes the grounding rule below the most
-important thing here — a drafted email that promises something the call
-never established is worse than no draft at all, because the prospect
-reads it as a commitment.
+You are a deal-intelligence writer. Draft the actual follow-up email a rep
+sends after a call — subject line and body, ready to send. This is a
+different shape from most skills in this repo: the output itself is
+customer-facing text, not an internal audit, digest, or plan. That makes
+the grounding rule below the most important thing here — a drafted email
+that promises something the call never established is worse than no draft
+at all, because the prospect reads it as a commitment.
+
+## Before you start
+
+- Run this end to end without stopping to ask which claims to include —
+  apply the `heard`/`inferred` test to every line and phrase accordingly.
+- If the call ended with nothing concrete, don't ask whether to draft
+  anyway — send the minimal recap email described below.
 
 Lighter-weight than `mutual-action-plan`: that skill builds a full
 milestone-by-milestone plan to signature with owners on both sides; this
@@ -80,6 +87,22 @@ instead of padding it with invented asks.
 `assets/sample-transcript.txt` is a synthetic call with a deliberately
 mixed set of moments — one clearly-agreed next step, one vaguer moment a
 shallow drafter would over-promise on. Run the skill against it first.
+
+## Do not
+
+- Don't state a `Proposed` (inferred) item as an agreed fact in the email
+  body — it goes in as a suggestion or gets left out.
+- Don't let the `Heard`/`Proposed` tags leak into the email itself — that
+  distinction belongs only in the grounding notes.
+- Don't invent a next step, number, date, or name the call didn't at least
+  gesture toward.
+
+## Related skills
+
+- `mutual-action-plan` builds the full milestone-by-milestone plan to
+  signature; use this skill instead when the ask is just the next email.
+- `deal-highlights` writes the internal manager-facing digest; this skill
+  writes the customer-facing email.
 
 ## What this does not do
 

@@ -10,12 +10,21 @@ metadata:
 
 # Champion Tracker
 
-Tracks champion strength across a deal's call history. This is a
-phase-2 deal-intelligence skill — it applies `meddicc`'s Champion bar
-longitudinally and per-person instead of scoring it as one letter in a
-7-8 letter scorecard. Where `meddicc` asks "is there a champion, this
-call?", this skill asks "which named contact, across every call so far,
-is actually acting like one — and is that getting stronger or weaker?"
+You are a deal-intelligence writer. Track champion strength across a
+deal's call history. This is a phase-2 deal-intelligence skill — it
+applies `meddicc`'s Champion bar longitudinally and per-person instead of
+scoring it as one letter in a 7-8 letter scorecard. Where `meddicc` asks
+"is there a champion, this call?", this skill asks "which named contact,
+across every call so far, is actually acting like one — and is that
+getting stronger or weaker?"
+
+## Before you start
+
+- Run this end to end without stopping to ask which contacts to track —
+  every named contact who speaks gets evaluated against the Action/
+  Sentiment test.
+- If only one transcript is given, report "insufficient history" for the
+  trend line rather than guessing a direction from a single data point.
 
 ## When to use this
 
@@ -104,6 +113,23 @@ signal, not a strength to report.
 `assets/sample-call-1.txt` and `assets/sample-call-2.txt` are two
 synthetic calls from the same deal, in order — run the skill against
 both together first.
+
+## Do not
+
+- Don't call someone a champion on Sentiment rows alone — the bar is
+  demonstrated action, not enthusiasm.
+- Don't invent a trend from a single call — say "insufficient history"
+  instead.
+- Don't soften "no champion, only a friend" into a vaguer strength claim
+  when every row across every contact is Sentiment.
+
+## Related skills
+
+- `meddicc` scores Champion as one letter in a single-call scorecard; this
+  skill applies that same bar longitudinally, per named contact, across
+  every call.
+- `deal-highlights` and `mutual-action-plan` write forward from one call;
+  this skill's read only gets stronger with more calls in the same deal.
 
 ## What this does not do
 

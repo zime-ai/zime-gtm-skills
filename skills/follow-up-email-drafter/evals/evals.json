@@ -31,6 +31,18 @@
         "Drafted email is a minimal recap/thank-you email and does not include a fabricated next step, date, or ask",
         "Grounding notes do not list invented heard or proposed items that weren't actually discussed"
       ]
+    },
+    {
+      "id": 3,
+      "name": "follow-up-email-drafter-eval-3-runs-without-asking",
+      "prompt": "run follow-up-email-drafter on skills/follow-up-email-drafter/assets/sample-transcript.txt",
+      "expected_output": "Drafts the email directly in the same response, without first asking the user whether to draft it, which items to include, or how to phrase the proposed items.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Produces the drafted email and grounding notes in the same response, without a clarifying question first"
+      ]
     }
   ]
 }

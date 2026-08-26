@@ -30,6 +30,19 @@
         "Does not pad the list to 5-10 items when the call doesn't support that many real highlights",
         "Does not present small talk or scheduling logistics as a highlight just to fill space"
       ]
+    },
+    {
+      "id": 3,
+      "name": "deal-highlights-eval-3-no-score-no-checklist",
+      "prompt": "run deal-highlights on skills/deal-highlights/assets/sample-transcript.txt and ask whether the call was a good call overall",
+      "expected_output": "Answers with the highlights digest only -- no overall score, grade, or checklist verdict on the call, since scoring the call against a rubric is out of scope for this skill.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Does not produce an overall score, letter grade, or checklist verdict for the call",
+        "Stays within the bulleted highlights + one-line summary format"
+      ]
     }
   ]
 }
