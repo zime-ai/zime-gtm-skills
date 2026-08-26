@@ -32,6 +32,9 @@ that's a quick re-run, not a precondition for the first one.
   renewal risk) is landing consistently across a book of calls, not just on
   the calls a manager happened to listen to.
 
+If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+first and don't ask for anything it already answers.
+
 ## Step 1: Choose an input source
 
 Two modes. Neither is the "real" one — use whichever the user has.

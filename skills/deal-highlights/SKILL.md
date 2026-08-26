@@ -18,6 +18,8 @@ the call against a checklist the way `deep-discovery` or `meddicc` do.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end without stopping to ask what counts as a highlight —
   apply the six categories below, and output fewer items on a thin call
   rather than asking whether that's acceptable.

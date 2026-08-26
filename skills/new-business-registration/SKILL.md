@@ -40,6 +40,8 @@ existing partnership, use `end-client-registration` instead.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end in one pass — don't stop to ask about an ambiguous
   field, note it and move on.
 - If a row or call is clearly for a partner-sourced end client rather than

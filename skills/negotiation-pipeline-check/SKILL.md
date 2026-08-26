@@ -21,6 +21,8 @@ structural pieces a deal needs to actually close.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end in one pass — don't stop to ask which stage label to
   match or what counts as a stale close date; apply the defaults in
   `references/rubric.md`, decide, and note the assumption once.
