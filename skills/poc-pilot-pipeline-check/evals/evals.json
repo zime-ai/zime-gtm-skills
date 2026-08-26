@@ -42,6 +42,18 @@
         "The in-scope row count excludes Wonka Industries"
       ],
       "name": "poc-pilot-pipeline-check-eval-3"
+    },
+    {
+      "id": 4,
+      "prompt": "run poc-pilot-pipeline-check on a pipeline export with zero rows in the POC/pilot stage",
+      "expected_output": "States plainly that no rows fell in scope and stops -- no table, no flags forced onto out-of-stage rows.",
+      "files": [],
+      "expectations": [
+        "States that zero rows were in scope for the POC/pilot stage",
+        "Does not produce a flagged/clean table or force a check onto out-of-scope rows",
+        "Does not blend flags into a single health score or letter grade"
+      ],
+      "name": "poc-pilot-pipeline-check-eval-4"
     }
   ]
 }
