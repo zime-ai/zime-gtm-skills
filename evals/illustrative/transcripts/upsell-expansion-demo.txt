@@ -1,0 +1,41 @@
+Call: Cobblestone Realty Group <> Vendor — Expansion conversation
+Participants: Jordan (AM, vendor), Sam (champion, Cobblestone Realty Group)
+
+Jordan: Good to connect. Before we get into the expansion idea — how's
+everything running day to day?
+
+Sam: Honestly, usage has dropped a bit since our main admin left last
+month. We're still figuring out coverage for that role.
+
+Jordan: Got it, thanks for flagging that. What's the expansion idea you
+mentioned?
+
+Sam: Our support team — six people — wants access after seeing how the
+sales team uses the call-coaching feature. They asked me about it directly
+last week.
+
+Jordan: That's a concrete driver. Where do you see this going internally —
+would you be the one pushing it forward?
+
+Sam: I'm really excited about it, honestly, I think it'd help a ton.
+
+Jordan: Any open issues on the product side we should deal with first?
+
+Sam: There's still that open ticket on the export bug — probably worth
+closing that out before we add more people relying on it.
+
+Jordan: Fair, we'll prioritize that. Does this expansion tie into anything
+your leadership's pushing this year?
+
+Sam: Yeah, actually — this is part of the efficiency push our COO mentioned
+last quarter.
+
+Jordan: On the usage dip — is that a training thing, or is something else
+going on?
+
+Sam: No, it's not training, it's just that our admin left and no one's
+picked up her configuration tasks yet. Not a fit problem.
+
+Jordan: Understood. I'll get a proposal together for your VP by Friday.
+
+Sam: Sounds good, appreciate it.

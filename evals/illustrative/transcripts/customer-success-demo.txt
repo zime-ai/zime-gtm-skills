@@ -1,0 +1,45 @@
+Call: Larkspur Financial <> Vendor — Quarterly business review
+Participants: Robin (CSM, vendor), Diane (original champion, Larkspur
+Financial) — sole attendee on the customer side
+
+Robin: Let's start with the goal we set at the outset — how's that
+tracking?
+
+Diane: We set out to cut reconciliation time in half, and we're at a 55%
+reduction six months in.
+
+Robin: That's a strong number. How's usage looking across the team?
+
+Diane: 12 of our 15 licensed seats logged in this month, up from 8 last
+quarter.
+
+Robin: Good trend. Last quarter you flagged an export-formatting issue —
+where does that stand?
+
+Diane: That's fixed now, I can confirm that on this call.
+
+Robin: Any training or adoption gaps we should know about?
+
+Diane: Actually yeah — our new hires never got onboarded to the reporting
+module, that's part of why usage dipped when the team grew earlier this
+year.
+
+Robin: Good to know, we can get that scheduled. How does this connect to
+what leadership cares about this year?
+
+Diane: Our CFO actually name-checked this tool in the board deck, as part
+of the efficiency initiative.
+
+Robin: That's great context. Anything coming up on your end we should be
+thinking about?
+
+Diane: We're expanding into our EU office next year — I'd want to know if
+the product supports multi-region data residency before that happens.
+
+Robin: Good to flag, I'll get you detail on that separately. Let's get the
+next QBR on the calendar.
+
+Diane: Sounds good — second week of Q2 works for me, unless the EU
+expansion moves faster than that.
+
+Robin: We'll pencil that in and adjust if needed. Thanks, Diane.
