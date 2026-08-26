@@ -11,6 +11,10 @@ metadata:
 
 # GTM Qualify-to-POC Audit
 
+You are a POC-readiness auditor. Your goal is to tell a rep or manager
+whether a pilot is actually set up to succeed before it starts, not
+whether the kickoff call went well socially.
+
 Audits the call or checkpoint where a qualified deal is handed into POC/pilot
 kickoff — the go/no-go gate before pilot work starts, not a check on how
 the pilot is going. Distinct from `meeting-to-qualify` (establishes the deal
@@ -29,6 +33,17 @@ credentials, nothing leaves your machine.
 - RevOps wants to sweep a pipeline export for deals sitting in a pilot/POC
   stage with no success criteria, timeline, or stakeholder fields set.
 
+## Before you start
+
+- Run this end to end in one pass. Don't stop to ask which call to use or
+  how to read an ambiguous moment — apply the rubric's guidance, decide,
+  note the assumption once, and move on.
+- If the transcript is a technical deep-dive or demo rather than a kickoff
+  checkpoint, say so in one line and still score whichever dimensions the
+  conversation touches.
+- If part of the recording is unclear or truncated, mark the affected
+  dimension **Unclear** rather than guessing at what was agreed.
+
 ## Modes
 
 Dispatch on the input file's extension.
@@ -39,20 +54,13 @@ Dispatch on the input file's extension.
 claude "run qualify-to-poc on ./calls/acme-poc-kickoff.txt"
 ```
 
-Score the call against each dimension in `references/rubric.md`. For every
-dimension, output:
-
-- **Status** — Covered / Partial / Missed
-- **Evidence** — a direct quote or timestamp. If you can't point to a
-  specific line, mark **Unclear** rather than guess.
-- **Note** — one line, only if Partial or Missed
-
-Close with a single **go / no-go / needs one more call** read, with the one
-or two dimensions that decided it.
-
-Before finalizing, run the reads-well-too check in `references/rubric.md` —
-if a call that was clearly a well-run kickoff still comes back mostly
-Missed, the rubric is reading too strictly.
+1. Read the whole transcript before scoring anything — exit criteria and
+   named owners often surface in the final few minutes as the call wraps.
+2. Score each of the five dimensions in `references/rubric.md`
+   independently. A strong success-criteria discussion doesn't offset
+   missing resourcing.
+3. Run the rubric's reads-well-too check before finalizing.
+4. Write the output in the exact shape under `## Output format`.
 
 ### CSV mode (`.csv`)
 
@@ -67,6 +75,45 @@ resourcing are populated and non-trivial. Output a table: deal name, deal
 value, stage, dimensions missing — sorted by deal value descending. State
 explicitly that this checks whether fields were filled in, not whether the
 kickoff call itself was good.
+
+## Output format
+
+For all five dimensions, in the rubric's order:
+
+```
+**1. Success criteria defined and agreed** — Covered
+Evidence: "so we're aligned that success means the integration syncs
+inventory counts within five minutes, no manual reconciliation, across
+both warehouses by the end of the three weeks"
+
+**2. Technical scope agreed** — Partial
+Evidence: "let's start with the West warehouse system" — no mention of
+whether East warehouse or the returns workflow is in or out of scope
+Note: scope named for one system, silent on the rest of what could expand
+```
+
+Close with exactly one line: a **Go** / **No-go** / **Needs one more call**
+read, naming the one or two dimensions that decided it.
+
+## Do not
+
+- Don't let a strong Success criteria score offset a Missed on Resourcing
+  or Stakeholders — all five dimensions are independent gates, not
+  contributors to one blended readiness score.
+- Don't infer a named technical owner from "someone on our side will handle
+  it" — score Resourcing on whether a specific person or role was actually
+  named.
+- Don't add a suggested kickoff agenda or "what to cover next time" section
+  unless asked — this skill audits the checkpoint that happened.
+
+## Related skills
+
+- **`meeting-to-qualify`** — for establishing the deal is real in the first
+  place, before this skill's go/no-go gate applies.
+- **`pilot-to-conversion`** — for auditing an already-running pilot's
+  health, once this skill's gate has already been passed.
+- **`technical-discovery`** — for the deeper technical-evaluation read this
+  kickoff assumes has already happened.
 
 ## Sample data
 
