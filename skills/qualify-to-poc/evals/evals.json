@@ -13,7 +13,8 @@
         "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
         "No finding is asserted without evidence",
         "Closes with a single go/no-go/needs-one-more-call read naming the deciding dimension(s)",
-        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call"
+        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call",
+        "Does not let a Covered score on one dimension offset a Missed on another -- the five dimensions are scored independently, not blended"
       ],
       "name": "qualify-to-poc-eval-1"
     },

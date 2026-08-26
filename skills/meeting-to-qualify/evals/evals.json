@@ -13,7 +13,9 @@
         "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
         "No finding is asserted without evidence",
         "Closes with a small number of concrete next-step(s), not a full recap",
-        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call"
+        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call",
+        "Closes with a single go / no-go / needs-one-more-call line rather than a blended numeric score",
+        "Does not infer buying authority from title alone without transcript evidence"
       ],
       "name": "meeting-to-qualify-eval-1"
     },

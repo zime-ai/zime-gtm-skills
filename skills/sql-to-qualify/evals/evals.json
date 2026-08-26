@@ -15,7 +15,8 @@
         "Marks competitive awareness as Covered or Partial, citing that Gong was evaluated for a different use case and no support-monitoring vendor has been engaged yet",
         "Marks concrete next meeting booked as Covered, citing the specific Thursday 2pm session with Marcus, Priya, and Sarah",
         "Closes with a single advance / disqualify / needs one more touch read naming the deciding dimension(s)",
-        "Cites a direct quote or timestamp as evidence for each non-Unclear dimension"
+        "Cites a direct quote or timestamp as evidence for each non-Unclear dimension",
+        "Does not treat the whitepaper download itself as evidence of pain restated in the prospect's own words"
       ]
     },
     {
@@ -28,7 +29,8 @@
         "Treats the file as a structural hygiene sweep rather than a call-quality audit",
         "Checks rows marked SQL or later for populated, non-trivial contact role, stated pain, budget/urgency signal, and next-meeting date fields",
         "Outputs a table with lead name, days since SQL, stage, and dimensions missing, sorted by days since SQL descending",
-        "States explicitly that this checks whether fields were filled in, not whether the underlying call was good"
+        "States explicitly that this checks whether fields were filled in, not whether the underlying call was good",
+        "Does not add a recommended email sequence or nurture-plan section"
       ]
     }
   ]

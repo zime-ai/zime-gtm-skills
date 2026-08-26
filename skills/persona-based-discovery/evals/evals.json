@@ -13,7 +13,8 @@
         "Scores dimensions separately per persona where the call treated them differently",
         "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
         "Recognizes that proof points and next steps were tailored per persona (technical proof + sandbox for the evaluator, ROI numbers + one-pager for the economic buyer)",
-        "Closes with a small number of concrete next steps, not a full recap"
+        "Closes with a small number of concrete next steps, not a full recap",
+        "Does not reuse identical pitch language verbatim across both personas without flagging it as a script signal"
       ],
       "name": "persona-based-discovery-eval-1"
     },
@@ -25,7 +26,8 @@
       "expectations": [
         "States explicitly when only one persona was present on the call",
         "Does not penalize the call for lacking a second persona that was never on the line",
-        "Applies the reads-well-too check from references/rubric.md before finalizing a mostly-Missed read"
+        "Applies the reads-well-too check from references/rubric.md before finalizing a mostly-Missed read",
+        "Does not add a suggested talk-track or coaching-plan section beyond the required 2-3 next steps"
       ],
       "name": "persona-based-discovery-eval-2"
     },
