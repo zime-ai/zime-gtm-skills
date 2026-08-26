@@ -11,6 +11,9 @@ metadata:
 
 # GTM Onboarding Journey Audit
 
+You are an onboarding-check auditor. Your goal is to give a CSM a quick,
+honest read on whether a new customer's onboarding is genuinely on track.
+
 Audits a new-customer onboarding call against five dimensions covering
 whether onboarding is genuinely on track. A thinner rubric than the
 new-business skills — onboarding calls are shorter and more procedural, so
@@ -24,6 +27,15 @@ it — no network calls, no credentials, nothing leaves your machine.
 - A CS lead wants to spot-check onboarding calls across a cohort.
 - RevOps wants to sweep a new-customer list for onboardings with no
   documented sentiment or milestone data.
+
+## Before you start
+
+- Run this end to end in one pass — don't stop to ask which call or
+  whether a borderline quote counts.
+- If the call is a later post-sale check-in rather than onboarding proper,
+  say so in one line and still score whichever dimensions it touches.
+- If the file is truncated or a section is inaudible, score what's there
+  and mark the affected dimensions **Unclear** rather than guessing.
 
 ## Modes
 
@@ -51,6 +63,23 @@ claude "run onboarding-journey on ./exports/new-customers.csv"
 Structural sweep only. For accounts in an onboarding stage, check whether
 milestone and sentiment fields are populated, and flag accounts with no
 documented check-in past their expected onboarding window.
+
+## Do not
+
+- Don't pad this rubric with dimensions the call doesn't actually cover —
+  five is deliberate, not a gap to fill.
+- Don't chase the early expansion/add-on signal into a full pitch — flag it
+  for CS and stop; that's `upsell-expansion`'s job once there's a real
+  opportunity to audit.
+- Don't infer engagement from attendance alone — score dimension 3 only
+  from active participation the transcript actually shows.
+
+## Related skills
+
+- **`upsell-expansion`** — once an add-on signal from this audit becomes an
+  actual expansion conversation.
+- **`customer-success`** — for the periodic health review once onboarding
+  is complete.
 
 ## Sample data
 

@@ -6,55 +6,108 @@ catching a quiet churn risk before it becomes a lost renewal.
 
 ## 1. Value delivered, in the customer's own words
 
-Can the customer point to a specific outcome they've gotten from the
-product — a number, a workflow it replaced, something concrete — or do they
-speak about it only in vague terms? "It's fine, we use it" without
-specifics is a warning sign, not a neutral signal.
+**What it is.** Whether the customer can point to a specific outcome
+they've gotten from the product — a number, a workflow it replaced — rather
+than speaking about it only in vague terms.
+
+**Covered vs. a miss.** Covered looks like a specific outcome named
+unprompted, in the customer's own words. A miss looks like "it's fine, we
+use it" with nothing concrete behind it — treat that as a warning sign, not
+a neutral signal.
+
+**Weak:** "Yeah, it's working out well for us." **Strong:** "We cut our
+weekly reporting time from a full day to about two hours since we switched
+to this."
 
 ## 2. Usage & adoption depth
 
-Is usage described as broad across the team, or concentrated in one or two
-power users while the rest have quietly stopped? Adoption that's narrowed
-since the last check-in is one of the earliest, most reliable churn
-predictors.
+**What it is.** Whether usage is broad across the team, or concentrated in
+one or two power users while the rest have quietly stopped.
+
+**Covered vs. a miss.** Covered looks like a specific breakdown of who's
+using it and how often. A miss looks like adoption breadth going
+unaddressed, or usage that has visibly narrowed since the last check-in
+left unremarked.
+
+**Weak:** "The team's using it." **Strong:** "It was the whole team of
+eight at the start, now it's really just two of them logging in weekly."
 
 ## 3. Renewal-blocking risks named
 
-Did anything come up that could plausibly block or delay a renewal —
+**What it is.** Anything that could plausibly block or delay a renewal —
 budget scrutiny, a champion leaving, a competing internal priority, an
-unresolved complaint? Silence on this isn't reassurance; it can mean the
-CSM didn't ask.
+unresolved complaint — surfaced explicitly.
+
+**Covered vs. a miss.** Covered looks like a specific risk named, even a
+minor one. A miss looks like silence on this topic — which isn't
+reassurance, it can mean the CSM didn't ask.
+
+**Weak:** "No concerns raised." **Strong:** "They mentioned budget review
+season is coming up in Q1 and every tool is getting re-justified."
 
 ## 4. Sentiment read
 
-What's the customer's actual tone — genuinely positive, neutral and
-transactional, or frustrated even if polite? Note when the words say one
-thing and the tone on the call suggests another.
+**What it is.** The customer's actual tone — genuinely positive, neutral
+and transactional, or frustrated even if polite — not just the words used.
+
+**Covered vs. a miss.** Covered looks like a specific tone noted, including
+any mismatch between words and delivery. A miss looks like sentiment
+assumed positive by default with no supporting observation.
+
+**Weak:** "They seemed happy." **Strong:** "Words were positive but the
+tone was flat and answers were short — reads as going through the motions,
+not genuine enthusiasm."
 
 ## 5. Strategic alignment
 
-Does this account tie into something the customer's leadership actually
-cares about this year, or has it drifted into "a tool we have" with no
-strategic story attached? Accounts without an internal champion connected
-to a real initiative are easier to cut in a budget review.
+**What it is.** Whether the account ties into something the customer's
+leadership actually cares about this year, versus having drifted into "a
+tool we have" with no strategic story.
+
+**Covered vs. a miss.** Covered looks like a named executive priority the
+account supports. A miss looks like no connection to leadership priorities
+ever mentioned.
+
+**Weak:** "It's part of our workflow now." **Strong:** "Our VP tied this
+directly to the cost-reduction initiative she's presenting to the board
+next quarter."
 
 ## 6. Enablement gaps
 
-Is underuse, where it exists, explained by a training or onboarding gap
-rather than the product not fitting the need? This distinction matters —
-one is fixable with an enablement push, the other isn't.
+**What it is.** Whether underuse, where it exists, is explained by a
+training or onboarding gap rather than the product not fitting the need —
+one is fixable, the other isn't.
+
+**Covered vs. a miss.** Covered looks like a specific gap named and tied to
+underuse. A miss looks like underuse observed but never explained.
+
+**Weak:** "They don't use all the features." **Strong:** "They never got
+trained on the reporting module, which is why usage stopped at the basic
+dashboard."
 
 ## 7. Service/experience friction
 
-Any support tickets, response-time complaints, or process friction that's
-outside the product itself but still shaping how the customer feels about
-renewing?
+**What it is.** Support tickets, response-time complaints, or process
+friction outside the product itself that's still shaping renewal sentiment.
+
+**Covered vs. a miss.** Covered looks like a specific friction point named.
+A miss looks like service experience going unaddressed entirely.
+
+**Weak:** "Support's been okay." **Strong:** "They flagged a two-week wait
+on their last ticket and said it made them nervous about relying on us."
 
 ## 8. Champion strength & continuity
 
-Is there a clear internal advocate for this account, and did the call
-surface any risk to that person's role, influence, or tenure? Losing the
-champion is one of the fastest routes from "healthy" to "at risk."
+**What it is.** Whether there's a clear internal advocate for the account,
+and whether any risk to that person's role, influence, or tenure surfaced.
+
+**Covered vs. a miss.** Covered looks like a named champion and an explicit
+read on their standing. A miss looks like champion status assumed stable
+with no check on it.
+
+**Weak:** "Our contact seems supportive." **Strong:** "Our champion
+mentioned she's interviewing externally — if she leaves, we have no other
+advocate in that org."
 
 ## Reads-well-too check
 
