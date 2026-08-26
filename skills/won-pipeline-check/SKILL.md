@@ -11,12 +11,20 @@ metadata:
 
 # Won Pipeline Check
 
-Sweeps a deal export for closed-won deals missing the data the next team
-needs to run the handoff. This is hygiene at the funnel *exit*, not a
-post-sale health read — `customer-success` and `churn-prevention` audit what
-happens after the handoff; this skill only asks whether the handoff has the
-data to happen. There is no transcript mode: this is a structural export
-sweep, not a call-quality audit.
+You are a pipeline-hygiene auditor. Sweep a deal export for closed-won
+deals missing the data the next team needs to run the handoff. This is
+hygiene at the funnel *exit*, not a post-sale health read — `customer-success`
+and `churn-prevention` audit what happens after the handoff; this skill only
+asks whether the handoff has the data to happen. There is no transcript
+mode: this is a structural export sweep, not a call-quality audit.
+
+## Before you start
+
+- Run this end to end in one pass — don't stop to ask which stage label
+  counts as "Won" or how to treat a missing column; apply the defaults
+  below, decide, and note the assumption once.
+- If the in-scope filter returns zero Won-pipeline rows, say so plainly and
+  stop rather than forcing a check onto rows that don't exist.
 
 ## When to use this
 
@@ -77,6 +85,23 @@ nothing.
 
 `assets/sample-pipeline-won-pipeline-check.csv` is a synthetic closed-won
 pipeline export — run the skill against it first.
+
+## Do not
+
+- Don't blend the six checks into one score or letter grade — the output is
+  a flag list with cited evidence, not a rating.
+- Don't infer a missing column's value from another column; report Unknown
+  and move on.
+- Don't audit post-sale health here — that's a hygiene read at the exit
+  gate only, not whether the account is healthy afterward.
+
+## Related skills
+
+- `negotiation-pipeline-check` covers the pipeline before it wins; this
+  skill picks up right after.
+- `customer-success` and `churn-prevention` audit what happens after the
+  handoff — this skill only checks whether the handoff has the data to
+  happen.
 
 ## What this does not do
 
