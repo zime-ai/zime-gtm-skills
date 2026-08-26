@@ -5,45 +5,103 @@ established a documented, evidenced pass — not just a good conversation.
 
 ## 1. Every success criterion verdict-ed individually
 
-Was each success criterion agreed at kickoff scored on its own — met, not
-met, or unmeasured — or did the call collapse everything into one blended
-"it went well" verdict that hides which specific criteria actually passed?
+**What it is.** The success criteria agreed at kickoff — the specific
+metrics, thresholds, and must-pass use cases — each get their own verdict:
+met, not met, or unmeasured.
+
+**Covered vs. a miss.** Covered looks like each criterion named at kickoff
+getting its own line: "sub-2s query latency — met, averaged 1.4s"; "SSO
+integration — not met, still pending." A miss looks like the call
+collapsing everything into one blended "it went well" verdict that hides
+which specific criteria actually passed.
+
+**Weak:** "The pilot went really well overall, the team was happy." **Strong:**
+"Of the four success criteria — latency, uptime, SSO, and report accuracy —
+three passed and SSO did not; procurement flagged it as a blocker for
+production."
 
 ## 2. Result quantified against a stated baseline
 
-Is the result a number compared against a baseline set before the pilot
-started (e.g. "cut error rate from 12% to 5%"), or is success just
-asserted without the before/after comparison that would prove it?
+**What it is.** The result is a number compared against a baseline
+measured before the pilot started, not an assertion of success.
+
+**Covered vs. a miss.** Covered looks like "cut error rate from 12% to 5%,"
+a before/after pair either side stated on the call. A miss looks like
+"results were great" with no baseline or number ever named.
+
+**Weak:** "Their team saw a big improvement." **Strong:** "Response time
+dropped from an 18-hour average to under 4 hours, which the ops lead
+confirmed against their own ticket log."
 
 ## 3. Validated by actual end users, not only the champion
 
-Did the people who actually used the pilot day to day confirm the result,
-or is the champion speaking for them without anyone who touched the
-product in the room?
+**What it is.** The people who used the pilot day to day — not just the
+champion who sponsored it — confirmed the result themselves.
+
+**Covered vs. a miss.** Covered looks like a named end user's own quote or
+a stated field-team validation step. A miss looks like the champion
+speaking for the whole team with no one who touched the product weighing in.
+
+**Weak:** "Our champion says the team loves it." **Strong:** "Three of the
+five analysts who ran the pilot were on this call and each confirmed the
+dashboard replaced their manual export."
 
 ## 4. Explicit sponsor / economic-buyer sign-off
 
-Did the person who controls the budget and the final decision explicitly
-sign off that the result counts as a pass, or is that sign-off still
-pending, implied, or delegated to someone without the authority to give it?
+**What it is.** The person who controls budget and the final decision has
+explicitly signed off that the result counts as a pass — not implied,
+delegated, or still pending.
+
+**Covered vs. a miss.** Covered looks like the economic buyer's own
+statement on the call or in writing that the pilot passed. A miss looks
+like sign-off assumed because the champion seemed satisfied, or deferred to
+"I'll check with my boss" with no follow-up confirmed.
+
+**Weak:** "I think leadership will be fine with this." **Strong:** "Our VP
+of Ops, who owns this budget, said on the call: 'this clears our bar, let's
+talk contract.'"
 
 ## 5. Production-readiness blockers surfaced
 
-Were remaining blockers to going live — security review, procurement,
-integration work still outstanding — named explicitly, or is the call
-silent on what still stands between this pilot and a production rollout?
+**What it is.** Remaining blockers to going live — security review,
+procurement, integration work — are named explicitly rather than left
+unaddressed.
+
+**Covered vs. a miss.** Covered looks like "security review is still
+outstanding, expected to close in two weeks" stated plainly. A miss looks
+like the call ending with no mention of what stands between this pilot and
+a production rollout.
+
+**Weak:** "We're basically ready to go." **Strong:** "The only open item is
+a SOC 2 review their infosec team is running, targeted to close by the 15th."
 
 ## 6. Commercial next step named, with an owner and a date
 
-Did the call produce a specific next step — a proposal, a contract review,
-a renewal date — with a named owner and a date, or is the pilot's outcome
-left open-ended with nothing calendared?
+**What it is.** A specific next step — a proposal, a contract review, a
+renewal conversation — with a named owner and a date, not an open-ended
+close.
+
+**Covered vs. a miss.** Covered looks like "Legal will have the redlined
+contract back to us by Friday, owned by their procurement lead." A miss
+looks like "we'll follow up soon" with no owner or date attached.
+
+**Weak:** "We'll circle back after the holidays." **Strong:** "Their CFO
+committed to a signed PO by end of quarter, contingent on the SOC 2 review
+above closing first."
 
 ## 7. What was NOT delivered, and whether that gap is fatal
 
-Did the call name what the pilot did not cover or did not deliver, and say
-plainly whether that gap kills the deal or is acceptable to move past — or
-is the scope that didn't get tested left unmentioned?
+**What it is.** What the pilot did not cover or did not deliver is named,
+along with a plain statement of whether that gap kills the deal or is
+acceptable to move past.
+
+**Covered vs. a miss.** Covered looks like "we didn't test the bulk-import
+path, and they said that's fine since they migrate manually anyway." A miss
+looks like the scope that didn't get tested going unmentioned entirely.
+
+**Weak:** "There's a little bit left to figure out." **Strong:** "Mobile
+push notifications weren't in scope for this pilot; the prospect confirmed
+that's a nice-to-have for phase two, not a blocker."
 
 ## 8. Reads-well-too check
 

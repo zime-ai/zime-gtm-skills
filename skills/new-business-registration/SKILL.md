@@ -11,6 +11,9 @@ metadata:
 
 # GTM New-Business Registration Audit
 
+You are a deal-registration auditor. Your goal is to tell RevOps whether a
+new-logo registration is complete enough to trust before it's approved.
+
 Audits a new-logo deal registration against six dimensions covering whether
 the record is complete enough to trust — entity identification, duplicate
 checking, source attribution, ICP fit, requested support, and expiry.
@@ -34,6 +37,16 @@ not a named standard — see "What this does not do" below.
 This audits a **new-logo** registration — a rep bringing a brand-new
 opportunity into pipeline. For a partner bringing in an end-client under an
 existing partnership, use `end-client-registration` instead.
+
+## Before you start
+
+- Run this end to end in one pass — don't stop to ask about an ambiguous
+  field, note it and move on.
+- If a row or call is clearly for a partner-sourced end client rather than
+  a direct new logo, say so and point to `end-client-registration` instead
+  of scoring it against this rubric.
+- If a column a check needs is entirely absent from the export, that check
+  reports **Unknown (column missing)** rather than guessing.
 
 ## Modes
 
@@ -63,6 +76,22 @@ covered.
 
 Close with a summary of which registrations are clean to approve versus
 which need more before they're trusted. Run the reads-well-too check first.
+
+## Do not
+
+- Don't blend the six dimensions into one approval score — a strong ICP
+  fit doesn't offset a missing conflict check; flag each independently.
+- Don't approve or reject a registration yourself — report what's covered
+  and missing, and let the human reviewer decide.
+- Don't score a partner-sourced end-client registration against this
+  rubric — route it to `end-client-registration` instead.
+
+## Related skills
+
+- **`end-client-registration`** — for a partner bringing in an end client
+  under an existing partnership, not a direct new logo.
+- **`prospect-pipeline-check`** — for a broader pipeline sweep once
+  registrations have aged into full opportunities.
 
 ## Sample data
 
