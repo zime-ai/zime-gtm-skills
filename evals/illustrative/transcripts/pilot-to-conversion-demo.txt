@@ -1,0 +1,44 @@
+Call: Fenwick Insurance <> Vendor — Mid-pilot check-in
+Participants: Robin (rep, vendor), Claims Ops Lead (Fenwick Insurance)
+
+Robin: Good to check in. Reminding ourselves — at kickoff we agreed success
+means processing 500 claims a day with under a 2% error rate. How's it
+tracking?
+
+Claims Lead: We're at a 1.8% error rate against that 2% target, three weeks
+in.
+
+Robin: That's solid. How's the integration with your claims system holding
+up?
+
+Claims Lead: The API connection to our ticketing system went live last
+week and is pulling real tickets now, not sample data.
+
+Robin: Good. And access/security side — everyone provisioned?
+
+Claims Lead: Mostly — 9 of our 12 pilot users have SSO access configured,
+still waiting on IT for the other 3.
+
+Robin: How was the onboarding experience overall?
+
+Claims Lead: Actually pretty smooth — took about half a day instead of the
+week we'd budgeted for, our admin said it was the easiest rollout she's
+done.
+
+Robin: And usage — are people actually logging in day to day?
+
+Claims Lead: 8 of the 10 seats logged in this week, versus all 10 in week
+one. Usage is dropping a bit and we haven't dug into why yet.
+
+Robin: Noted, worth a look. Any specific feature feedback?
+
+Claims Lead: The bulk-export feature got flagged twice as too slow. The
+dashboard view got called out by name as the best part by two different
+adjusters.
+
+Robin: Great to hear. Given all this, I'm feeling really good about where
+this is headed — I think we're in great shape here.
+
+Claims Lead: Yeah, hopefully. We'll keep an eye on that usage dip.
+
+Robin: Agreed, let's keep going.

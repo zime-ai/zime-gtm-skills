@@ -1,0 +1,48 @@
+Call: Harrow Freight <> Vendor — Late-stage check-in
+Participants: Dana (rep, vendor), Renata Fisk (VP Operations, Harrow Freight)
+
+Dana: Thanks for jumping on, Renata. Last time we talked through the route
+optimization numbers — where are things on your end?
+
+Renata: Good timing actually. My team's bought in. The two things left are
+security sign-off and getting this in front of finance for budget.
+
+Dana: Let's take security first. Can you get me to whoever needs to review
+our security posture?
+
+Renata: Yeah, that's Priya Okafor, our IT lead. If you send the security
+questionnaire over, she'll turn it around fast — she's usually quick on
+these.
+
+Dana: Great, I'll get that questionnaire to her by Friday.
+
+Renata: Perfect, and I'll make sure she's expecting it.
+
+Dana: And on the budget side — where's that stand?
+
+Renata: I'll get budget sign-off moving. It's on my radar.
+
+Dana: Anything I can send to help make that case internally?
+
+Renata: Not right now, I've got what I need from our last call. I'll
+handle it.
+
+Dana: Okay. Separately — I think it'd be worth getting your broader ops
+team in front of a live demo at some point, so they see the day-to-day
+workflow, not just the numbers I've been showing you.
+
+Renata: Sure, that's probably useful. Let's aim for sometime next month,
+once things calm down a bit here.
+
+Dana: Sounds good, I'll follow up to pin down a date closer to then.
+
+Renata: One more thing — once security's cleared, we'll need to get
+procurement looped in on the contract. That's Sam, our procurement lead.
+I'll have him looking at it by end of next week.
+
+Dana: Perfect — I'll get the redlined MSA over to you by Wednesday so Sam
+has something concrete to start with.
+
+Renata: That works. Sounds like we've got a plan.
+
+Dana: We do. I'll follow up after the questionnaire goes out.

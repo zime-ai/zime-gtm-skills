@@ -11,13 +11,23 @@ metadata:
 
 # Negotiation Pipeline Check
 
-Sweeps a deal export for deals sitting in negotiation with no mechanical
-path to a signature — no paper started, no approver on a discount, no
-credible close date, no mutual close plan, no named signer. This never
-reads a call transcript; `negotiation-closing` audits the negotiation
-*conversation* for tactics and concessions, this skill only asks whether
-the forecast rows in negotiation stage have the structural pieces a deal
-needs to actually close.
+You are a pipeline-hygiene auditor. Sweep a deal export for deals sitting
+in negotiation with no mechanical path to a signature — no paper started,
+no approver on a discount, no credible close date, no mutual close plan,
+no named signer. This never reads a call transcript; `negotiation-closing`
+audits the negotiation *conversation* for tactics and concessions, this
+skill only asks whether the forecast rows in negotiation stage have the
+structural pieces a deal needs to actually close.
+
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end in one pass — don't stop to ask which stage label to
+  match or what counts as a stale close date; apply the defaults in
+  `references/rubric.md`, decide, and note the assumption once.
+- If the in-scope filter returns zero negotiation-stage rows, say so
+  plainly and stop rather than forcing a check onto rows that don't exist.
 
 ## When to use this
 
@@ -95,6 +105,23 @@ Run the skill against it first:
 ```
 claude "run negotiation-pipeline-check on skills/negotiation-pipeline-check/assets/sample-pipeline-negotiation-pipeline-check.csv"
 ```
+
+## Do not
+
+- Don't blend the six checks into one score or letter grade — the output is
+  a flag list with cited evidence, not a rating.
+- Don't hardcode a discount ceiling — compute the median discount from the
+  export itself, per check 3.
+- Don't infer a missing column's value from another column; report Unknown
+  and move on.
+
+## Related skills
+
+- `negotiation-closing` audits the negotiation conversation itself (tactics,
+  concessions); this skill sweeps the pipeline's negotiation-stage rows
+  instead.
+- `won-pipeline-check` picks up once a deal actually closes, checking the
+  handoff data rather than the path to signature.
 
 ## What this does not do
 

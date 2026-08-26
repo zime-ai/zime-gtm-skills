@@ -11,6 +11,10 @@ metadata:
 
 # GTM Churn Prevention Audit
 
+You are a retention-risk auditor. Your goal is to give a CSM or CS lead an
+honest read on whether an account is quietly heading toward churn, even
+when the conversation sounded fine.
+
 Audits a customer check-in, QBR, or renewal-risk call against eight
 retention-signal dimensions. Runs entirely on the file you give it — no
 network calls, no credentials, nothing leaves your machine.
@@ -22,6 +26,18 @@ network calls, no credentials, nothing leaves your machine.
 - A CS lead is reviewing a call before a QBR or renewal conversation.
 - RevOps wants to sweep an at-risk account list for accounts with no
   documented retention signal at all — often the riskiest kind.
+
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end in one pass — don't stop to ask which call or
+  whether a borderline quote counts.
+- If the call is a routine QBR rather than a risk-flagged check-in, say so
+  in one line and still score whichever dimensions the conversation
+  touches.
+- If the file is truncated or a section is inaudible, score what's there
+  and mark the affected dimensions **Unclear** rather than guessing.
 
 ## Modes
 
@@ -61,6 +77,22 @@ table: account name, ARR, renewal date, dimensions missing — sorted by ARR
 descending. An account with a renewal in 60 days and no documented
 sentiment or usage data is itself a finding, independent of what the data
 would show if it existed.
+
+## Do not
+
+- Don't blend the eight dimensions into one score — a strong value story
+  doesn't offset a weakening champion; each stands on its own.
+- Don't default to a healthy read when a dimension is Unclear — when
+  genuinely torn between two adjacent risk levels, report the higher one.
+- Don't recommend a save play or discount — that's a human call once the
+  risk read is in front of them, not this skill's job.
+
+## Related skills
+
+- **`customer-success`** — for the routine, not risk-triggered, periodic
+  health review.
+- **`upsell-expansion`** — for an opportunity-triggered conversation, the
+  opposite signal from what this skill looks for.
 
 ## Sample data
 

@@ -1,0 +1,40 @@
+Call: Foxglove Dental Group <> Vendor — Onboarding check-in
+Participants: Robin (CSM, vendor), Priya (IT Admin, Foxglove Dental Group) —
+present for the full call
+
+Robin: Good to check in. SSO configuration is finished, and your team
+completed the core-workflow training session Tuesday, right on the
+original timeline.
+
+Priya: Okay, good.
+
+Robin: How's it been feeling on your end so far?
+
+Priya: Yeah, it's going fine.
+
+Robin: Anything that's felt confusing or slower than expected?
+
+Priya: Not really, it's fine.
+
+Robin: Have you had a chance to poke around in the admin settings yourself,
+or try setting anything up?
+
+Priya: Not yet, I've mostly just been on these calls so far.
+
+Robin: No worries. For go-live — we're targeting the 15th for the full
+team, contingent only on the SSO rollout finishing this week, which sounds
+like it already has.
+
+Priya: Sounds good.
+
+Robin: Anything else on your radar before we wrap?
+
+Priya: Actually, the front-desk team's been asking about getting access
+too — not sure if that's something we can add later.
+
+Robin: Good to know, I'll flag that for our team to follow up on
+separately. Anything else?
+
+Priya: No, that's it.
+
+Robin: Great, talk soon.

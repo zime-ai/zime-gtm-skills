@@ -45,6 +45,17 @@
         "Does not infer a competitor from any other column",
         "Still reports the drivers that other present columns support"
       ]
+    },
+    {
+      "id": 4,
+      "name": "win-loss-brief-eval-4-all-tentative",
+      "prompt": "run win-loss-brief on a closed-deal transcript where every possible driver is only hinted at with hedged, secondhand, or unconfirmed language",
+      "expected_output": "Every driver in section 2 is tagged tentative, and the brief states this explicitly as a finding about how thin the evidence is, rather than presenting the drivers with false confidence.",
+      "files": [],
+      "expectations": [
+        "Every driver is tagged tentative, none clear",
+        "States explicitly that the evidence is thin rather than upgrading any driver to confident language"
+      ]
     }
   ]
 }

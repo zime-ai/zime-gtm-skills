@@ -45,6 +45,18 @@
         "Reports the no-signed-contract-reference check as Unknown (column missing) for every row rather than inferring it from another column",
         "Still runs the other five checks normally"
       ]
+    },
+    {
+      "id": 4,
+      "name": "won-pipeline-check-eval-4-empty-scope",
+      "prompt": "run won-pipeline-check on a pipeline export with zero rows in Closed Won",
+      "expected_output": "States plainly that no rows fell in scope and stops -- no table, no flags forced onto out-of-stage rows.",
+      "files": [],
+      "expectations": [
+        "States that zero rows were in scope for Closed Won",
+        "Does not produce a flagged/clean table or force a check onto out-of-scope rows",
+        "Does not audit post-sale account health -- only whether handoff data is present"
+      ]
     }
   ]
 }

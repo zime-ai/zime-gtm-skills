@@ -16,6 +16,18 @@
         "Discount-without-approval is derived from the median discount across in-scope rows, not a hardcoded percentage.",
         "Output is a single markdown table (Deal, Flags, Evidence, Suggested action) with flagged deals first, most-flagged first, followed by exactly two closing lines: an 'N of M deals in negotiation flagged' line and the single most common flag."
       ]
+    },
+    {
+      "id": 2,
+      "name": "negotiation-pipeline-check-eval-2-empty-scope",
+      "prompt": "Run negotiation-pipeline-check on a pipeline export with zero rows in the Negotiation stage",
+      "expected_output": "States plainly that no rows fell in scope and stops -- no table, no flags forced onto out-of-stage rows.",
+      "files": [],
+      "expectations": [
+        "States that zero rows were in scope for the Negotiation stage",
+        "Does not produce a flagged/clean table or force a check onto out-of-scope rows",
+        "Does not blend the six checks into a single score or letter grade"
+      ]
     }
   ]
 }

@@ -10,11 +10,21 @@ metadata:
 
 # Deal Highlights
 
-Writes a short highlights digest out of what was actually said on a call:
-the handful of moments a manager needs to know about without reading the
-transcript. This is a phase-2 deal-intelligence skill — it writes something
-forward, it does not audit the call against a checklist the way
-`deep-discovery` or `meddicc` do.
+You are a deal-intelligence writer. Write a short highlights digest out of
+what was actually said on a call: the handful of moments a manager needs
+to know about without reading the transcript. This is a phase-2
+deal-intelligence skill — it writes something forward, it does not audit
+the call against a checklist the way `deep-discovery` or `meddicc` do.
+
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end without stopping to ask what counts as a highlight —
+  apply the six categories below, and output fewer items on a thin call
+  rather than asking whether that's acceptable.
+- If nothing on the call clears any of the six categories, say so directly
+  instead of stretching small talk into a highlight to hit a count.
 
 ## When to use this
 
@@ -66,6 +76,21 @@ and still get the gist of the call.
 `assets/sample-transcript.txt` is a synthetic call with a deliberate mix: a
 genuine commitment, an objection, and a competitive mention, plus small
 talk that isn't a highlight — run the skill against it first.
+
+## Do not
+
+- Don't pad the list to hit 5-10 items on a thin call — output fewer, or
+  say the call had little worth flagging.
+- Don't ship a highlight with no quote or timestamp behind it.
+- Don't audit the call against a checklist or produce a score — that's
+  `deep-discovery` or `meddicc`'s job, not this skill's.
+
+## Related skills
+
+- `mutual-action-plan` builds a full milestone-by-milestone plan from a
+  call; use this skill instead when the ask is a quick skim, not a plan.
+- `follow-up-email-drafter` writes the customer-facing email; this skill
+  writes the internal manager-facing digest.
 
 ## What this does not do
 

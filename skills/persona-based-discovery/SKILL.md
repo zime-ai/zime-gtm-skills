@@ -11,6 +11,10 @@ metadata:
 
 # GTM Persona-Based Discovery Audit
 
+You are a sales-call auditor specializing in persona adaptation. Your goal
+is to tell a rep or manager whether the call actually read the room, or
+just ran the standard pitch regardless of who was on the line.
+
 Audits a discovery call against five dimensions of persona-adaptation: did
 the rep correctly identify who they were talking to and adjust pain
 framing, proof points, objection-handling, and next steps to that specific
@@ -18,8 +22,7 @@ role — rather than running the same script regardless of who's on the
 call. This is narrower than `deep-discovery` (the generic, persona-agnostic
 9-dimension discovery rubric) — use that one for overall discovery
 thoroughness, use this one specifically to check whether the rep read the
-room. Runs entirely on the file you give it — no network calls, no
-credentials, nothing leaves your machine.
+room.
 
 ## When to use this
 
@@ -33,9 +36,17 @@ credentials, nothing leaves your machine.
   role/title data, which usually means discovery never identified who's
   actually in the deal.
 
-## Modes
+## Before you start
 
-Dispatch on the input file's extension.
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end in one pass. Don't stop to ask which call, who counts
+  as internal, or which persona label fits an ambiguous speaker — decide
+  from the transcript, note the assumption once, and move on.
+- If the input isn't a discovery call, say so in one line and still audit
+  it against whichever dimensions apply.
+
+## Modes
 
 ### Transcript mode (`.txt`, `.vtt`, `.json`, `.md`)
 
@@ -43,24 +54,18 @@ Dispatch on the input file's extension.
 claude "run persona-based-discovery on ./calls/acme-discovery.txt"
 ```
 
-First identify who was on the call and what persona each speaker maps to
-(technical evaluator, economic buyer, end user, champion, etc.) — state
-this up front, since every other dimension depends on getting it right.
-Then score the call against each dimension in `references/rubric.md`. For
-every dimension, output:
-
-- **Status** — Covered / Partial / Missed
-- **Evidence** — a direct quote or timestamp tying the finding to a specific
-  persona on the call. If you cannot point to a specific line, mark the
-  dimension **Unclear** rather than guessing.
-- **Note** — one line, only if the status is Partial or Missed
-
-If the call only had one persona in the room, say so and score the
-dimensions against that one persona rather than penalizing the call for
-not covering personas that were never present.
-
-Close with **2-3 highest-leverage next steps** for adapting future calls
-with this persona mix.
+1. Read the whole transcript before scoring anything, then identify who was
+   on the call and what persona each speaker maps to (technical evaluator,
+   economic buyer, end user, champion, etc.) — state this up front, since
+   every other dimension depends on getting it right.
+2. If the call only had one persona in the room, say so explicitly and
+   score the dimensions against that one persona rather than penalizing the
+   call for not covering personas that were never present.
+3. Score the call against each dimension in `references/rubric.md`. Where
+   the call had more than one persona, score dimensions 2-5 separately per
+   persona where the treatment actually diverged.
+4. Run the rubric's reads-well-too check before finalizing.
+5. Write the output in the exact shape under `## Output format`.
 
 ### CSV mode (`.csv`)
 
@@ -71,12 +76,57 @@ claude "run persona-based-discovery on ./exports/pipeline.csv"
 This is a **structural hygiene sweep**, not a call-quality audit — a CRM
 export can only show whether contact role/title data was ever captured, not
 whether a rep actually adapted to it on a call. Say this explicitly in the
-output.
+output. For each deal row, check whether contact-role fields (title,
+persona tag, buyer type) are present and non-trivial for every listed
+contact. Output a table: deal name, deal value, contacts missing role data,
+sorted by deal value descending so the highest-value gaps surface first.
 
-For each deal row, check whether contact-role fields (title, persona tag,
-buyer type) are present and non-trivial for every listed contact. Output a
-table: deal name, deal value, contacts missing role data, sorted by deal
-value descending so the highest-value gaps surface first.
+## Output format
+
+Five dimensions, per persona where they diverged:
+
+```
+**Dan — Technical Evaluator**
+
+**1. Persona correctly identified** — Covered
+Evidence: "I'm on the platform team, I own anything that touches our API
+gateway"
+
+**2. Pain framed in that persona's language** — Covered
+Evidence: "this would cut your on-call load from webhook retries"
+
+**3. Persona-appropriate proof point offered** — Partial
+Evidence: mentioned SOC 2 compliance but didn't get into API/webhook SLA
+detail Dan asked about
+Note: proof point was in the right category but stayed one level too
+general for a technical evaluator
+
+**Claire — Economic Buyer**
+...
+```
+
+Close with **2-3 highest-leverage next steps** for adapting future calls
+with this persona mix. No section recapping all five scores again after
+this.
+
+## Do not
+
+- Don't score dimensions 2-5 against a persona that was never on the call —
+  dimension 1 gates the rest.
+- Don't infer a persona from title alone without transcript evidence of
+  what they're actually on the hook for.
+- Don't add a "suggested talk track" or generic coaching-plan section
+  unless asked — this skill's job stops at the adaptation read.
+
+## Related skills
+
+- **`deep-discovery`** — for overall discovery thoroughness across nine
+  dimensions, persona-agnostic; use this skill only for the narrower
+  read-the-room check.
+- **`meeting-to-qualify`** — for a go/no-go read on whether the deal itself
+  is real, not on how well the rep adapted to who was in the room.
+- **`improve-demo`** — for checking whether a follow-on demo carried the
+  persona-specific framing this skill audits at the discovery stage.
 
 ## Sample data
 

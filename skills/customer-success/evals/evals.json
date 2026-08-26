@@ -13,7 +13,8 @@
         "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
         "No finding is asserted without evidence",
         "Closes with a small number of concrete next-step(s), not a full recap",
-        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call"
+        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call",
+        "Does not recommend an expansion pitch even if an upsell signal comes up -- points to upsell-expansion instead of pursuing it here"
       ],
       "name": "customer-success-eval-1"
     },

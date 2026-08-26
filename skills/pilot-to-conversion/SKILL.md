@@ -11,6 +11,9 @@ metadata:
 
 # GTM Pilot-to-Conversion Audit
 
+You are a mid-pilot health-check auditor. Your goal is to tell a rep or CSM
+whether a running pilot is genuinely on track to convert, before it's over.
+
 Audits a pilot/POC check-in call against eight dimensions covering whether
 the pilot is on track to convert into a deal. Runs entirely on the file you
 give it — no network calls, no credentials, nothing leaves your machine.
@@ -23,6 +26,18 @@ give it — no network calls, no credentials, nothing leaves your machine.
   push for conversion or extend.
 - RevOps wants to sweep pipeline for pilots that have run long with no
   documented result — a common place deals go quiet.
+
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end in one pass — don't stop to ask which call or
+  whether a borderline quote counts.
+- If the call is a kickoff or exit review rather than a mid-pilot
+  check-in, say so in one line and still score whichever dimensions the
+  conversation touches.
+- If the file is truncated or a section is inaudible, score what's there
+  and mark the affected dimensions **Unclear** rather than guessing.
 
 ## Modes
 
@@ -51,6 +66,23 @@ Structural sweep only. For deals in a pilot/POC stage, check whether
 success-criteria and results fields are populated, and flag pilots open
 longer than a typical cycle with no result recorded. Table: deal, value,
 days in pilot, dimensions missing.
+
+## Do not
+
+- Don't blend the eight dimensions into one score — fading usage doesn't
+  get offset by good feature feedback; each stands on its own.
+- Don't infer conversion likelihood from rep optimism — score dimension 8
+  only from a specific named next step, date, and owner.
+- Don't recommend pricing or contract terms — that's `negotiation-closing`'s
+  job once the pilot has actually converted.
+
+## Related skills
+
+- **`qualify-to-poc`** — audits the entry gate before the pilot starts.
+- **`poc-success`** — audits the exit review once the pilot is over and a
+  result needs verdicting, not a mid-pilot health check.
+- **`poc-pilot-pipeline-check`** — sweeps a whole pipeline export for stalled
+  pilots, not a single call.
 
 ## Sample data
 

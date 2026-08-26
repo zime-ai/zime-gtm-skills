@@ -1,0 +1,40 @@
+Call: Denholm Freight <> Vendor — Mid-stage evaluation
+Participants: Jamie (rep, vendor), Owen (Ops Director, Denholm Freight)
+
+Jamie: Good to catch up, Owen. Where's your head at on the evaluation?
+
+Owen: Still evaluating seriously, but I'll be honest, we've also been
+looking at RouteIQ. A peer company recommended them, and they're
+apparently a lot cheaper for the same core features.
+
+Jamie: Appreciate you being upfront about that. What have you heard about
+them specifically?
+
+Owen: Their implementation team quoted a two-week setup, which is a lot
+faster than the multi-week timeline we've been discussing with you.
+
+Jamie: That's worth addressing directly. Our timeline includes a
+data-migration step for your historical routing data — RouteIQ's quote
+likely doesn't cover that unless they've scoped your actual data volume,
+which is usually where a "two-week setup" quote falls apart in practice.
+I can have our implementation lead get on a call with you directly to
+walk through the real scope so it's apples to apples.
+
+Owen: That'd be helpful, yeah. One other thing — I think I heard they
+don't charge for API access, but I'm not totally sure that's still true,
+might've been an old pricing page I saw.
+
+Jamie: Noted. Let's shift gears — can you walk me through who else needs
+to be in the room before a decision gets made?
+
+Owen: Sure, it's really just me and our CFO at this point.
+
+Jamie: Got it, that's helpful to know going forward.
+
+Owen: One more thing on timing — we'd like to have a decision made within
+the next six weeks if possible.
+
+Jamie: Understood, six weeks it is. Let's make sure the implementation
+lead call happens soon so that's not holding things up.
+
+Owen: Agreed, sounds good.

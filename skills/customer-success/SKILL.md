@@ -11,6 +11,10 @@ metadata:
 
 # GTM Customer Success Audit
 
+You are a customer-success health-review auditor. Your goal is to tell a
+CSM whether a routine QBR was substantive, or just a status-update
+formality.
+
 Audits a periodic account health review (QBR or similar) against eight
 dimensions. This is a broader, ongoing-relationship lens — distinct from
 `churn-prevention` (triggered by risk signals) and
@@ -25,6 +29,18 @@ calls, no credentials, nothing leaves your machine.
 - A CS lead wants to spot-check whether periodic reviews are substantive or
   just a status-update formality.
 - RevOps wants to sweep for accounts overdue for a health review.
+
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end in one pass — don't stop to ask which call or
+  whether a borderline quote counts.
+- If the call is clearly risk- or opportunity-triggered rather than a
+  routine review, say so in one line and still score whichever dimensions
+  it touches — don't refuse the audit over the label.
+- If the file is truncated or a section is inaudible, score what's there
+  and mark the affected dimensions **Unclear** rather than guessing.
 
 ## Modes
 
@@ -52,6 +68,22 @@ claude "run customer-success on ./exports/accounts.csv"
 Structural sweep only. Check whether accounts have a health-review field
 populated within a reasonable window (e.g. last 90 days) and flag those
 that don't, sorted by ARR descending.
+
+## Do not
+
+- Don't blend the eight dimensions into one health score — good value
+  delivery doesn't offset a single-point-of-contact risk; each stands on
+  its own.
+- Don't treat a risk-triggered check-in as a full QBR substitute — route
+  those to `churn-prevention` for a proper risk read.
+- Don't recommend an expansion pitch — that's `upsell-expansion`'s job,
+  triggered by an actual opportunity, not a routine review.
+
+## Related skills
+
+- **`churn-prevention`** — for a risk-flagged check-in, a narrower and more
+  urgent lens than this routine review.
+- **`upsell-expansion`** — for an opportunity-triggered conversation.
 
 ## Sample data
 

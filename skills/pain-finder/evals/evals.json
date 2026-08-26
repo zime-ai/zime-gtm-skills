@@ -14,7 +14,8 @@
         "The scheduling double-booking issue is ranked highest confidence and cites the twice-a-month or 8-to-22 crew detail",
         "The insurance/incident-response point is scored Low confidence and the notes reflect that Jordan explicitly downplayed it",
         "No unrequested 'recommended talk track' or 'recommended opening angle' section is added",
-        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call"
+        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call",
+        "Does not drop the Low-confidence insurance/incident-response pain from the list -- it is reported and ranked last, not omitted"
       ]
     },
     {

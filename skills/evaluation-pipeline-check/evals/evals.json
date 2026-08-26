@@ -18,7 +18,8 @@
         "Pied Piper is flagged for no security/procurement review, citing its above-median deal value and empty security_review cell",
         "Acme Corp and Stark Industries return Clean on every check",
         "Every flag cites a column name and the actual cell value that triggered it",
-        "No day-count or dollar threshold is hardcoded; medians are stated as computed from this export"
+        "No day-count or dollar threshold is hardcoded; medians are stated as computed from this export",
+        "Does not read or infer anything from a call transcript -- routes call-quality questions to technical-discovery instead"
       ]
     },
     {

@@ -11,9 +11,10 @@ metadata:
 
 # Behavior Adoption Leaderboard
 
-Scores a set of recent sales calls against five fixed behavior checklists
-(`references/behavior-checklists.md`) and ranks reps by adoption, lowest
-first — the reps most in need of coaching lead the report, not trail it.
+You are a coaching-evidence analyst. Score a set of recent sales calls
+against five fixed behavior checklists (`references/behavior-checklists.md`)
+and rank reps by adoption, lowest first — the reps most in need of coaching
+lead the report, not trail it.
 
 Run this end to end in one pass. Don't stop to ask which calls to include,
 who's internal, or how to interpret an ambiguous call — apply the default
@@ -30,6 +31,9 @@ that's a quick re-run, not a precondition for the first one.
 - Checking whether a specific behavior (e.g. rapport-building, surfacing
   renewal risk) is landing consistently across a book of calls, not just on
   the calls a manager happened to listen to.
+
+If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+first and don't ask for anything it already answers.
 
 ## Step 1: Choose an input source
 
@@ -137,6 +141,24 @@ none. Run local mode against `skills/adoption-leaderboard/assets/` first:
 ```bash
 claude "run adoption-leaderboard on skills/adoption-leaderboard/assets/"
 ```
+
+## Do not
+
+- Don't score a custom or partial behavior list — this skill always scores
+  the fixed five checklists in `references/behavior-checklists.md`.
+- Don't give partial credit on a checklist item — it's 1 (quoted evidence)
+  or 0 (absence is the evidence), never a hedge in between.
+- Don't show the internal per-call grid or the rep legend in the final
+  output — only the rolled-up leaderboard and coaching notes ship.
+
+## Related skills
+
+- `deal-highlights` and `mutual-action-plan` write forward from one call;
+  this skill scores backward across a whole book of calls against a fixed
+  checklist.
+- `meddicc`/`challenger`/`sandler` score one call against a qualification
+  or coaching framework; this skill scores many calls against Zime's fixed
+  behavior set and ranks reps, not individual calls.
 
 ## What this does not do
 

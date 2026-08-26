@@ -16,7 +16,8 @@
         "Sponsor sign-off is scored Covered and cites Owen's explicit statement that it counts as a pass",
         "Production-readiness blockers is scored Covered and cites the outstanding security review as a named blocker before full production",
         "The undelivered billing integration is identified and explicitly stated as non-fatal to the deal",
-        "Closes with a single pass/fail/inconclusive call, not a restated per-dimension summary"
+        "Closes with a single pass/fail/inconclusive call, not a restated per-dimension summary",
+        "Does not blend the eight dimensions into one overall score -- sponsor sign-off and end-user validation each get an independent Status"
       ]
     },
     {

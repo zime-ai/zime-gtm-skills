@@ -10,14 +10,26 @@ metadata:
 
 # Competitor Battlecard
 
-Writes a battlecard for whichever competitor was actually named on a call —
-a reusable artifact a rep could bring into the next call, not a grade of how
-well this one was handled. This is a phase-2 deal-intelligence skill, for
-one in-flight deal at a time. It does not score whether the rep reframed
-the objection well (`challenger` already audits Teach/Tailor/Take-control
-for that), and it is not a full win/loss brief (`win-loss-brief` covers
-competitive displacement as one of several loss drivers, after the deal has
-already closed).
+You are a deal-intelligence writer. Write a battlecard for whichever
+competitor was actually named on a call — a reusable artifact a rep could
+bring into the next call, not a grade of how well this one was handled.
+This is a phase-2 deal-intelligence skill, for one in-flight deal at a
+time. It does not score whether the rep reframed the objection well
+(`challenger` already audits Teach/Tailor/Take-control for that), and it
+is not a full win/loss brief (`win-loss-brief` covers competitive
+displacement as one of several loss drivers, after the deal has already
+closed).
+
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end without stopping to ask which competitor to focus on
+  — there is only ever one battlecard per call, for whichever competitor
+  (or status quo) the buyer actually named.
+- If no competitor is named anywhere in the transcript, say so plainly
+  after step 1 and stop — don't invent a hypothetical frame to complete
+  the template.
 
 **Hard rule: this skill has zero information about any competitor beyond
 what's in the transcript in front of it.** It may only state what the
@@ -69,6 +81,22 @@ citation does not ship.
 `assets/sample-transcript.txt` is a synthetic mid-stage call naming a
 synthetic competitor, with one buyer claim about it the rep never
 addresses. Run the skill against it first.
+
+## Do not
+
+- Don't state anything about the competitor beyond what the transcript
+  says — no outside knowledge of their real product, pricing, or actual
+  weaknesses, even if true.
+- Don't invent a competitive frame when none was named on the call.
+- Don't smooth a tentative claim into confident language, and don't drop
+  it just because it's uncertain — cite it as hedged.
+
+## Related skills
+
+- `challenger` scores whether the rep reframed the objection well; this
+  skill only restates what the buyer claimed about the competitor.
+- `win-loss-brief` covers competitive displacement as one of several loss
+  drivers after a deal closes; this skill covers one in-flight call.
 
 ## What this does not do
 

@@ -1,0 +1,56 @@
+Call: Vesper Logistics <> Vendor — Discovery call
+Participants: Sam (rep, vendor), Priya (Ops Director, Vesper Logistics)
+
+Sam: Thanks for making time today. What's been the biggest headache lately
+on the ops side?
+
+Priya: Honestly, it's the reconciliation between our warehouse system and
+billing. Finance ends up manually cross-checking mismatches before every
+invoice run — that's easily 15 hours a week across the team.
+
+Sam: That's a lot. Walk me through how that works today?
+
+Priya: We're on an older on-prem ERP. It feeds a nightly batch export to a
+shared drive, and then someone on finance manually cross-checks it against
+warehouse records in Excel before invoices go out.
+
+Sam: Got it. What made this the thing you're tackling now, versus, say, six
+months ago?
+
+Priya: We onboarded two new distribution centers last quarter and the
+manual process just didn't scale. We actually caught a $40k invoicing error
+last month that finally got leadership's attention — before that this was
+just an ops annoyance nobody prioritized.
+
+Sam: What would "solved" look like for you?
+
+Priya: Mismatches down to near zero, checked automatically before an
+invoice ever goes out. Not "better," an actual number we can point to.
+
+Sam: Who else needs to be involved in a decision like this?
+
+Priya: I run ops day to day, but anything above $50k this year goes through
+our CFO. He's actually already been asking me about this, given the $40k
+error.
+
+Sam: Makes sense. Any sense of budget or timing?
+
+Priya: We've got budget earmarked for this in the current quarter. The CFO
+wants something live before our next hiring push in Q2.
+
+Sam: So who else are you evaluating for this?
+
+Priya: We're also looking at a couple of players — one's a module bundled
+with our ERP vendor, but honestly it feels like overkill for what we
+actually need.
+
+Sam: That's useful to know. Anything else on your mind before we wrap?
+
+Priya: Actually, funny story — the $40k error is what got leadership's
+attention, before that this was purely an ops-team annoyance nobody upstairs
+cared about. Kind of wild it took a dollar figure to get traction.
+
+Sam: That tracks, happens a lot. I'll follow up with some detail on the ERP
+module comparison.
+
+Priya: Sounds good.

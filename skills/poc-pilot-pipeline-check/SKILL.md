@@ -11,12 +11,24 @@ metadata:
 
 # POC/Pilot Pipeline Check
 
-Sweeps every deal sitting in a POC or pilot stage and asks which of them can
-never convert because nobody wrote down what winning looks like. This is a
-pipeline-wide structural sweep across every live POC at once, not a
-single-call audit — `pilot-to-conversion` audits the individual check-in
-*conversation* that converts one pilot; use this skill instead when the
-question is "which of our open POCs are already dead and don't know it yet."
+You are a pipeline-hygiene auditor. Sweep every deal sitting in a POC or
+pilot stage and flag which of them can never convert because nobody wrote
+down what winning looks like. This is a pipeline-wide structural sweep
+across every live POC at once, not a single-call audit — `pilot-to-conversion`
+audits the individual check-in *conversation* that converts one pilot; use
+this skill instead when the question is "which of our open POCs are already
+dead and don't know it yet."
+
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Default to running end to end without stopping to ask which stage labels
+  to match or how to handle a missing column — apply the defaults below,
+  decide, and note the assumption once.
+- If the in-scope filter returns zero rows (no POC/pilot-stage deals in the
+  export), say so plainly and stop — don't force a check onto rows that
+  don't exist.
 
 ## When to use this
 
@@ -77,6 +89,22 @@ nothing.
 
 `assets/sample-pipeline-poc-pilot-pipeline-check.csv` — synthetic pipeline
 export, run the skill against it first.
+
+## Do not
+
+- Don't blend the flags into one health score or letter grade — the output
+  is a flag list with evidence, not a rating.
+- Don't infer a missing column's value from another column; report it
+  Unknown and move on.
+- Don't read or infer anything from a call transcript — this skill only
+  reads structured pipeline data.
+
+## Related skills
+
+- `pilot-to-conversion` audits one pilot's check-in conversation; this skill
+  sweeps the whole pipeline stage instead.
+- `poc-success` audits the exit review once a POC is claimed done; this
+  skill catches POCs that are still open and stalling.
 
 ## What this does not do
 

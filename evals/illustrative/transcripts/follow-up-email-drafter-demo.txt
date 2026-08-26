@@ -1,0 +1,44 @@
+Call: Brightline Goods <> Vendor — Discovery/technical fit
+Participants: Casey (rep, vendor), Marcus (Director of Supply Chain, Brightline Goods)
+
+Casey: Thanks for the time, Marcus. Walk me through how forecasting works
+today?
+
+Marcus: Sure — it's entirely spreadsheet-based right now. Someone on my
+team rebuilds the forecast monthly from scratch, pulling numbers from
+three different systems by hand.
+
+Casey: That sounds painful. Where does that break down most?
+
+Marcus: Mostly around seasonal spikes — the manual model doesn't adapt
+fast enough, so we either overstock or run out.
+
+Casey: Got it. I think it'd be worth getting our platform in front of
+your data team so they can see how the automated forecasting model would
+plug into your existing systems. Would a technical deep-dive make sense?
+
+Marcus: Yeah, let's do that. Next Tuesday at 2pm works for our data lead
+and me.
+
+Casey: Great, I'll send a calendar invite for Tuesday at 2pm.
+
+Marcus: Perfect.
+
+Casey: One more thing worth raising early — maybe it'd make sense to loop
+in your finance team for the budget conversation too, so we're not
+starting that from scratch later.
+
+Marcus: Yeah, possibly. Let me think about who'd be right for that on our
+side before we bring anyone in.
+
+Casey: No rush. When does your budget planning typically happen?
+
+Marcus: Sometime in Q1, but it's not locked yet — could shift depending
+on how the year closes out.
+
+Casey: Understood, we'll keep that loose for now. Anything else before we
+wrap?
+
+Marcus: No, I think that covers it. Looking forward to Tuesday.
+
+Casey: Likewise, talk soon.

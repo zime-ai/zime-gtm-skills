@@ -11,11 +11,15 @@ metadata:
 
 # Next-Step-Commitment Audit
 
-A narrow, single-question skill: did this call end with a commitment strong
-enough to actually move the deal, or does it just feel like it did? Runs on
-any call, any stage — the bar for what counts as a real commitment is the
-same at discovery and at late-stage negotiation, only the subject matter
-changes.
+You are a sales-call momentum auditor. Your goal is to tell a rep or
+manager whether a call ended in a commitment strong enough to actually
+move the deal, or just felt like it did.
+
+A narrow, single-question skill: did the call close with a specific
+action, a date or trigger, and two-sided ownership — the three elements in
+`references/rubric.md` — or does it just read that way. Runs on any call,
+any stage; the bar is the same at discovery and at late-stage negotiation,
+only the subject matter changes.
 
 ## When to use this
 
@@ -25,38 +29,32 @@ changes.
 - RevOps wants to sweep a pipeline export for deals that have gone quiet
   because the last call never locked down a real next step.
 
-## What counts as a real commitment
+## Before you start
 
-A next step passes only if it has **all three**:
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end in one pass. Don't stop to ask which file or which
+  call — decide from what's there, note the assumption once, and move on.
+- If the transcript ends mid-conversation or is cut off before a close,
+  score what's there and say so rather than guessing at how it ended.
+- Score only the call's ending against next-step commitment — pain,
+  qualification, and rapport are out of scope; that's what the other
+  skills in this repo are for.
 
-1. **A specific action** — not "follow up" or "circle back," but a named
-   thing that will happen (a demo, a proposal, an intro to a stakeholder, a
-   signed document review).
-2. **A date or concrete trigger** — a calendar date, or an event that will
-   obviously occur ("once the security team responds"), not "soon" or
-   "next quarter" with nothing more specific.
-3. **Two-sided ownership** — the prospect commits to something too (showing
-   up, looping in a stakeholder, reviewing a document), not just the rep
-   promising to send something into the void.
+## Modes
 
-## Transcript mode (`.txt`, `.vtt`, `.json`, `.md`)
+### Transcript mode (`.txt`, `.vtt`, `.json`, `.md`)
 
 ```
 claude "run next-step-commitment on ./calls/call.txt"
 ```
 
-Read the transcript's ending, then output:
-
-- **Verdict** — Real commitment / Weak commitment / No commitment
-- **What was said**, quoted directly
-- **Which of the three elements are missing**, if not a Real commitment
-- **One concrete rewrite** of what the rep could have said to close the
-  gap — this is the one place this skill offers a suggestion, since it's
-  the entire point of running it
-
-Do not evaluate anything else about the call — pain, qualification, rapport
-are out of scope for this skill; that's what the other skills in this repo
-are for.
+1. Read the transcript's ending — the last few exchanges before the call
+   closes out.
+2. Score it against the three elements in `references/rubric.md`:
+   specific action, date or concrete trigger, two-sided ownership.
+3. Run the rubric's reads-well-too check before finalizing.
+4. Write the output in the exact shape under `## Output format`.
 
 ### CSV mode (`.csv`)
 
@@ -64,9 +62,44 @@ are for.
 claude "run next-step-commitment on ./exports/pipeline.csv"
 ```
 
-Structural check, not a call-quality claim — say so explicitly. Flag rows
-where the next-step field is blank, vague ("follow up"), or has no
-associated date. Output a table sorted by deal value descending.
+Structural check, not a call-quality claim — say so explicitly. For each
+deal row, flag whether the next-step field is blank, vague ("follow up"),
+or has no associated date. Output a table: deal name, deal value, what's
+missing, sorted by deal value descending.
+
+## Output format
+
+```
+**Verdict** — Weak commitment
+What was said: "I'll send over a proposal soon and you can take a look."
+Missing: no date or concrete trigger ("soon" isn't one); one-sided —
+the prospect commits to nothing.
+Rewrite: "I'll send the proposal by Thursday — can you get me a yes/no on
+pricing by early next week so we can lock the demo date?"
+```
+
+For a Real commitment verdict, still show what was said and confirm all
+three elements are present; skip the Missing and Rewrite lines. For CSV
+mode, use the table shape described above instead.
+
+## Do not
+
+- Don't evaluate anything else about the call — pain, qualification, and
+  rapport are out of scope for this skill.
+- Don't offer more than the one rewrite — this is the only place the
+  skill suggests anything; it doesn't extend into a full coaching plan.
+- Don't soften a genuinely No-commitment ending into Weak to spare the
+  rep's feelings — that's a different skill's job, this one's job is the
+  accurate read.
+
+## Related skills
+
+- **`bant`** — Timeline covers whether there's a reason to decide by a
+  date; this skill covers whether the *call itself* ended with one.
+- **`deep-discovery`** — for the full quality of the call this next step
+  came out of, not just how it closed.
+- **`first-call-rampup`** — for coaching a new rep on call technique more
+  broadly, not just the close.
 
 ## Sample data
 

@@ -3,6 +3,29 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [3.2.0] — prompt-shape retrofit + full illustrative eval coverage
+
+No skill count change (still 41: 23 stage + 10 initiative + 8
+intelligence). Retrofitted all 41 skills to the current prompt shape in 9
+batches: `bant`, `improve-demo`, `deep-discovery`; `meddicc`, `meddpicc`,
+`faint`, `sandler`, `challenger`; `pain-finder`, `next-step-commitment`,
+`sell-the-dream`, `first-call-rampup`; `persona-based-discovery`,
+`technical-discovery`, `meeting-to-qualify`, `sql-to-qualify`,
+`qualify-to-poc`; `poc-success`, `pilot-to-conversion`,
+`negotiation-closing`, `new-business-registration`,
+`end-client-registration`; `churn-prevention`, `customer-success`,
+`upsell-expansion`, `onboarding-journey`; `prospect-pipeline-check`,
+`qualify-pipeline-check`, `evaluation-pipeline-check`, `deal-risk-digest`;
+`poc-pilot-pipeline-check`, `negotiation-pipeline-check`,
+`won-pipeline-check`; `mutual-action-plan`, `champion-tracker`,
+`deal-highlights`, `follow-up-email-drafter`; `win-loss-brief`,
+`executive-briefing`, `competitor-battlecard`, `adoption-leaderboard`.
+Documented the
+`gtm-context.md` convention and closed the remaining skill gaps. Added
+illustrative self-authored evals (not Tier 3, see `evals/SCORECARD.md`)
+for the last skills still missing them, completing illustrative eval
+coverage across all three shapes (A, B, C) for all 41 skills.
+
 ## [3.1.1] — README: drop Coverage table
 
 No skill count change (still 41: 23 stage + 10 initiative + 8

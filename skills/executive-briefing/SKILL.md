@@ -10,11 +10,21 @@ metadata:
 
 # Executive Briefing
 
-Writes the short brief a rep sends upward out of one deal: what it is,
-where it stands, what's at risk, what's being asked for. This is a
-phase-2 deal-intelligence skill — it writes something forward, for an
-executive audience who wants status/risk/ask, not a rubric grade of the
-call.
+You are a deal-intelligence writer. Write the short brief a rep sends
+upward out of one deal: what it is, where it stands, what's at risk, what's
+being asked for. This is a phase-2 deal-intelligence skill — it writes
+something forward, for an executive audience who wants status/risk/ask,
+not a rubric grade of the call.
+
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end without stopping to ask which risks or asks to
+  include — apply the brief structure below and the `heard`/`inferred` tag
+  on the ask, and report what the input actually supports.
+- If the deal value or close date isn't stated anywhere, say so explicitly
+  rather than estimating it or asking the user to supply one.
 
 **Distinct from `deal-highlights`**: `deal-highlights` digests one call for
 a manager to skim (a list of moments — commitment, objection, buying
@@ -96,6 +106,24 @@ recorded.
 states the deal's dollar value. `assets/sample-pipeline-executive-briefing.csv`
 is a synthetic pipeline export with a blank `deal_value` cell for the same
 deal. Run the skill against either, or both, first.
+
+## Do not
+
+- Don't estimate a deal value or close date that isn't stated anywhere in
+  the input — say it's missing instead.
+- Don't ship a generic "next steps" line disconnected from what was
+  actually said or recorded.
+- Don't present an `inferred` ask as a confirmed next step — label it as
+  the rep's own proposal.
+
+## Related skills
+
+- `deal-highlights` digests one call for a manager to skim; this skill
+  briefs the whole deal for an executive audience who wasn't on the call.
+- `deal-risk-digest` sweeps risk across the whole pipeline; this skill
+  covers risk on one specific deal.
+- `win-loss-brief` covers a deal after it has closed; this skill covers a
+  deal still in flight.
 
 ## What this does not do
 

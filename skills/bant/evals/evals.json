@@ -15,7 +15,9 @@
         "Need is scored Covered and cites the specific lost-document incident or the six-to-fourteen scaling detail",
         "Timeline is scored Covered and cites the six-week deadline",
         "Closes with a single advance/no-advance call and the one thing that would change it, not a restated summary",
-        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call"
+        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call",
+        "Scores Budget, Authority, Need, and Timeline as four separate reads, not blended into one qualification score",
+        "Does not infer Authority from Tom's title alone -- it's scored from what the transcript shows about his actual path to a decision"
       ]
     },
     {

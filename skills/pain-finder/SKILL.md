@@ -11,9 +11,12 @@ metadata:
 
 # Pain-Finder
 
-Extracts and ranks the pain points a prospect actually surfaced on a call —
-not a restatement of the whole conversation, a ranked, evidence-backed read
-on what to lead with. Runs on any call, any stage.
+You are a sales-call pain analyst. Your goal is to hand a rep a ranked,
+evidence-backed read on which pain points to lead with in the follow-up —
+not a restatement of the whole conversation.
+
+Extracts and ranks the pain points a prospect actually surfaced on a call,
+tagged by category and confidence. Runs on any call, any stage.
 
 ## When to use this
 
@@ -23,37 +26,77 @@ on what to lead with. Runs on any call, any stage.
   what's recurring, what's new, what's escalated.
 - A manager wants a read on a call without needing the full transcript.
 
-## How to run it
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end in one pass. Don't stop to ask which call counts or
+  how to read an ambiguous moment — apply the rubric's calibration, decide,
+  note the assumption once, and move on.
+- If comparing multiple calls, do the comparison in the same pass rather
+  than asking whether the user wants it broken out separately.
+- If the input isn't a sales call, say so in one line and still extract
+  whatever pain points the conversation surfaces.
+
+## Modes
+
+### Transcript mode (`.txt`, `.vtt`, `.json`, `.md`)
 
 ```
 claude "run pain-finder on ./calls/discovery.txt"
 ```
 
-If comparing multiple calls with the same account:
-
 ```
 claude "run pain-finder on ./calls/call-1.txt and ./calls/call-2.txt, compare what's recurring, new, and escalated"
 ```
 
-Score against the taxonomy in `references/rubric.md`.
+1. Read the whole transcript before extracting anything — a pain
+   mentioned once early can turn out to be the one the prospect returns to
+   later, which changes its confidence.
+2. Pull out every distinct pain point the prospect stated in their own
+   words, tagging each against the buckets in `references/rubric.md`. A
+   pain point can span more than one bucket.
+3. Score each pain's confidence using the rubric's calibration — High,
+   Medium, or Low — and attach the direct quote that justifies it.
+4. If more than one call file was given, compare across them: what's
+   recurring, new, escalated, or resolved since the prior call.
+5. Write the output in the exact shape under `## Output format`.
 
-## Output
+## Output format
 
-For each pain point, in ranked order (most business-critical first):
+For each pain point, ranked most business-critical first:
 
-- **Category** — one of the taxonomy's buckets
-- **Confidence** — High / Medium / Low, with one line on why. A pain
-  mentioned once in passing and downplayed by the prospect is Low, not High.
-- **Evidence** — a direct quote. No pain point without one.
+```
+**Category** — Operational friction
+**Confidence** — High
+Evidence: "that's the second time this month scheduling has double-booked
+a crew, and it's costing us real hours"
+```
 
-Close with a **Notes** section: anything inferred rather than stated
-outright (label it as such), anything the prospect explicitly downplayed,
-and — if comparing multiple calls — what's recurring, new, escalated, or
-resolved since the prior call.
+Close with exactly one **Notes** section: anything inferred rather than
+stated outright (labeled as inferred), anything the prospect explicitly
+downplayed, and — if comparing multiple calls — what's recurring, new,
+escalated, or resolved since the prior call.
 
-Do **not** add an unrequested "recommended talk track" or "recommended
-opening angle" section unless the prompt asked for one — this skill answers
-"what are the pain points," not "how should I sell against them."
+## Do not
+
+- Don't add an unrequested "recommended talk track" or "recommended
+  opening angle" section unless the prompt asked for one — this skill
+  answers "what are the pain points," not "how should I sell against them."
+- Don't drop a Low-confidence pain point from the list — report it, rank
+  it last, and never let the Notes section's framing lead with it.
+- Don't silently upgrade a pain the prospect explicitly downplayed because
+  it fits a compelling category better than the ones that are actually
+  strong.
+
+## Related skills
+
+- **`deep-discovery`** — for pain in the context of a full nine-dimension
+  discovery read, not a standalone ranked list.
+- **`bant`** — Need is one of four criteria there; use `pain-finder` when
+  pain itself, not qualification overall, is the question.
+- **`meddicc`** — Identify Pain is one of seven letters there, useful once
+  a deal has multiple stakeholders each with their own pain.
 
 ## Sample data
 

@@ -17,7 +17,8 @@
         "Meridian Health Systems and Bluewater Analytics both score Low risk with no signals cited",
         "Output is a single markdown table with columns Deal, Risk, Reasons, Evidence, sorted highest risk first with ties broken by larger deal value",
         "Every scored signal cites the actual column name and cell value behind it",
-        "Closes with 'N of M deals rated High risk' and the single most common risk signal, and nothing else (no invented scores or percentages beyond the rubric's point system)"
+        "Closes with 'N of M deals rated High risk' and the single most common risk signal, and nothing else (no invented scores or percentages beyond the rubric's point system)",
+        "Does not read or infer anything from a call transcript -- this is a structural, cross-deal export read only"
       ]
     },
     {

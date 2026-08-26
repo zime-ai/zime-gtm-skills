@@ -11,6 +11,10 @@ metadata:
 
 # End-Client Registration Audit
 
+You are a channel-registration auditor. Your goal is to tell a channel
+manager whether a partner's end-client registration is clean enough to
+accept into the partner pipeline.
+
 Audits whether a partner's end-client deal registration is complete and
 clean enough to accept into the partner program's pipeline — not whether
 the underlying deal itself is any good. CSV-first, since registration
@@ -31,6 +35,18 @@ than implying one exists.
   conflict check, commercial terms, or an expiry window.
 - A partner registration-review call just happened and someone wants a
   structured read on what was actually confirmed versus assumed.
+
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end in one pass — don't stop to ask about an ambiguous
+  cell, note it and move on.
+- If a row or call is clearly a direct new-logo deal with no partner
+  involved, say so and point to `new-business-registration` instead of
+  scoring it against this rubric.
+- If a column a check needs is entirely absent from the export, that check
+  reports **Unknown (column missing)** for every row rather than guessing.
 
 ## Modes
 
@@ -78,6 +94,20 @@ against each dimension in `references/rubric.md`. For every dimension:
 
 Close with a single **Approve / Approve pending the listed follow-ups / Do
 not approve yet** call, and the one thing that would change your answer.
+
+## Do not
+
+- Don't blend the seven dimensions into one approval score — flag each
+  independently, most-flags-first.
+- Don't confirm engagement permission from the partner's word alone — score
+  dimension 5 only from an explicit end-client confirmation.
+- Don't score a direct new-logo registration against this rubric — route it
+  to `new-business-registration` instead.
+
+## Related skills
+
+- **`new-business-registration`** (sibling) — for a direct new-logo
+  opportunity with no partner involved.
 
 ## Sample data
 

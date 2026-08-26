@@ -20,13 +20,33 @@ single tag.
 
 ## Confidence calibration
 
-- **High** — described with a specific incident, number, or repeated
-  emphasis; the prospect returned to it unprompted.
-- **Medium** — clearly stated once, with some specificity, but not dwelt on.
-- **Low** — raised only when asked directly, or explicitly downplayed by the
-  prospect in the same breath ("that's not really what's keeping me up at
-  night"). Report Low pains — don't drop them — but rank them last and never
-  let the closing next-step lead with one.
+**What it is.** How strongly the prospect's own words back this pain as
+something real and worth solving now — not how compelling the category
+sounds, and not how many buckets it touches. A pain only counts at all if
+the prospect acknowledged it as real and relevant in their own words, not a
+challenge the rep raised or assumed.
+
+**High looks like:** urgency and business impact both present — a specific
+incident, a number, or a cost the prospect names unprompted, and the
+prospect returns to it more than once. A reference to a prior attempt that
+already failed to fix it is a strong High signal; it shows the pain has
+outlasted at least one fix already.
+
+**Medium looks like:** clearly stated once, with real specificity, but not
+dwelt on — noticeable frustration or disruption that would keep growing if
+left alone, without the repetition or quantification that would push it to
+High.
+
+**Low looks like:** raised only when asked directly, described in passing
+with no incident or number attached, or explicitly downplayed by the
+prospect in the same breath ("that's not really what's keeping me up at
+night"). Report Low pains — don't drop them — but rank them last and never
+let the closing Notes section lead with one.
+
+"We've got some inefficiency in that process" is Low-to-Medium on its own;
+"that's the second time this month scheduling has double-booked a crew,
+and we already tried fixing it with a shared calendar that didn't hold" is
+High — specific, repeated, and shows a failed prior attempt.
 
 ## Hard rules
 

@@ -1,0 +1,42 @@
+Call: Solvent Dynamics <> Vendor — POC kickoff call
+Participants: Reese (rep, vendor), Ops Manager (Solvent Dynamics)
+
+Reese: Good to get this kicked off. Let's lock down what success looks
+like before we start.
+
+Ops Manager: Agreed. Success for us means the sync completes within five
+minutes, zero manual reconciliation, validated across both warehouses, by
+the end of the three weeks.
+
+Reese: Perfect, that's specific enough to hold both sides to. On scope —
+we'll connect to your East and West warehouse systems, covering inbound
+inventory only. Returns processing is explicitly out of scope for this
+pilot.
+
+Ops Manager: Right, returns is a separate project for us anyway.
+
+Reese: Who's going to be the day-to-day contact checking in on this as it
+runs?
+
+Ops Manager: That'd be me, I'll be the one poking at it day to day.
+
+Reese: And at the end, who actually signs off on whether this passed?
+
+Ops Manager: Someone above me will need to bless it eventually, I'd have to
+check who exactly.
+
+Reese: Okay. For dates — when do we start, and when do we call it?
+
+Ops Manager: Let's start Monday, and we'll review results against the
+criteria on the 21st.
+
+Reese: Good, that's locked. And on your side, who's actually going to do
+the configuration and testing work during the pilot?
+
+Ops Manager: Someone on our side will handle it, I'm sure we'll figure it
+out once it's running.
+
+Reese: Got it. I'll follow up on who signs off at the end, and who's
+actually doing the hands-on work.
+
+Ops Manager: Sounds good, appreciate it.

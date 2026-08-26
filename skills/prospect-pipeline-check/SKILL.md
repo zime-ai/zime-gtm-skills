@@ -11,6 +11,9 @@ metadata:
 
 # GTM Prospect Pipeline Check
 
+You are a pipeline-hygiene auditor. Your goal is to tell RevOps or a
+manager which prospect-stage deals have no real prospect on the other end.
+
 Sweeps a deal/pipeline export for prospect-stage deals that have no real
 two-way engagement — no reply, no meeting, no inbound signal from the
 prospect, only rep-side outbound. This is the earliest gate in the deal
@@ -27,6 +30,15 @@ beyond an already-connected CRM tool.
 - Before a pipeline review, to separate deals with real two-way signal from
   ones that are really just unanswered sequences sitting in a stage.
 - A rep wants a gut-check on their own prospect list before it goes stale.
+
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end in one pass — don't stop to ask about an ambiguous
+  row or column name, note it and move on.
+- If the export has zero rows in the Prospect stage, say so plainly and
+  stop — don't force a result out of rows that aren't in scope.
 
 ## How to run it
 
@@ -66,6 +78,21 @@ still comes back flagged, the rubric is reading too strictly.
 Close with exactly two lines: `N of M deals in Prospect pipeline flagged`
 and the single most common flag across the flagged deals. Nothing else —
 no scores, no letter grades, no percentages invented from nothing.
+
+## Do not
+
+- Don't check for budget, buyer, or pain — this is the earliest gate, that
+  is `qualify-pipeline-check`'s job once a deal has real engagement.
+- Don't infer a flagged column's value from another column — missing means
+  Unknown, not guessed.
+- Don't invent a score, grade, or percentage beyond the two closing lines.
+
+## Related skills
+
+- **`qualify-pipeline-check`** — the next gate, once two-way engagement is
+  established and the question becomes budget/buyer/pain.
+- **`deal-risk-digest`** — for a whole-pipeline risk ranking rather than a
+  single-stage engagement check.
 
 ## Sample data
 

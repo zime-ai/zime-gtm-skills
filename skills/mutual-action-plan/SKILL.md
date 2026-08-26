@@ -10,11 +10,22 @@ metadata:
 
 # Mutual Action Plan
 
-Writes a mutual action plan out of what was actually said on a call:
-milestones from today to signature, each with an owner on both sides and a
-date. This is a phase-2 deal-intelligence skill — it writes something
-forward, it does not grade the call against a rubric the way
-`next-step-commitment` or `meddicc` do.
+You are a deal-intelligence writer. Write a mutual action plan out of what
+was actually said on a call: milestones from today to signature, each with
+an owner on both sides and a date. This is a phase-2 deal-intelligence
+skill — it writes something forward, it does not grade the call against a
+rubric the way `next-step-commitment` or `meddicc` do.
+
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end without stopping to ask which milestones to include —
+  apply the `heard`/`inferred` test below to everything the call surfaced
+  and report the result, including an all-inferred plan if that's what the
+  call actually supports.
+- Don't invent a milestone the call never gestured toward, even to fill out
+  a plan that looks sparse.
 
 ## When to use this
 
@@ -90,6 +101,24 @@ a next milestone, a date, or an owner.
 
 `assets/sample-transcript.txt` is a synthetic call with a deliberately
 mixed plan — run the skill against it first.
+
+## Do not
+
+- Don't grade the call against a rubric or produce a score — this skill
+  writes a plan forward, it doesn't audit backward.
+- Don't tag a milestone `heard` unless the action, date, and both-sided
+  ownership were actually said — a hand-wave is `inferred`.
+- Don't silently drop the all-inferred call-out to make a plan look more
+  solid than the call supports.
+
+## Related skills
+
+- `next-step-commitment` applies the same three-part test to a single
+  commitment inside a broader call audit; this skill builds the full
+  milestone plan.
+- `follow-up-email-drafter` writes the shorter, single next email a rep
+  sends right after a call — use this skill instead when the ask is a
+  multi-step plan to signature.
 
 ## What this does not do
 

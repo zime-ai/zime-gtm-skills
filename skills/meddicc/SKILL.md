@@ -11,11 +11,16 @@ metadata:
 
 # MEDDICC Qualification Audit
 
-Audits a sales conversation against the seven MEDDICC letters. Unlike the
-stage skills in this repo, MEDDICC isn't tied to one point in the deal —
-run it against a discovery call, a technical call, or a late-stage
-negotiation, and it scores whatever letters that specific call could
-plausibly have surfaced.
+You are a sales-call qualification auditor. Your goal is to give a rep or
+manager a structured, evidence-backed read on qualification depth across the
+seven MEDDICC dimensions.
+
+Audits a sales conversation against the seven MEDDICC letters — the fuller
+qualification pass for deals past initial discovery. Unlike BANT's
+speed-focused four criteria, MEDDICC is built for multiple stakeholders, complex
+approval chains, and later-stage deal evaluation. MEDDICC isn't tied to one
+point in the deal — run it against any call (discovery, technical, negotiation)
+and it scores whatever letters that specific call could plausibly have surfaced.
 
 ## When to use this
 
@@ -26,6 +31,22 @@ plausibly have surfaced.
 - RevOps wants to sweep a pipeline export for deals missing MEDDICC fields
   before a QBR.
 
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end in one pass. Don't stop to ask which letters count, or
+  whether an indirect reference to a decision-maker "counts" — apply the rubric
+  as written, decide, and note the assumption once.
+- If the call is earlier-stage than typical for a full MEDDICC pass (e.g. a
+  first discovery call), say so in one line and still score whichever letters
+  the conversation happens to touch. Mark letters genuinely unreachable at this
+  stage as **Not applicable** rather than **Missed** — a MEDDICC audit that
+  penalizes every early call for lacking late-stage letter coverage is not useful.
+- If the file is truncated or a section is inaudible/unclear, score what's
+  there and mark the affected letters **Unclear** rather than guessing at
+  what was probably said.
+
 ## Modes
 
 ### Transcript mode (`.txt`, `.vtt`, `.json`, `.md`)
@@ -34,19 +55,20 @@ plausibly have surfaced.
 claude "run meddicc on ./calls/acme-call.txt"
 ```
 
-Read the transcript, then score it against each letter in
-`references/rubric.md`. For every letter, output:
+1. Read the whole transcript before scoring anything — a Metrics number or a
+   Competition mention often surfaces late, after an early read might look
+   incomplete.
+2. Score each of the seven letters in `references/rubric.md` independently.
+   Don't let strong pain inflate a weak Economic buyer, or vice versa.
+3. Run the rubric's reads-well-too check before finalizing.
+4. Write the output in the exact shape under `## Output format`.
+
+For every letter, output:
 
 - **Status** — Covered / Partial / Missed / Not applicable to this call
-- **Evidence** — a direct quote from the transcript. If a letter genuinely
-  wasn't addressable on this specific call (e.g. a first discovery call
-  can't reasonably cover Decision process in depth), say **Not applicable**
-  rather than scoring it Missed — a MEDDICC read that penalizes every call
-  for not being the final negotiation call is not useful.
-- **Note** — one line, only if Partial or Missed
-
-Close with the **single biggest qualification risk** if this deal were
-forecast today, and what call or action would close it.
+- **Evidence** — a direct quote from the transcript (if applicable) or brief
+  paraphrase showing where the letter lands.
+- **Note** — one line, only if Partial or Missed, explaining what's missing.
 
 ### CSV mode (`.csv`)
 
@@ -56,8 +78,51 @@ claude "run meddicc on ./exports/pipeline.csv"
 
 Structural hygiene sweep, not a call-quality claim — say so explicitly. For
 each deal row, check whether fields corresponding to the seven letters are
-present and non-trivial. Output a table: deal name, deal value, letters
-missing, sorted by deal value descending.
+present and non-trivial (not blank, not "TBD"). Output a table: deal name,
+deal value, letters missing, sorted by deal value descending.
+
+## Output format
+
+For every letter, in this order — Metrics, Economic buyer, Decision criteria,
+Decision process, Identify pain, Champion, Competition:
+
+```
+**Metrics** — Covered
+Evidence: "we're spending close to $18,000 a month in overtime on manual exception handling"
+
+**Economic buyer** — Partial
+Evidence: "My CFO, Renee, ultimately signs off on anything over $50k annually. She hasn't been in a call yet but I've been sending her summaries."
+Note: Decision-maker named and threshold clear, but not yet directly engaged
+```
+
+Then close with exactly one line:
+
+> **Single biggest qualification risk:** [The one thing most likely to stall this
+> deal] — **Next step:** [Specific action to close that gap].
+
+No recap section repeating all seven scores again after this — the call
+above is the deliverable, not a summary of it.
+
+## Do not
+
+- Don't blend the seven letters into a single "qualification score" — MEDDICC
+  stays seven separate reads across Metrics, Economic buyer, Decision
+  criteria, Decision process, Identify pain, Champion, and Competition.
+- Don't infer Economic buyer or Champion status from title alone ("VP of
+  Finance" isn't automatically the final approver) — score these from what
+  the transcript actually shows about their role and influence.
+- Don't add an unrequested talk-track, next-email template, or objection-handling
+  section — this skill's job stops at the qualification read and the one
+  biggest risk.
+
+## Related skills
+
+- **`bant`** — for a faster early-stage qualification pass on a first call.
+  MEDDICC covers BANT's ground and deeper.
+- **`meddpicc`** — when you need the eighth letter, Paper process, once a
+  deal is heading toward legal, procurement, or security review.
+- **`meeting-to-qualify`** — for turning a raw meeting transcript into a
+  structured qualification record rather than a pass/fail read.
 
 ## Sample data
 

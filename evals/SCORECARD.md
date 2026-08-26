@@ -53,6 +53,21 @@ Transcript-audit skills (findings-recall shape):
 |---|---|---|---|---|---|
 | `meddicc` | 4/4 | 0 (1 soft overstatement) | No credit — folded into a rubric bucket | 4/7 | See `evals/illustrative/README.md` |
 | `challenger` | 4/4 | 0 | Full credit — surfaced as its own finding | 2/3 comparable | Gold guessed a rubric dimension the skill doesn't score — flagged as a gold-construction mismatch, not a skill defect. See `evals/illustrative/README-challenger.md` |
+| `meddpicc` | — | 0 | — | 4/8 exact match | Both planted traps (Paper process, Champion) avoided their designed lenient failure but missed gold's exact answer in opposite directions — one too strict, one too lenient. See `evals/illustrative/README-meddpicc.md` |
+| `faint` | — | 0 | — | 5/5 exact match | Clean pass — both planted traps (Authority from title alone, Need's absence given strong Interest) passed. See `evals/illustrative/README-faint.md` |
+| `sandler` | — | 0 | — | 7/7 exact match | Clean pass — both planted traps (Pain from a symptom mention, Fulfillment from a hedged "I guess, sure") passed, sequencing violation named correctly. See `evals/illustrative/README-sandler.md` |
+| `bant` | — | 0 | — | 4/4 exact match | All criteria matched gold including the planted Authority trap; closing advance-call line didn't carry the Authority-Partial finding through to its own follow-up recommendation. See `evals/illustrative/README-bant.md` |
+| `pain-finder` | 4/4 pains recalled, correct order | 0 | — | — | Both planted traps passed — a downplayed pain stayed Low confidence, a thin pain was reported rather than dropped. Category labels reworded from gold but evidence/confidence/order all matched. See `evals/illustrative/README-pain-finder.md` |
+| `next-step-commitment` | — | 0 | — | — | Single-verdict shape, not a scorecard. Planted trap (momentum-sounding language must not read as `Real commitment`) passed; verdict landed on `No commitment`, all 3 missing elements correctly named. See `evals/illustrative/README-next-step-commitment.md` |
+| `sell-the-dream` | — | 0 | — | 4/5 exact match | Sequencing violation (feature pitched before vision) caught with correct root cause; one element score (`Missed` vs. gold's `Covered`) double-counted the same order problem the sequencing section already flags. See `evals/illustrative/README-sell-the-dream.md` |
+| `deep-discovery` | — | 0 | — | 7/9 exact match | Both planted traps (blunt competitive question scored on content not phrasing; procurement Missed on a $50k+ deal) passed; two dimensions gold marks `Partial` (decision process, budget/timeline) were flattened to `Covered`. See `evals/illustrative/README-deep-discovery.md` |
+| `persona-based-discovery` | — | 0 | — | 5/5 exact match | Clean pass — both planted traps (title-vs-role mismatch; no penalty for the one absent persona) passed. See `evals/illustrative/README-persona-based-discovery.md` |
+| `meeting-to-qualify` | — | 0 | — | 9/9 exact match (incl. close) | Clean pass — planted trap (buying authority not inferred from a "VP" title alone) passed, close call matched gold exactly. See `evals/illustrative/README-meeting-to-qualify.md` |
+| `technical-discovery` | — | 0 | — | 7/7 exact match | Clean pass — planted trap (business-buyer enthusiasm not credited as a named technical stakeholder) passed with sharper reasoning than gold required. See `evals/illustrative/README-technical-discovery.md` |
+| `improve-demo` | — | 0 | — | 6/7 exact match | Planted trap (quiet transcript with one sharp question scored as engaged, not auto-Missed) passed; one dimension (success criteria reconfirmed) wrongly scored `Covered` vs. gold's `Missed`, propped up by quotes that (though genuine) don't actually support that verdict. See `evals/illustrative/README-improve-demo.md` |
+| `qualify-to-poc` | — | 0 | — | 5/5 exact match | Clean pass — both planted traps (three Covered dimensions don't offset a Missed gate; vague "someone on our side" not credited as resourcing) passed. See `evals/illustrative/README-qualify-to-poc.md` |
+| `pilot-to-conversion` | — | 0 | — | 8/8 exact match (incl. close) | Clean pass, strongest result in this batch — planted trap (rep optimism not credited as a named conversion date/owner) passed, all evidence verified verbatim against the transcript. See `evals/illustrative/README-pilot-to-conversion.md` |
+| `poc-success` | — | 0 | — | 7/8 exact match (incl. close) | Planted trap (champion's secondhand confidence not credited as sponsor sign-off) passed, correct `inconclusive` close; one dimension (commercial next step) scored `Partial` vs. gold's `Covered` — a stricter, defensible read, not a rubric violation. See `evals/illustrative/README-poc-success.md` |
 
 CSV pipeline-sweep skills (row/ranking-accuracy shape):
 
@@ -68,11 +83,19 @@ CSV pipeline-sweep skills (row/ranking-accuracy shape):
 | `end-client-registration` | 8/10 rows, 3/5 traps | 1 (unrubriced near-expiry concern) | One false negative (vague scope), one false positive (over-strict on expiry), aggregate line collapsed distinct dimensions. See `evals/illustrative/README-end-client-registration.md` |
 | `new-business-registration` | 6/8 rows fully correct, 1 sloppy-but-right, 1 wrong | 0 | Introduced an unrubriced temporal-validity check on expiry dates the rubric doesn't ask for; also mild scope overreach into approval/remediation framing. See `evals/illustrative/README-new-business-registration.md` |
 
-Document-writer skills (row/field-diff shape):
+Document-writer skills (row/field-diff shape) — all 7 Shape C
+deal-intelligence writers now have a run (`deal-risk-digest`, the 8th
+deal-intelligence skill, is CSV-only and counted under Shape B above):
 
 | Skill | Row accuracy | Extra rows | Hallucinations | Notes |
 |---|---|---|---|---|
 | `champion-tracker` (Shape C) | 7/7 gold rows, 0 wrong-tag | 4 (3 legit, 1 overreach) | 0 | Same author wrote this skill's own rubric — weakest blinding of the runs so far. Passed a planted stated-intention-vs-action trap, then failed the identical trap shape later, un-planted. See `evals/illustrative/README-champion-tracker.md` |
+| `mutual-action-plan` | 3/4 gold rows correctly tagged (1 mis-split) | 0 | Planted "budget sign-off moving" trap passed (correctly `inferred`); un-planted defect: split one `heard` milestone into two rows and stripped the named owner from one half, manufacturing an `inferred` tag on a fact the same sentence supports as `heard`. Also invented exact calendar dates beyond what the call stated. See `evals/illustrative/README-mutual-action-plan.md` |
+| `deal-highlights` | 6/6 gold items recalled, citations correct | 0 | Avoided the planted small-talk trap (dog/vacation) but failed the subtler planted trap: wrote a pure Tuesday/Wednesday scheduling exchange up as "Commitment (both)." One legit bonus item (a real rep-side commitment) also added. See `evals/illustrative/README-deal-highlights.md` |
+| `follow-up-email-drafter` | Clean pass — email + grounding notes match gold claim-for-claim | 0 | Planted trap (an inferred ask promoted to an agreed fact) passed; `Heard`/`Proposed` tags never leaked into the email body. See `evals/illustrative/README-follow-up-email-drafter.md` |
+| `win-loss-brief` | 3/3 clear drivers correct, hedge correctly kept tentative | 0 | Planted trap passed (hedge not upgraded to a confident driver); one structural nit — a ruled-out non-driver was listed as a bullet inside the Drivers section instead of fully outside it. See `evals/illustrative/README-win-loss-brief.md` |
+| `executive-briefing` | Snapshot/risks/ask all correct | 0 | Planted trap passed (deal value correctly reported as not-stated, not estimated); un-planted defect: a buyer-stated close date ("before end of quarter") was headlined as "no firm date" before the correct quote followed — under-reported a fact that was actually said. See `evals/illustrative/README-executive-briefing.md` |
+| `competitor-battlecard` | Clean pass — all 5 sections correct | 0 | Both planted traps passed (hedged claim kept tentative; correctly bucketed as left-unanswered rather than credited to a nearby but unrelated rep counter). See `evals/illustrative/README-competitor-battlecard.md` |
 
 ## Tier 0 framework: landed and runnable
 

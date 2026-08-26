@@ -1,0 +1,43 @@
+Call: Coastal Mutual <> Vendor — Negotiation check-in
+Participants: Alex (rep, vendor), VP Claims (Coastal Mutual)
+
+Alex: Thanks for hopping on. Where do things stand on your end?
+
+VP Claims: We're in good shape overall. Legal's already reviewing the
+paper, so we're past the "are we doing this" stage and into "how fast can
+we get it done."
+
+Alex: That's great to hear. Any target in mind?
+
+VP Claims: We're hoping to have this signed before end of quarter — that's
+the internal goal we're working toward.
+
+Alex: Understood. Anything holding legal up right now?
+
+VP Claims: One thing — they flagged a clause in the data-processing
+addendum. Until that's resolved, they won't sign off on the rest.
+
+Alex: Got it, that's fixable. Would it help if I got our legal team on a
+call directly with yours to work through it?
+
+VP Claims: Yes, actually, that would help a lot. Can you set that up for
+next week? I'd rather get that resolved before it holds up everything
+else.
+
+Alex: I'll get that scheduled. Anything else working against timing?
+
+VP Claims: Honestly, yes — there's a separate platform migration project
+competing for the same budget cycle internally. It's not decided yet
+which one gets priority if both come up at the same time.
+
+Alex: Appreciate you flagging that. One more thought — it might help if I
+looped in our own VP to talk exec-to-exec, in case that competing
+priority becomes a real issue.
+
+VP Claims: Maybe, let's see how the legal call goes first before we go
+that route.
+
+Alex: Makes sense, we'll hold that in reserve. I'll get the legal call set
+up for next week.
+
+VP Claims: Sounds good, appreciate you moving fast on this.

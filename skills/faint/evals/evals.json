@@ -16,7 +16,10 @@
         "Interest is scored Covered and cites Marcus calling the dashboard example interesting and asking for a one-pager",
         "Need is scored Partial rather than Missed, with reasoning that references Interest being Covered, not a generic paraphrase",
         "Closes with a single named biggest qualification risk and a concrete next step, not a full recap",
-        "Cites at least one specific, concrete detail from the transcript (a quote or timestamp) rather than a generic paraphrase that could apply to any call"
+        "Cites at least one specific, concrete detail from the transcript (a quote or timestamp) rather than a generic paraphrase that could apply to any call",
+        "Does NOT create a single blended score or qualification grade — five criteria are reported separately",
+        "Does NOT include an unrequested section like 'Recommended next email', 'Talk track', or 'Action items' — stops at the advance/no-advance verdict",
+        "Does NOT repeat all five criteria scores again in a recap section after the advance/no-advance line"
       ]
     },
     {
@@ -28,7 +31,8 @@
       "expectations": [
         "Need is scored Partial rather than Missed when Interest is Covered",
         "The audit explicitly reasons about Interest before penalizing Need, per the rubric's Interest-before-Need section",
-        "A call that built genuine interest is not scored as an overall qualification failure just because Need wasn't stated"
+        "A call that built genuine interest is not scored as an overall qualification failure just because Need wasn't stated",
+        "Does NOT treat a call as a failure solely for weak Need — the premise of FAINT is demand-driven leads without stated problems"
       ]
     },
     {
@@ -42,6 +46,35 @@
         "Flags rows missing FAINT-relevant fields",
         "Output is sorted by deal value descending",
         "Does not claim to know what happened on any specific call from CRM fields alone"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "faint-eval-4-authority-not-inferred",
+      "prompt": "run faint on a transcript where the prospect's title suggests seniority (e.g., 'Director of Operations') but they explicitly state they don't decide on this type of purchase",
+      "expected_output": "Authority is scored based on what the prospect says about their decision path, not their title. If they say someone else decides, Authority is Partial or Missed regardless of how senior their title sounds.",
+      "files": [],
+      "expectations": [
+        "Authority score is NOT Covered simply because the prospect has a senior-sounding title",
+        "Authority score reflects the prospect's actual path to a decision, not their title or position",
+        "If a senior-titled prospect says 'my CEO decides this', Authority is Partial or lower, not Covered"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "faint-eval-5-output-format-compliance",
+      "prompt": "run faint on skills/faint/assets/sample-transcript.txt and verify output exactly matches the format in SKILL.md under '## Output format'",
+      "expected_output": "Each criterion has: bold criterion name, Status (Covered/Partial/Missed), Evidence (a direct quote), and optional Note (one line, only if Partial or Missed). The verdict line follows the exact format: **Advance** / **Advance with a follow-up on [criterion]** / **Do not advance yet** — because [signal], and here's the one question: [question].",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Each of the five criteria is formatted as: **[Criterion]** — [Status]",
+        "Evidence is provided as a direct quote from the transcript, not a paraphrase",
+        "Note field (if present) appears only when Status is Partial or Missed",
+        "The verdict line uses one of the three exact formats: Advance, Advance with a follow-up on [X], or Do not advance yet",
+        "The verdict line includes 'because [reason]' and 'here's the one question: [question]'",
+        "No other sections (recap, summary, bullet-point list) appear after the verdict line"
       ]
     }
   ]

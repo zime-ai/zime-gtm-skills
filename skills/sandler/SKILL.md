@@ -11,22 +11,43 @@ metadata:
 
 # Sandler Submarine Audit
 
+You are a sales-call auditor specializing in Sandler methodology. Your goal
+is to tell a rep or manager whether each compartment of the submarine was
+sealed before moving forward, with evidence for every claim and the
+highest-leverage fixes for next time.
+
 Audits a sales conversation against the seven compartments of the Sandler
-Selling System's submarine. Unlike the stage skills in this repo, Sandler
-isn't tied to one point in the deal — the submarine's whole premise is that
-each compartment must be sealed (secured) before the rep moves to the next,
-so this skill checks order and completeness, not just topic coverage.
+Selling System's submarine. Unlike checklists (BANT, MEDDICC) that treat
+each criterion independently, Sandler is a process framework — the submarine's
+whole premise is that each compartment must be secured before the rep moves
+to the next. This skill checks sequence and completeness, and flags when a
+rep skipped an earlier compartment to reach a later one (pitching before
+pain, for example) as a submarine violation, not just a missed box.
 
 ## When to use this
 
-- A rep pitched a solution and you want to know whether they'd actually
-  earned the right to — did they secure an up-front contract and surface
-  real pain first, or did they jump straight to features.
-- Checking whether a "close" on a call was a real mutual decision or the
-  rep assuming yes and steamrolling into next steps.
+- A rep pitched a solution and you want to audit whether they'd earned the
+  right to — did they secure bonding, an up-front contract, and surface real
+  pain first, or jump straight to features.
+- Checking whether a "close" on a call was a real mutual decision or the rep
+  assuming agreement and steamrolling into next steps.
 - RevOps wants to sweep a pipeline export for deals where Sandler-relevant
-  fields (budget confirmed, decision process, next-step contract) are
+  fields (budget confirmed, decision process, next-step commitment) are
   missing before a forecast call.
+
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end in one pass. Don't stop to ask which call to use or
+  how to read an ambiguous moment — apply the rubric's guidance, decide, and
+  note the assumption once in the output.
+- If the transcript is a negotiation, renewal, or support call rather than a
+  sales call, say so in one line and still score whichever compartments the
+  conversation touches.
+- If a section is unclear or a compartment genuinely wasn't reachable at this
+  call's stage (e.g. Fulfillment on a first discovery call that never got
+  near a close), score it **Not applicable**, not Missed.
 
 ## Modes
 
@@ -36,24 +57,17 @@ so this skill checks order and completeness, not just topic coverage.
 claude "run sandler on ./calls/acme-call.txt"
 ```
 
-Read the transcript, then score it against each compartment in
-`references/rubric.md`, in submarine order. For every compartment, output:
-
-- **Status** — Covered / Partial / Missed / Not applicable to this call
-- **Evidence** — a direct quote from the transcript. If a compartment
-  genuinely wasn't reachable on this specific call (e.g. Fulfillment on a
-  first discovery call that never got near a close), say **Not applicable**
-  rather than scoring it Missed.
-- **Note** — one line, only if Partial or Missed
-
-Pay particular attention to order: a compartment scored Covered late in the
-call after an earlier compartment was skipped (e.g. pitching before Pain
-was surfaced) is a submarine violation worth calling out explicitly, not
-just a missed box.
-
-Close with the **single biggest submarine violation** on this call — which
-compartment got skipped or rushed, and what it cost the rep — and what to
-do differently next call.
+1. Read the whole transcript before scoring — a Budget number or a Decision
+   step often surfaces late, after earlier sections look Missed.
+2. Score each of the seven compartments in submarine order against
+   `references/rubric.md`. For every compartment, output Status, Evidence,
+   and Note (if Partial or Missed).
+3. Watch for order violations: a compartment scored Covered late in the call
+   after an earlier compartment was skipped (e.g. pitching before Pain
+   surfaced). Call these out as submarine violations explicitly.
+4. Run the rubric's reads-well-too check before finalizing.
+5. Close with 2-3 highest-leverage next steps — not a recap of all seven
+   scores, the fixes that would have moved this specific deal forward most.
 
 ### CSV mode (`.csv`)
 
@@ -61,11 +75,78 @@ do differently next call.
 claude "run sandler on ./exports/pipeline.csv"
 ```
 
-Structural hygiene sweep, not a call-quality claim — say so explicitly. For
-each deal row, check whether fields corresponding to the seven compartments
+This is a **structural hygiene sweep**, not a call-quality audit — CRM
+fields can't show whether a rep actually surfaced pain on a call, only
+whether someone typed something into a field. Say this explicitly in the
+output. For each deal row, check whether fields for the seven compartments
 (especially budget confirmed, decision process, next-step commitment) are
 present and non-trivial. Output a table: deal name, deal value, compartments
 missing, sorted by deal value descending.
+
+## Output format
+
+Seven compartments in submarine order:
+
+```
+**1. Bonding & Rapport** — Covered
+Evidence: "conference small talk, matching Kim's tone and pace"
+
+**2. Up-Front Contract** — Covered
+Evidence: "I'll ask a few questions about how your team handles returns
+processing today, and by the end we'll both know honestly whether this is
+worth a follow-up or not"
+
+**3. Pain** — Missed
+Evidence: prospect mentions "we do get a lot of returns" but never quantifies
+impact or root cause; rep pitches routing engine before pain is surfaced
+Note: sequence violation — rep earned right to pitch only after pain was real
+
+**4. Budget** — Missed
+Evidence: no budget discussion at all
+Note: rep never raised cost; proceeded as if affordability was settled
+
+**5. Decision** — Partial
+Evidence: "I'll just check with my director first before anything's final"
+Note: approver named but process/timeline never clarified
+
+**6. Fulfillment** — Missed
+Evidence: "I think this is a great fit for Harborview. Let's get this moving
+— I'll send over a contract this week"
+Note: rep assumes close as settled; prospect's hesitant "I guess" shows
+no real mutual agreement
+
+**7. Post-Sell** — Missed
+Evidence: call ends on "any other questions before we wrap?" with no step
+to reinforce decision
+Note: no check for doubts or reversals after commitment
+```
+
+Close with **2-3 highest-leverage next steps** — the specific submarine
+fixes that would have improved this deal. No section recapping all seven
+scores again.
+
+## Do not
+
+- Don't treat a vague pain mention ("we do get a lot of returns") as Covered
+  just because the word "problem" appeared — score it on whether the prospect
+  named cause, impact, and urgency in their own words.
+- Don't add suggested talk tracks or a "how to handle this objection"
+  section unless asked — this skill audits the call that happened.
+- Don't score a compartment Missed simply because the call's stage couldn't
+  reach it (apply the Not applicable category instead). A strong early call
+  should not read as mostly Missed.
+- Don't infer Decision process from title alone — score it on whether the
+  rep actually mapped the approver, timeline, and decision sequence.
+
+## Related skills
+
+- **`bant`** — for a faster four-criterion advance/no-advance read on a
+  first call instead of Sandler's seven-compartment depth.
+- **`deep-discovery`** — for auditing discovery quality across nine
+  dimensions (similar depth, different focus — discovery audits information
+  gathered, Sandler audits process order and mutual agreement).
+- **`meddicc`** — once the deal has multiple stakeholders and is heading
+  toward a technical or economic evaluation.
 
 ## Sample data
 

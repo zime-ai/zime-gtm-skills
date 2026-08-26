@@ -39,6 +39,17 @@
         "States explicitly that CSV mode is a structural check on the fields present, not a claim about what happened on any call",
         "Flags rows missing a next milestone, a date, or an owner"
       ]
+    },
+    {
+      "id": 4,
+      "name": "mutual-action-plan-eval-4-no-invented-milestones",
+      "prompt": "run mutual-action-plan on a call transcript that only discussed a security review, nothing else about signature, legal, or budget",
+      "expected_output": "The plan contains only the security review milestone (and whatever else was actually discussed) -- it does not invent a legal-review, budget-approval, or contract-signature milestone just to produce a fuller-looking plan.",
+      "files": [],
+      "expectations": [
+        "The plan does not include a milestone (legal, budget, signature) that the transcript never gestured toward",
+        "Only milestones the call actually discussed appear in the table"
+      ]
     }
   ]
 }

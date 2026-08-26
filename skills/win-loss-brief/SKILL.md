@@ -10,12 +10,23 @@ metadata:
 
 # Win-Loss Brief
 
-Writes a brief on why one specific closed deal was won or lost. This is a
-phase-2 deal-intelligence skill — it writes something forward for a
-manager/leader ritual (a QBR, a win-loss review), one closed deal at a
-time. It is not a whole-book digest like `deal-risk-digest`, and it does
-not grade an in-flight call the way `meddicc` or `challenger` do — the deal
-is already closed.
+You are a deal-intelligence writer. Write a brief on why one specific
+closed deal was won or lost. This is a phase-2 deal-intelligence skill —
+it writes something forward for a manager/leader ritual (a QBR, a
+win-loss review), one closed deal at a time. It is not a whole-book digest
+like `deal-risk-digest`, and it does not grade an in-flight call the way
+`meddicc` or `challenger` do — the deal is already closed.
+
+## Before you start
+
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
+- Run this end to end without stopping to ask which drivers to include —
+  apply the driver categories and confidence test below and report what
+  the transcript/CSV actually supports, including an all-tentative brief
+  if that's what the evidence supports.
+- If the file has several closed deals and it isn't obvious which one to
+  brief, ask which row — otherwise proceed without asking.
 
 ## When to use this
 
@@ -97,6 +108,22 @@ the evidence is, not something to paper over with confident language.
 that was ultimately lost. `assets/sample-pipeline-won-loss.csv` is a
 synthetic closed-deal export with both won and lost rows. Run the skill
 against either, or both, first.
+
+## Do not
+
+- Don't ship a driver with no cited quote or CSV column/cell behind it.
+- Don't upgrade a tentative driver to clear just to make the brief read
+  more confidently.
+- Don't grade an in-flight call against a live rubric — that's `meddicc`
+  or `challenger`'s job; this skill only briefs deals that already closed.
+
+## Related skills
+
+- `deal-risk-digest` sweeps the whole open pipeline for risk; this skill
+  briefs one already-closed deal.
+- `competitor-battlecard` covers a competitive frame from a single
+  in-flight call; this skill covers competitive displacement as one of
+  several loss drivers, after the deal has closed.
 
 ## What this does not do
 
