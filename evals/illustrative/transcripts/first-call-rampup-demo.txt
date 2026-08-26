@@ -1,0 +1,45 @@
+Call: Anders Foods <> Vendor — First call, new rep
+Participants: Sam (rep, vendor, early in ramp), Jamie (Ops Manager, Anders Foods)
+
+Sam: So, tell me about your company.
+
+Jamie: Sure — we're a regional food distributor, mid-size, mostly grocery
+chains as customers.
+
+Sam: Got it. Walk me through what happens today when a shipment's
+delayed — where's the time actually going?
+
+Jamie: Honestly it's a scramble. Someone has to manually call the customer,
+someone else reroutes the driver, and half the time nobody logs it until
+the invoice reconciliation catches the discrepancy days later.
+
+Sam: What's driving that specifically — is it a systems gap or more of a
+process thing?
+
+Jamie: Mostly no systems talk to each other. Dispatch doesn't know what
+sales promised, sales doesn't know what dispatch is dealing with in
+real time.
+
+Sam: That's rough. Why look at this now instead of, say, last year?
+
+Jamie: Our biggest customer just added a penalty clause for late deliveries
+starting this quarter. That changed the math on this pretty fast.
+
+Sam: That's a real forcing function. So, let me walk you through what we
+do — we've got reporting, dispatch integrations, an API for custom
+workflows, and a mobile app for drivers.
+
+Jamie: Okay.
+
+Sam: And you mentioned the penalty clause — our exception-alert view is
+actually built exactly for catching a delay before it triggers something
+like that, flags it the moment a route falls behind schedule.
+
+Jamie: That part's actually relevant, yeah. Actually, that reminds me — we
+had a similar contract dispute with a different carrier last year, cost us
+a chunk of the account before we caught it.
+
+Sam: That's exactly the kind of thing this is meant to prevent. I'll follow
+up with more detail on the exception-alert piece specifically.
+
+Jamie: Sounds good.
