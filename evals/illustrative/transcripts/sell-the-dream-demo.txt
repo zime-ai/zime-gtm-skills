@@ -1,0 +1,34 @@
+Call: Thornfield Brokers <> Vendor — Discovery/pitch
+Participants: Riley (rep, vendor), VP Risk (Thornfield Brokers)
+
+Riley: Thanks for hopping on. Let me just dive in — our platform
+automatically flags underpriced policies using real-time claims data, so
+your underwriters catch pricing gaps before they become losses.
+
+VP Risk: Okay, interesting. How does that actually work day to day?
+
+Riley: It ingests claims data continuously and re-scores risk on every
+active policy, instead of waiting for the annual review cycle. Honestly,
+the whole industry's shifting from annual reviews to continuous risk
+scoring at this point — the brokers who adapt now keep clients who'd
+otherwise shop around, and the ones who don't lose accounts to firms who
+did make the switch.
+
+VP Risk: That's a fair point, we have seen some churn we couldn't fully
+explain.
+
+Riley: Right, and once this is in place, you'd basically never get caught
+flat-footed on pricing again — you'd see the gap before a client does.
+
+VP Risk: Sure, that's appealing. Do you have any proof this actually
+moves the needle?
+
+Riley: Yeah — a mid-size firm using this cut their claims leakage by 12%
+in the first two quarters after rollout.
+
+VP Risk: That's a solid number. I'd want to see more on how the
+integration works with our current systems before going further.
+
+Riley: Happy to set that up. I'll get our implementation team looped in.
+
+VP Risk: Sounds good.

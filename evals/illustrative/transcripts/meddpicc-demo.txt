@@ -1,0 +1,56 @@
+Call: Ferro Systems <> Vendor — Late-stage, post-verbal-yes
+Participants: Nadia (rep, vendor), Owen (Plant Ops Lead, Ferro Systems)
+
+Nadia: Thanks for jumping on, Owen. Since the verbal yes, where do things
+stand?
+
+Owen: Good place overall. To be honest, the number we need to hit is
+cutting inspection rework by at least 15% — that's what makes the
+internal case work for finance.
+
+Nadia: Got it, that's the number we'll build the ROI story around. Who
+signs off on this at the end?
+
+Owen: Our VP Ops. She's already seen the numbers and is fine with it —
+this isn't a hard sell to her at this point.
+
+Nadia: Good to know. And once she signs off, what's the process from
+there?
+
+Owen: She signs, then it goes to finance for what's basically a rubber
+stamp at our deal size. That part's fast.
+
+Nadia: On the technical side — you mentioned integration with your MES
+system matters. What does "working well" actually look like there?
+
+Owen: Honestly I haven't nailed that down with my team yet. It matters,
+but I couldn't tell you the specific bar we'd hold it to.
+
+Nadia: That's useful to know, we'll want to get specific on that before
+go-live. What about legal — any sense of what that review looks like?
+
+Owen: Legal's going to look at it, I just don't know how long that
+usually takes with our team. Haven't been through a deal this size with
+them before.
+
+Nadia: Understood, we'll plan for some buffer there. By the way, how's
+Dana feeling about all this?
+
+Owen: Dana's been raving about this to anyone who'll listen, honestly.
+Every time it comes up she's talking about how much time it'll save the
+floor team.
+
+Nadia: That's great to hear. Has she looped in anyone else internally, or
+flagged anything to watch out for?
+
+Owen: Not that I know of — mostly just enthusiasm at this point. She
+hasn't been involved in the sign-off conversations directly.
+
+Nadia: Got it. Last thing — is there anything else in the mix, or any
+other approach you're weighing against this?
+
+Owen: No, honestly this has been the only thing on the table the whole
+time. We just want to get it moving.
+
+Nadia: Perfect, appreciate the full picture. I'll follow up on the
+technical integration bar and the legal timeline.

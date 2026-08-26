@@ -1,0 +1,48 @@
+Call: Millbrook Market <> Vendor — Mid-stage
+Participants: Alex (rep, vendor), Dana (Store Ops Manager, Millbrook Market)
+
+Alex: Hey Dana, good to finally connect. How's the week been?
+
+Dana: Busy but good — we just wrapped our summer hiring push, so things
+are finally calming down a bit.
+
+Alex: Nice, that's always a grind. Before we get into it — my plan for
+today is to ask a few questions about how scheduling works for your team
+right now, and by the end we'll both know honestly whether this is worth
+a follow-up or not. Sound fair?
+
+Dana: Yeah, that works for me.
+
+Alex: Great. So, how does shift scheduling work today?
+
+Dana: Mostly a shared spreadsheet, a few managers editing it throughout
+the week. We do get a fair number of scheduling conflicts, people getting
+double-booked or shifts left uncovered.
+
+Alex: Got it — that's actually exactly the kind of thing our
+auto-scheduler solves. It automatically flags conflicts before they
+happen and can even suggest coverage swaps based on who's qualified and
+available. Want me to walk you through how that works?
+
+Dana: Sure, go ahead.
+
+Alex: So the system ingests your team's availability and certifications,
+then builds the draft schedule automatically, flags any conflict in
+real-time...
+
+Dana: That sounds useful, yeah.
+
+Alex: Who else would need to sign off on something like this?
+
+Dana: I'd check with my director first before anything's final.
+
+Alex: Got it. Honestly, I think this is a great fit for Millbrook. Let's
+get this moving — I'll send over a contract this week.
+
+Dana: I guess, sure.
+
+Alex: Perfect, I'll get that sent over. Anything else before we wrap?
+
+Dana: No, I think that's it.
+
+Alex: Great, talk soon.
