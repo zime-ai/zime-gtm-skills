@@ -1,0 +1,66 @@
+Call: Solace Health <> Vendor — Mid-stage check-in
+Participants: Jordan (rep, vendor), Priya (Ops Manager, Solace Health)
+
+Jordan: Hey Priya, good to see you. How was the vacation?
+
+Priya: So good. We did the coast, kids loved it. Yours truly came back
+with a sunburn though.
+
+Jordan: Ha, worth it. My dog destroyed a couch cushion while I was out
+last week, so we're even on chaos.
+
+Priya: Oh no. What kind of dog?
+
+Jordan: A lab mix, total menace, very sweet though. Anyway — good to be
+back. Where were we last time?
+
+Priya: Right, so the team's been looking at the claims processing side
+more closely. We're doing about 40,000 claims a month right now, and a
+good chunk of that is manual review.
+
+Jordan: That's helpful to know. What's the honest reaction on pricing so
+far?
+
+Priya: Pricing's tough to justify without seeing ROI modeled against our
+own numbers first. I can't take a number to my CFO that isn't grounded in
+our actual volume.
+
+Jordan: Totally fair. If I got you last quarter's claim volume broken
+down, would that help us build that model together?
+
+Priya: Yeah, that would help a lot. I can pull that and send it over by
+Thursday.
+
+Jordan: Perfect, I'll build the ROI model once I have it. Separately — is
+there a competitor already in the mix on your side?
+
+Priya: We're also taking a look at Vantage, mostly because procurement
+wanted a second bid on file. Nothing serious yet.
+
+Jordan: Understood. One more thing worth asking — would it make sense to
+pilot this with one team before a full rollout, or is it more of an
+all-or-nothing decision for you?
+
+Priya: A pilot's actually more realistic for us. If we could run it with
+just the claims intake team first, that's a much easier internal sell.
+
+Jordan: Good to know, I'll shape the next conversation around a pilot
+scope then. Anything working against timing on your side?
+
+Priya: Just one thing — we're still under contract with our current
+vendor for another five months. That might slow down how fast we can
+actually move, even if we're sold internally.
+
+Jordan: Appreciate you flagging that early. Okay, should we grab time
+next week to go over the ROI model once you've sent the numbers?
+
+Priya: Sure, does Tuesday or Wednesday work better for you?
+
+Jordan: Wednesday's better on my end.
+
+Priya: Wednesday works for me too.
+
+Jordan: Great, I'll send an invite. Enjoy getting back into the swing of
+things after the trip.
+
+Priya: Thanks, talk soon.
