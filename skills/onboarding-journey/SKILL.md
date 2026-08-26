@@ -30,6 +30,8 @@ it — no network calls, no credentials, nothing leaves your machine.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end in one pass — don't stop to ask which call or
   whether a borderline quote counts.
 - If the call is a later post-sale check-in rather than onboarding proper,

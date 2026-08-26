@@ -37,6 +37,8 @@ credentials, nothing leaves your machine.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end in one pass. Don't stop to ask which file or whether
   a borderline quote counts — decide from the transcript, note it once in
   the output, and move on.

@@ -37,6 +37,8 @@ pain, for example) as a submarine violation, not just a missed box.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end in one pass. Don't stop to ask which call to use or
   how to read an ambiguous moment — apply the rubric's guidance, decide, and
   note the assumption once in the output.

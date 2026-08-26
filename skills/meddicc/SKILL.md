@@ -33,6 +33,8 @@ and it scores whatever letters that specific call could plausibly have surfaced.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end in one pass. Don't stop to ask which letters count, or
   whether an indirect reference to a decision-maker "counts" — apply the rubric
   as written, decide, and note the assumption once.

@@ -18,6 +18,8 @@ rubric the way `next-step-commitment` or `meddicc` do.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end without stopping to ask which milestones to include —
   apply the `heard`/`inferred` test below to everything the call surfaced
   and report the result, including an all-inferred plan if that's what the

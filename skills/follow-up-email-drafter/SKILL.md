@@ -20,6 +20,8 @@ at all, because the prospect reads it as a commitment.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end without stopping to ask which claims to include —
   apply the `heard`/`inferred` test to every line and phrase accordingly.
 - If the call ended with nothing concrete, don't ask whether to draft

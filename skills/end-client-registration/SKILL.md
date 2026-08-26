@@ -38,6 +38,8 @@ than implying one exists.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end in one pass — don't stop to ask about an ambiguous
   cell, note it and move on.
 - If a row or call is clearly a direct new-logo deal with no partner

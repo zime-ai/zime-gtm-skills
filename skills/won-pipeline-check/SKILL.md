@@ -20,6 +20,8 @@ mode: this is a structural export sweep, not a call-quality audit.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end in one pass — don't stop to ask which stage label
   counts as "Won" or how to treat a missing column; apply the defaults
   below, decide, and note the assumption once.

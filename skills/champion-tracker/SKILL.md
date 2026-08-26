@@ -20,6 +20,8 @@ getting stronger or weaker?"
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end without stopping to ask which contacts to track —
   every named contact who speaks gets evaluated against the Action/
   Sentiment test.

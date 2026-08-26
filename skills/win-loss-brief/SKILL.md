@@ -19,6 +19,8 @@ like `deal-risk-digest`, and it does not grade an in-flight call the way
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end without stopping to ask which drivers to include —
   apply the driver categories and confidence test below and report what
   the transcript/CSV actually supports, including an all-tentative brief

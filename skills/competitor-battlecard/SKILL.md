@@ -22,6 +22,8 @@ closed).
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end without stopping to ask which competitor to focus on
   — there is only ever one battlecard per call, for whichever competitor
   (or status quo) the buyer actually named.

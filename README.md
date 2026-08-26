@@ -297,6 +297,25 @@ Unlike some agent-skill collections, there's no foundational context skill
 every other one depends on, and no required order. Each skill is independent:
 one call transcript (or CRM export) in, one evidence-cited audit out.
 
+## Company context (optional)
+
+Every skill runs fine with zero setup — it reads whatever file you point it
+at and nothing else. But without any company context, a skill has no way to
+know your ICP, your product's actual differentiators, or which competitor
+names to expect, so it audits each call in a vacuum.
+
+If a file named `.agents/gtm-context.md` or `.claude/gtm-context.md` exists
+in your working directory, every skill in this repo reads it first and
+doesn't ask for anything it already answers — no flag, no config, just drop
+the file in and it's picked up automatically. See
+[`gtm-context.example.md`](gtm-context.example.md) for the shape: ICP,
+product/pricing basics, named competitors, and internal terminology or
+stage names that differ from the generic ones a skill assumes by default.
+
+This file is yours, never the repo's — it isn't tracked or read by anything
+except the skill itself at run time, and nothing in it leaves your machine
+beyond whatever your agent's own model call already sends.
+
 ## Available skills
 
 <details open>

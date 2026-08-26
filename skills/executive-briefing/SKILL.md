@@ -18,6 +18,8 @@ not a rubric grade of the call.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end without stopping to ask which risks or asks to
   include — apply the brief structure below and the `heard`/`inferred` tag
   on the ask, and report what the input actually supports.

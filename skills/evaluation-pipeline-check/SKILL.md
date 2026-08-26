@@ -32,6 +32,8 @@ whether the evaluation, as recorded in the CRM, has a shape at all.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end in one pass — note an ambiguous column and move on,
   don't stop to ask.
 - If zero rows fuzzy-match the Evaluation stage, say so plainly and stop

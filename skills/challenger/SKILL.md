@@ -34,6 +34,8 @@ buyer didn't already hold and stood by it under mild pushback.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end in one pass. Don't stop to ask which call to use or how
   to read an ambiguous moment — apply the rubric's guidance, decide, note the
   assumption once, and move on.

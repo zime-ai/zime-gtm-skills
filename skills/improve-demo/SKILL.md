@@ -29,6 +29,8 @@ nothing leaves your machine.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end in one pass. Don't stop to ask which stakeholders
   "count" as the right ones, or whether silence means disengagement —
   decide from the transcript using the rubric's guidance, note the call

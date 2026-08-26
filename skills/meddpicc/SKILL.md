@@ -37,6 +37,8 @@ to close that paperwork risk is a real forecasting variable.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end in one pass. Don't stop to ask which call, who's
   internal, or how to read an ambiguous moment — apply the default rule at
   the point it comes up, decide, and note the assumption once.

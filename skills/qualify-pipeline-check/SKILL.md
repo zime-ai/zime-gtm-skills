@@ -33,6 +33,8 @@ asks only whether the CRM can prove qualification happened at all.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end in one pass — note any ambiguous column and move on,
   don't stop to ask.
 - If zero rows fuzzy-match the Qualify stage, say so plainly and stop

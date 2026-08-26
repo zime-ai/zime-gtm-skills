@@ -33,6 +33,8 @@ beyond an already-connected CRM tool.
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Run this end to end in one pass — don't stop to ask about an ambiguous
   row or column name, note it and move on.
 - If the export has zero rows in the Prospect stage, say so plainly and

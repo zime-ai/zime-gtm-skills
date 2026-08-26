@@ -21,6 +21,8 @@ dead and don't know it yet."
 
 ## Before you start
 
+- If `.agents/gtm-context.md` (or `.claude/gtm-context.md`) exists, read it
+  first and don't ask for anything it already answers.
 - Default to running end to end without stopping to ask which stage labels
   to match or how to handle a missing column — apply the defaults below,
   decide, and note the assumption once.
