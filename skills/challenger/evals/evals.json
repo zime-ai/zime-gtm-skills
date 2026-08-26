@@ -15,8 +15,11 @@
         "Tailor is scored Covered or Partial and cites Sam naming Priya and her specific exposure to blame",
         "Take control is scored Missed or Partial, citing that Sam agreed to the timeline and budget without any pushback or tradeoff",
         "The commercial-teaching pitch arc lists which of the six steps appeared and flags that Rational drowning and New way were skipped",
-        "Closes with a single named biggest missed teaching opportunity, not a full recap",
-        "Cites at least one specific, concrete detail from the transcript (a name, number, or quoted phrase) rather than a generic paraphrase that could apply to any call"
+        "Closes with a single named biggest missed teaching opportunity, not a full recap or bulleted list of gaps",
+        "Cites at least one specific, concrete detail from the transcript (a name, number, or quoted phrase) rather than a generic paraphrase that could apply to any call",
+        "Does not describe 'take control' as dominance, aggressiveness, or being pushy — any pushback described is constructive tension, not bullying",
+        "Does not include a suggested talk track, coaching for the next call, or 'what to say instead' advice",
+        "Does not credit generic product features ('we automate that') as teaching — teaching is a reframe the buyer had to react to"
       ]
     },
     {
@@ -28,7 +31,8 @@
       "expectations": [
         "Pitch-arc steps unreachable at this call's stage are marked Not applicable, not Missed",
         "A genuinely strong short call is not scored as mostly Missed",
-        "The reads-well-too check from references/rubric.md is applied before the audit is finalized"
+        "The reads-well-too check from references/rubric.md is applied before the audit is finalized",
+        "Does not penalize the Teach dimension for the call's length, only for whether the Reframe that did occur carried genuine insight"
       ]
     },
     {
@@ -41,7 +45,8 @@
         "States explicitly that CSV mode is a structural check, not a call-quality claim",
         "Flags rows with no logged teaching moment or insight field",
         "Output is sorted by deal value descending",
-        "Does not claim to know what was actually taught on any specific call from CRM fields alone"
+        "Does not claim to know what was actually taught on any specific call from CRM fields alone",
+        "Does not infer call quality from missing fields — only surfaces which fields are blank"
       ]
     }
   ]
