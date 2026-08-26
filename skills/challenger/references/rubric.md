@@ -1,41 +1,63 @@
 # Challenger Sale rubric
 
 Three pillars, plus the six-step commercial-teaching pitch arc that Teach is
-usually delivered through. Source: the Challenger Sale's own
-teach/tailor/take-control framing (Dixon & Adamson) and its commercial
-teaching playbook. The distinguishing signal across all three pillars: did
-the rep add something, or just reflect the buyer's own words back to them.
+usually delivered through. The distinguishing signal across all three: did
+the rep add something, or just reflect the buyer's own words back to them?
 
 ## Teach
 
 Did the rep introduce a reframe or insight the buyer didn't already hold —
 a new way to think about their cost, risk, or opportunity — rather than
-restate the problem the buyer stated themselves? "So the delay is costing
-you deals" is not teaching; it's a recap. "Most teams solving this the way
-you're describing end up creating a second bottleneck downstream" is
-teaching — it's a claim the buyer had to react to, not just confirm. Covered
-requires the buyer visibly updating their view (surprise, a follow-up
-question, a "I hadn't thought about it that way"), not just staying quiet.
+restate the problem the buyer stated themselves?
+
+**Covered:** a genuine insight delivered, with the buyer visibly updating
+their view (surprise, a follow-up question, "I hadn't thought of it that
+way"). **Partial:** a real insight mentioned once, but the buyer didn't react
+or the rep didn't follow through. **Missed:** the call only restates the
+buyer's own framing with no new claim attached.
+
+Weak: "So the delay is costing you deals" — that's a recap. Strong: "Most
+teams solving this the way you're describing end up creating a second
+bottleneck downstream" — the buyer has to react to a new claim.
 
 ## Tailor
 
 Was the teaching aimed at this specific buyer's role, priorities, and
-stakeholders, or was it a generic pitch that would play the same in any
-call? Tailoring shows up as: naming the stakeholder's specific metric or
-incentive, referencing something said earlier in this call or a prior one,
-or adjusting the insight's framing for a technical vs. a budget-holder
-audience. A rep repeating the same insight verbatim to every stakeholder on
-a call, with no adjustment for who's listening, is Partial at best.
+decision authority, or was it a generic pitch that would play the same to
+any stakeholder? Tailoring accounts for who holds budget, who uses the
+solution daily, who fears the risk — and speaks to each differently.
+
+**Covered:** the teaching references this stakeholder's specific metric,
+incentive, or exposure (budget authority, timeline pressure, a risk stated
+earlier on this call). **Partial:** teaching mentioned but not adjusted for
+the audience present or the decision-maker's specific levers. **Missed:** the
+same insight pitched verbatim to every stakeholder, with no adjustment for
+who's listening or who decides.
+
+Weak: "This saves you three hours a week in manual work." Strong: "I noticed
+earlier you mentioned your team gets blamed for gaps in the data — this
+solves that specific exposure for you because you'd see conflicts before
+they cost you a deal."
 
 ## Take control
 
 Did the rep assert constructive tension — respectful pushback on a scope,
-timeline, or budget assumption — instead of deferring entirely to the
-buyer's stated agenda? Look for the rep holding a position under mild
-pressure: declining to discount without a tradeoff, questioning a timeline
-the buyer proposed, or redirecting a call the buyer tried to steer toward a
-feature checklist. Agreeing with everything the buyer says, even when
-delivered warmly, is Missed here regardless of rapport.
+timeline, or budget assumption — when the buyer signaled a constraint, or did
+they defer entirely to the buyer's stated agenda? Constructive tension shows
+up as: declining to discount without a tradeoff, holding a timeline the buyer
+questioned, redirecting a call headed toward feature checklist shopping.
+
+**Covered:** the rep held a position under mild pressure, staying respectful
+while declining to simply accept the buyer's constraint. **Partial:** the rep
+acknowledged a constraint but didn't hold a counter-position; or held one
+only once. **Missed:** the rep agreed with everything the buyer said, even
+when the buyer proposed terms that hurt the deal (timeline, budget, scope
+without tradeoff).
+
+Weak: buyer says "we're comparing three other vendors," rep says "okay, let's
+explore our fit." Strong: buyer says "we're comparing three other vendors,"
+rep says "I get it, and before you decide, I'd want to know if they can
+handle these three risks you mentioned earlier — have you asked them yet?"
 
 ## The commercial-teaching pitch arc
 

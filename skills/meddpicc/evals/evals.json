@@ -16,7 +16,10 @@
         "Paper process's evidence/note names a specific gap (no procurement process known, no signer confirmed, or no timeline) rather than a generic 'paperwork risk' line",
         "Economic buyer notes Deb is named but not yet directly engaged, not simply Covered",
         "Closes with Paper process as the single biggest qualification risk and a concrete next step, not a full recap",
-        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call"
+        "Cites at least one specific, concrete detail from the transcript (a number, name, or quoted phrase) rather than a generic paraphrase that could apply to any call",
+        "Scores the eight letters as eight separate reads, not blended into one qualification score",
+        "Champion is not scored Covered on sentiment alone -- it requires evidence of the champion taking a concrete action, such as relaying the cost figure to leadership",
+        "Does not add a recommended next email or talk-track section beyond the single biggest-risk line"
       ]
     },
     {
@@ -28,7 +31,8 @@
       "expectations": [
         "Letters unreachable at this call's stage, especially Paper process, are marked Not applicable, not Missed",
         "A genuinely strong first call is not scored as mostly Missed",
-        "The reads-well-too check from references/rubric.md is applied before the audit is finalized"
+        "The reads-well-too check from references/rubric.md is applied before the audit is finalized",
+        "The eight letters are reported as eight separate reads, not averaged into a single score"
       ]
     },
     {
@@ -41,7 +45,8 @@
         "States explicitly that CSV mode is a structural check, not a call-quality claim",
         "Flags rows missing MEDDPICC-relevant fields, including a Paper process field where absent",
         "Output is sorted by deal value descending",
-        "Does not claim to know what happened on any specific call from CRM fields alone"
+        "Does not claim to know what happened on any specific call from CRM fields alone",
+        "Does not score any deal row against the eight letters as if it were a transcript read -- CSV mode only checks field presence"
       ]
     }
   ]
