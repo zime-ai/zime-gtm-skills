@@ -52,6 +52,24 @@
         "Rapport scores 1 given the personal follow-up about the trip",
         "Does not fabricate scores for behaviors with no transcript evidence (Upsell and Renewal items score 0, not omitted or guessed)"
       ]
+    },
+    {
+      "id": 4,
+      "name": "adoption-leaderboard-eval-4-no-internal-grid-shown",
+      "prompt": "run adoption-leaderboard on skills/adoption-leaderboard/assets/",
+      "expected_output": "The final output shows only the rolled-up leaderboard table and coaching narrative -- it does not print the internal per-call scoring grid or the rep-label-to-name legend as a separate visible section.",
+      "files": [
+        "assets/call-01-jordan-meridian.txt",
+        "assets/call-02-jordan-lakeview.txt",
+        "assets/call-03-amara-northbridge.txt",
+        "assets/call-04-amara-crestpoint.txt",
+        "assets/call-05-diego-solvantfin.txt",
+        "assets/call-06-sam-brightwell.txt"
+      ],
+      "expectations": [
+        "The internal per-call scoring grid (rep x call x item) is not shown as its own output section",
+        "Rep names, not S1/S2 labels, appear in the final leaderboard table"
+      ]
     }
   ]
 }

@@ -62,6 +62,19 @@
         "Does not infer a close date from the stage or any other column",
         "Still reports the fields that other present columns support"
       ]
+    },
+    {
+      "id": 5,
+      "name": "executive-briefing-eval-5-no-generic-next-steps",
+      "prompt": "run executive-briefing on skills/executive-briefing/assets/sample-transcript.txt",
+      "expected_output": "The brief runs in a single pass without asking which risks or ask to include, and does not add a generic 'next steps' section disconnected from what was cited in the ask.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Produces the full brief in the same response without a clarifying question first",
+        "Does not include a generic next-steps line beyond the single cited ask in section 4"
+      ]
     }
   ]
 }

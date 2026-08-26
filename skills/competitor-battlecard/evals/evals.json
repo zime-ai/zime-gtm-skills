@@ -45,6 +45,17 @@
         "Does not require a named rival vendor to proceed with the battlecard",
         "Every section is grounded in what the buyer actually said about staying with the status quo, with citations"
       ]
+    },
+    {
+      "id": 4,
+      "name": "competitor-battlecard-eval-4-rep-addressed-everything",
+      "prompt": "run competitor-battlecard on a transcript where a competitor is named and the buyer raises exactly one claim about it, which the rep directly addresses later in the same call",
+      "expected_output": "Section 5 states explicitly that the rep addressed everything raised, rather than manufacturing a gap to populate the section.",
+      "files": [],
+      "expectations": [
+        "Section 5 states the rep addressed everything raised rather than inventing an unanswered item",
+        "Section 3 lists only the one claim the buyer actually raised, not padded with invented claims"
+      ]
     }
   ]
 }
