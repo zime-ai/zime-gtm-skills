@@ -1,0 +1,42 @@
+Call: Pallister Events <> Vendor — Post-decision debrief (lost deal)
+Participants: Sam (rep, vendor), Two (Ops Lead, Pallister Events)
+
+Sam: Thanks for taking the time, I know the decision's made, but it'd
+really help us to understand what happened.
+
+Two: Of course, happy to walk through it. Honestly it came down to a few
+things. Biggest one — we ended up signing with Vantage. Their onboarding
+team could start two weeks sooner than yours could, and with our event
+season coming up, that mattered more than anything else at the end.
+
+Sam: That makes sense. Was there anything on our side that made that gap
+matter more than it might have otherwise?
+
+Two: Yeah, honestly — once Renee left, nobody else was really carrying
+this internally. She was the one pushing hardest for your platform, and
+after she left mid-evaluation, the momentum just wasn't there anymore.
+Nobody stepped up to keep pushing it the way she had.
+
+Sam: That's really useful context. Anything on the process side?
+
+Two: Procurement required a full security audit once the deal size
+crossed a certain threshold, and that added about six weeks we didn't
+have. Vantage's deal was smaller in scope initially, so it didn't trigger
+the same review.
+
+Sam: Got it. Do you think starting things earlier would've changed the
+outcome?
+
+Two: I don't know, maybe. If we'd started the technical eval earlier it
+would've felt less rushed at the end. But I'm honestly not sure that
+alone would've changed anything.
+
+Sam: Understood. For what it's worth, any feedback on the demo itself?
+
+Two: No, the demo was genuinely well received internally — that was
+never the issue. People liked the product. It really came down to
+timing and who was left pushing for it internally.
+
+Sam: I appreciate the honesty. Anything else you'd flag for us?
+
+Two: Not really, I think that covers the main pieces.

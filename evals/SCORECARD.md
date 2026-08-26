@@ -68,11 +68,19 @@ CSV pipeline-sweep skills (row/ranking-accuracy shape):
 | `end-client-registration` | 8/10 rows, 3/5 traps | 1 (unrubriced near-expiry concern) | One false negative (vague scope), one false positive (over-strict on expiry), aggregate line collapsed distinct dimensions. See `evals/illustrative/README-end-client-registration.md` |
 | `new-business-registration` | 6/8 rows fully correct, 1 sloppy-but-right, 1 wrong | 0 | Introduced an unrubriced temporal-validity check on expiry dates the rubric doesn't ask for; also mild scope overreach into approval/remediation framing. See `evals/illustrative/README-new-business-registration.md` |
 
-Document-writer skills (row/field-diff shape):
+Document-writer skills (row/field-diff shape) — all 7 Shape C
+deal-intelligence writers now have a run (`deal-risk-digest`, the 8th
+deal-intelligence skill, is CSV-only and counted under Shape B above):
 
 | Skill | Row accuracy | Extra rows | Hallucinations | Notes |
 |---|---|---|---|---|
 | `champion-tracker` (Shape C) | 7/7 gold rows, 0 wrong-tag | 4 (3 legit, 1 overreach) | 0 | Same author wrote this skill's own rubric — weakest blinding of the runs so far. Passed a planted stated-intention-vs-action trap, then failed the identical trap shape later, un-planted. See `evals/illustrative/README-champion-tracker.md` |
+| `mutual-action-plan` | 3/4 gold rows correctly tagged (1 mis-split) | 0 | Planted "budget sign-off moving" trap passed (correctly `inferred`); un-planted defect: split one `heard` milestone into two rows and stripped the named owner from one half, manufacturing an `inferred` tag on a fact the same sentence supports as `heard`. Also invented exact calendar dates beyond what the call stated. See `evals/illustrative/README-mutual-action-plan.md` |
+| `deal-highlights` | 6/6 gold items recalled, citations correct | 0 | Avoided the planted small-talk trap (dog/vacation) but failed the subtler planted trap: wrote a pure Tuesday/Wednesday scheduling exchange up as "Commitment (both)." One legit bonus item (a real rep-side commitment) also added. See `evals/illustrative/README-deal-highlights.md` |
+| `follow-up-email-drafter` | Clean pass — email + grounding notes match gold claim-for-claim | 0 | Planted trap (an inferred ask promoted to an agreed fact) passed; `Heard`/`Proposed` tags never leaked into the email body. See `evals/illustrative/README-follow-up-email-drafter.md` |
+| `win-loss-brief` | 3/3 clear drivers correct, hedge correctly kept tentative | 0 | Planted trap passed (hedge not upgraded to a confident driver); one structural nit — a ruled-out non-driver was listed as a bullet inside the Drivers section instead of fully outside it. See `evals/illustrative/README-win-loss-brief.md` |
+| `executive-briefing` | Snapshot/risks/ask all correct | 0 | Planted trap passed (deal value correctly reported as not-stated, not estimated); un-planted defect: a buyer-stated close date ("before end of quarter") was headlined as "no firm date" before the correct quote followed — under-reported a fact that was actually said. See `evals/illustrative/README-executive-briefing.md` |
+| `competitor-battlecard` | Clean pass — all 5 sections correct | 0 | Both planted traps passed (hedged claim kept tentative; correctly bucketed as left-unanswered rather than credited to a nearby but unrelated rep counter). See `evals/illustrative/README-competitor-battlecard.md` |
 
 ## Tier 0 framework: landed and runnable
 
