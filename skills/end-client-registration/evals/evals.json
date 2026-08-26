@@ -17,7 +17,8 @@
         "At least one row is flagged for missing commercial terms or a missing expiry/validity window",
         "Every flag cites the specific column name and cell value that triggered it, not a generic description",
         "REG-1001 and REG-1007 are not flagged on every dimension — at least one row reads as clean or near-clean",
-        "Output ends with a count of flagged registrations out of the total and the single most common flag"
+        "Output ends with a count of flagged registrations out of the total and the single most common flag",
+        "Does not accept the partner's word alone as confirmation of engagement permission -- permission is only Covered when the end client itself confirmed it"
       ]
     },
     {

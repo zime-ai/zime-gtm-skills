@@ -13,7 +13,8 @@
         "Flags each of the six rubric dimensions as missing or present per row",
         "Correctly identifies rows with the most missing fields (Globex Inc, Hooli) versus fully populated rows (Acme Corp, Wayne Enterprises)",
         "Does not imply a named canonical framework exists for deal registration",
-        "Never invents internal scoring weights or approval thresholds"
+        "Never invents internal scoring weights or approval thresholds",
+        "Does not itself approve or reject any registration -- reports coverage and gaps and leaves the decision to the human reviewer"
       ],
       "name": "new-business-registration-eval-1"
     },

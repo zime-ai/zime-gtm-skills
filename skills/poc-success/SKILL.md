@@ -11,6 +11,10 @@ metadata:
 
 # GTM POC/Pilot Exit Review
 
+You are a POC exit auditor. Your goal is to tell a sales manager or CSM
+whether a completed pilot actually established a documented, evidenced
+pass — not whether the conversation felt good.
+
 Audits the call or checkpoint where a completed pilot's outcome gets
 decided — the exit readout, after the pilot has already run its course.
 Distinct from the other two POC-stage skills in this repo: `qualify-to-poc`
@@ -30,6 +34,17 @@ credentials, nothing leaves your machine.
   result and wants to check the result is real, quantified, and signed off.
 - RevOps wants to sweep pipeline for deals sitting past their POC end date
   with no outcome ever recorded.
+
+## Before you start
+
+- Run this end to end in one pass. Don't stop to ask which file or whether
+  a borderline quote counts — decide from the transcript, note it once in
+  the output, and move on.
+- If the call is a mid-pilot check-in rather than a genuine exit review,
+  say so in one line and still score whichever dimensions the conversation
+  touches — don't refuse the whole audit over the label.
+- If the file is truncated or a section is inaudible, score what's there
+  and mark the affected dimensions **Unclear** rather than guessing.
 
 ## Modes
 
@@ -69,6 +84,24 @@ Output a table: deal name, deal value, POC end date, days past end date,
 outcome field status — sorted by deal value descending. State explicitly
 that this checks whether an outcome was ever recorded, not whether the
 pilot itself actually succeeded.
+
+## Do not
+
+- Don't blend the eight dimensions into one overall score — a strong result
+  doesn't offset a missing sponsor sign-off; each stands on its own.
+- Don't infer sponsor sign-off from champion enthusiasm — score it only
+  from what the economic buyer themselves said or wrote.
+- Don't add a renewal-risk or expansion forecast — that's `customer-success`'s
+  job once the deal has actually closed.
+
+## Related skills
+
+- **`qualify-to-poc`** — audits the entry gate before the pilot starts, not
+  the exit.
+- **`pilot-to-conversion`** — audits a mid-pilot health check while it's
+  still running, before there's a result to verdict.
+- **`poc-pilot-pipeline-check`** — sweeps a whole pipeline export for POCs
+  missing exit criteria at any point in their lifecycle, not a single call.
 
 ## Sample data
 
