@@ -1,0 +1,21 @@
+{
+ "deep-discovery": {
+  "A": {
+   "exact": 0.9950980392156863,
+   "false_faults": 0.0,
+   "flips": 22
+  },
+  "B": {
+   "exact": 0.9632352941176471,
+   "false_faults": 0.0,
+   "flips": 9
+  },
+  "skill_lines": 151,
+  "A_failed": [
+   [
+    "synth-dd-twin-no-1",
+    1
+   ]
+  ]
+ }
+}
