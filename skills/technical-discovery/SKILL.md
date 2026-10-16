@@ -1,6 +1,6 @@
 ---
 name: technical-discovery
-description: Audits a technical/solution-fit call transcript against a rubric covering current stack, future-state vision, POC scope, and technical stakeholders, or sweeps a CRM export for deals missing technical-fit data. Use when reviewing a technical discovery or solution-engineering call, or checking pipeline for deals heading into a POC without technical groundwork.
+description: Audits a technical or solution-fit call transcript against a seven-dimension rubric (current stack, future-state vision, POC scope, technical stakeholders, success metrics, resourcing, next step) and credits only what the buyer said, or sweeps a CRM export for deals missing technical-fit data. Use when the user asks to review a technical discovery or solution-engineering call, scope a proof of concept, or find deals heading into a POC without technical groundwork.
 license: MIT
 metadata:
   zime:category: new-business
@@ -55,8 +55,19 @@ claude "run technical-discovery on ./calls/acme-tech-disco.txt"
    independently. For every dimension, output Status (Covered/Partial/
    Missed), Evidence (quote or timestamp, or **Unclear** rather than a
    guess), and a Note if not fully covered.
-3. Run the rubric's reads-well-too check before finalizing.
-4. Write the output in the exact shape under `## Output format`.
+3. Before each status, apply these tests:
+   - Evidence is one buyer line that is about that dimension. Never use one
+     line for two dimensions, and never count a line that only hints at a
+     dimension.
+   - When no line addresses a dimension, the status is Missed. Do not soften
+     it to Partial because the call felt thorough elsewhere.
+   - Partial needs a quotable line that names the dimension but stays vague.
+     When you cannot quote that line, it is Missed.
+   - Covered needs the specifics the rubric names (a named system, a named
+     person, a threshold), not a general statement.
+   - Read each dimension's "does not count" line first.
+4. Run the rubric's reads-well-too test before finalizing, in both directions.
+5. Write the output in the exact shape under `## Output format`.
 
 ### CSV mode (`.csv`)
 
