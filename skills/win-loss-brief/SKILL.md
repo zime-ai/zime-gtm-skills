@@ -1,6 +1,6 @@
 ---
 name: win-loss-brief
-description: Writes a structured brief on why one specific deal was won or lost — outcome, 3-5 cited drivers (competitive displacement, champion strength or loss, pricing/procurement friction, timing, technical fit), and forward-looking notes for a similar deal. Use for a manager/leader ritual like a QBR or win-loss review on a single closed deal, not a whole-book pipeline sweep.
+description: Writes a structured brief on why one specific deal was won or lost, with the outcome, 3-5 cited drivers (competitive displacement, champion strength or loss, pricing/procurement friction, timing, technical fit), and forward-looking notes for a similar deal. Use when the user asks why a deal was won or lost, wants a win-loss review, a loss analysis or a QBR deal story for a single closed deal, not a whole-book pipeline sweep.
 license: MIT
 metadata:
   zime:category: deal-intelligence
@@ -92,6 +92,10 @@ row's `reason` column says "price"). Note any such mismatch explicitly.
    forward-looking notes, each grounded in a driver actually named in
    section 2. No generic sales advice ("build more urgency") disconnected
    from what was cited.
+
+## Drivers that do not count
+
+Before you write section 2, read the rubric's "What does not count as a driver" list. A reason that only the rep states is tentative until the buyer or the CRM row says the same thing.
 
 ## Driver confidence
 
