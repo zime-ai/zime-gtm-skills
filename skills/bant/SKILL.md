@@ -1,6 +1,6 @@
 ---
 name: bant
-description: Audits a B2B sales call transcript against the BANT qualification framework (Budget, Authority, Need, Timeline), or sweeps a CRM export for deals missing BANT fields. Use when qualifying an early-stage lead, deciding whether to advance a deal past a first call, or checking a pipeline export for unqualified opportunities.
+description: Audits a B2B sales call transcript against the BANT qualification framework (Budget, Authority, Need, Timeline) and credits only what the buyer said, or sweeps a CRM export for deals missing BANT fields. Use when the user asks to qualify a lead, run a BANT check, decide whether to advance a deal past a first call, or find unqualified opportunities in a pipeline export.
 license: MIT
 metadata:
   zime:category: cross-stage
@@ -55,8 +55,19 @@ claude "run bant on ./calls/first-call.txt"
    from the first half alone.
 2. Score each of the four criteria in `references/rubric.md` independently.
    Don't let a strong Need inflate a weak Budget, or vice versa.
-3. Run the rubric's reads-well-too check before finalizing.
-4. Write the output in the exact shape under `## Output format`.
+3. Before each status, apply these tests:
+   - Evidence is one buyer line that is about that criterion. Never use one
+     line for two criteria, and never count a line that only hints at a
+     criterion.
+   - When no line addresses a criterion, the status is Missed. Do not soften
+     it to Partial because the call felt thorough elsewhere.
+   - Partial needs a quotable line that names the criterion but stays vague.
+     When you cannot quote that line, it is Missed.
+   - Covered needs the specifics the rubric names (a figure, a named
+     person, a dated event), not a general statement.
+   - Read each criterion's "does not count" line first.
+4. Run the rubric's reads-well-too test before finalizing, in both directions.
+5. Write the output in the exact shape under `## Output format`.
 
 ### CSV mode (`.csv`)
 
