@@ -47,6 +47,20 @@ VERDICT="$(python3 scripts/referee.py "$SKILL" 2>&1 | tee "$STATE/referee.log" |
 NOW="$(python3 -c "import json;d=json.load(open('evals/loop/state/last_run.json'));print(d['B']['exact'],d['A']['exact'],d['skill_lines'])" 2>/dev/null)"
 case "$VERDICT" in
   ACCEPT*)
+    # Quick review (skills are text, so one cheap pass). One fix attempt, then the referee runs again.
+    REVIEW="$(python3 scripts/quick_review.py "$SKILL" 2>&1)" || {
+      perl -e 'alarm shift; exec @ARGV' 900 claude -p "A reviewer found problems in skills/$SKILL. Fix only these, with the smallest edit, then stop: $REVIEW" \
+        --model claude-sonnet-5-5 --setting-sources project --permission-mode acceptEdits \
+        --allowedTools Read Edit Write Glob Grep --disallowedTools Bash WebFetch WebSearch > "$STATE/fix.log" 2>&1 || true
+      VERDICT="$(python3 scripts/referee.py "$SKILL" 2>&1 | tee "$STATE/referee.log" | tail -1)"
+      NOW="$(python3 -c "import json;d=json.load(open('evals/loop/state/last_run.json'));print(d['B']['exact'],d['A']['exact'],d['skill_lines'])" 2>/dev/null)"
+      REVIEW2="$(python3 scripts/quick_review.py "$SKILL" 2>&1)" || VERDICT="REJECT: review still failing: $REVIEW2"
+      case "$VERDICT" in ACCEPT*) ;; *)
+        git checkout -q -- skills/
+        printf '%s\t%s\t%s\t%s\n' "$(date +%Y-%m-%d)" "$SKILL" "$HYP" "$VERDICT" >> "$STATE/rejects.tsv"
+        log "REJECT	$NOW	$HYP	after review fix: $VERDICT"; exit 0 ;;
+      esac
+    }
     if [ -n "${LOOP_DRY:-}" ]; then git checkout -q -- skills/; log "DRY-ACCEPT	$NOW	$HYP"; exit 0; fi
     BR="loop/$SKILL-$(date +%Y%m%d-%H%M)"
     python3 - "$SKILL" <<'PY'
