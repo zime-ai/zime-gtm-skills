@@ -26,7 +26,19 @@ export GH_TOKEN="$(cat "$CFG/gh.token" 2>/dev/null || cat "$HOME/.config/gh-gtm/
 git fetch -q origin || escalate "git fetch failed"
 git checkout -q -B loop/work "origin/${LOOP_BASE:-dev}" || escalate "cannot reset to origin/${LOOP_BASE:-dev}"
 [ -s evals/loop/baseline.json ] || escalate "no baseline: run scripts/referee.py deep-discovery --baseline"
-SKILL=deep-discovery   # one target for now. The referee only knows skills that have a planted bank.
+PICK="$(python3 scripts/referee.py --pick)"
+case "$PICK" in
+  BASELINE:*) SK="${PICK#BASELINE:}"
+    python3 scripts/referee.py "$SK" --baseline > "$STATE/referee.log" 2>&1 \
+      && { git add evals/loop/baseline.json && git diff --cached --quiet || {
+             BR="loop/baseline-$SK-$(date +%Y%m%d-%H%M)"; git checkout -q -b "$BR" && \
+             git commit -q -m "chore(loop): record the $SK baseline" && git push -q -u origin "$BR" && \
+             PR="$(gh pr create --repo zime-ai/zime-gtm-skills --base dev --head "$BR" --title "chore(loop): record the $SK baseline" --body "Baseline scores for the improvement loop, measured on the planted-fact banks. No skill text changes." 2>&1 | tail -1)" && \
+             gh pr merge "$PR" --repo zime-ai/zime-gtm-skills --auto --squash >/dev/null 2>&1; }; log "BASELINE	$SK	$(tail -1 "$STATE/referee.log")"; exit 0; } \
+      || escalate "baseline for $SK failed, see state/referee.log" ;;
+  NONE) log "SKIP	every skill with a bank is at or above the bar"; exit 0 ;;
+esac
+SKILL="${PICK#TARGET:}"
 
 PROMPT="$(cat evals/loop/PROGRAM.md)
 

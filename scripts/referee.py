@@ -18,20 +18,20 @@ BASELINE = ROOT / "evals/loop/baseline.json"
 REPS = int(os.environ.get("REFEREE_REPS", "2"))
 NOISE = 0.02          # a held-out change smaller than this is not an improvement
 MIN_GAIN = 0.01       # needed on held-out to call a change an improvement
+BAR = 0.98            # a skill at or above this held-out score is left alone
 MAX_DIFF_LINES = 300
 MAX_SKILL_LINES = 500
-SKILLS = {"deep-discovery"}  # skills that have planted banks; add a skill only with a bank for it
+SKILLS = {p.stem.replace("_", "-") for p in (ROOT / "evals/synth/banks").glob("*.py") if p.stem != "__init__"}  # skills with planted banks
 
 
-def bank_scores(bank):
-    env = {**os.environ, "DD_BANK": bank}
-    p = subprocess.run([sys.executable, "-I", str(ROOT / "evals/synth/ablate_dd.py"), str(REPS), "skill"],
-                       cwd=ROOT, env=env, capture_output=True, text=True)
+def bank_scores(skill, bank):
+    p = subprocess.run([sys.executable, "-I", str(ROOT / "evals/synth/bank.py"), skill, bank, str(REPS), "skill"],
+                       cwd=ROOT, capture_output=True, text=True)
     m = re.search(r"saved (\S+)", p.stdout)
     if not m:
-        sys.exit(f"ESCALATE: bank {bank} run failed: {p.stderr[-300:]}")
-    import ablate_dd  # metrics() only uses the dimension list, which both banks share
-    return ablate_dd.metrics(json.loads(Path(m[1]).read_text()), "skill")
+        sys.exit(f"ESCALATE: bank {bank} run failed: {(p.stderr or p.stdout)[-300:]}")
+    import bank as bank_mod
+    return bank_mod.metrics(json.loads(Path(m[1]).read_text()), "skill", bank_mod.load(skill, bank))
 
 
 def changed_files():
@@ -39,13 +39,26 @@ def changed_files():
     return [f for f in out.split("\n") if f]
 
 
+def pick():
+    """Next target. A skill with a bank but no baseline is measured first. Otherwise the weakest skill below the bar."""
+    base = json.loads(BASELINE.read_text()) if BASELINE.exists() else {}
+    for sk in sorted(SKILLS):
+        if sk not in base:
+            return f"BASELINE:{sk}"
+    weak = sorted((base[sk]["B"]["exact"], sk) for sk in SKILLS if base[sk]["B"]["exact"] < BAR)
+    return f"TARGET:{weak[0][1]}" if weak else "NONE"
+
+
 def main():
+    if sys.argv[1] == "--pick":
+        print(pick())
+        return
     skill = sys.argv[1]
     if skill not in SKILLS:
         sys.exit(f"ESCALATE: no planted bank for {skill}")
     sf = ROOT / "skills" / skill / "SKILL.md"
     lines = len(sf.read_text().splitlines())
-    A, B = bank_scores("A"), bank_scores("B")
+    A, B = bank_scores(skill, "A"), bank_scores(skill, "B")
     now = {"A": {k: A[k] for k in ("exact", "false_faults", "flips")},
            "B": {k: B[k] for k in ("exact", "false_faults", "flips")}, "skill_lines": lines}
     (ROOT / "evals/loop/state").mkdir(parents=True, exist_ok=True)

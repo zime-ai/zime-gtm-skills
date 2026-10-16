@@ -1,0 +1,86 @@
+"""Planted banks for meddicc. Bank A is the dev bank, bank B is held out (different company, domain, wording)."""
+
+DIMS = {1: "Metrics", 2: "Economic buyer", 3: "Decision criteria", 4: "Decision process",
+        5: "Identify pain", 6: "Champion", 7: "Competition"}
+MATCH = {1: ["metrics"], 2: ["economic buyer"], 3: ["decision criteria"], 4: ["decision process"],
+         5: ["identify pain", "pain"], 6: ["champion"], 7: ["competition"]}
+
+
+def m(q, full, partial, absent=None):
+    return {"full": [("Rep", q), ("Buyer", full)],
+            "partial": [("Rep", q), ("Buyer", partial)],
+            "absent": [("Buyer", absent)] if absent else []}
+
+
+BANKS = {
+    "A": {
+        "dims": DIMS, "match": MATCH, "speaker": "Buyer",
+        "header": ["Discovery call: Nova Parcel x Ledgerly",
+                   "Participants: Rita Gomez (Director of Warehouse Operations, Nova Parcel), Alex Moore (AE, Ledgerly)"],
+        "open": [("Rep", "Thanks for the time, Rita. Tell me a bit about your operation."),
+                 ("Buyer", "Happy to. We run three fulfillment centers and about 400 people.")],
+        "close": [("Rep", "I will send notes and a few options for next steps."), ("Buyer", "Good, thanks.")],
+        "modules": {
+            1: m("What does this cost you today?",
+                 "We are losing close to 27,500 dollars a month, and finance flagged it last quarter.",
+                 "This is costing us, and leadership has noticed."),
+            2: m("Who gives final approval on something like this?",
+                 "Our CFO, Greta Lund, is the final approver, and she signs off on anything over 75 thousand a year.",
+                 "I would need to check with someone higher up."),
+            3: m("What will you judge the options on?",
+                 "The big thing is whether it connects to our warehouse system without a nine-month project, because our last integration derailed our peak season.",
+                 "We care about ease of use."),
+            4: m("How does a purchase move from here?",
+                 "After a technical demo it goes to the architecture board, then procurement, then legal for paperwork. About five weeks total.",
+                 "We have some approvals to go through."),
+            5: m("What is going wrong right now?",
+                 "Our current system cannot flag late pallets, so every quarter a shift lead gets pulled off the floor to chase them by hand.",
+                 "We need better tools.",
+                 "We are always looking to improve operations."),
+            6: m("Is anyone pushing this internally?",
+                 "Dev Anand on my team has been pushing it for weeks, and he already raised it at the operations review.",
+                 "Dev likes the product."),
+            7: m("Are you comparing anything else?",
+                 "We demoed Parcelwise last month. It felt built for a company much bigger than ours, with features we would never use.",
+                 "We are aware of a few options."),
+        },
+        "leak_terms": {1: ["27,500"], 2: ["Greta", "75 thousand"], 3: ["nine-month", "peak season"], 4: ["architecture board", "five weeks"],
+                       5: ["shift lead", "late pallets"], 6: ["Dev Anand", "operations review"], 7: ["Parcelwise"]},
+    },
+    "B": {
+        "dims": DIMS, "match": MATCH, "speaker": "Buyer",
+        "header": ["Discovery call: Lakeshore Clinics x Bookwell",
+                   "Participants: Joan Mercer (Director of Patient Access, Lakeshore Clinics), Sam Ortega (AE, Bookwell)"],
+        "open": [("Rep", "Good to meet you, Joan. I would rather listen than pitch today."),
+                 ("Buyer", "Fine by me. I lead patient access across eleven clinics.")],
+        "close": [("Rep", "I will follow up with a summary."), ("Buyer", "Sounds fine, thank you.")],
+        "modules": {
+            1: m("What is the impact on your side?",
+                 "Missed visits cost us roughly 240,000 dollars a year in lost revenue, per our finance team.",
+                 "Missed visits are costing us a lot.",
+                 "Patient access is a priority for the board."),
+            2: m("Who decides on a purchase like this?",
+                 "Our COO, Mei Tanaka, has final say, and anything above 100 thousand needs her signature.",
+                 "That would have to go up the chain."),
+            3: m("What matters most when you choose?",
+                 "It has to work with Epic without custom build work, and it has to send text reminders in Spanish.",
+                 "We want something simple for staff."),
+            4: m("What are the steps before you could sign?",
+                 "A clinical informatics review first, then finance, then the COO, and contracting takes about six weeks.",
+                 "There are a few reviews before we can sign."),
+            5: m("What is the core problem?",
+                 "Front desk staff call each patient to confirm visits, and a third of those calls never connect, so slots sit empty.",
+                 "Scheduling is a problem for us.",
+                 "We want to improve the patient experience."),
+            6: m("Is someone carrying this internally?",
+                 "Carla Ortiz, our head nurse, has been selling this to the other clinic managers and brought it to the leadership meeting.",
+                 "Carla thinks this looks useful."),
+            7: m("Have you looked at other tools?",
+                 "We piloted Solvvy's reminder tool last spring. Reminders worked, but it had no waitlist feature, so we dropped it.",
+                 "We have looked at other tools."),
+        },
+        "leak_terms": {1: ["240,000"], 2: ["Mei Tanaka", "100 thousand"], 3: ["Epic", "Spanish"],
+                       4: ["clinical informatics", "six weeks"], 5: ["third of those calls", "Front desk"],
+                       6: ["Carla Ortiz", "head nurse"], 7: ["Solvvy", "waitlist"]},
+    },
+}
