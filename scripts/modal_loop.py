@@ -41,6 +41,15 @@ def weekly(dry: bool = False):
         raise SystemExit(f"loop_iteration.sh exited {code}")
 
 
+@app.function(image=image, secrets=[modal.Secret.from_name("gtm-loop")], timeout=300)
+def check():
+    """Health check: one Haiku call as the loop makes it (root user, bypass flag, subscription token)."""
+    env = {**os.environ, "IS_SANDBOX": "1"}
+    r = subprocess.run(["claude", "-p", "Reply with the single word OK.", "--model", "claude-haiku-5-5", "--setting-sources", "project",
+                        "--dangerously-skip-permissions"], env=env, capture_output=True, text=True, cwd="/tmp")
+    print("exit", r.returncode, "|", (r.stdout or r.stderr).strip()[:200])
+
+
 @app.local_entrypoint()
-def main(dry: bool = False):
-    weekly.remote(dry)
+def main(dry: bool = False, health: bool = False):
+    check.remote() if health else weekly.remote(dry)
