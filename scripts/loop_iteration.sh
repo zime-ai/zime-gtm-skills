@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# One iteration of the improvement loop. Run by launchd weekly, or by hand.
+# One iteration of the improvement loop. Run weekly by the Modal cron (scripts/modal_loop.py), or by hand.
 # The agent only edits skill files. This script runs the referee, does all git work, and logs.
 set -uo pipefail
 CFG="$HOME/.config/gtm-loop"
@@ -15,9 +15,14 @@ log() { printf '%s\t%s\n' "$(date +%Y-%m-%dT%H:%M)" "$*" >> "$STATE/results.tsv"
 escalate() {
   printf '%s %s\n' "$(date +%Y-%m-%dT%H:%M)" "$*" >> "$STATE/escalations.md"
   osascript -e "display notification \"$*\" with title \"GTM skills loop needs you\"" 2>/dev/null || true
+  # Off the laptop nobody sees a notification, so open one GitHub issue (one at a time) that emails the owner.
+  if [ -n "${LOOP_ISSUES:-}" ] && [ -z "$(gh issue list --repo zime-ai/zime-gtm-skills --state open --search 'GTM skills loop needs you in:title' --json number -q '.[0].number' 2>/dev/null)" ]; then
+    gh issue create --repo zime-ai/zime-gtm-skills --title "GTM skills loop needs you" --body "$*" >/dev/null 2>&1 || true
+  fi
   log "ESCALATE	$*"; exit 1
 }
 [ -e "$CFG/STOP" ] && { echo "kill switch set"; exit 0; }
+find "$CFG/lock" -maxdepth 0 -mmin +180 -exec rmdir {} \; 2>/dev/null  # a killed run must not block every later run
 mkdir "$CFG/lock" 2>/dev/null || { echo "another iteration is running"; exit 0; }
 trap 'rmdir "$CFG/lock"' EXIT
 
