@@ -33,7 +33,7 @@ mkdir -p "$SCRATCH/.claude/skills"
 cp -r "$SKILL_DIR" "$SCRATCH/.claude/skills/"
 cp "$TRANSCRIPT_FILE" "$SCRATCH/transcript.txt"
 
-( cd "$SCRATCH" && claude -p "/$SKILL ./transcript.txt" --dangerously-skip-permissions ) \
+( cd "$SCRATCH" && claude -p "/$SKILL ./transcript.txt" --model "${EVAL_MODEL:-claude-haiku-5-5}" --dangerously-skip-permissions ) \
   > "$RUN_DIR/log-$SKILL-$CASE-run.log" 2>&1 || true
 
 find "$SCRATCH" -maxdepth 1 -type f ! -name transcript.txt -exec cp {} "$OUT_DIR/" \;

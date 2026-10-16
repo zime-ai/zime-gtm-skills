@@ -29,6 +29,7 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+EVAL_MODEL = os.environ.get("EVAL_MODEL", "claude-haiku-5-5")  # judge and runner share one pinned model
 RUBRIC_VERSION = "1"  # bump and re-run calibrate.py whenever JUDGE_PROMPT changes meaningfully
 
 JUDGE_PROMPT_TEMPLATE = """Compare the generated output in ./output/ against the ground truth in ./{gt_name}.
@@ -68,7 +69,7 @@ def _shuffle_gt(gt_text, seed):
 
 def _run_claude(prompt, cwd):
     proc = subprocess.run(
-        ["claude", "-p", prompt, "--dangerously-skip-permissions"],
+        ["claude", "-p", prompt, "--model", EVAL_MODEL, "--dangerously-skip-permissions"],
         cwd=cwd, capture_output=True, text=True, timeout=600,
     )
     return proc.stdout
@@ -185,7 +186,7 @@ def get_assert(output, context):
     lines = [
         f"# Gaps: {skill} / {case}", "",
         summary,
-        f"Judge contract: {judges}x claude-cli (subscription, no pinned model id -- see EVALS.md), rubric v{RUBRIC_VERSION}",
+        f"Judge contract: {judges}x claude-cli (subscription, model {EVAL_MODEL}), rubric v{RUBRIC_VERSION}",
         "",
     ]
     for field, v in agg.items():
