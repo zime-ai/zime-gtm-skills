@@ -1,6 +1,6 @@
 ---
 name: poc-success
-description: Audits a POC/pilot exit review — did the pilot actually meet its agreed success criteria, and is that decision documented with evidence and sign-off — or sweeps a CRM export for deals past their POC end date with no recorded outcome. Use when a pilot has just wrapped and you need a structured read on whether it genuinely passed, or when checking pipeline for POCs that ran out the clock with no outcome written down.
+description: Audits a POC or pilot exit review (did the pilot meet its agreed success criteria, and is the decision documented with evidence and sign-off), or sweeps a CRM export for deals past their POC end date with no recorded outcome. Use when a pilot has just wrapped and the user asks whether it genuinely passed, wants an exit review audited, or wants POCs that ran out the clock with no written outcome found in the pipeline.
 license: MIT
 metadata:
   zime:category: new-business
@@ -69,7 +69,7 @@ dimension, output:
 Close with a single **pass / fail / inconclusive** read on the pilot, with
 the one or two dimensions that decided it.
 
-Before finalizing, run the reads-well-too check in `references/rubric.md` —
+Before finalizing, read the rubric's "Rules and false positives" section and run the reads-well-too test in `references/rubric.md` —
 if a call that was clearly a well-run, genuinely successful exit still
 comes back mostly Missed, the rubric is reading too strictly.
 
