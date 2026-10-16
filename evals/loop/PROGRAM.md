@@ -28,7 +28,7 @@ Raise the held-out score of one skill per iteration, and never lower anything el
 You can edit only `skills/<target>/SKILL.md` and `skills/<target>/references/*`.
 Never edit these, even to fix a bug you think you found:
 
-- `evals/framework/`, `evals/synth/`, `scripts/referee.py`, `scripts/loop_iteration.sh`,
+- `evals/framework/`, `evals/synth/`, `scripts/referee.py`, `scripts/quick_review.py`, `scripts/loop_iteration.sh`,
   `evals/loop/baseline.json`, `evals/loop/state/` except `hypothesis.txt`
 - `evals/loop/PROGRAM.md`, `.github/`, `MAINTAINING.md`, `EVALS.md`, `.gitignore`
 - Any held-out bank, any answer key, any run output under `evals/runs/`
@@ -52,7 +52,9 @@ half of unlocked runs.
    example over more prose. Cite a public source for any change to rubric content.
 6. Write your one-sentence hypothesis to `evals/loop/state/hypothesis.txt`. Do not run
    the referee and do not use git. You have no shell. The runner script does both.
-7. The runner runs `scripts/referee.py`. On `ACCEPT` it commits on a branch named
+7. The runner runs `scripts/referee.py`. On `ACCEPT` it also runs `scripts/quick_review.py`
+   (cheap checks, then one Haiku read). If the review finds a problem, you get one fix
+   attempt and the referee runs again. Then it commits on a branch named
    `loop/<target>-<date>` and opens a pull request to `dev`. On `REJECT` it restores
    `skills/` and logs your hypothesis and the numbers to `state/rejects.tsv`.
 8. Stop. The next iteration starts with a fresh context. Do not carry plans in your
