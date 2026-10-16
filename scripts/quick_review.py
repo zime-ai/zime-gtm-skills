@@ -17,11 +17,14 @@ def git(*a):
 
 
 def bank_terms():
-    """Words that only make sense inside one test transcript. They must not leak into a skill."""
-    import deep_discovery as a
-    terms = {t.strip() for ts in a.LEAK_TERMS.values() for t in ts}  # bank A, before bank B overwrites them
-    import deep_discovery_b  # noqa: F401
-    terms.update(t.strip() for ts in a.LEAK_TERMS.values() for t in ts)  # bank B
+    """Details that only make sense inside one test transcript. They must not leak into a skill."""
+    import importlib
+    terms = set()
+    for p in (ROOT / "evals/synth/banks").glob("*.py"):
+        if p.stem != "__init__":
+            for spec in importlib.import_module(f"banks.{p.stem}").BANKS.values():
+                terms.update(t.strip() for ts in spec["leak_terms"].values() for t in ts)
+                terms.update(w.strip() for w, _ in spec["header"][:0])
     terms.update(["Harbor Retail", "Lumen Desk", "Marcus Lee", "Meridian Health", "Brightline", "Elena Ruiz",
                   "Zendesk", "Freshdesk", "Workday", "Priya Nair", "Amara Okafor"])
     # keep only specific details (numbers, names). Common words like 'queue' would block honest rules.

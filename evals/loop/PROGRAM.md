@@ -42,9 +42,9 @@ half of unlocked runs.
 1. Read `evals/loop/memory.md` and `evals/loop/state/rejects.tsv` first. They list ideas
    that failed. If an idea is listed, do not retry it.
 2. Read the last 20 rows of `evals/loop/state/results.tsv`, if it exists.
-3. Pick the target: the skill with the lowest recorded score that has a planted bank
-   listed in `scripts/referee.py`. If no such skill exists, do not edit a skill. Your
-   task is then to write a new planted bank for the next skill.
+3. The runner names the target skill, the weakest one below the bar that has a planted
+   bank. Do not choose another. Banks are built by the maintainer, never by this loop,
+   because an agent that writes its own test and then tunes to it is grading its own work.
 4. Write one hypothesis in one sentence: which failure it fixes and why. Use the dev
    bank failures that the referee prints. You never see the held-out bank. You see only
    its aggregate numbers.

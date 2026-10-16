@@ -1,0 +1,86 @@
+"""Planted banks for technical-discovery. Bank A is the dev bank, bank B is held out (different company, domain, wording)."""
+
+DIMS = {1: "Current technical environment mapped", 2: "Future-state vision", 3: "POC scope clarity",
+        4: "Technical stakeholders identified", 5: "Success metrics for the evaluation",
+        6: "Resourcing for the evaluation", 7: "Clear next technical step"}
+MATCH = {1: ["environment", "mapped"], 2: ["future", "vision"], 3: ["poc", "scope"],
+         4: ["stakeholders", "identified"], 5: ["success", "metrics"], 6: ["resourcing", "evaluation"],
+         7: ["next", "step"]}
+
+
+def m(q, full, partial, absent=None):
+    return {"full": [("Rep", q), ("Buyer", full)],
+            "partial": [("Rep", q), ("Buyer", partial)],
+            "absent": [("Buyer", absent)] if absent else []}
+
+
+BANKS = {
+    "A": {
+        "dims": DIMS, "match": MATCH, "speaker": "Buyer",
+        "header": ["Discovery call: Halvorsen Freight x Quillpath",
+                   "Participants: Gwen Tolliver (VP Operations, Halvorsen Freight), Sami Lund (AE, Quillpath)"],
+        "open": [("Rep", "Thanks for making time, Gwen. Walk me through how the freight side runs."),
+                 ("Buyer", "Sure. We move about 900 loads a week across three regional yards.")],
+        "close": [("Rep", "I will send a short recap this afternoon."), ("Buyer", "Sounds good, thanks.")],
+        "modules": {
+            1: m("What does your current setup look like?",
+                 "Dispatch runs on Tallowmoor TMS 7.4 in our own server room, and it pushes invoice files over SFTP to our ERP twice a shift.",
+                 "We have a few older systems and some integrations, it is a bit of a patchwork."),
+            2: m("What would good look like for you?",
+                 "Ideally a dispatcher sees a carrier's new rate on their screen the moment the portal posts it, with nobody keying it in by hand.",
+                 "We want things to feel more current, nothing specific yet."),
+            3: m("What do you want a pilot to prove?",
+                 "We need to prove that carrier rate changes from the portal reach our order records, run against last quarter's 5,000 lane quotes, and it can never write into the live system.",
+                 "We want to test it against some of our data and see what happens, not sure yet what it can touch."),
+            4: m("Who on your side will look at the technical side?",
+                 "Renata Okafor runs our operations engineering group, and she will review the API authentication design and own the sandbox setup.",
+                 "Our platform folks would want a look at this eventually."),
+            5: m("How will you decide whether it worked?",
+                 "A win means at least 95 percent of carrier rate updates reach the planning view inside 90 seconds, measured over ten business days of live traffic.",
+                 "We would want the updates to show up quickly and stay reliable."),
+            6: m("Who would do the hands-on work on your side?",
+                 "Kwame Asante, our planning analyst, has committed six hours a week to pull the test files and attend the Thursday check-ins.",
+                 "We can probably spare someone, but nobody has been named yet."),
+            7: m("What happens after this call?",
+                 "Let's book the kickoff for Tuesday, November 10 at 10 a.m. with Dev Patel and Ilse Fournier on the invite, and I will send the write-up by Friday, November 6.",
+                 "We are probably good to keep talking, I would like to loop in the team first."),
+        },
+        "leak_terms": {1: ["Tallowmoor TMS 7.4", "server room"], 2: ["dispatcher's screen"],
+                       3: ["5,000 lane quotes"], 4: ["Renata Okafor"], 5: ["95 percent", "90 seconds"],
+                       6: ["Kwame Asante", "six hours a week"], 7: ["November 10", "Ilse Fournier"]},
+    },
+    "B": {
+        "dims": DIMS, "match": MATCH, "speaker": "Buyer",
+        "header": ["Discovery call: Pinecrest Savings Cooperative x Notchwell",
+                   "Participants: Doreen Achterberg (VP Member Services, Pinecrest Savings Cooperative), Owen Halloran (Solutions Engineer, Notchwell)"],
+        "open": [("Rep", "Appreciate the time, Doreen. Tell me about the member side of things."),
+                 ("Buyer", "Happy to. We have about 60,000 members across eleven branches.")],
+        "close": [("Rep", "I will send notes and a proposed time for next steps."), ("Buyer", "Perfect, talk soon.")],
+        "modules": {
+            1: m("Describe the systems you run today.",
+                 "Our core is Glenhaven Ledger, hosted in a colo cage in Akron, and every card authorization gets pushed out through an MQ broker that the reporting team reads from.",
+                 "We run a core banking system with a few feeds coming off it, but I would have to draw you a picture."),
+            2: m("Where do you want to be in a year?",
+                 "I want a member to flag a bad card charge in the app and have it open as a case on the spot, no branch visit and no phone tree.",
+                 "I would love for members to have an easier time with it, nothing specific in mind."),
+            3: m("What would a pilot need to show?",
+                 "We need to prove the app intake works on the last 12,000 cases we logged, and it must never write back into the core.",
+                 "We want to test it against some of our own history and see what breaks, but I cannot say which parts it can touch yet."),
+            4: m("Who will evaluate this technically?",
+                 "Ansel Greer, our senior systems architect, has to approve any new service that connects to the core, and he will personally run the review.",
+                 "Our tech people will have to weigh in, probably later on."),
+            5: m("What number would make you call it a success?",
+                 "Success for us is 98 percent of flagged charges reaching a case within 2 minutes, measured over 30 days of live traffic.",
+                 "We would measure accuracy somehow, we just have not picked the number yet."),
+            6: m("Who can give the pilot time on your side?",
+                 "Lourdes Vance from member operations has committed 4 hours a week to pull the sample files and join the Tuesday syncs.",
+                 "Member operations should be able to help, if they have the room."),
+            7: m("What is the next step?",
+                 "Let's lock a kickoff for Thursday, December 3 at 9 a.m. Central, with Yusuf Adeyemi and Cora Lindqvist on the invite, and I will send the plan the day before.",
+                 "We will probably pick it back up in a few weeks, we are just not sure when."),
+        },
+        "leak_terms": {1: ["Glenhaven Ledger", "colo cage"], 2: ["no phone tree"], 3: ["12,000"],
+                       4: ["Ansel Greer"], 5: ["98 percent", "2 minutes"], 6: ["Lourdes Vance", "4 hours a week"],
+                       7: ["December 3", "Cora Lindqvist"]},
+    },
+}
