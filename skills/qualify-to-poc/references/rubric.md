@@ -4,6 +4,12 @@ Five dimensions covering whether a qualified deal is actually ready to
 start a POC/pilot — the go/no-go gate before pilot work begins, not a
 read on how the pilot itself is going.
 
+Three rules apply to every dimension.
+
+- **The buyer must say it.** Evidence is something the buyer said or agreed to. A criterion, scope, or date that only the rep states does not count. Silence is not a yes.
+- **Absence is a result.** A dimension that the call never touched is Missed. Do not credit it because the buyer seems keen.
+- **Read the "does not count" line.** Each dimension lists the usual false positives.
+
 ## 1. Success criteria defined and agreed
 
 **What it is.** Whether the objective conditions under which the POC counts
@@ -22,6 +28,10 @@ prospect confirmation.
 within five minutes with zero manual reconciliation, validated across both
 warehouses" is Covered.
 
+**Does not count:** benchmarks that the vendor sets. "Looks good" or "works well". A success list that the rep wrote and the buyer did not accept.
+
+**A strong call** asks the buyer for pass and fail thresholds and the scenarios that must pass.
+
 ## 2. Technical scope agreed
 
 **What it is.** Whether it's clear what's in scope and out of scope for
@@ -35,6 +45,10 @@ named for one system or use case with no mention of adjacent ones that
 could creep in. **Missed looks like:** no scope discussion at all, or "we'll
 just see how it goes."
 
+**Does not count:** a scope that only the rep wrote down. Interest in "a pilot" with no boundary. An open security or legal approval that nobody owns. Count such a dependency as a gap here.
+
+**A strong call** asks what the POC must not touch, which data it needs on day one, and which approvals must finish first.
+
 ## 3. Stakeholders identified and committed
 
 **What it is.** Whether it's clear who on the customer side will actually
@@ -47,6 +61,10 @@ like:** one of the two roles is named but the other is vague ("someone from
 IT will look at it"). **Missed looks like:** no named owner or
 decision-maker at all — the deal still lacks anyone accountable for the
 pilot's outcome.
+
+**Does not count:** a job title with no stated role in the pilot. A person who is keen and has no authority over the result.
+
+**A strong call** asks who runs the pilot every day, who decides at the end, and whether that person has agreed.
 
 ## 4. POC timeline and exit criteria set
 
@@ -62,6 +80,10 @@ discussed, or the pilot is framed as open-ended.
 "We'll run it for a while and see" is Missed; "we start Monday, and we
 review results against the criteria on the 21st" is Covered.
 
+**Does not count:** "a few weeks" with no end. A date that the rep proposes and the buyer never accepts.
+
+**A strong call** sets start and end dates and a review meeting with attendees before the call ends.
+
 ## 5. Resourcing confirmed
 
 **What it is.** Whether a specific named person (or people) on the customer
@@ -75,7 +97,11 @@ generically ("our IT team will handle it") without a specific person or
 bandwidth confirmation. **Missed looks like:** no one named, or the
 customer-side work is assumed without any discussion of who does it.
 
-## Reads-well-too check
+**Does not count:** "IT will handle it" with no name. Being ready is not the same as committing. A person named with no time committed.
+
+**A strong call** asks who provides the data and access, and how many hours a week each person gives.
+
+## Reads-well-too test
 
 Sanity-check against a POC kickoff you know was well-run. If it still
 comes back mostly Missed, loosen the read before reporting.
