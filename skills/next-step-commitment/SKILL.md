@@ -1,6 +1,6 @@
 ---
 name: next-step-commitment
-description: Checks whether a sales call ended with a real, dated, mutually-owned next step versus a vague "we'll circle back." Use when reviewing whether a call actually moved a deal forward, coaching a rep on closing calls out properly, or sweeping a CRM export for deals stuck without a next step.
+description: Checks whether a sales call ended with a real, dated, mutually-owned next step versus a vague "we'll circle back." Use when the user asks whether a call moved a deal forward, wants to review how a call ended, coach a rep on closing a call out properly, or sweep a CRM export for deals stuck without a next step.
 license: MIT
 metadata:
   zime:category: cross-stage
@@ -53,8 +53,9 @@ claude "run next-step-commitment on ./calls/call.txt"
    closes out.
 2. Score it against the three elements in `references/rubric.md`:
    specific action, date or concrete trigger, two-sided ownership.
-3. Run the rubric's reads-well-too check before finalizing.
-4. Write the output in the exact shape under `## Output format`.
+3. Read the last few minutes of the call first, and read each element's "does not count" line before you mark it present. A step that only the rep states does not count until the buyer accepts it.
+4. Run the rubric's reads-well-too test before finalizing, in both directions.
+5. Write the output in the exact shape under `## Output format`.
 
 ### CSV mode (`.csv`)
 
