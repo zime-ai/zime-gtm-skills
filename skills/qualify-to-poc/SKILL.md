@@ -1,6 +1,6 @@
 ---
 name: qualify-to-poc
-description: Audits the call or checkpoint that moves a qualified deal into POC or pilot kickoff (the go or no-go gate before pilot work starts) against five dimensions: success criteria, technical scope, stakeholder commitment, timeline and exit criteria, and resourcing. Or sweeps a CRM export for deals entering pilot stage without those fields set. Use when the user asks whether a deal is ready to start a POC, wants a POC-kickoff call reviewed, or wants pilots that started without a real plan found in the pipeline.
+description: Audits the call or checkpoint that moves a qualified deal into POC or pilot kickoff (the go or no-go gate before pilot work starts) against five dimensions (success criteria, technical scope, stakeholder commitment, timeline and exit criteria, and resourcing). Or sweeps a CRM export for deals entering pilot stage without those fields set. Use when the user asks whether a deal is ready to start a POC, wants a POC-kickoff call reviewed, or wants pilots that started without a real plan found in the pipeline.
 license: MIT
 metadata:
   zime:category: new-business
