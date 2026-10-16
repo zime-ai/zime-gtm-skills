@@ -1,6 +1,6 @@
 ---
 name: challenger
-description: Audits a B2B sales call transcript against the Challenger Sale framework (teach, tailor, take control, plus the commercial-teaching pitch arc), or sweeps a CRM export for deals with no teaching insight logged. Use when a rep leans on discovery-question skill but rarely brings a point of view, when prepping a rep for a competitive or status-quo-defending deal, or when a manager wants to know if a call taught the buyer something new rather than just restating their stated problem.
+description: Audits a B2B sales call transcript against the Challenger Sale framework (teach, tailor, take control, plus the commercial-teaching pitch arc), or sweeps a CRM export for deals with no teaching insight logged. Use when the user asks whether a rep brought a point of view or only asked discovery questions, wants to prep a rep for a competitive or status-quo-defending deal, or wants to know if a call taught the buyer something new instead of restating their stated problem.
 license: MIT
 metadata:
   zime:category: cross-stage

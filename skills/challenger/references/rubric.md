@@ -4,11 +4,21 @@ Three pillars, plus the six-step commercial-teaching pitch arc that Teach is
 usually delivered through. The distinguishing signal across all three: did
 the rep add something, or just reflect the buyer's own words back to them?
 
+Three rules apply to every pillar.
+
+- **The buyer must react.** An insight, a tailored point, or a held position counts only when the buyer's reply shows it landed. A claim that only the rep makes, with no reaction, is Partial at most.
+- **Absence is a result.** A pillar that the call never touched is Missed. A short, early call that had no room for a pillar is the one case for Not applicable on the pitch arc.
+- **Read the "does not count" line.** Each pillar lists the usual false positives.
+
 ## Teach
 
 Did the rep introduce a reframe or insight the buyer didn't already hold —
 a new way to think about their cost, risk, or opportunity — rather than
 restate the problem the buyer stated themselves?
+
+**Does not count:** a recap of what the buyer said. A widely known fact. A claim from a slide that the buyer never engaged with.
+
+**A strong call** puts one claim the buyer has not heard in front of the buyer and waits for the reaction.
 
 **Covered:** a genuine insight delivered, with the buyer visibly updating
 their view (surprise, a follow-up question, "I hadn't thought of it that
@@ -19,6 +29,10 @@ buyer's own framing with no new claim attached.
 Weak: "So the delay is costing you deals" — that's a recap. Strong: "Most
 teams solving this the way you're describing end up creating a second
 bottleneck downstream" — the buyer has to react to a new claim.
+
+**Does not count:** a statistic or a case study that the rep reads out and the buyer does not react to. A recap of the buyer's own words. An insight that the rep claims is new while the buyer already said it.
+
+**A strong call** names the risk the buyer is exposed to and asks whether the buyer has seen it.
 
 ## Tailor
 
@@ -38,6 +52,10 @@ Weak: "This saves you three hours a week in manual work." Strong: "I noticed
 earlier you mentioned your team gets blamed for gaps in the data — this
 solves that specific exposure for you because you'd see conflicts before
 they cost you a deal."
+
+**Does not count:** the rep naming the buyer's company or industry once. One benefit line repeated to every stakeholder.
+
+**A strong call** speaks to the budget holder about cost and risk, and to the daily user about effort, in the same call.
 
 ## Take control
 
@@ -59,6 +77,10 @@ explore our fit." Strong: buyer says "we're comparing three other vendors,"
 rep says "I get it, and before you decide, I'd want to know if they can
 handle these three risks you mentioned earlier — have you asked them yet?"
 
+**Does not count:** arguing for its own sake. Ignoring a constraint with no reason given. Pressure with no tradeoff offered.
+
+**A strong call** holds the position once, gives the reason, and offers a tradeoff.
+
 ## The commercial-teaching pitch arc
 
 The structure Teach is usually delivered through, in order:
@@ -79,7 +101,7 @@ A short discovery call may only reach step 1 or 2 — that's fine. What to
 flag is a call that jumps straight from Warmer to Our solution, skipping the
 Reframe: that's a demo, not commercial teaching.
 
-## Reads-well-too check
+## Reads-well-too test
 
 A short, early-stage call should not score as mostly Missed just because it
 never reached Rational drowning or Emotional impact — those steps assume a
