@@ -75,6 +75,51 @@ def _run_claude(prompt, cwd):
     return proc.stdout
 
 
+# Cross-family judge panel via OpenRouter. One sample per model, so the three
+# judges come from three labs and do not share one family's blind spots.
+JUDGE_BACKEND = os.environ.get("JUDGE_BACKEND", "claude")  # claude | openrouter
+OR_MODELS = [m for m in os.environ.get(
+    "JUDGE_MODELS", "z-ai/glm-5.3-flash,deepseek/deepseek-v4.1-flash,google/gemma-4-31b-it").split(",") if m]
+CAP_USD = float(os.environ.get("JUDGE_CAP_USD", "10"))
+LEDGER = Path.home() / ".config" / "gtm-loop" / "spend.json"
+KEY_FILE = Path.home() / ".config" / "gtm-loop" / "openrouter.key"
+
+
+def _spend_month():
+    key = __import__("time").strftime("%Y-%m")
+    try:
+        return key, float(json.loads(LEDGER.read_text()).get(key, 0.0))
+    except (OSError, ValueError):
+        return key, 0.0
+
+
+def _run_openrouter(prompt, cwd, model):
+    import urllib.request
+    key = os.environ.get("OPENROUTER_API_KEY") or KEY_FILE.read_text().strip()
+    month, spent = _spend_month()
+    if spent >= CAP_USD:
+        raise RuntimeError(f"judge spend cap reached: {spent:.2f} of {CAP_USD:.2f} USD this month")
+    files = sorted(p for p in Path(cwd).rglob("*") if p.is_file())
+    inline = prompt + "\n\n" + "\n\n".join(
+        f"=== ./{p.relative_to(cwd)} ===\n{p.read_text(errors='ignore')}" for p in files)
+    body = json.dumps({"model": model, "temperature": 0, "max_tokens": 6000, "usage": {"include": True},
+                       "messages": [{"role": "user", "content": inline}]}).encode()
+    req = urllib.request.Request(
+        "https://openrouter.ai/api/v1/chat/completions", data=body,
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=300) as r:
+        resp = json.loads(r.read())
+    LEDGER.parent.mkdir(parents=True, exist_ok=True)
+    LEDGER.write_text(json.dumps({month: spent + float(resp.get("usage", {}).get("cost", 0) or 0)}))
+    return resp["choices"][0]["message"].get("content") or ""
+
+
+def _judge(prompt, cwd, i):
+    if JUDGE_BACKEND == "openrouter":
+        return _run_openrouter(prompt, cwd, OR_MODELS[i % len(OR_MODELS)])
+    return _run_claude(prompt, cwd)
+
+
 def _parse_json_block(text):
     m = re.search(r"\{.*\}", text, re.DOTALL)
     if not m:
@@ -91,7 +136,7 @@ def get_assert(output, context):
     # ground truth) instead of the default evals/gt/ (hand-authored).
     gt_dir = vars_.get("gt_dir", "gt")
     case = context.get("test", {}).get("description", "case")
-    judges = int(os.environ.get("EVAL_JUDGES", "3"))
+    judges = int(os.environ.get("EVAL_JUDGES", str(len(OR_MODELS) if JUDGE_BACKEND == "openrouter" else 3)))
     run_dir = Path(os.environ.get("EVAL_RUN_DIR", str(REPO_ROOT / "evals" / "runs" / "adhoc")))
     out_dir = run_dir / "output" / skill / case
     gt_file = REPO_ROOT / "evals" / gt_dir / gt_name
@@ -129,13 +174,18 @@ def get_assert(output, context):
         (scratch / gt_name_in_scratch).write_text(_shuffle_gt(gt_text, seed=i))
         if transcript_file.exists():
             shutil.copy(transcript_file, scratch / "transcript.txt")
-        raw = _run_claude(prompt_template, cwd=scratch)
         try:
+            raw = _judge(prompt_template, scratch, i)
             parsed = _parse_json_block(raw)
-        except ValueError:
+        except (ValueError, OSError) as e:
+            raw = f"{type(e).__name__}: {e}"
             parsed = {"fields": {}, "_error": raw[:500]}
         samples.append(parsed)
         (verdicts_dir / f"{skill}-{case}-judge-{i}.json").write_text(json.dumps(parsed, indent=2))
+
+    if not any(s.get("fields") for s in samples):
+        errors = "; ".join(s.get("_error", "")[:120] for s in samples)
+        return {"pass": False, "score": 0, "reason": f"All judges failed or returned no fields: {errors}"}
 
     all_fields = set()
     for s in samples:
@@ -186,7 +236,9 @@ def get_assert(output, context):
     lines = [
         f"# Gaps: {skill} / {case}", "",
         summary,
-        f"Judge contract: {judges}x claude-cli (subscription, model {EVAL_MODEL}), rubric v{RUBRIC_VERSION}",
+        (f"Judge contract: {judges} samples via openrouter, models {','.join(OR_MODELS)}, rubric v{RUBRIC_VERSION}"
+         if JUDGE_BACKEND == "openrouter" else
+         f"Judge contract: {judges}x claude-cli (subscription, model {EVAL_MODEL}), rubric v{RUBRIC_VERSION}"),
         "",
     ]
     for field, v in agg.items():

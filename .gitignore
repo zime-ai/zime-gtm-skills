@@ -13,6 +13,7 @@ PLAN.md
 # eval engine itself) and evals/cases.example.yaml (fake client) are public.
 evals/transcripts/
 evals/gt/
+evals/gt-synth/
 evals/cases/
 evals/labels/
 evals/baseline-*.json
