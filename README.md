@@ -13,6 +13,8 @@ evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
 that reads the Agent Skills spec.
 
+What sets these skills apart: they credit a call only for what the buyer actually said, and each one is built around what reps usually skip at that deal stage. A rep claim never counts as evidence. A topic the call never touched scores Missed, not "probably fine". Every dimension lists what does not count (price worry is not a budget, a date for the next meeting is not a decision date, a job title is not authority) and gives one strong-call question the rep can ask next time.
+
 Two axes: **deal stage** (discovery through renewal) and **initiative**
 (MEDDICC, BANT, pain identification: frameworks that run at any stage).
 
@@ -317,6 +319,8 @@ except the skill itself at run time, and nothing in it leaves your machine
 beyond whatever your agent's own model call already sends.
 
 ## Available skills
+
+**Flagship skills** (hand-written, with the buyer-said evidence rules above): `deep-discovery`, `meddicc`, `bant`, `technical-discovery`, `meeting-to-qualify`, `improve-demo`, `follow-up-email-drafter`, `deal-risk-digest`, `next-step-commitment`, `win-loss-brief`. The other skills in the list are **community preview**: they work and pass validation, and their rubrics are still being rewritten to the same standard.
 
 <details open>
 <summary>41 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
