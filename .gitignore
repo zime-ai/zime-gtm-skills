@@ -14,6 +14,7 @@ PLAN.md
 evals/transcripts/
 evals/gt/
 evals/gt-synth/
+evals/loop/state/
 evals/cases/
 evals/labels/
 evals/baseline-*.json

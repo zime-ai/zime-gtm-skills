@@ -33,7 +33,7 @@ DIMS = {
 MODULES = {
     1: {
         "full": [("Rep", "What is the biggest problem on your side right now?"),
-                 ("Buyer", "Late first replies. Our support leads spend about 12 hours a week chasing tickets that sit unassigned, and anything waiting over four hours ties to roughly 6% of our monthly churn."),
+                 ("Buyer", "Late first replies. Our support leads spend about 12 hours a week on late first replies, and anything waiting over four hours ties to roughly 6% of our monthly churn."),
                  ("Rep", "Is that number from your own reporting?"),
                  ("Buyer", "Yes, finance pulled it last quarter, and it comes up in every review.")],
         "partial": [("Rep", "What is the biggest problem on your side right now?"),
@@ -50,21 +50,21 @@ MODULES = {
     },
     3: {
         "full": [("Rep", "Why look at this now?"),
-                 ("Buyer", "We launch in two new countries on March 1, and ticket volume will roughly double.")],
+                 ("Buyer", "We are launching in two new countries, and ticket volume will roughly double when they go live.")],
         "partial": [("Rep", "Why look at this now?"),
                     ("Buyer", "We would like to get something in place soon.")],
         "absent": [],
     },
     4: {
         "full": [("Rep", "What would a good result look like?"),
-                 ("Buyer", "First replies under one hour for 90% of tickets, and the leads out of the morning sorting job.")],
+                 ("Buyer", "First replies under one hour for 90% of tickets, tracked in our monthly report.")],
         "partial": [("Rep", "What would a good result look like?"),
                     ("Buyer", "We just want it to be easier for the team.")],
         "absent": [],
     },
     5: {
         "full": [("Rep", "Who else would be involved in a decision like this?"),
-                 ("Buyer", "Priya Nair, our VP of Customer Experience, signs off on anything over 20 thousand. Ken from IT reviews integrations. I would bring it to her after a demo.")],
+                 ("Buyer", "Priya Nair, our VP of Customer Experience, signs off on anything over 20 thousand. Ken from IT would join the technical call. I would bring it to her after a demo.")],
         "partial": [("Rep", "Who else would be involved in a decision like this?"),
                     ("Buyer", "My team would need to weigh in on this.")],
         "absent": [],
@@ -97,7 +97,27 @@ OPEN = [("Rep", "Thanks for making time, Marcus. I will keep this to a conversat
 CLOSE = [("Rep", "I will send a short summary and we can pick a time to continue."),
          ("Buyer", "Works for me, thanks.")]
 
+HEADER = ["Discovery call: Harbor Retail x Lumen Desk",
+          "Participants: Marcus Lee (Director of Support Operations, Harbor Retail), Dana Cole (AE, Lumen Desk)"]
+
 EXPECT = {"full": "Covered", "partial": "Partial", "absent": "Missed or Unclear"}
+
+
+LEAK_TERMS = {1: ["churn", "12 hours"], 2: ["Zendesk", "queue", "drag"], 3: ["launching", "go live"],
+              4: ["one hour", "90%"], 5: ["Priya", "VP of", "Ken "], 6: ["40 to 50", "January"],
+              7: ["security review", "infosec", "data processing"], 8: ["Freshdesk"]}
+
+
+def leak_audit():
+    """Return (dimension, term, other dimension) for any term that shows up outside its own module."""
+    bad = []
+    for d, terms in LEAK_TERMS.items():
+        for o in DIMS:
+            if o == d:
+                continue
+            text = " ".join(t for lv in MODULES[o].values() for _, t in lv)
+            bad += [(d, t, o) for t in terms if t in text]
+    return bad
 
 
 def render(levels):
@@ -105,9 +125,7 @@ def render(levels):
     for d in DIMS:
         lines += MODULES[d][levels[d]]
     lines += CLOSE
-    out = ["Discovery call: Harbor Retail x Lumen Desk",
-           "Participants: Marcus Lee (Director of Support Operations, Harbor Retail), Dana Cole (AE, Lumen Desk)",
-           "[Synthetic transcript for evaluation only. No real company or person]", ""]
+    out = list(HEADER) + ["[Synthetic transcript for evaluation only. No real company or person]", ""]
     t = 1
     for who, text in lines:
         out.append(f"{t // 60:02d}:{t % 60:02d} {who}: {text}\n")
@@ -142,6 +160,8 @@ def cases():
 
 
 def main():
+    leaks = leak_audit()
+    assert not leaks, f"modules leak across dimensions: {leaks}"
     for sub in ("transcripts", "gt-synth", "cases"):
         (ROOT / sub).mkdir(exist_ok=True)
     yml = []

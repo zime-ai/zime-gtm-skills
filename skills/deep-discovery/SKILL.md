@@ -61,10 +61,24 @@ Read the transcript, then score the call against each dimension in
 Close with **2-3 highest-leverage next steps** — not a summary of every
 gap, the ones that would have moved this specific deal forward most.
 
-Run `references/rubric.md`'s "reads well too" check before finalizing: if a
-transcript that clearly covered discovery thoroughly still comes back with
-several Missed dimensions, the read is biased toward finding fault — widen
-what counts as evidence before reporting.
+Scoring rules, applied before you write each status:
+
+- Evidence must be a line that is about *that* dimension. Never reuse one
+  line as evidence for two dimensions, and never count a line that only
+  hints at a dimension (a launch mentioned while explaining ticket volume
+  is not a budget or decision-date signal).
+- When no line addresses a dimension, the status is Missed. Do not soften
+  it to Partial because the call felt thorough elsewhere.
+- Partial needs a quotable line that names the dimension but stays vague.
+  If you cannot quote that line, it is Missed.
+- A Covered needs the specifics the rubric names for it (a number, a named
+  person, a named tool, a dated event), not a general statement.
+
+Run `references/rubric.md`'s "reads well too" check before finalizing, in
+both directions. A transcript that clearly covered discovery thoroughly
+should not come back with several Missed dimensions, so widen what counts
+as evidence if it does. A call that never raised a dimension should not be
+credited for it, so cut any status whose evidence line fails the rules above.
 
 ### CSV mode (`.csv`)
 
@@ -97,6 +111,10 @@ Evidence: mentioned "we use spreadsheets for most of this" but never
 detailed the actual workflow
 Note: baseline named but not detailed enough to credibly show improvement
 against
+
+**3. Trigger — why now** — Missed
+Evidence: none. No line gives a reason to act now rather than later.
+Note: the earliest sign this deal may stall; ask what changed this quarter
 ```
 
 Close with **2-3 highest-leverage next steps** — not a summary of every

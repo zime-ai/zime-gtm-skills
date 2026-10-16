@@ -69,7 +69,7 @@ def _shuffle_gt(gt_text, seed):
 
 def _run_claude(prompt, cwd):
     proc = subprocess.run(
-        ["claude", "-p", prompt, "--model", EVAL_MODEL, "--dangerously-skip-permissions"],
+        ["claude", "-p", prompt, "--model", EVAL_MODEL, "--setting-sources", "project", "--dangerously-skip-permissions"],
         cwd=cwd, capture_output=True, text=True, timeout=600,
     )
     return proc.stdout
@@ -79,10 +79,15 @@ def _run_claude(prompt, cwd):
 # judges come from three labs and do not share one family's blind spots.
 JUDGE_BACKEND = os.environ.get("JUDGE_BACKEND", "claude")  # claude | openrouter
 OR_MODELS = [m for m in os.environ.get(
-    "JUDGE_MODELS", "z-ai/glm-5.3-flash,deepseek/deepseek-v4.1-flash,google/gemma-4-31b-it").split(",") if m]
-CAP_USD = float(os.environ.get("JUDGE_CAP_USD", "10"))
+    "JUDGE_MODELS", "z-ai/glm-5.3-flash").split(",") if m]
+CAP_USD = float(os.environ.get("JUDGE_CAP_USD", "10"))      # per month, hard stop
+RUN_CAP_USD = float(os.environ.get("JUDGE_RUN_CAP_USD", "0.50"))  # per process, hard stop
+_RUN = {"spent": 0.0, "remote": None}
 LEDGER = Path.home() / ".config" / "gtm-loop" / "spend.json"
 KEY_FILE = Path.home() / ".config" / "gtm-loop" / "openrouter.key"
+
+
+_LEDGER_LOCK = __import__("threading").Lock()
 
 
 def _spend_month():
@@ -97,8 +102,15 @@ def _run_openrouter(prompt, cwd, model):
     import urllib.request
     key = os.environ.get("OPENROUTER_API_KEY") or KEY_FILE.read_text().strip()
     month, spent = _spend_month()
+    if _RUN["remote"] is None:  # OpenRouter's own monthly figure is the truth, the local ledger can lag
+        req0 = urllib.request.Request("https://openrouter.ai/api/v1/key", headers={"Authorization": f"Bearer {key}"})
+        with urllib.request.urlopen(req0, timeout=30) as r0:
+            _RUN["remote"] = float(json.loads(r0.read())["data"].get("usage_monthly") or 0)
+    spent = max(spent, _RUN["remote"] + _RUN["spent"])
     if spent >= CAP_USD:
         raise RuntimeError(f"judge spend cap reached: {spent:.2f} of {CAP_USD:.2f} USD this month")
+    if _RUN["spent"] >= RUN_CAP_USD:
+        raise RuntimeError(f"judge run cap reached: {_RUN['spent']:.2f} of {RUN_CAP_USD:.2f} USD in this run")
     files = sorted(p for p in Path(cwd).rglob("*") if p.is_file())
     inline = prompt + "\n\n" + "\n\n".join(
         f"=== ./{p.relative_to(cwd)} ===\n{p.read_text(errors='ignore')}" for p in files)
@@ -109,8 +121,12 @@ def _run_openrouter(prompt, cwd, model):
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=300) as r:
         resp = json.loads(r.read())
-    LEDGER.parent.mkdir(parents=True, exist_ok=True)
-    LEDGER.write_text(json.dumps({month: spent + float(resp.get("usage", {}).get("cost", 0) or 0)}))
+    with _LEDGER_LOCK:  # re-read inside the lock so parallel judges do not overwrite each other
+        LEDGER.parent.mkdir(parents=True, exist_ok=True)
+        month, spent = _spend_month()
+        cost = float(resp.get("usage", {}).get("cost", 0) or 0)
+        _RUN["spent"] += cost
+        LEDGER.write_text(json.dumps({month: spent + cost}))
     return resp["choices"][0]["message"].get("content") or ""
 
 

@@ -68,7 +68,7 @@ else:
 
 ( cd "$SCRATCH" && claude -p \
   "Read every ./gaps-$SKILL-*.md file and ./feedback.md, and the skill definition at .claude/skills/$SKILL/SKILL.md plus its references/. Also read ./decided-amendments.md: proposals already applied or rejected for this skill -- do not re-propose any of them. Write ./learnings.md: a ranked list of concrete NEW fixes to the skill's SKILL.md or references, each citing the specific gaps file line or feedback.md bullet driving it. Do not edit any files -- only write learnings.md." \
-  --model "${EVAL_MODEL:-claude-haiku-5-5}" --dangerously-skip-permissions )
+  --model "${EVAL_MODEL:-claude-haiku-5-5}" --setting-sources project --dangerously-skip-permissions )
 
 cp "$SCRATCH/learnings.md" "$RUN_DIR/learnings.md"
 echo "-> $RUN_DIR/learnings.md"
