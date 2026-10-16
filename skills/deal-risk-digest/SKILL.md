@@ -1,6 +1,6 @@
 ---
 name: deal-risk-digest
-description: Reads a pipeline export (a whole book of business, not one call) and ranks deals by risk — a past-due close date paired with low probability, stage age, a blank or vague next step, and a single-threaded contact, with deal value breaking ties — citing the column values behind each call. Use when a sales manager or RevOps person wants a ranked risk view across a whole pipeline before a forecast call or pipeline review, not a single-call audit.
+description: Reads a pipeline export (a whole book of business, not one call) and ranks deals by risk (a past-due close date paired with low probability, stage age, a blank or vague next step, and a single-threaded contact, with deal value breaking ties), citing the column values behind each call. Use when a sales manager or RevOps person asks which deals are at risk, wants a ranked risk view before a forecast call or pipeline review, or wants to find stale, single-threaded or next-step-less deals in an export. It is not a single-call audit.
 license: MIT
 metadata:
   zime:category: deal-intelligence
@@ -81,6 +81,10 @@ Then two closing lines:
 
 Nothing else — no invented risk scores beyond the point system in the
 rubric, no percentages made up from nothing.
+
+## Reading the result
+
+The digest ranks deals by what the export shows. It does not know why a field looks the way it does. For each High deal, use the rubric's "Questions behind each signal" in the review. A rep's confidence is not evidence.
 
 ## Do not
 
