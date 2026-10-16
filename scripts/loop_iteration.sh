@@ -24,7 +24,7 @@ trap 'rmdir "$CFG/lock"' EXIT
 cd "$REPO" || exit 1
 export GH_TOKEN="$(cat "$CFG/gh.token" 2>/dev/null || cat "$HOME/.config/gh-gtm/token")"
 git fetch -q origin || escalate "git fetch failed"
-git checkout -q -B loop/work origin/dev || escalate "cannot reset to origin/dev"
+git checkout -q -B loop/work "origin/${LOOP_BASE:-dev}" || escalate "cannot reset to origin/${LOOP_BASE:-dev}"
 [ -s evals/loop/baseline.json ] || escalate "no baseline: run scripts/referee.py deep-discovery --baseline"
 SKILL=deep-discovery   # one target for now. The referee only knows skills that have a planted bank.
 
@@ -47,6 +47,7 @@ VERDICT="$(python3 scripts/referee.py "$SKILL" 2>&1 | tee "$STATE/referee.log" |
 NOW="$(python3 -c "import json;d=json.load(open('evals/loop/state/last_run.json'));print(d['B']['exact'],d['A']['exact'],d['skill_lines'])" 2>/dev/null)"
 case "$VERDICT" in
   ACCEPT*)
+    if [ -n "${LOOP_DRY:-}" ]; then git checkout -q -- skills/; log "DRY-ACCEPT	$NOW	$HYP"; exit 0; fi
     BR="loop/$SKILL-$(date +%Y%m%d-%H%M)"
     python3 - "$SKILL" <<'PY'
 import json, sys
