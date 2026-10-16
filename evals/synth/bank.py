@@ -94,13 +94,13 @@ def parse(text, spec):
 def prompt_for(variant, spec, skill):
     names = "; ".join(f"{d}. {n}" for d, n in spec["dims"].items())
     fmt = ("Output exactly one line per dimension, in this form, then stop:\n**N. Name** — Status\n"
-           f"where Status is Covered, Partial or Missed. Score dimensions 1 to {len(spec['dims'])} only.")
+           f"where Status is Covered, Partial or Missed. Score only dimensions {', '.join(map(str, spec['dims']))}, using these numbers.")
     bare = f"Read the sales call transcript at ./transcript.txt. Score the call on these dimensions: {names}.\n{fmt}"
     if variant == "bare":
         return bare
     if variant == "rubric":
         return bare + "\n\nUse these definitions:\n\n" + (ROOT / f"skills/{skill}/references/rubric.md").read_text()
-    return (f"/{skill} ./transcript.txt\n\nScore dimensions 1 to {len(spec['dims'])} only. " + fmt.split("\n", 1)[1])
+    return (f"/{skill} ./transcript.txt\n\nScore only dimensions {', '.join(map(str, spec['dims']))}, using these numbers. " + fmt.split("\n", 1)[1])
 
 
 def run(job):

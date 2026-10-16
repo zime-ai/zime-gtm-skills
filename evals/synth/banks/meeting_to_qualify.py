@@ -99,3 +99,13 @@ BANKS = {
                        6: ["Dhruv Anand", "December 9"]},
     },
 }
+
+
+# The skill's rubric numbers these dimensions 1, 2, 3, 4, 6 and 8 (5 is Fit and 7 is Engagement, left unplanted).
+# The bank is written with 1 to 6, so renumber here to match what the skill prints.
+_RENUMBER = {5: 6, 6: 8}
+for _spec in BANKS.values():
+    _spec["dims"] = {_RENUMBER.get(k, k): v for k, v in _spec["dims"].items()}
+    _spec["modules"] = {_RENUMBER.get(k, k): v for k, v in _spec["modules"].items()}
+    _spec["leak_terms"] = {_RENUMBER.get(k, k): v for k, v in _spec["leak_terms"].items()}
+    _spec["match"] = {_RENUMBER.get(k, k): v for k, v in _spec["match"].items()}
