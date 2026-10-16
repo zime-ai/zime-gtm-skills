@@ -48,6 +48,20 @@ let the closing Notes section lead with one.
 and we already tried fixing it with a shared calendar that didn't hold" is
 High — specific, repeated, and shows a failed prior attempt.
 
+## What does not count as a pain
+
+Read this list before you list a pain point.
+
+- A problem that the rep names and the buyer never raised.
+- A complaint about a vendor the buyer uses today. It is an objection or a current-state detail. A real pain still exists with no vendor in the room.
+- A generic industry problem with no sign that this buyer feels it.
+- A roadmap item, or a feature the buyer wants, shown as a current problem.
+- "Nothing found" written up as a pain. Absence of a pain is a gap in the call and belongs in Notes.
+
+## A strong call probes in order
+
+First ask about the pain. Then ask how long it has gone on. Then ask who feels it most. Each follow-up narrows the same thread. A pain whose probes ended at the first answer stays Low, however strong the first answer sounds.
+
 ## Hard rules
 
 - Every pain point needs a direct quote. No quote, no pain point — an
