@@ -1,6 +1,6 @@
 ---
 name: improve-demo
-description: Audits a product demo call transcript against a rubric covering tailoring, stakeholder presence, engagement, and outcome clarity, or sweeps a CRM export for demos with no documented next step. Use when reviewing a demo call, coaching a rep on demo delivery, or checking pipeline for demos that didn't produce a clear next step.
+description: Audits a product demo call transcript against a seven-dimension rubric (tailoring to stated priorities, stakeholders present, engagement, differentiation, fit with current tooling, success criteria, next step), or sweeps a CRM export for demos with no documented next step. Use when the user asks to review a demo call, coach a rep on demo delivery, find out why a demo did not land, or find demos in the pipeline that ended without a clear next step.
 license: MIT
 metadata:
   zime:category: new-business
@@ -55,8 +55,18 @@ claude "run improve-demo on ./calls/acme-demo.txt"
    agreements often land in the final few minutes.
 2. Score each of the seven dimensions in `references/rubric.md`
    independently against its own evidence.
-3. Run the reads-well-too check before finalizing.
-4. Write the output in the exact shape under `## Output format`.
+3. Before each status, apply these tests:
+   - Quote the right speaker. For what the rep did, quote the rep. For what
+     the buyer wants or reacted to, the buyer must say it.
+   - When no line addresses a dimension, the status is Missed. Do not soften
+     it to Partial because the demo felt polished.
+   - Partial needs a quotable line that names the dimension but stays vague.
+     When you cannot quote that line, it is Missed.
+   - Covered needs the specifics the rubric names (a named priority, a named
+     tool, an owner and a date), not a general statement.
+   - Read each dimension's "does not count" line first.
+4. Run the rubric's reads-well-too test before finalizing, in both directions.
+5. Write the output in the exact shape under `## Output format`.
 
 ### CSV mode (`.csv`)
 
@@ -87,7 +97,7 @@ buyer joined at minute 3
 
 Close with exactly one line: **the single biggest thing that would have
 made this demo land better**, framed as coaching (what to do differently
-next time), not a verdict. Run the reads-well-too check first. No section
+next time), not a verdict. Run the reads-well-too test first. No section
 recapping all seven scores again after this line.
 
 ## Do not
