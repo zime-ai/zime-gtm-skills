@@ -92,7 +92,13 @@ PY
     git push -q -u origin "$BR" && \
     PR="$(gh pr create --repo zime-ai/zime-gtm-skills --base dev --head "$BR" --title "feat($SKILL): $HYP" \
       --body "Automated improvement loop. The referee accepted this change on a held-out planted-fact bank and a dev bank. Hypothesis: $HYP" 2>&1 | tail -1)" && \
-    gh pr merge "$PR" --repo zime-ai/zime-gtm-skills --auto --squash >/dev/null 2>&1
+    { # a person reads the first ${LOOP_FIRST_REVIEW:-3} accepted changes before the loop may auto-merge
+      DONE="$(grep -c '^[^	]*	ACCEPT	' "$STATE/results.tsv" 2>/dev/null)"
+      if [ "${DONE:-0}" -ge "${LOOP_FIRST_REVIEW:-3}" ]; then
+        gh pr merge "$PR" --repo zime-ai/zime-gtm-skills --auto --squash >/dev/null 2>&1
+      else
+        gh pr comment "$PR" --repo zime-ai/zime-gtm-skills --body "Held for human review (accepted change $((DONE+1)) of ${LOOP_FIRST_REVIEW:-3}). Merge it when it reads well." >/dev/null 2>&1
+      fi; }
     log "ACCEPT	$NOW	$HYP	$PR" ;;
   REJECT*)
     git checkout -q -- skills/
