@@ -1,6 +1,6 @@
 ---
 name: meeting-to-qualify
-description: Audits a qualification call transcript to assess whether a deal is real — authority, budget plausibility, urgency, and fit — or sweeps a CRM export for deals never properly qualified. Use when deciding whether to invest further in a deal, reviewing a qualification call, or checking pipeline for unqualified deals inflating forecast.
+description: Audits a qualification call transcript to assess whether a deal is real (problem urgency, authority, budget plausibility, timeline, fit, competition, engagement, next step) and credits only what the buyer said, or sweeps a CRM export for deals never properly qualified. Use when the user asks whether to invest further in a deal, to review a qualification call, or to find unqualified deals inflating the forecast.
 license: MIT
 metadata:
   zime:category: new-business
@@ -53,8 +53,19 @@ claude "run meeting-to-qualify on ./calls/acme-qualify.txt"
    every dimension, output Status (Covered/Partial/Missed), Evidence (a
    direct quote or timestamp, or **Unclear** rather than a guess), and a
    Note if Partial or Missed.
-3. Run the rubric's reads-well-too check before finalizing.
-4. Write the output in the exact shape under `## Output format`.
+3. Before each status, apply these tests:
+   - Evidence is one buyer line that is about that dimension. Never use one
+     line for two dimensions, and never count a line that only hints at a
+     dimension.
+   - When no line addresses a dimension, the status is Missed. Do not soften
+     it to Partial because the call felt thorough elsewhere.
+   - Partial needs a quotable line that names the dimension but stays vague.
+     When you cannot quote that line, it is Missed.
+   - Covered needs the specifics the rubric names (a date, a named person,
+     a stated figure), not a general statement.
+   - Read each dimension's "does not count" line first.
+4. Run the rubric's reads-well-too test before finalizing, in both directions.
+5. Write the output in the exact shape under `## Output format`.
 
 ### CSV mode (`.csv`)
 
