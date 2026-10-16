@@ -26,7 +26,7 @@
       "expectations": [
         "States explicitly when only one persona was present on the call",
         "Does not penalize the call for lacking a second persona that was never on the line",
-        "Applies the reads-well-too check from references/rubric.md before finalizing a mostly-Missed read",
+        "Applies the reads-well-too test from references/rubric.md before finalizing a mostly-Missed read",
         "Does not add a suggested talk-track or coaching-plan section beyond the required 2-3 next steps"
       ],
       "name": "persona-based-discovery-eval-2"

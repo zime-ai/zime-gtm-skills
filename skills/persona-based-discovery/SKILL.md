@@ -1,6 +1,6 @@
 ---
 name: persona-based-discovery
-description: Audits whether a discovery call's questions and framing were actually tailored to the specific buyer persona in the room (technical evaluator, economic buyer, end user, etc.), or sweeps a CRM export for deals with no persona/role data attached to contacts. Use when checking that a rep adapted to who they were talking to rather than running a one-size-fits-all script, or when reviewing a pipeline export for deals missing contact-role fields.
+description: Audits whether a discovery call's questions and framing were tailored to the specific buyer persona in the room (technical evaluator, economic buyer, end user, and so on), or sweeps a CRM export for deals with no persona or role data on contacts. Use when the user asks whether a rep adapted to who they were talking to, how well the pitch fit each persona, or which pipeline deals are missing contact-role fields.
 license: MIT
 metadata:
   zime:category: new-business
@@ -64,7 +64,7 @@ claude "run persona-based-discovery on ./calls/acme-discovery.txt"
 3. Score the call against each dimension in `references/rubric.md`. Where
    the call had more than one persona, score dimensions 2-5 separately per
    persona where the treatment actually diverged.
-4. Run the rubric's reads-well-too check before finalizing.
+4. Read each dimension's "does not count" line. Quote the right speaker: the rep for what the rep did, the buyer for a role, a concern, or a reaction. Then run the rubric's reads-well-too test before finalizing.
 5. Write the output in the exact shape under `## Output format`.
 
 ### CSV mode (`.csv`)
