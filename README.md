@@ -153,10 +153,10 @@ All columns present, no signals skipped.
 
 | Deal | Risk | Reasons | Evidence |
 |---|---|---|---|
-| Fairview Logistics | High (6pts) | past-due+unlikely, stage age, vague next step, single-threaded | close_date = 2025-03-01 (past), probability = 25%; stage_entered_date = 2025-01-10 (584 days in stage); next_step = "Follow up"; contacts = "Greg Malone" |
+| Fairview Logistics | High (6pts) | past-due+unlikely, stage age, vague next step, single-threaded | close_date = 2025-03-01 (past), probability = 25%; days_in_stage = 280; next_step = "Follow up"; contacts = "Greg Malone" |
 | Cobalt Freight Partners | High (3pts) | past-due+unlikely | close_date = 2025-02-14 (past), probability = 20% |
 | Ashgrove Dental Partners | Medium (2pts) | blank next step, single-threaded | next_step = (empty); contacts = "Dr. Lila Fenn" |
-| Driftwood Realty Group | Medium (1pt) | stage age | stage_entered_date = 2025-05-01 (473 days in stage) |
+| Driftwood Realty Group | Medium (1pt) | stage age | days_in_stage = 210 |
 | Terra Foods Co-op | Medium (1pt) | blank next step | next_step = (empty) |
 | Solstice Robotics | Medium (1pt) | single-threaded | contacts = "Priya Shah" |
 | Meridian Health Systems | Low (0pts) | none | — |
