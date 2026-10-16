@@ -40,12 +40,13 @@ def changed_files():
 
 
 def pick():
-    """Next target. A skill with a bank but no baseline is measured first. Otherwise the weakest skill below the bar."""
+    """Next target. With LOOP_NEW_BASELINES set, a skill with a bank but no baseline is measured first. Otherwise the weakest skill below the bar."""
     base = json.loads(BASELINE.read_text()) if BASELINE.exists() else {}
-    for sk in sorted(SKILLS):
-        if sk not in base:
-            return f"BASELINE:{sk}"
-    weak = sorted((base[sk]["B"]["exact"], sk) for sk in SKILLS if base[sk]["B"]["exact"] < BAR)
+    if os.environ.get("LOOP_NEW_BASELINES"):  # each new baseline costs about 60 model calls, so it is opt-in
+        for sk in sorted(SKILLS):
+            if sk not in base:
+                return f"BASELINE:{sk}"
+    weak = sorted((base[sk]["B"]["exact"], sk) for sk in SKILLS if sk in base and base[sk]["B"]["exact"] < BAR)
     return f"TARGET:{weak[0][1]}" if weak else "NONE"
 
 
