@@ -25,7 +25,7 @@
       "files": [],
       "expectations": [
         "A genuinely strong call is not scored as mostly Missed",
-        "The reads-well-too check from references/rubric.md is applied before the audit is finalized"
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized"
       ],
       "name": "deep-discovery-eval-2"
     },
