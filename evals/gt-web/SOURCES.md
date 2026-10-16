@@ -7,7 +7,36 @@ attributed critique.
 
 | Skill | Dimensions grounded | Author / org | URL | Published | Retrieved | Why it qualifies |
 |---|---|---|---|---|---|---|
-| _(none — first harvest pass found no qualifying source, see below)_ | | | | | | |
+| deep-discovery | 8 Competitive landscape and 9 Rapport & engagement (2 quotes) | Rob Snyder, The Physics of Startups | https://youtu.be/9a78RWkaALM | 2026-06-12 | 2026-10-16 | Named expert, dated, real recorded call with his verbatim critique in the video transcript; customer feedback given with permission |
+| deep-discovery | 1 Pain & business impact and 2 Current state & tooling (4 quote mappings) | Rob Snyder, The Physics of Startups | https://www.youtube.com/watch?v=RfOoKwP9hWE | 2026-06-12 | 2026-10-16 | Same expert and event; real call, verbatim critique |
+
+## Second harvest pass: 2026-10-16, one expert, thin coverage
+
+Found Rob Snyder's three public teardowns of Sliq sales calls (published
+2026-06-12): https://youtu.be/3TsrrMSXIfg, https://youtu.be/9a78RWkaALM,
+https://www.youtube.com/watch?v=RfOoKwP9hWE. He is a named expert. The
+posts are dated. Each video has a transcript with the real call and his
+critique.
+
+Process, in four steps:
+
+1. A harvester copied his critique sentences word for word. We then checked
+   every quote against freshly downloaded captions and dropped 5 that did
+   not match. 61 quotes remain.
+2. A separate segmenter marked which timestamps are the call itself. We
+   checked that the call-only text shares no 6-word run with any quote.
+3. A separate mapper, blind to skill output, linked quotes to rubric
+   dimensions only where his words are explicit.
+4. Quotes stay in gitignored files. Only this registry is public.
+
+Result: 6 quote-to-dimension links. All are for `deep-discovery`. None are
+for `pain-finder`, and none come from the first video. His rubric is the
+PULL framework, so most of his advice (demo length, positioning, website)
+does not address these rubrics and stays unmapped. Five of the nine
+`deep-discovery` dimensions have no supporting quote. This is one rater, so
+it cannot check the judge. It is a smoke test, not an accuracy number. We
+still need human-labeled cases (see `evals/framework/README.md` and
+`calibrate.py`).
 
 ## First harvest pass: 2026-08-14, zero qualifying sources
 
