@@ -1,6 +1,6 @@
 ---
 name: meddicc
-description: Audits a B2B sales call transcript against the MEDDICC qualification framework (Metrics, Economic buyer, Decision criteria, Decision process, Identify pain, Champion, Competition), or sweeps a CRM export for deals missing MEDDICC fields. Use when qualifying an opportunity, prepping for a deal-review or forecast call, or checking whether a deal in the pipeline has real MEDDICC coverage.
+description: Audits a B2B sales call transcript against the MEDDICC qualification framework (Metrics, Economic buyer, Decision criteria, Decision process, Identify pain, Champion, Competition) and credits only what the buyer said, or sweeps a CRM export for deals missing MEDDICC fields. Use when the user asks to qualify an opportunity, score MEDDICC, find the economic buyer or champion, prep for a deal review or forecast call, or find deals with thin qualification in a pipeline export.
 license: MIT
 metadata:
   zime:category: cross-stage
@@ -60,15 +60,27 @@ claude "run meddicc on ./calls/acme-call.txt"
    incomplete.
 2. Score each of the seven letters in `references/rubric.md` independently.
    Don't let strong pain inflate a weak Economic buyer, or vice versa.
-3. Run the rubric's reads-well-too check before finalizing.
-4. Write the output in the exact shape under `## Output format`.
+3. Apply the rubric's three rules to every letter. Evidence is what the buyer said, and a rep claim does not count. A letter the call never touched is Missed. Read each letter's "does not count" line before you write Covered or Partial. Use Not applicable only when the call is clearly earlier in the deal than the point where the letter can come up.
+4. Before each status, apply these tests:
+   - Evidence is one buyer line that is about that letter. Never use one
+     line for two letters, and never count a line that only hints at a
+     letter (a launch mentioned while explaining ticket volume is not a
+     decision-process signal).
+   - When no line addresses a letter, the status is Missed. Do not soften
+     it to Partial because the call felt thorough elsewhere.
+   - Partial needs a quotable line that names the letter but stays vague.
+     When you cannot quote that line, it is Missed.
+   - Covered needs the specifics the rubric names (a figure, a named
+     person, a dated step), not a general statement.
+5. Run the rubric's reads-well-too test before finalizing, in both directions.
+6. Write the output in the exact shape under `## Output format`.
 
 For every letter, output:
 
 - **Status** — Covered / Partial / Missed / Not applicable to this call
 - **Evidence** — a direct quote from the transcript (if applicable) or brief
   paraphrase showing where the letter lands.
-- **Note** — one line, only if Partial or Missed, explaining what's missing.
+- **Note** — one line, only if Partial or Missed, explaining what's missing. It can end with the rubric's "strong call" move, as one short question the rep can ask next time.
 
 ### CSV mode (`.csv`)
 
