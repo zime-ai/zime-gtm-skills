@@ -37,6 +37,11 @@ cp "$TRANSCRIPT_FILE" "$SCRATCH/transcript.txt"
   > "$RUN_DIR/log-$SKILL-$CASE-run.log" 2>&1 || true
 
 find "$SCRATCH" -maxdepth 1 -type f ! -name transcript.txt -exec cp {} "$OUT_DIR/" \;
+# Skills that print their audit instead of writing a file would otherwise leave
+# OUT_DIR empty, and the judge would mark every field missing. Keep the printed output.
+if [ -z "$(ls -A "$OUT_DIR")" ]; then
+  cp "$RUN_DIR/log-$SKILL-$CASE-run.log" "$OUT_DIR/audit.md"
+fi
 
 # Judge (judge.py) reads $EVAL_RUN_DIR/output/$SKILL/$CASE/ directly for
 # binary artifacts (.docx/.pptx); stdout here only needs the text content
