@@ -57,7 +57,7 @@ Score against `references/rubric.md`. Per dimension: **Status**
 rather than guess), **Note** if not fully covered.
 
 Close with a one-line overall account read and the single most useful
-follow-up action. Run the reads-well-too test first.
+follow-up action. Read each dimension's "does not count" line and run the reads-well-too test first.
 
 ### CSV mode (`.csv`)
 
