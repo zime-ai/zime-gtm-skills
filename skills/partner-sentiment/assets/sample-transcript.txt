@@ -1,0 +1,26 @@
+[Synthetic transcript, no real company or person. For demonstrating the partner-sentiment skill.]
+
+Call: Larkspur IT Services <> Vendor (Rep: Morgan)
+Type: Partner check-in
+
+Morgan: How do you feel the partnership is going?
+
+Jess (Partner Manager): Good, mostly. Your product is solid.
+
+Morgan: Have you recommended us lately?
+
+Jess: We took you into two accounts this quarter. One signed.
+
+Morgan: Are you also working with other vendors?
+
+Jess: Yes. We carry Westbrook for the same use case. For one customer they were cheaper.
+
+Morgan: Anything frustrating?
+
+Jess: Support response. Last month a ticket took six days. It cost us a customer demo.
+
+Morgan: I am sorry about that. Where do you see this going?
+
+Jess: I would like to grow it. I cannot promise headcount yet. Check in next quarter.
+
+Morgan: Great. I will check in then.

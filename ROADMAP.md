@@ -134,14 +134,14 @@ something for every GTM function, not sales calls alone. A starting list,
 worth a second look before any of it gets built.
 
 **Partner & channel**
-- [ ] channel-partner-engagement
+- [x] channel-partner-engagement
 - [ ] partner-potential
-- [ ] partner-sentiment
+- [x] partner-sentiment
 - [ ] ideal-channel-partner-profile
 - [ ] partner-decision-authority
 - [ ] partner-competition-landscape
-- [ ] partner-pain-points
-- [ ] partner-business-review
+- [x] partner-pain-points
+- [x] partner-business-review
 
 **Pricing & deal desk**
 - [ ] deal-desk-approval-brief
