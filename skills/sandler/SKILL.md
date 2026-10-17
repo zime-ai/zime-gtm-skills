@@ -1,6 +1,6 @@
 ---
 name: sandler
-description: Audits a B2B sales call transcript against the Sandler Selling System submarine (Bonding & Rapport, Up-Front Contract, Pain, Budget, Decision, Fulfillment, Post-Sell), or sweeps a CRM export for deals missing Sandler-relevant fields. Use when checking whether a rep pitched before earning the right to, whether a close was actually agreed to or just assumed, or auditing a pipeline for deals that skipped a submarine compartment.
+description: Audits a B2B sales call transcript against the Sandler Selling System submarine (Bonding and Rapport, Up-Front Contract, Pain, Budget, Decision, Fulfillment, Post-Sell), or sweeps a CRM export for deals missing Sandler-relevant fields. Use when the user asks whether a rep pitched before earning the right to, whether a close was agreed to or only assumed, or which pipeline deals skipped a submarine compartment.
 license: MIT
 metadata:
   zime:category: cross-stage
@@ -65,7 +65,7 @@ claude "run sandler on ./calls/acme-call.txt"
 3. Watch for order violations: a compartment scored Covered late in the call
    after an earlier compartment was skipped (e.g. pitching before Pain
    surfaced). Call these out as submarine violations explicitly.
-4. Run the rubric's reads-well-too check before finalizing.
+4. Read each compartment's "does not count" line first. A claim that only the rep makes does not count until the buyer agrees. Then run the rubric's reads-well-too test before finalizing, in both directions.
 5. Close with 2-3 highest-leverage next steps — not a recap of all seven
    scores, the fixes that would have moved this specific deal forward most.
 
