@@ -53,8 +53,7 @@ Score against `references/rubric.md`. Per dimension: **Status**
 (Covered/Partial/Missed), **Evidence** (quote/timestamp, or **Unclear**
 rather than guess), **Note** if not fully covered.
 
-Close with an on-track / at-risk / stalled read, and what's driving it. Run
-read each dimension's "does not count" line and the reads-well-too test first.
+Close with an on-track / at-risk / stalled read, and what's driving it. Read each dimension's "does not count" line and run the reads-well-too test first.
 
 ### CSV mode (`.csv`)
 
