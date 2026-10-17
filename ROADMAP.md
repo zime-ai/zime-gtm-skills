@@ -103,13 +103,13 @@ there.
 - [x] deal-risk-digest
 - [x] win-loss-brief
 - [x] stuck-deal-digest
-- [ ] rep-ramp-status-digest
+- [x] rep-ramp-status-digest
 
 **Cross-deal, global** (read across a whole book of business, not one call)
 - [ ] prep-notes-global-agent
 - [ ] deal-ama-global-agent
-- [ ] objection-pattern-digest
-- [ ] competitive-loss-digest
+- [x] objection-pattern-digest
+- [x] competitive-loss-digest
 
 **Handoffs**
 - [x] handover-to-customer-success
