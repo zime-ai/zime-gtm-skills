@@ -1,0 +1,30 @@
+[Synthetic transcript, no real company or person. For demonstrating the loss-review skill.]
+
+Call: Tidewater Dental Supply <> Vendor (Rep: Morgan)
+Type: Debrief after a lost deal
+
+Morgan: Thanks for making time, Hannah. I know you went a different way, and I would like to understand why. Where did you land?
+
+Hannah (Operations Director): We signed with Brightpath last week. It was close.
+
+Morgan: Appreciate you saying so. What tipped it for you?
+
+Hannah: Honestly, price was part of it. But mostly their ordering module already talks to our warehouse system. Yours needed a custom connector, and our IT lead did not want to own that.
+
+Morgan: That makes sense. If the connector had been included, would the price have mattered?
+
+Hannah: Probably not. We would have paid more for no extra work.
+
+Morgan: Who made the final call?
+
+Hannah: Our COO, Luis. I recommended Brightpath, and Priya from IT backed me. Luis just signed it.
+
+Morgan: Is there anything we could have done differently?
+
+Hannah: Told us about the connector cost in the first call. We found out in week three.
+
+Morgan: Fair point. Would you ever look at us again?
+
+Hannah: If you ship a native connector for our warehouse system, yes. Check back in the spring, after our rollout settles.
+
+Morgan: I will note spring. Thank you for being so direct.

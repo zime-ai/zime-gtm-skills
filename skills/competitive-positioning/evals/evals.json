@@ -1,0 +1,34 @@
+{
+  "skill_name": "competitive-positioning",
+  "evals": [
+    {
+      "id": 1,
+      "name": "competitive-positioning-eval-1",
+      "prompt": "run competitive-positioning on skills/competitive-positioning/assets/sample-transcript.txt",
+      "expected_output": "The rival (Northgate) and the buyer's criteria (no-show reminders, front-desk training time) are Covered with quotes. The difference is Partial because the rep first made a generic claim and only later tied training time to a criterion. The gap (no mobile app) is Partial because it is stated with no date. The test is Covered or Partial (a reference call next week).",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every one of the 6 dimensions gets a Status",
+        "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
+        "A claim that only the rep makes is not counted as evidence",
+        "A dimension the call never touched is scored Missed",
+        "Ends with exactly one closing line and no recap of all scores",
+        "The generic claim that the product is better overall is not counted as a difference tied to a criterion",
+        "The mobile app gap is Partial because the rep gave no date"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "competitive-positioning-eval-2-reads-well-too",
+      "prompt": "run competitive-positioning on a transcript of a call that clearly covered every dimension well",
+      "expected_output": "The audit does not come back mostly Missed. The reads-well-too test from references/rubric.md is applied before the audit is finalized.",
+      "files": [],
+      "expectations": [
+        "A genuinely strong call is not scored as mostly Missed",
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized"
+      ]
+    }
+  ]
+}
