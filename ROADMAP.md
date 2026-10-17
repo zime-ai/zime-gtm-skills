@@ -87,7 +87,7 @@ standalone; CRM connector access is optional and used only when already
 there.
 
 **Seller-facing, single deal**
-- [ ] call-prep
+- [x] call-prep
 - [x] deal-highlights
 - [x] mutual-action-plan
 - [x] executive-briefing
@@ -112,9 +112,9 @@ there.
 - [ ] competitive-loss-digest
 
 **Handoffs**
-- [ ] handover-to-customer-success
-- [ ] renewal-prep
-- [ ] coaching-plan
+- [x] handover-to-customer-success
+- [x] renewal-prep
+- [x] coaching-plan
 
 ## Phase 3 — Vertical packs
 
