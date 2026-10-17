@@ -1,6 +1,6 @@
 ---
 name: mutual-action-plan
-description: Writes a mutual action plan out of what was actually said on a call — milestones from today to signature, each with an owner on both sides and a date — or fills date/stage gaps from a CRM export row. Use when a rep needs a real MAP to send a prospect after a call, or a manager wants to check whether a deal's stated next steps actually hang together as a plan.
+description: Writes a mutual action plan out of what was actually said on a call, with milestones from today to signature, each with an owner on both sides and a date, or fills date and stage gaps from a CRM export row. Use when a rep asks for a mutual action plan, a close plan, or a signature path to send a prospect after a call, or when a manager wants to know whether a deal's stated next steps hang together as a plan.
 license: MIT
 metadata:
   zime:category: deal-intelligence
