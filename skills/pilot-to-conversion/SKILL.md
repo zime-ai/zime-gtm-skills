@@ -1,6 +1,6 @@
 ---
 name: pilot-to-conversion
-description: Audits a pilot/POC check-in call transcript against a rubric covering plan alignment, technical readiness, user engagement, and results against criteria, or sweeps a CRM export for pilots at risk of stalling before conversion. Use when reviewing a pilot check-in call, or checking pipeline for POCs that have run long without a documented result.
+description: Audits a pilot or POC check-in call transcript against an eight-dimension rubric (plan, technical readiness, admin and security, setup, user engagement, feature feedback, results against criteria, conversion path) and credits only what the buyer said, or sweeps a CRM export for pilots at risk of stalling before conversion. Use when the user asks whether a pilot is on track to convert, wants a pilot check-in reviewed, or wants stalled pilots found in the pipeline.
 license: MIT
 metadata:
   zime:category: new-business
@@ -53,8 +53,7 @@ Score against `references/rubric.md`. Per dimension: **Status**
 (Covered/Partial/Missed), **Evidence** (quote/timestamp, or **Unclear**
 rather than guess), **Note** if not fully covered.
 
-Close with an on-track / at-risk / stalled read, and what's driving it. Run
-the reads-well-too check first.
+Close with an on-track / at-risk / stalled read, and what's driving it. Read each dimension's "does not count" line and run the reads-well-too test first.
 
 ### CSV mode (`.csv`)
 
