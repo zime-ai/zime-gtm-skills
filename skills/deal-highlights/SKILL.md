@@ -1,6 +1,6 @@
 ---
 name: deal-highlights
-description: Writes a short highlights digest of one sales call — the moments that actually matter (a commitment, an objection, a buying signal, a competitive mention, a risk, a number that matters), each citing the quote it came from. Use when a rep needs something to skim or forward to a manager right after a call, not a full rubric grade of it.
+description: Writes a short highlights digest of one sales call — the moments that actually matter (a commitment, an objection, a buying signal, a competitive mention, a risk, a number that matters), each citing the quote it came from. Use when a rep needs something to skim or forward to a manager right after a call, not a full rubric grade of it. Also use when the user asks for call highlights, a quick call recap, or the key moments from a call.
 license: MIT
 metadata:
   zime:category: deal-intelligence
