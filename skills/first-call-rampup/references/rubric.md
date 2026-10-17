@@ -3,6 +3,12 @@
 Six foundational techniques for a rep still early in ramp. This is a
 coaching lens — the point is building the skill, not judging the deal.
 
+Three rules apply to every technique.
+
+- **Quote the right speaker.** For what the rep did, quote the rep. For whether it worked, the buyer's reply must show it. A buyer who says "okay" has not engaged.
+- **Absence is a result.** A technique that the call never showed is Missed. Do not credit it because the rep sounded confident.
+- **Read the "does not count" line.** Each technique lists the usual false positives.
+
 ## 1. Strong opening
 
 **What it is.** Whether the rep frames the call up front — an agenda, a
@@ -23,6 +29,10 @@ we dive in, I wanted to walk through what we usually cover and then hear
 what's top of mind for you — sound good?" followed by the prospect
 confirming is Covered.
 
+**Does not count:** "so tell me about your company" with no framing. A one-word "okay" from the buyer. An agenda that the rep reads out and nobody accepts.
+
+**A strong coaching point:** state the agenda, ask whether the time works, and wait for a real answer before the first question.
+
 ## 2. Open-ended questioning
 
 **What it is.** Whether the rep's questions genuinely invite the prospect
@@ -38,6 +48,10 @@ something faster, right?") that hand the prospect a yes/no and move on.
 "So you're using spreadsheets for this right now?" is closed and, alone,
 Missed; "walk me through what happens today when that request comes in" is
 Covered — it hands the floor to the prospect.
+
+**Does not count:** a yes-or-no question with "tell me about" added in front. A leading question such as "you would want it faster, right?".
+
+**A strong coaching point:** replace each closed question with "walk me through what happens when...".
 
 ## 3. Pain & priority uncovered
 
@@ -55,6 +69,10 @@ not pushing for anything more specific.
 following it with "what does that look like today — where's the time
 actually going?" and getting a specific answer is Covered.
 
+**Does not count:** a problem that the rep names and the buyer never raised. "We are always looking to get more efficient" left unprobed. A complaint about a vendor the buyer uses today.
+
+**A strong coaching point:** ask for the last real example, then ask where the time actually goes.
+
 ## 4. Trigger surfaced
 
 **What it is.** Whether the rep asked, in some form, why the prospect is
@@ -70,6 +88,10 @@ never comes up at all.
 "So why look at this now instead of last year?" met with "our lease
 renewal forced us to rethink the whole floor plan" is Covered; the same
 question never being asked is Missed.
+
+**Does not count:** an event the buyer mentions only while explaining something else. A trigger that the rep supplies and the buyer only accepts.
+
+**A strong coaching point:** ask what changed, and what happens if nothing changes by a stated date.
 
 ## 5. Pitch clarity
 
@@ -89,6 +111,10 @@ is Missed-to-Partial; "you mentioned the scheduling conflicts happen
 mostly on the crew side — that's exactly what our conflict-detection view
 is built for" is Covered.
 
+**Does not count:** a feature list. A capability that the rep names with no link to anything the buyer said.
+
+**A strong coaching point:** open the pitch with the buyer's own words, then show only the part that answers them.
+
 ## 6. Rapport
 
 **What it is.** Whether the call reads as a genuine two-way conversation —
@@ -106,7 +132,11 @@ A prospect who answers "yep" and "sure" throughout is Missed; one who adds
 "actually, that reminds me — we had a similar issue last quarter with a
 different vendor" unprompted is Covered.
 
-## Reads-well-too check
+**Does not count:** politeness. Small talk that only the rep makes.
+
+**A strong coaching point:** follow up on something the buyer shares, at the buyer's pace.
+
+## Reads-well-too test
 
 Before finalizing, consider whether this read would feel fair and
 motivating to the rep, not just accurate. A new rep who did several things
