@@ -31,7 +31,7 @@
       "expectations": [
         "Letters unreachable at this call's stage, especially Paper process, are marked Not applicable, not Missed",
         "A genuinely strong first call is not scored as mostly Missed",
-        "The reads-well-too check from references/rubric.md is applied before the audit is finalized",
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized",
         "The eight letters are reported as eight separate reads, not averaged into a single score"
       ]
     },
