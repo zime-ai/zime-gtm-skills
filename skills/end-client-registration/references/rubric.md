@@ -99,7 +99,15 @@ looks like the registration open-ended with no forcing function.
 **Weak:** "No expiry needed." **Strong:** "90-day protection window from
 registration date, auto-reviewed if no stage movement."
 
-## Reads-well-too check
+## Rules and false positives
+
+- **The record must say it.** Each field holds what the partner stated or what a system recorded. A value that the reviewer guesses does not count. A registration status is recorded exactly as the partner gave it, such as registered, in progress, not started, not discussed, or already registered. Never infer a status from the deal stage.
+- **Absence is a result.** A field that nobody filled in is Missed. "Not discussed" is its own result, and it is not the same as a low score.
+- **False positives to remove:** a partner that is large or well known, which is not proof of fit. A demo or a POC alone, which does not qualify a deal. Pipeline talk with no named end customer. A conflict check that someone says "probably" happened.
+
+A strong registration names a distinct end client, the credited role, the check result, a contact who agreed to be engaged, the commercial terms, and an expiry date.
+
+## Reads-well-too test
 
 Sanity-check against a registration you know was clean and uncontested. If
 it still comes back mostly Missed, loosen the read before reporting.

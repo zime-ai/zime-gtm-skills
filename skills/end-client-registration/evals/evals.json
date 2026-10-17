@@ -42,11 +42,11 @@
       "id": 3,
       "name": "end-client-registration-eval-3-reads-well-too",
       "prompt": "run end-client-registration on a registration record that clearly has every dimension covered cleanly",
-      "expected_output": "The audit scores it clean across the board rather than nitpicking a genuinely complete registration into flags or Partials. The reads-well-too check is applied before finalizing. No canonical-framework standard is implied to exist.",
+      "expected_output": "The audit scores it clean across the board rather than nitpicking a genuinely complete registration into flags or Partials. The reads-well-too test is applied before finalizing. No canonical-framework standard is implied to exist.",
       "files": [],
       "expectations": [
         "A genuinely complete registration is not flagged or scored mostly Partial/Missed",
-        "The reads-well-too check from references/rubric.md is applied before the audit is finalized",
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized",
         "Does not imply a named canonical framework for deal registration exists"
       ]
     }
