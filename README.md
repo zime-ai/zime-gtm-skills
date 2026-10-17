@@ -322,7 +322,7 @@ beyond whatever your agent's own model call already sends.
 
 ## Available skills
 
-**Flagship skills** (hand-written, with the buyer-said evidence rules above): `deep-discovery`, `meddicc`, `bant`, `technical-discovery`, `meeting-to-qualify`, `improve-demo`, `follow-up-email-drafter`, `deal-risk-digest`, `next-step-commitment`, `win-loss-brief`. The other skills in the list are **community preview**: they work and pass validation, and their rubrics are still being rewritten to the same standard.
+Every skill here follows the evidence rules above. `deep-discovery`, `meddicc`, `bant`, `technical-discovery` and `meeting-to-qualify` also have planted-fact test banks that you can run as a manual regression check (see `SKILL-DESIGN.md`). `deep-discovery` is the best rubric to read first.
 
 <details open>
 <summary>64 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
