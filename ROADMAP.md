@@ -97,12 +97,12 @@ there.
 - [x] loss-review
 
 **Manager & leader rituals**
-- [ ] wbr-report-generator
-- [ ] forecast-review
-- [ ] pipeline-review
+- [x] wbr-report-generator
+- [x] forecast-review
+- [x] pipeline-review
 - [x] deal-risk-digest
 - [x] win-loss-brief
-- [ ] stuck-deal-digest
+- [x] stuck-deal-digest
 - [ ] rep-ramp-status-digest
 
 **Cross-deal, global** (read across a whole book of business, not one call)

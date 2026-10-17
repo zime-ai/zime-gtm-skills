@@ -1,13 +1,13 @@
 # zime-gtm-skills
 
-[![Skills](https://img.shields.io/badge/skills-49-blue)](skills/)
+[![Skills](https://img.shields.io/badge/skills-53-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 49 [Agent Skills](https://agentskills.io) that audit sales call
+here. 53 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
@@ -260,8 +260,8 @@ See [Installation](#installation) below for the submodule option and the
 
 ## How these fit together
 
-49 skills: 24 stage motions laid out across the deal lifecycle, 12
-cross-stage initiative skills, and 13 deal-intelligence skills that write
+53 skills: 24 stage motions laid out across the deal lifecycle, 12
+cross-stage initiative skills, and 17 deal-intelligence skills that write
 something forward — a plan, a digest, a drafted email — instead of grading
 a call.
 
@@ -325,7 +325,7 @@ beyond whatever your agent's own model call already sends.
 **Flagship skills** (hand-written, with the buyer-said evidence rules above): `deep-discovery`, `meddicc`, `bant`, `technical-discovery`, `meeting-to-qualify`, `improve-demo`, `follow-up-email-drafter`, `deal-risk-digest`, `next-step-commitment`, `win-loss-brief`. The other skills in the list are **community preview**: they work and pass validation, and their rubrics are still being rewritten to the same standard.
 
 <details open>
-<summary>49 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
+<summary>53 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
 
 <!-- SKILLS:START -->
 **New business**
@@ -396,6 +396,10 @@ beyond whatever your agent's own model call already sends.
 | [handover-to-customer-success](skills/handover-to-customer-success/) | Sales to Customer Success handover — why they bought, success measure, people, what was promised, gaps, key dates | transcript |
 | [renewal-prep](skills/renewal-prep/) | Renewal prep from recent customer calls — value in the customer's words, who uses it, risks, open issues, real expansion signals | transcript |
 | [coaching-plan](skills/coaching-plan/) | A coaching plan for one rep from two or more calls — the repeated pattern, a question to practice, a drill | transcript |
+| [stuck-deal-digest](skills/stuck-deal-digest/) | Deals that stopped moving — silent, aged in stage, overdue next step, with the cells behind each call | CRM export |
+| [pipeline-review](skills/pipeline-review/) | Weekly pipeline review brief — snapshot by stage, change since the last export, deals that need attention, data gaps | CRM export |
+| [forecast-review](skills/forecast-review/) | Tests the commit list — commit deals that do not hold up, with cited cells and value at risk | CRM export |
+| [wbr-report-generator](skills/wbr-report-generator/) | Numbers section of a weekly business review — headline figures, movement, risks, what the export cannot tell | CRM export |
 <!-- SKILLS:END -->
 
 </details>
