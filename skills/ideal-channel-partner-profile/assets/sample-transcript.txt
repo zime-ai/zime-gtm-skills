@@ -1,0 +1,28 @@
+[Synthetic transcript, no real company or person. For demonstrating the ideal-channel-partner-profile skill.]
+
+Call: Stonebridge Advisors <> Vendor (Rep: Riley)
+Type: First partner fit call
+
+Riley: Tell me about your firm.
+
+Dev (Founder): We are an advisory firm. Twelve people. We help mid-size manufacturers with operations.
+
+Riley: Do you already work with software vendors?
+
+Dev: We implement two ERP tools. We have never sold a scheduling product.
+
+Riley: How would you reach customers?
+
+Dev: Our current clients. About forty manufacturers. Maybe ten have scheduling pain.
+
+Riley: Who would work on this?
+
+Dev: Me, and I would hire one person if the first deal closes.
+
+Riley: What do your team use for technology?
+
+Dev: Mostly spreadsheets and the ERP tools. We are comfortable learning new systems.
+
+Riley: Anything else?
+
+Dev: We are well known in our region.

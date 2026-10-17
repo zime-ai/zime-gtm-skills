@@ -1,0 +1,9 @@
+deal_name,owner,stage,amount,forecast_category,probability,days_to_close,days_in_stage,days_since_last_activity,next_step,next_step_days_overdue,contacts,created_days_ago
+Alder Freight,Sam,Negotiation,84000,Commit,80,12,9,2,Redlines due Thursday,0,Rui Chen; Dana Wu; Lee Park,95
+Birch Analytics,Sam,Proposal,41000,Commit,45,-14,60,38,Follow up,21,Tom Reyes,120
+Cobalt Dental,Priya,Demo,22000,Best Case,40,55,18,6,Send security questionnaire Friday,0,Ana Ruiz; Ken Ito,40
+Dunmore Retail,Priya,Qualify,67000,Commit,30,20,75,52,,0,Jo Marsh,150
+Elm Logistics,Jordan,Negotiation,58000,Commit,85,6,5,1,Signature call Monday,0,Mia Fox; Ola Daly,70
+Fir Health,Jordan,Proposal,30000,Pipeline,35,70,34,29,Check in,12,Ed Stone,88
+Gale Foods,Sam,Discovery,19000,Pipeline,20,90,8,3,Book technical call,0,Lu Vega; Ray Kim,14
+Holt Textiles,Priya,Proposal,0,Best Case,50,30,22,9,Price proposal Tuesday,0,Cy Nash; Bo Lund,60

@@ -1,0 +1,34 @@
+{
+  "skill_name": "coaching-plan",
+  "evals": [
+    {
+      "id": 1,
+      "name": "coaching-plan-eval-1",
+      "prompt": "run coaching-plan on skills/coaching-plan/assets/sample-transcript.txt",
+      "expected_output": "The pattern is a gap that appears in both calls, with a quote from each. Valid examples are ending with a promise to send a proposal and no dated next step, or pitching product before the buyer names a specific problem. A strength is the clear agenda or the impact question in call 2. A gap seen only in call 2 or call 1 is a one-call observation. At most two patterns.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "Does not call a one-call gap a pattern",
+        "Names a pattern that appears in both calls with a quote from each call"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "coaching-plan-eval-2-thin-input",
+      "prompt": "run coaching-plan on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}

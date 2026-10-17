@@ -1,0 +1,55 @@
+[Synthetic transcripts, no real company or person. For demonstrating the rep-ramp-status-digest skill. Three calls by the same new rep, Riley, in weeks 1, 3 and 5.]
+
+=== WEEK 1: Ash Hardware <> Vendor (Rep: Riley) ===
+
+Riley: Hi, we make scheduling software. Do you have scheduling problems?
+
+Buyer: Not really.
+
+Riley: Our software has a calendar, reminders, and reports.
+
+Buyer: Okay.
+
+Riley: I will send you info.
+
+=== WEEK 3: Birch Supply <> Vendor (Rep: Riley) ===
+
+Riley: Today I would like to hear how you schedule crews, then show a bit, then agree on next steps. Does that work?
+
+Buyer: Sure.
+
+Riley: How do you schedule crews today?
+
+Buyer: A whiteboard. It gets out of date.
+
+Riley: What happens when it is out of date?
+
+Buyer: Two crews showed up at the same site last week.
+
+Riley: Our calendar shows each crew in real time.
+
+Buyer: That would help.
+
+Riley: I will send a proposal.
+
+=== WEEK 5: Cedar Roofing <> Vendor (Rep: Riley) ===
+
+Riley: Today I would like to hear how you schedule crews, then show a bit, then book next steps. Does that work?
+
+Buyer: Yes.
+
+Riley: Walk me through the last time a schedule went wrong.
+
+Buyer: Last month we double-booked a crew and lost half a day, about 1,200 dollars.
+
+Riley: Why now?
+
+Buyer: Our busy season starts in March. We cannot have that happen again.
+
+Riley: You said double-booking costs you. Our calendar flags a double-book before it happens. Does that match what you need?
+
+Buyer: Yes.
+
+Riley: Can we book Thursday at ten, with your office manager, to see it on your own crews?
+
+Buyer: Thursday works. I will bring her.

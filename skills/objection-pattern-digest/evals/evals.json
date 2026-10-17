@@ -1,0 +1,34 @@
+{
+  "skill_name": "objection-pattern-digest",
+  "evals": [
+    {
+      "id": 1,
+      "name": "objection-pattern-digest-eval-1",
+      "prompt": "run objection-pattern-digest on skills/objection-pattern-digest/assets/sample-transcript.txt",
+      "expected_output": "Price is a pattern in two calls (call 1 and call 3), each with a quote. It was accepted only in call 3, after a smaller package was offered. The past-failure objection (call 2) and the integration objection (call 4) are one-call objections. The integration question is still open with an owner but no date.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "Price is a pattern in two calls with a quote from each",
+        "Past failure and integration are listed as one-call objections, not patterns"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "objection-pattern-digest-eval-2-thin-input",
+      "prompt": "run objection-pattern-digest on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}

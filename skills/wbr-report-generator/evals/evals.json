@@ -1,0 +1,34 @@
+{
+  "skill_name": "wbr-report-generator",
+  "evals": [
+    {
+      "id": 1,
+      "name": "wbr-report-generator-eval-1",
+      "prompt": "run wbr-report-generator on skills/wbr-report-generator/assets/sample-pipeline.csv",
+      "expected_output": "Open pipeline is 321000 across 8 deals (average 40125) and commit is 250000 across 4 deals, both computed from the rows. With no previous export, movement says so. The risks cite Birch Analytics (past close date) and Dunmore Retail (early stage in commit). The report states that it cannot say why deals stalled.",
+      "files": [
+        "assets/sample-pipeline.csv"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "Headline figures match the sums of the sample rows",
+        "States what the export cannot tell and does not invent a cause"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "wbr-report-generator-eval-2-thin-input",
+      "prompt": "run wbr-report-generator on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}

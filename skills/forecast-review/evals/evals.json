@@ -1,0 +1,34 @@
+{
+  "skill_name": "forecast-review",
+  "evals": [
+    {
+      "id": 1,
+      "name": "forecast-review-eval-1",
+      "prompt": "run forecast-review on skills/forecast-review/assets/sample-pipeline.csv",
+      "expected_output": "Commit deals are Alder Freight, Birch Analytics, Dunmore Retail and Elm Logistics (total 250000). Birch fails on a past close date, probability under 50 and a vague next step. Dunmore fails on an early stage, probability 30, no next step and one contact. Alder and Elm hold. Value at risk is 108000 of 250000.",
+      "files": [
+        "assets/sample-pipeline.csv"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "Birch Analytics and Dunmore Retail are listed as failing with cited cells",
+        "Alder Freight and Elm Logistics are counted as holding and not listed"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "forecast-review-eval-2-thin-input",
+      "prompt": "run forecast-review on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}
