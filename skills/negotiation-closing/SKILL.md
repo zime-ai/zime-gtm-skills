@@ -1,6 +1,6 @@
 ---
 name: negotiation-closing
-description: Audits a late-stage negotiation call transcript against a rubric covering pricing sentiment, procurement momentum, contracting awareness, and closure timeline, or sweeps a CRM export for late-stage deals with no documented closing path. Use when reviewing a negotiation call, or checking pipeline for deals stuck in late stage with no clear path to close.
+description: Audits a late-stage negotiation call transcript against a six-dimension rubric (pricing reaction, procurement momentum, contracting awareness, closure timeline, budget confirmed, path to signature) and credits only what the buyer said and did, or sweeps a CRM export for late-stage deals with no documented closing path. Use when the user asks whether a deal is really moving toward signature, wants a negotiation call reviewed, or wants late-stage deals with no closing path found in the pipeline.
 license: MIT
 metadata:
   zime:category: new-business
@@ -54,7 +54,7 @@ Score against `references/rubric.md`. Per dimension: **Status**
 rather than guess), **Note** if not fully covered.
 
 Close with a realistic read on close timing versus what's being forecast.
-Run the reads-well-too check first.
+Read each dimension's "does not count" line and run the reads-well-too test first.
 
 ### CSV mode (`.csv`)
 
