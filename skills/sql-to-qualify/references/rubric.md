@@ -5,6 +5,12 @@ that's just carrying a form-fill label. This is the gate before
 `meeting-to-qualify`'s deeper authority/competition/next-step pass — it asks
 whether there's anything here worth that deeper pass at all.
 
+Three rules apply to every dimension.
+
+- **The buyer must say it.** Evidence is something the buyer said. A claim from the rep, or the inbound form's checkbox reason, does not count. A job title is not authority.
+- **Absence is a result.** A dimension that the call never touched is Missed. Do not credit it because the lead came in warm.
+- **Read the "does not count" line.** Each dimension lists the usual false positives.
+
 ## 1. Contact reachability and role relevance
 
 **What it is.** Whether the person on the call has a real stake in the
@@ -23,6 +29,10 @@ anything" is Partial trending Covered — no authority, but a real, active
 path to the person who has it. A contact who can't name anyone else at all
 is Missed regardless of how the rest of the call went.
 
+**Does not count:** a job title alone. The buyer must say who has the final word. Enthusiasm does not make a person a decision maker.
+
+**A strong call** asks who else decides and whether that person will join the next call.
+
 ## 2. Pain restated in the prospect's own words
 
 **What it is.** Whether the prospect describes the problem in their own
@@ -40,6 +50,10 @@ return policy info and it turned into a whole thing on Twitter" is Covered;
 "we're just looking into call monitoring options" with nothing more
 specific is Partial at best.
 
+**Does not count:** the form's checkbox reason. A problem that the rep names and the buyer never raised. A complaint about a vendor the buyer uses today.
+
+**A strong call** asks for the last real example of why they reached out.
+
 ## 3. Budget/urgency plausibility
 
 **What it is.** Not a confirmed number or a locked timeline — a rough fit
@@ -55,6 +69,10 @@ on both is a Missed, not a Partial.
 "We spent about $40k last year on a different QA tool" alongside "she
 wants something in place before our Q4 peak season" is Covered.
 
+**Does not count:** worry about price on its own. "Maybe next quarter". A date for the next meeting.
+
+**A strong call** asks about a comparable prior spend and the event that sets the date.
+
 ## 4. Competitive awareness surfaced
 
 **What it is.** Whether the call surfaced whether the prospect is already
@@ -68,6 +86,10 @@ competitive context this early isn't automatically bad — it can mean the
 prospect isn't shopping seriously yet — but the call should have at least
 asked.
 
+**Does not count:** "other options" with nothing behind it. An evaluation that ended long ago. The rep naming a competitor that the buyer never mentioned.
+
+**A strong call** asks directly which options the buyer looks at, including doing nothing.
+
 ## 5. Concrete next meeting booked
 
 **What it is.** Whether the call ended with a specific next meeting, a
@@ -79,7 +101,11 @@ principle without a locked date or full attendee list. **Missed looks
 like:** no follow-up is secured at all — often the clearest single tell
 that this SQL isn't converting to a worked opportunity yet.
 
-## Reads-well-too check
+**Does not count:** "I will follow up". A promise by the rep with no time given.
+
+**A strong call** books a specific day, a time, and the attendees who matter before the call ends.
+
+## Reads-well-too test
 
 Before finalizing, sanity-check against a call you already know was a
 strong, real SQL. If it still comes back mostly Missed, the read is tuned
