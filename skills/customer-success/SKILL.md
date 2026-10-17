@@ -1,6 +1,6 @@
 ---
 name: customer-success
-description: Audits a periodic QBR or account health-review call transcript against a rubric covering value delivered, usage breadth, open issues, and forward alignment, or sweeps a CRM export for accounts overdue for a health review. Use when reviewing a QBR or ongoing health check-in, distinct from a renewal-risk-triggered or expansion-triggered conversation.
+description: Audits a periodic QBR or account health-review call transcript against an eight-dimension rubric (value delivered, usage breadth, open issues, enablement gaps, stakeholder breadth, strategic alignment, forward fit, next check-in) and credits only what the customer said, or sweeps a CRM export for accounts overdue for a health review. Use when the user asks to review a QBR or account health check-in, or asks whether a customer is really healthy, and not for a renewal-risk or expansion conversation.
 license: MIT
 metadata:
   zime:category: post-sale
@@ -57,7 +57,7 @@ Score against `references/rubric.md`. Per dimension: **Status**
 rather than guess), **Note** if not fully covered.
 
 Close with a one-line overall account read and the single most useful
-follow-up action. Run the reads-well-too check first.
+follow-up action. Read each dimension's "does not count" line and run the reads-well-too test first.
 
 ### CSV mode (`.csv`)
 
