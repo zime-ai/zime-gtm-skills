@@ -1,6 +1,6 @@
 ---
 name: sql-to-qualify
-description: Audits the first call after a sales-qualified lead (SQL) hand-off to check whether there's a real opportunity worth a rep's time — right contact, pain in the prospect's own words, rough budget/urgency fit, competitive awareness, and a concrete next meeting — or sweeps a CRM export for SQLs sitting untouched past this gate. Use right after an SQL is assigned and worked for the first time, before investing in a full qualification call.
+description: Audits the first call after a sales-qualified lead (SQL) hand-off to see whether there is a real opportunity worth a rep's time (right contact, pain in the buyer's own words, rough budget and urgency fit, competitive awareness, and a concrete next meeting) and credits only what the buyer said, or sweeps a CRM export for SQLs with no worked next step. Use when the user asks whether an SQL is real, wants the first call after a hand-off reviewed, or wants hollow SQLs found in the pipeline.
 license: MIT
 metadata:
   zime:category: new-business
@@ -55,7 +55,7 @@ claude "run sql-to-qualify on ./calls/acme-sql.txt"
    every dimension, output Status (Covered/Partial/Missed), Evidence (a
    direct quote or timestamp, or **Unclear** rather than a guess), and a
    Note if Partial or Missed.
-3. Run the rubric's reads-well-too check before finalizing.
+3. Read each dimension's "does not count" line, then run the rubric's reads-well-too test before finalizing, in both directions.
 4. Write the output in the exact shape under `## Output format`.
 
 ### CSV mode (`.csv`)
