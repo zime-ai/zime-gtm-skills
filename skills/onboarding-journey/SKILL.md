@@ -1,6 +1,6 @@
 ---
 name: onboarding-journey
-description: Audits a new-customer onboarding call transcript against a rubric covering onboarding experience, sentiment, and early expansion signal, or sweeps a CRM export for onboarding accounts with no documented health signal. Use when reviewing an onboarding check-in call, or checking a new-customer list for onboardings going quiet.
+description: Audits a new-customer onboarding call transcript against a five-dimension rubric (onboarding experience, sentiment, early engagement, milestone clarity, early expansion signal) and credits only what the customer said or did, or sweeps a CRM export for onboarding accounts with no documented health signal. Use when the user asks whether onboarding is on track, wants an onboarding check-in reviewed, or wants new accounts with no health signal found.
 license: MIT
 metadata:
   zime:category: post-sale
@@ -53,7 +53,7 @@ Score against `references/rubric.md`. Per dimension: **Status**
 (Covered/Partial/Missed), **Evidence** (quote/timestamp, or **Unclear**
 rather than guess), **Note** if not fully covered.
 
-Close with an on-track / needs-attention read. Run the reads-well-too check
+Close with an on-track / needs-attention read. Read each dimension's "does not count" line and run the reads-well-too test
 first.
 
 ### CSV mode (`.csv`)
