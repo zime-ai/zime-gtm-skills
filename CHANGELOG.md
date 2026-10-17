@@ -3,6 +3,36 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [3.3.0] — buyer-said evidence rules, four new skills
+
+Skill count goes from 41 to 45: 24 stage skills, 12 initiative skills, and
+9 deal-intelligence skills.
+
+Every one of the 41 existing skills was reviewed and improved by hand.
+The audit skills now share three rules. Evidence is what the buyer said
+(or, for rep behavior, what the rep said), and a claim that only the rep
+makes does not count. A dimension that the call never touched scores
+Missed, with no credit for a friendly call. Each dimension lists what does
+not count, and gives one strong-call question the rep can ask next time.
+The pipeline checks, the digests and the drafting skills gained matching
+rules for their own shapes: a question to ask behind each flag, and a
+who-said-it rule for drafted plans and emails. Skill descriptions now name
+the ways people ask for the skill. The `deal-risk-digest` sample now uses a
+fixed days-in-stage column so its eval holds at any date. The README now
+says what sets the skills apart, and labels the skills that have not yet
+had a full rewrite.
+
+New skills: `loss-review` (does a loss debrief learn the real reason),
+`security-legal-review` (are security and legal steps mapped, owned and
+dated), `competitive-positioning` (did the rep set the product apart from
+a named rival in the buyer's terms), and `multi-threading` (does the deal
+rest on one contact).
+
+Also added: `evals/synth/bank.py` and planted-fact test banks for five
+skills, kept as an optional manual regression check. An automatic
+improvement loop built on them was tried and retired within the same
+release window. See `MAINTAINING.md`.
+
 ## [3.2.0] — prompt-shape retrofit + full illustrative eval coverage
 
 No skill count change (still 41: 23 stage + 10 initiative + 8
