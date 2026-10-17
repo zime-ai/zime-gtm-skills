@@ -54,6 +54,12 @@ ledger. This overlaps with, but is distinct from, `next-step-commitment`'s
 commitment-tracking, which is about future dates/deliverables rather than
 champion behavior specifically.
 
+## Champion versus approver
+
+A person whom others wait on for sign-off is the approver, not the champion. Seniority and a friendly tone do not make a champion. Only the actions above do. A person who has the final word and also does the actions can be both, and the ledger notes it.
+
+A claim that only the rep makes ("she is our champion") is not a row. A row needs the contact's own words or a described action that the contact states or someone else on the call confirms.
+
 ## Trend read
 
 Compare the champion candidate's Action rows call-over-call, oldest to
@@ -86,7 +92,7 @@ a legitimate risk signal (nobody will sell the deal when the rep isn't in
 the room), and softening it into generic positive language defeats the
 purpose of this skill.
 
-## Reads-well-too check
+## Reads-well-too test
 
 Don't force a champion onto the ledger to make the deal look healthier
 than the evidence supports, and don't withhold a real champion call just

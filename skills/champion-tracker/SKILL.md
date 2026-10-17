@@ -1,6 +1,6 @@
 ---
 name: champion-tracker
-description: Tracks champion strength across a deal's call(s) — builds an action ledger, one row per named contact per cited quote, tagging each as either an act of internal selling (looping in a stakeholder, pushing back for the rep in a room the rep wasn't in) or mere positive sentiment (encouraging words, no action), then reads the trend across calls. Use when a rep or manager wants to know if a deal actually has a champion or just an enthusiastic contact, especially before a forecast call or a stalled deal review.
+description: Tracks champion strength across a deal's call(s) — builds an action ledger, one row per named contact per cited quote, tagging each as either an act of internal selling (looping in a stakeholder, pushing back for the rep in a room the rep wasn't in) or mere positive sentiment (encouraging words, no action), then reads the trend across calls. Use when a rep or manager wants to know if a deal actually has a champion or just an enthusiastic contact, especially before a forecast call or a stalled deal review. Also use when the user asks who the champion is, whether a contact is only a friend, or how a champion changed across calls.
 license: MIT
 metadata:
   zime:category: deal-intelligence
