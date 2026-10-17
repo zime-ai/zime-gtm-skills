@@ -44,6 +44,8 @@ bug or have a question? [Open an issue](https://github.com/zime-ai/zime-gtm-skil
 
 ## See it work
 
+Live demo, one call reviewed with and without a skill: <https://zime-ai.github.io/zime-gtm-skills/>
+
 Real output from three skills, one per output shape, each run against its
 own bundled sample data: nothing invented for this README. Skim the
 tables; the full run (quotes and all) is one click away in each
