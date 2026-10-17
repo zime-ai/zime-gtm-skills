@@ -37,6 +37,20 @@ approval step. Generic risk language ("could always change their mind",
 1-3 risks typical; if the call or row genuinely surfaces none, say the deal
 looks clean rather than padding to a count.
 
+## Risks that usually qualify, and false positives
+
+These patterns are specific enough to earn a line when the call or row cites them.
+
+- The buyer states urgency with no measure behind it, and nothing else shows it is real.
+- The buyer's own decision date conflicts with the review steps that the buyer named. The steps alone run past the date.
+- The approver was named and has never joined a call.
+- The buyer asked for a use case that the product does not cover, and the call moved on.
+- The buyer is looking at "a few options" and nobody asked about timing or the likely choice.
+
+False positives to leave out: price worry that the buyer never tied to the outcome, a reason that only the rep states, and a complaint about a vendor the buyer uses today.
+
+Only the buyer's words, or a CRM cell, count as evidence of a risk. A rep's feeling that a deal is shaky is not a cited risk.
+
 ## The ask: heard vs. inferred
 
 Reuses `mutual-action-plan`'s three-part test for what makes a commitment
@@ -64,7 +78,7 @@ A bare `next_step` cell (a phrase with no date and no named counterpart
 owner) fails elements 2 and/or 3 on its own — tag it `inferred` and name
 what the column doesn't say, the same as an under-specified spoken ask.
 
-## Reads-well-too check
+## Reads-well-too test
 
 A deal with an unambiguous snapshot (value and close date both plainly
 stated), no specific cited risk, and a clearly agreed next step should

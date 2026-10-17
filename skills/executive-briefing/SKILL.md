@@ -1,6 +1,6 @@
 ---
 name: executive-briefing
-description: Writes the short brief a rep sends upward out of one deal — to their own exec or the buyer's exec sponsor — covering deal snapshot, status, what's at risk, and the ask, each claim cited to a quote or a CSV column/cell. Use when someone who will never read the transcript needs to act on one deal, not a call-by-call digest or a whole-pipeline sweep.
+description: Writes the short brief a rep sends upward out of one deal, to their own exec or the buyer's exec sponsor, covering deal snapshot, status, what is at risk, and the ask, each claim cited to a quote or a CSV column and cell. Use when someone who will never read the transcript needs to act on one deal, when the user asks for an exec brief, a deal summary for leadership, or an escalation note, and not for a call-by-call digest or a whole-pipeline sweep.
 license: MIT
 metadata:
   zime:category: deal-intelligence
