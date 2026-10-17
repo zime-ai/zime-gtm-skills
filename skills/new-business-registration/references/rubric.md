@@ -79,7 +79,15 @@ A miss looks like no review point ever set.
 **Weak:** "No end date needed, it's ours." **Strong:** "90-day protection
 window from today, reviewed automatically if no stage movement by then."
 
-## Reads-well-too check
+## Rules and false positives
+
+- **The record must say it.** Each field holds what the rep stated or what a system recorded. A value that the reviewer guesses does not count. A registration status is recorded exactly as given and never inferred from the deal stage.
+- **Absence is a result.** A field that nobody filled in is Missed. A topic that never came up is "not discussed", and that is its own result, not a low score.
+- **False positives to remove:** a company that is large or well known, which is not proof of ICP fit. A job title with no stated role in the decision. A duplicate check that someone says "probably" happened. Pipeline talk with no named customer. A renewal, a change order, or work on a running engagement, which is not a new logo.
+
+A strong registration names the legal entity and its domain, shows the duplicate-check result, records the source, states ICP fit with a reason, names the support requested, and sets an expiry date.
+
+## Reads-well-too test
 
 Sanity-check against a registration you know was clean and uncontested. If
 it still comes back mostly Missed, loosen the read before reporting.
