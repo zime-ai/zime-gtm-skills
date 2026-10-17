@@ -1,0 +1,8 @@
+deal_name,amount,close_days_ago,competitor,loss_reason,reason_source
+Anvil Foods,52000,20,Brightpath,No native warehouse connector,buyer
+Bluff Retail,31000,35,Brightpath,Price,rep
+Cairn Health,76000,41,Northgate,Faster onboarding,buyer
+Dell Freight,28000,48,Brightpath,No native warehouse connector,buyer
+Ember Dental,19000,55,,Went with nothing,buyer
+Flint Textiles,44000,60,Northgate,Price,buyer
+Grove Pharmacy,38000,66,Brightpath,Timing,rep

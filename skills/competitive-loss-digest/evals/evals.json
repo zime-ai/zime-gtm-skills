@@ -1,0 +1,34 @@
+{
+  "skill_name": "competitive-loss-digest",
+  "evals": [
+    {
+      "id": 1,
+      "name": "competitive-loss-digest-eval-1",
+      "prompt": "run competitive-loss-digest on skills/competitive-loss-digest/assets/sample-lost-deals.csv",
+      "expected_output": "Brightpath took 4 deals totaling 149000, Northgate took 2 totaling 120000, and one deal had no rival. The no-native-connector reason appears twice for Brightpath and both are buyer-stated. The price and timing reasons for Brightpath are rep-stated and tentative. Five of seven reasons are buyer-stated.",
+      "files": [
+        "assets/sample-lost-deals.csv"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "Brightpath is ranked by amount with 4 deals and 149000",
+        "Rep-stated reasons are marked tentative"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "competitive-loss-digest-eval-2-thin-input",
+      "prompt": "run competitive-loss-digest on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}
