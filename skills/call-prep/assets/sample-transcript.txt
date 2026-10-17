@@ -1,0 +1,32 @@
+[Synthetic transcript, no real company or person. For demonstrating the call-prep skill. This is the PRIOR call. The next call has not happened.]
+
+Call: Orchard Street Pharmacies <> Vendor (Rep: Jamie)
+Type: Second call
+
+Jamie: Last time you said refill reminders were the problem. Where do things stand?
+
+Casey (Operations Manager): We still send them by hand. Two people spend about six hours a week on it, and customers complain when one is late.
+
+Jamie: What would success look like?
+
+Casey: Fewer missed refills. Honestly I do not have a number yet.
+
+Jamie: Who else decides?
+
+Casey: Our director, Noor. She has the budget. She has not seen any of this.
+
+Jamie: Is there a date you are working toward?
+
+Casey: Our contract with the current texting vendor ends in December. I do not know the exact day.
+
+Jamie: I will send you a one-page overview this week, and a rough price range.
+
+Casey: Great. I will find out the contract end date.
+
+Jamie: Anything that worries you?
+
+Casey: Our pharmacy system is old. I am not sure it can export what you need.
+
+Jamie: We can check that. I will ask our integrations team.
+
+Casey: Okay. Let us talk again soon.
