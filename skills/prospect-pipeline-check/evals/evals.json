@@ -25,11 +25,11 @@
       "id": 2,
       "name": "prospect-pipeline-check-eval-2-reads-well-too",
       "prompt": "run prospect-pipeline-check on a prospect-stage pipeline export containing a deal with multiple engaged contacts, a completed meeting, and a logged reply from the prospect",
-      "expected_output": "That deal is returned Clean across all six checks rather than flagged on a technicality. The reads-well-too check from references/rubric.md is applied before finalizing.",
+      "expected_output": "That deal is returned Clean across all six checks rather than flagged on a technicality. The reads-well-too test from references/rubric.md is applied before finalizing.",
       "files": [],
       "expectations": [
         "A deal with genuine two-way engagement (reply, completed meeting, multiple contacts) is not flagged on any check",
-        "The reads-well-too check from references/rubric.md is applied before the audit is finalized"
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized"
       ]
     },
     {

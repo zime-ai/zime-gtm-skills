@@ -1,6 +1,6 @@
 ---
 name: prospect-pipeline-check
-description: Sweeps a CRM pipeline export for prospect-stage deals with no real two-way engagement from the prospect side — the earliest "is this even a deal" gate, before budget, buyer, or pain are even in scope. Use when auditing a prospect-stage pipeline for zombie deals a rep is carrying forward on outbound activity alone, or before a pipeline review to separate real opportunities from unanswered outreach.
+description: Sweeps a CRM pipeline export for prospect-stage deals with no real two-way engagement from the prospect side — the earliest "is this even a deal" gate, before budget, buyer, or pain are even in scope. Use when auditing a prospect-stage pipeline for zombie deals a rep is carrying forward on outbound activity alone, or before a pipeline review to separate real opportunities from unanswered outreach. Also use when the user asks which prospect-stage deals are zombies or have no real engagement.
 license: MIT
 metadata:
   zime:category: new-business
@@ -67,7 +67,7 @@ Every flagged row must cite the column name and the actual cell value that
 triggered it (e.g. `close_date = 2026-01-14`, or `champion = (empty)`) — a
 flag with no cited cell does not ship.
 
-Before finalizing, run the reads-well-too check in `references/rubric.md`
+Before finalizing, run the reads-well-too test in `references/rubric.md`
 — if a deal that clearly has a real, responsive prospect on the other end
 still comes back flagged, the rubric is reading too strictly.
 

@@ -54,7 +54,18 @@ missing)** — never inferred from another column.
    (or the export's stated as-of date, if the export declares one) across
    all in-scope rows. Flag a row whose gap exceeds that median.
 
-## Reads-well-too check
+## Questions behind each flag
+
+A cell holds what someone typed. It cannot prove why a deal looks the way it does. The sweep does not print these questions. A manager uses them in the review, one per flag.
+
+- What success criteria did the buyer agree to?
+- Who is the technical owner on the buyer's side?
+- On what date does the evaluation end?
+- Which security or procurement step is still open, and who owns it?
+
+A rep's confidence is not evidence. Ask for the buyer's own words or a dated step before you trust a field.
+
+## Reads-well-too test
 
 `assets/sample-pipeline-evaluation-pipeline-check.csv` carries at least two
 deals with defined criteria, a named champion, a set end date, an
