@@ -48,6 +48,7 @@ Every framework and deal motion the playbook tracks today.
 
 **Negotiation & closing**
 - [x] negotiation-closing
+- [x] security-legal-review
 
 **Deal-stage pipeline checks** (work from an exported deal list, not a single call)
 - [x] evaluation-pipeline-check
@@ -74,6 +75,8 @@ Every framework and deal motion the playbook tracks today.
 - [x] pain-finder
 - [x] next-step-commitment
 - [x] adoption-leaderboard
+- [x] competitive-positioning
+- [x] multi-threading
 
 ## Phase 2 — Deal intelligence skills
 
@@ -91,6 +94,7 @@ there.
 - [x] champion-tracker
 - [x] competitor-battlecard
 - [x] follow-up-email-drafter
+- [x] loss-review
 
 **Manager & leader rituals**
 - [ ] wbr-report-generator

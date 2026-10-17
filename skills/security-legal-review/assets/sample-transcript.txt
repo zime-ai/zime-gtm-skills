@@ -1,0 +1,30 @@
+[Synthetic transcript, no real company or person. For demonstrating the security-legal-review skill.]
+
+Call: Harborline Freight <> Vendor (Rep: Jordan)
+Type: Security and legal check-in before signature
+
+Jordan: Thanks for joining, Marcus. I want to make sure the paper steps do not surprise us. What does your security team need from us?
+
+Marcus (IT Director): A completed questionnaire and your SOC 2 report. Our standard is that any vendor touching shipment data must have a current SOC 2 Type II. And a data processing addendum from legal.
+
+Jordan: Understood. Who runs the security review?
+
+Marcus: Anita Rao in infosec. Legal is handled by our outside counsel, a woman named Dee. I do not know her last name.
+
+Jordan: I will send the questionnaire today.
+
+Marcus: Good. Anita turned the last vendor's questionnaire around in about two weeks.
+
+Jordan: And your decision date?
+
+Marcus: We want to sign by the end of the month.
+
+Jordan: Great, that should work.
+
+Marcus: One thing. Our counsel redlines every contract, and that took five weeks last time. I would not call that a blocker, but it is slow.
+
+Jordan: I will look into whether we can speed that up.
+
+Marcus: Also, we need EU hosting for one subsidiary. That might be a blocker. I have not asked Anita yet.
+
+Jordan: Noted. I will find out and get back to you.

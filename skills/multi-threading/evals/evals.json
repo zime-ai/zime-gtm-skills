@@ -1,0 +1,34 @@
+{
+  "skill_name": "multi-threading",
+  "evals": [
+    {
+      "id": 1,
+      "name": "multi-threading-eval-1",
+      "prompt": "run multi-threading on skills/multi-threading/assets/sample-transcript.txt",
+      "expected_output": "The approver (Daniel, VP of Operations) is named with a signing threshold, and has never seen the product, so the approver dimension is Partial. The daily user lead (Tom) is named and has not been on a call, so Partial. The technical evaluator is Partial or Missed (IT is mentioned with no name). The plan to broaden is Missed because Priya said she would think about when. The deal is single-threaded through Priya.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every one of the 6 dimensions gets a Status",
+        "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
+        "A claim that only the rep makes is not counted as evidence",
+        "A dimension the call never touched is scored Missed",
+        "Ends with exactly one closing line and no recap of all scores",
+        "Names Priya as the only thread and states that the deal is single-threaded",
+        "The plan-to-broaden dimension is Missed because no person and no date were agreed"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "multi-threading-eval-2-reads-well-too",
+      "prompt": "run multi-threading on a transcript of a call that clearly covered every dimension well",
+      "expected_output": "The audit does not come back mostly Missed. The reads-well-too test from references/rubric.md is applied before the audit is finalized.",
+      "files": [],
+      "expectations": [
+        "A genuinely strong call is not scored as mostly Missed",
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized"
+      ]
+    }
+  ]
+}
