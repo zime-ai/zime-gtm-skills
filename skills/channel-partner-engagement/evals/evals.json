@@ -1,0 +1,34 @@
+{
+  "skill_name": "channel-partner-engagement",
+  "evals": [
+    {
+      "id": 1,
+      "name": "channel-partner-engagement-eval-1",
+      "prompt": "run channel-partner-engagement on skills/channel-partner-engagement/assets/sample-transcript.txt",
+      "expected_output": "Engagement is Covered (one deal worked now, two closed in spring). Capacity is Partial or Covered (Chris and one engineer part time). Reach is Covered (about thirty retail clients). Last real activity is Covered or Partial (two deals in spring). Enablement is Covered (Chris did the course, the engineer has not). The plan is Missed or Partial because the only date is \"soon\".",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every one of the 6 dimensions gets a Status",
+        "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
+        "A claim that only the rep makes is not counted as evidence",
+        "A dimension the call never touched is scored Missed",
+        "Ends with exactly one closing line and no recap of all scores",
+        "Capacity cites the engineer working part time",
+        "The plan is Missed or Partial because \"soon\" is not a date"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "channel-partner-engagement-eval-2-reads-well-too",
+      "prompt": "run channel-partner-engagement on a transcript of a call that clearly covered every dimension well",
+      "expected_output": "The audit does not come back mostly Missed. The reads-well-too test from references/rubric.md is applied before the audit is finalized.",
+      "files": [],
+      "expectations": [
+        "A genuinely strong call is not scored as mostly Missed",
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized"
+      ]
+    }
+  ]
+}
