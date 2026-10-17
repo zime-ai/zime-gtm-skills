@@ -1,6 +1,6 @@
 ---
 name: adoption-leaderboard
-description: Scores a rep's or a team's recent sales calls against a fixed set of five winning-behavior checklists (rapport, upsell signals, renewal risk, customer experience, value realization), then ranks reps lowest-adoption-first so the highest-leverage coaching targets lead. Use when running a team calibration, prepping 1:1 coaching from real call evidence instead of impressions, or checking whether a specific behavior is actually landing across a book of calls.
+description: Scores a rep's or a team's recent sales calls against a fixed set of five winning-behavior checklists (rapport, upsell signals, renewal risk, customer experience, value realization), then ranks reps lowest-adoption-first so the highest-leverage coaching targets lead. Use when running a team calibration, prepping 1:1 coaching from real call evidence instead of impressions, or checking whether a specific behavior is actually landing across a book of calls. Also use when the user asks which reps need coaching on a behavior, or how a team's calls compare.
 license: MIT
 metadata:
   zime:category: cross-stage
