@@ -1,6 +1,6 @@
 ---
 name: meddpicc
-description: Audits a B2B sales call transcript against the MEDDPICC qualification framework (Metrics, Economic buyer, Decision criteria, Decision process, Paper process, Identify pain, Champion, Competition), or sweeps a CRM export for deals missing MEDDPICC fields. Use when a deal is heading toward legal/procurement/security review and needs a read on the close-mechanics letter that MEDDICC doesn't cover, prepping for a late-stage forecast call, or checking whether a pipeline deal has a mapped signature path.
+description: Audits a B2B sales call transcript against the MEDDPICC qualification framework (Metrics, Economic buyer, Decision criteria, Decision process, Paper process, Identify pain, Champion, Competition) and credits only what the buyer said, or sweeps a CRM export for deals missing MEDDPICC fields. Use when the user asks whether a late-stage deal has a mapped signature path, wants a read on legal, procurement or security steps that MEDDICC does not cover, or is prepping a late-stage forecast call.
 license: MIT
 metadata:
   zime:category: cross-stage
@@ -67,7 +67,7 @@ claude "run meddpicc on ./calls/acme-call.txt"
    timeline to close), mark it **Not applicable** rather than Missed —
    that distinction is the whole point of reading MEDDPICC cumulatively
    across a deal's call history.
-4. Run the rubric's reads-well-too check before finalizing.
+4. Read each letter's "does not count" line first. A claim that only the rep makes does not count until the buyer agrees, and a letter the call never touched is Missed. Then run the rubric's reads-well-too test before finalizing, in both directions.
 5. Write the output in the exact shape under `## Output format`.
 
 ### CSV mode (`.csv`)

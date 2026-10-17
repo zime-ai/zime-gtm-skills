@@ -20,6 +20,18 @@ a recap of what was agreed, a specific number or name — ask:
    checkable occurrence. "Soon," "at some point," "eventually," or "before
    the quarter closes" with nothing more specific fails this element.
 
+## Who said it
+
+Attribution matters. A claim counts as `heard` only when the buyer said it or agreed to it. A line that only the rep said stays `inferred` until the buyer accepted it. A rep promise ("I will look into that") is `heard` as a rep commitment, and it needs an owner and a date in the email.
+
+## What a strong follow-up carries
+
+- Each agreed action has an owner and a due date. An action with no owner or no date goes in as a proposal, with a question that asks for the missing piece.
+- Each open question from the call has an owner and a follow-up date. The email lists them. It does not drop them.
+- The next meeting has a proposed day and time, the people who must attend, and an agenda line. "Let us reconnect sometime" is not enough, so propose a specific slot.
+- The steps the buyer named on their side, such as security review, legal, or approval, appear as a short dated list. Mark a step `inferred` when the buyer gave no date.
+- A trial or pilot has an end checkpoint and the test that decides a go. When the call did not set one, propose it. Do not state it as agreed.
+
 ## Tagging
 
 - **`heard`** — the claim, and enough of its specifics (date, owner,

@@ -54,6 +54,19 @@ competitor won partly on price) — tag it with the category its cited
 evidence most directly supports, and name the secondary angle in the
 evidence line if it's material.
 
+## What does not count as a driver
+
+Read this list before you tag a driver. Each item below is a common false positive.
+
+- A price complaint that the buyer never tied to the outcome. Worry about price on its own is not a reason for a loss.
+- A minor complaint or a feature request. Only an objection that blocked or delayed the deal is a driver.
+- "Other options" with no name behind them. A competitor needs a real source, such as the buyer naming it or the CRM column naming it.
+- A reason that only the rep states. The rep's view of why the deal was lost is Tentative until the buyer or the CRM row says the same thing.
+- A change order, an amendment, or work on a running engagement. These are not new wins or losses.
+- A security or legal review that finished without delay. Count it only when it blocked or slowed the deal, and then tag it Pricing/procurement friction.
+
+A strong brief asks what the buyer said about the decision, not only what the rep believes.
+
 ## Driver confidence test
 
 - **Clear** — the transcript states the driver plainly (the prospect names
@@ -71,7 +84,7 @@ Every driver cites either its quote and timestamp (transcript) or its
 column name and cell value (CSV). A driver with no cited evidence does not
 ship.
 
-## Reads-well-too check
+## Reads-well-too test
 
 A deal with an unambiguous, well-evidenced outcome (a clearly-stated
 competitor, a clearly-present or clearly-absent champion, explicit pricing

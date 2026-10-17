@@ -3,6 +3,24 @@
 Eight dimensions covering whether a completed pilot's exit review actually
 established a documented, evidenced pass — not just a good conversation.
 
+## Rules and false positives
+
+Three rules apply to every dimension.
+
+- **The buyer must say it.** Results, validation, and sign-off count only when the buyer or the end users say them. Results that only the rep reports score Missed. A champion who speaks for the whole team is not validation by end users.
+- **Absence is a result.** A dimension that the call never touched is Missed. Do not credit it because the pilot felt successful.
+- **Read the false-positive line before you write Covered.**
+
+False positives to remove before you score:
+
+- "It went well" or "the team is happy" with no criterion and no number.
+- Early pilot feedback or a general user's praise. It is not adoption and not a verdict against a criterion.
+- Benchmarks that the vendor set. The buyer's own baseline is the one that counts.
+- Sign-off that the rep assumes because the champion seemed satisfied. Silence is not a yes.
+- A gap that the rep calls minor and the buyer never accepted as minor.
+
+A strong exit review has the sponsor say the pilot passed in their own words, has each criterion verdict-ed, and gives every open product gap an owner and a date.
+
 ## 1. Every success criterion verdict-ed individually
 
 **What it is.** The success criteria agreed at kickoff — the specific
@@ -103,7 +121,7 @@ looks like the scope that didn't get tested going unmentioned entirely.
 push notifications weren't in scope for this pilot; the prospect confirmed
 that's a nice-to-have for phase two, not a blocker."
 
-## 8. Reads-well-too check
+## 8. Reads-well-too test
 
 Sanity-check against a pilot you know genuinely succeeded and was closed
 out well. If it still comes back mostly Missed, loosen the read before

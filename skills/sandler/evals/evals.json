@@ -30,7 +30,7 @@
       "expectations": [
         "Compartments unreachable at this call's stage are marked Not applicable, not Missed",
         "A genuinely good early call is NOT scored as mostly Missed just because it couldn't reach later compartments",
-        "The reads-well-too check from references/rubric.md is explicitly applied before finalizing",
+        "The reads-well-too test from references/rubric.md is explicitly applied before finalizing",
         "Bonding, Up-Front Contract, and Pain are the focus of an early-stage audit, not judgment on close-stage compartments"
       ]
     },

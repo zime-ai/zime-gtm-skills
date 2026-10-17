@@ -62,7 +62,18 @@ column is empty. Cite the column and `(empty)`.
 (signer/signatory field empty, or no contact's role matches `signer`).
 Cite the column and value.
 
-## Reads-well-too check
+## Questions behind each flag
+
+A cell holds what someone typed. It cannot prove why a deal looks the way it does. The sweep does not print these questions. A manager uses them in the review, one per flag.
+
+- Who runs each paper step, and by what date?
+- Who approves the discount, by name?
+- What fixes the close date?
+- Who signs, and has that person seen the contract?
+
+A rep's confidence is not evidence. Ask for the buyer's own words or a dated step before you trust a field.
+
+## Reads-well-too test
 
 `assets/sample-pipeline-negotiation-pipeline-check.csv` must contain at
 least two deals that come back fully Clean across all six checks when run

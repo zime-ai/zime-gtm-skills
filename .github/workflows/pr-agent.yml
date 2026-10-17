@@ -21,8 +21,11 @@ jobs:
     # review, see CONTRIBUTING.md.
     if: ${{ github.event.pull_request.draft == false && github.event.sender.type != 'Bot' && github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
+    env:
+      HAS_KEY: ${{ secrets.ANTHROPIC_KEY != '' }}
     steps:
       - name: PR Agent
+        if: env.HAS_KEY == 'true'  # no key, no review: skip instead of failing every PR
         # Pinned to a release commit SHA, not @main -- same reasoning as
         # validate.yml's skills-ref pin: upstream changes can't silently
         # break CI. Bump deliberately (see MAINTAINING.md) by resolving

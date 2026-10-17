@@ -1,6 +1,6 @@
 ---
 name: end-client-registration
-description: Audits a partner/reseller's end-client deal registration for completeness — partner identity, end-client entity kept distinct from the partner, engagement scope, conflict check against the direct pipeline, confirmed permission to engage the end-client contact, commercial terms, and an expiry window. Use when reviewing a channel/partner deal registration export or a partner registration-review call, before accepting the registration into the partner pipeline. Distinct from `new-business-registration` (sibling skill), which audits a direct new-logo opportunity with no partner involved.
+description: Audits a partner/reseller's end-client deal registration for completeness — partner identity, end-client entity kept distinct from the partner, engagement scope, conflict check against the direct pipeline, confirmed permission to engage the end-client contact, commercial terms, and an expiry window. Use when reviewing a channel/partner deal registration export or a partner registration-review call, before accepting the registration into the partner pipeline. Distinct from `new-business-registration` (sibling skill), which audits a direct new-logo opportunity with no partner involved. Also use when the user asks whether a partner deal registration is complete, clean, or safe to accept.
 license: MIT
 metadata:
   zime:category: new-business

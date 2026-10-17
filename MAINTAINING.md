@@ -329,3 +329,7 @@ ever. `scripts/pr-prep.sh` enforces both mechanically before any push.
 **Never push `internal_skills`.** It holds work that must not be public.
 Branches are as world-readable as `main` on a public repo, so parking WIP on
 a branch does not hide it. Keep it local only.
+
+## Retired: autonomous improvement loop
+
+Pull requests #55 to #61 (October 2026) added an automatic loop that edited skills, scored them on synthetic test banks, and opened its own pull requests. We retired it because hand-authored skills are the standard route and the loop was more machinery than a skills repository needs. The test banks stay as a manual check: run `python3 evals/synth/bank.py <skill> B 1 skill` before merging a rewrite of a banked skill. The loop code is in git history.

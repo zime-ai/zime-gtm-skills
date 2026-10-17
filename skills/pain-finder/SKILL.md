@@ -1,6 +1,6 @@
 ---
 name: pain-finder
-description: Ranks the pain points surfaced in a sales call transcript by confidence and evidence, tagged by category. Use when a rep wants to know what a prospect's real pain points are and which to lead with in a follow-up, or when comparing pain points across multiple calls with the same account.
+description: Ranks the pain points surfaced in a sales call transcript by confidence and evidence, tagged by category, and keeps only pains the buyer owned in their own words. Use when a rep or manager asks what the prospect's real pain points are, which pain to lead with in a follow-up, or how pains changed across several calls with the same account.
 license: MIT
 metadata:
   zime:category: cross-stage
@@ -56,7 +56,7 @@ claude "run pain-finder on ./calls/call-1.txt and ./calls/call-2.txt, compare wh
 2. Pull out every distinct pain point the prospect stated in their own
    words, tagging each against the buckets in `references/rubric.md`. A
    pain point can span more than one bucket.
-3. Score each pain's confidence using the rubric's calibration — High,
+3. Read the rubric's "What does not count as a pain" list. Drop anything on it. Then score each pain's confidence using the rubric's calibration — High,
    Medium, or Low — and attach the direct quote that justifies it.
 4. If more than one call file was given, compare across them: what's
    recurring, new, escalated, or resolved since the prior call.

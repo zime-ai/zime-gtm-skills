@@ -24,11 +24,11 @@
       "id": 2,
       "name": "poc-success-eval-2-reads-well-too",
       "prompt": "run poc-success on a transcript of an exit review that clearly established a strong, fully validated pass on every dimension",
-      "expected_output": "The audit scores dimensions as Covered rather than nitpicking a genuinely strong exit review into Partials. The reads-well-too check is applied before finalizing.",
+      "expected_output": "The audit scores dimensions as Covered rather than nitpicking a genuinely strong exit review into Partials. The reads-well-too test is applied before finalizing.",
       "files": [],
       "expectations": [
         "A genuinely strong, well-documented exit review is not scored as mostly Partial or Missed",
-        "The reads-well-too check from references/rubric.md is applied before the audit is finalized"
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized"
       ]
     },
     {

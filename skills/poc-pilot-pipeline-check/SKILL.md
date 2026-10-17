@@ -1,6 +1,6 @@
 ---
 name: poc-pilot-pipeline-check
-description: Sweeps a CRM pipeline export for POCs and pilots running with no exit criteria, no sponsor, or no conversion date. Use when RevOps or a manager wants a pipeline-wide read on which POCs/pilots can actually convert versus which are drifting with nothing written down.
+description: Sweeps a CRM pipeline export for POCs and pilots running with no exit criteria, no sponsor, or no conversion date. Use when RevOps or a manager wants a pipeline-wide read on which POCs/pilots can actually convert versus which are drifting with nothing written down. Also use when the user asks which POCs or pilots are drifting with nothing written down.
 license: MIT
 metadata:
   zime:category: new-business

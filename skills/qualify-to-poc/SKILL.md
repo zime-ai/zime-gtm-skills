@@ -1,6 +1,6 @@
 ---
 name: qualify-to-poc
-description: Audits the call/checkpoint that moves a qualified deal into POC/pilot kickoff — the go/no-go gate before pilot work starts — against five dimensions covering success criteria, technical scope, stakeholder commitment, timeline/exit criteria, and resourcing. Or sweeps a CRM export for deals entering pilot stage without those fields set. Use when deciding whether a deal is actually ready to start a POC, reviewing a POC-kickoff call, or checking pipeline for pilots that started without a real plan.
+description: Audits the call or checkpoint that moves a qualified deal into POC or pilot kickoff (the go or no-go gate before pilot work starts) against five dimensions (success criteria, technical scope, stakeholder commitment, timeline and exit criteria, and resourcing). Or sweeps a CRM export for deals entering pilot stage without those fields set. Use when the user asks whether a deal is ready to start a POC, wants a POC-kickoff call reviewed, or wants pilots that started without a real plan found in the pipeline.
 license: MIT
 metadata:
   zime:category: new-business
@@ -61,7 +61,7 @@ claude "run qualify-to-poc on ./calls/acme-poc-kickoff.txt"
 2. Score each of the five dimensions in `references/rubric.md`
    independently. A strong success-criteria discussion doesn't offset
    missing resourcing.
-3. Run the rubric's reads-well-too check before finalizing.
+3. Read each dimension's "does not count" line. A criterion, scope, or date that only the rep states does not count until the buyer agrees. Then run the rubric's reads-well-too test before finalizing, in both directions.
 4. Write the output in the exact shape under `## Output format`.
 
 ### CSV mode (`.csv`)

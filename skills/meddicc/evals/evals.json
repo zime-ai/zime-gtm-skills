@@ -21,7 +21,7 @@
       "expectations": [
         "Letters unreachable at this call's stage (e.g. Decision process) are marked Not applicable, not Missed",
         "A genuinely strong first call is not scored as mostly Missed or incomplete",
-        "The reads-well-too check is applied — re-scoring using Not applicable for letters unreachable at this stage",
+        "The reads-well-too test is applied — re-scoring using Not applicable for letters unreachable at this stage",
         "Output still follows the exact Output format with Status, Evidence, Note per dimension"
       ]
     },

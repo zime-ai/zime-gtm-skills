@@ -27,11 +27,11 @@
       "id": 2,
       "name": "won-pipeline-check-eval-2-reads-well-too",
       "prompt": "run won-pipeline-check on a closed-won pipeline export where every deal has a CS owner, kickoff date, signed contract value and term, consistent dates, a contract reference, and a Closed forecast category",
-      "expected_output": "Every deal in the export comes back Clean. The reads-well-too check from references/rubric.md is applied before finalizing, so a genuinely complete record is not nitpicked into a flag.",
+      "expected_output": "Every deal in the export comes back Clean. The reads-well-too test from references/rubric.md is applied before finalizing, so a genuinely complete record is not nitpicked into a flag.",
       "files": [],
       "expectations": [
         "All deals in a fully-complete export are scored Clean, none flagged",
-        "The reads-well-too check from references/rubric.md is applied before the audit is finalized"
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized"
       ]
     },
     {

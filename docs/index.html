@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTM Skills Demo</title>
+<meta name="description" content="The same sales call, reviewed twice: once with no skill and once with the next-step-commitment skill. Real output, nothing edited.">
+<style>
+:root { --bg:#f7f6f2; --fg:#1d1d1b; --muted:#5d5c57; --card:#ffffff; --line:#dedbd2; --accent:#1f5f4a; --mark:#e9f2ee; }
+@media (prefers-color-scheme: dark) { :root { --bg:#141513; --fg:#ecebe6; --muted:#a3a198; --card:#1c1d1a; --line:#33342f; --accent:#7fc8ab; --mark:#1f2b26; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; }
+main { max-width:60rem; margin:0 auto; padding:2rem 1rem 3rem; }
+h1 { font-size:1.8rem; line-height:1.2; margin:0 0 .5rem; text-wrap:balance; }
+h2 { font-size:1.05rem; margin:2rem 0 .5rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+p { max-width:42rem; }
+.lead { color:var(--muted); font-size:1.1rem; }
+.grid { display:grid; gap:1rem; grid-template-columns:1fr 1fr; }
+@media (max-width:760px) { .grid { grid-template-columns:1fr; } }
+.card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:1rem; min-width:0; }
+.card h3 { margin:0 0 .5rem; font-size:1rem; }
+.card.skill { border-color:var(--accent); }
+pre { margin:0; white-space:pre-wrap; word-wrap:break-word; font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace; }
+.tag { display:inline-block; font-size:.75rem; padding:.1rem .5rem; border-radius:99px; background:var(--mark); color:var(--accent); margin-left:.4rem; }
+code { background:var(--mark); padding:.1rem .35rem; border-radius:4px; font-size:.9em; }
+a { color:var(--accent); }
+.note { border-left:3px solid var(--accent); padding:.25rem 1rem; background:var(--mark); max-width:42rem; }
+</style>
+</head>
+<body>
+<main>
+<h1>The same sales call, reviewed twice</h1>
+<p class="lead">Left: a plain model asked to review the call. Right: the <code>next-step-commitment</code> skill. Both ran on the same small model, on the same synthetic call. The output below is the real output, not edited.</p>
+
+<h2>The call</h2>
+<div class="card"><pre>[Synthetic transcript — no real company or person. For demonstrating the next-step-commitment skill. Ends in a WEAK commitment on purpose.]
+
+Call: Palmer Wright Interiors &lt;&gt; Vendor (Rep: Alex)
+Stage: Second call
+
+Alex: This has been a great conversation. I think I have what I need to
+put together a proposal for you.
+
+Prospect (Nina, Owner): Sounds good, yeah. This all makes sense to me.
+
+Alex: Great. I&#x27;ll get that put together and send it your way.
+
+Nina: Perfect, sounds good. I&#x27;ll take a look when it comes through.
+
+Alex: Awesome. I&#x27;ll be in touch soon once it&#x27;s ready.
+
+Nina: Sounds good, talk soon.</pre></div>
+
+<h2>Two reviews</h2>
+<div class="grid">
+<div class="card"><h3>No skill<span class="tag">plain prompt</span></h3><pre>It went politely, but the call ended without a real next step. Alex and Nina exchanged pleasantries, and nothing was locked in.
+
+What went wrong:
+- No date or time. &quot;Soon&quot; and &quot;talk soon&quot; mean nothing. Neither side has a reason to act by a specific day.
+- No agreed next meeting. Alex is sending a proposal, and Nina will &quot;take a look.&quot; Nobody has booked a review call to walk through it.
+- Nina&#x27;s commitment is vague. &quot;This all makes sense to me&quot; is agreement with the conversation, not with a decision or a purchase. She didn&#x27;t name who else needs to sign off, what would make the proposal acceptable, or when she plans to decide.
+- Alex didn&#x27;t confirm the basics. There&#x27;s no check on budget, timeline, or who else is involved, so the proposal may miss the mark and stall.
+- Alex made all the commitments. The only firm action on the call is Alex&#x27;s &quot;I&#x27;ll send it.&quot; If it&#x27;s late or generic, the deal goes quiet.
+
+Stronger close (example):
+&gt; &quot;Before I send the proposal, can we agree on what would make it a good fit for you? [Confirm the two or three things she cares most about.] Then I&#x27;d like to book 30 minutes on Thursday the 22nd to walk through it together. Who else needs to be in that conversation? And what does your decision process look like after that?&quot;
+
+Then get a calendar invite sent before hanging up, and send the proposal within 24 hours of the call so the review meeting has a clear purpose.
+
+The transcript is short and labeled synthetic, so I can only judge the ending. If the earlier part of the call covered budget, timeline, and decision-makers, the issue is narrower: Alex just didn&#x27;t turn that into a dated next step.</pre></div>
+<div class="card skill"><h3>With the skill<span class="tag">next-step-commitment</span></h3><pre>Verdict — Weak commitment
+What was said: &quot;I&#x27;ll get that put together and send it your way.&quot; / &quot;I&#x27;ll take a look when it comes through.&quot; / &quot;I&#x27;ll be in touch soon once it&#x27;s ready.&quot;
+Missing: no date or concrete trigger (&quot;soon&quot; and &quot;once it&#x27;s ready&quot; aren&#x27;t dated, and nothing ties the proposal to a day or event). Two-sided ownership is also missing: Nina&#x27;s &quot;I&#x27;ll take a look when it comes through&quot; is a passive acknowledgment with no deliverable or deadline she owns. The only named step, the proposal, is carried entirely by Alex.
+Rewrite: &quot;I&#x27;ll send the proposal Thursday. Can you get me a yes or no on pricing by next Tuesday so we can lock the demo date?&quot;</pre></div>
+</div>
+
+<h2>What differs</h2>
+<div class="note">
+<p>The plain run finds the same gaps on this call. That is the honest result. What the skill adds is a fixed shape: one verdict from three named elements, the exact words that were said, what is missing, and one rewrite. The plain run wanders into budget, timeline and who else is involved, which this question does not ask. A fixed shape is what lets you compare a hundred calls and trust the comparison.</p>
+<p>The skills also follow three evidence rules in every audit: the buyer must say it, a topic the call never touched scores Missed, and each dimension lists what does not count.</p>
+</div>
+
+<h2>Try it</h2>
+<p>45 skills, MIT, no telemetry, no sign-up. Everything runs on the file you give it.</p>
+<p><code>/plugin marketplace add zime-ai/zime-gtm-skills</code><br><code>/plugin install gtm-skills@zime-gtm-skills</code></p>
+<p><a href="https://github.com/zime-ai/zime-gtm-skills">github.com/zime-ai/zime-gtm-skills</a></p>
+</main>
+</body>
+</html>

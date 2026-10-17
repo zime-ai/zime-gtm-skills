@@ -18,6 +18,8 @@ for the format every skill here follows.
 
 ## Skill requirements
 
+Read [SKILL-DESIGN.md](SKILL-DESIGN.md) for the content rules: the evidence rules, the shape of a dimension, and how to test a change.
+
 Every skill must:
 
 - Live at `skills/<skill-name>/`, with `name` in `SKILL.md`'s frontmatter

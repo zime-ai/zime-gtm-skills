@@ -1,6 +1,6 @@
 ---
 name: faint
-description: Audits a B2B sales call transcript against the FAINT qualification framework (Funds, Authority, Interest, Need, Timing), or sweeps a CRM export for deals missing FAINT fields. Use when a prospect hasn't articulated a clear need yet but shows financial capacity and curiosity, or when deciding whether a demand-driven lead is worth advancing before a formal need is on record.
+description: Audits a B2B sales call transcript against the FAINT qualification framework (Funds, Authority, Interest, Need, Timing) and credits only what the buyer said, or sweeps a CRM export for deals missing FAINT fields. Use when the user asks to qualify a demand-driven lead, or a prospect has not named a clear need yet but shows financial capacity and curiosity, or wants a quick read on whether a lead is worth more time.
 license: MIT
 metadata:
   zime:category: cross-stage
@@ -63,7 +63,7 @@ claude "run faint on ./calls/outbound-call.txt"
    the first half alone.
 2. Score each of the five criteria in `references/rubric.md` independently.
    Don't let strong Interest inflate a weak Funds, or vice versa.
-3. Run the rubric's reads-well-too check before finalizing.
+3. Read each criterion's "does not count" line first. A claim that only the rep makes does not count until the buyer agrees, and a criterion the call never touched is Missed. Then run the rubric's reads-well-too test before finalizing, in both directions.
 4. Write the output in the exact shape under `## Output format`.
 
 ### CSV mode (`.csv`)

@@ -81,7 +81,20 @@ value (e.g. a probability under 100%, or a forecast category like
 "Pipeline", "Best Case", "Commit" rather than "Closed" / "Won"). Evidence
 cites the conflicting cell, e.g. `probability = 60%` on a Closed Won row.
 
-## Reads-well-too check
+## Questions behind each flag
+
+A cell holds what someone typed. It cannot prove why a deal looks the way it does. The sweep does not print these questions. A manager uses them in the review, one per flag.
+
+- Who owns the customer after signing?
+- On what date does onboarding start?
+- What value and term did the buyer sign?
+- Why do these dates disagree?
+- Where is the signed contract?
+- Which open deal does this record belong to?
+
+A rep's confidence is not evidence. Ask for the buyer's own words or a dated step before you trust a field.
+
+## Reads-well-too test
 
 A won deal with a real owner, a kickoff date, a filled-in contract value
 and term, consistent dates, a contract reference, and a forecast category

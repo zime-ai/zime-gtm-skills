@@ -1,6 +1,6 @@
 ---
 name: churn-prevention
-description: Audits a renewal-risk or check-in call transcript against a churn/retention-signal rubric, or sweeps a CRM export for at-risk accounts missing renewal-risk data. Use when reviewing a customer check-in or QBR before a renewal, coaching a CSM on retention conversations, or scanning an account list for churn risk.
+description: Audits a renewal-risk or check-in call transcript against an eight-dimension churn and retention-signal rubric, crediting only what the customer said, or sweeps a CRM export for at-risk accounts missing renewal-risk data. Use when the user asks whether an account is at risk of churning, wants a customer check-in or QBR reviewed before a renewal, wants to coach a CSM on retention conversations, or wants quiet churn risks found in an account list.
 license: MIT
 metadata:
   zime:category: post-sale
@@ -62,7 +62,7 @@ or two dimensions that drove it. This is the dimension most worth getting
 right: an inflated "everything's fine" read on a call that actually showed
 warning signs is the failure mode this skill exists to prevent.
 
-Run the reads-well-too check in `references/rubric.md` before finalizing.
+Read each dimension's "does not count" line, then run the reads-well-too test in `references/rubric.md` before finalizing.
 
 ### CSV mode (`.csv`)
 

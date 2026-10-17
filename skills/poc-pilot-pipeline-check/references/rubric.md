@@ -57,7 +57,20 @@ duration (median of `end_date - start_date` across in-scope rows with both
 dates present) and there is no end date at all. Note the computed median
 once, up front, as the assumption driving this check.
 
-## Reads-well-too check
+## Questions behind each flag
+
+A cell holds what someone typed. It cannot prove why a deal looks the way it does. The sweep does not print these questions. A manager uses them in the review, one per flag.
+
+- What result means go, in the buyer's words?
+- On what date does the buyer decide?
+- Why did the pilot run past its end date?
+- Who is the executive sponsor, and did that person say the pilot counts?
+- What usage or milestone shows progress?
+- What is the end date?
+
+A rep's confidence is not evidence. Ask for the buyer's own words or a dated step before you trust a field.
+
+## Reads-well-too test
 
 The sample data must contain at least two deals with written exit criteria,
 a conversion date, an exec sponsor, and (if live) recorded usage — these

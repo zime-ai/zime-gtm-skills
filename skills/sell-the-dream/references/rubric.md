@@ -7,6 +7,12 @@ The distinguishing signal is not just whether each element appears, but
 whether it appears *in order* — a "vision" stated after the product pitch
 does not satisfy elements 1–3, no matter how well-worded it is.
 
+Three rules apply to every element.
+
+- **Quote the right speaker.** For what the rep said, quote the rep. For whether it landed, the buyer's reply must show it. A story that only the rep tells, with no reaction, is Partial at most.
+- **Absence is a result.** An element that the call never touched is Missed. Order counts, so an element stated after the product pitch does not satisfy elements 1 to 3.
+- **Read the "does not count" line.** Each element lists the usual false positives.
+
 ## 1. Name a Big, Relevant Change in the World
 
 **What it is.** Whether the rep opens by naming an external shift —
@@ -25,6 +31,10 @@ shift; "the whole industry's moving from annual underwriting reviews to
 continuous, real-time risk scoring" is Covered — a specific, external
 change named before anything about the product.
 
+**Does not count:** the buyer's internal pain restated as a trend. A vague "the market is changing". A change that the rep names only after the product pitch.
+
+**A strong call** names one external shift and says why it matters now.
+
 ## 2. Show There'll Be Winners and Losers
 
 **What it is.** Whether the rep makes the change's stakes concrete — who
@@ -40,6 +50,10 @@ side.
 move now win renewals on better pricing, the ones still on annual reviews
 are already facing costlier reinsurance treaties" is Covered — both sides
 named with a concrete consequence.
+
+**Does not count:** a stakes statement with only one side. A generic warning with no consequence for this buyer.
+
+**A strong call** names who wins and who loses, with one concrete consequence for each.
 
 ## 3. Tease the Promised Land
 
@@ -57,6 +71,10 @@ Partial at best; "eighteen months from now, you're pulling a live risk
 score, feeding it to reinsurers in real time, and renewal conversations
 start from what actually changed, not a stale annual file" is Covered — an
 outcome described before any feature is named.
+
+**Does not count:** the product working, described as the future. A benefit tied to a named feature.
+
+**A strong call** describes life after the change, in the buyer's terms, before any feature is named.
 
 ## 4. Introduce Features as "Magic Gifts" for Overcoming Obstacles to the Promised Land
 
@@ -77,6 +95,10 @@ list is Missed; "the data unification layer is what closes that gap
 between your claims system and underwriting — that's the piece standing
 between you and the real-time score we just talked about" is Covered.
 
+**Does not count:** a feature list with no obstacle behind it. A capability that the buyer did not ask about and did not react to.
+
+**A strong call** ties each feature to one obstacle on the road to the promised land.
+
 ## 5. Present Evidence that You Can Make the Story Come True
 
 **What it is.** Whether the rep backs the narrative with proof — ideally a
@@ -91,6 +113,10 @@ a stat or logo slide with no story behind it.
 mid-size commercial carrier went from six weeks to four days on renewal
 prep after switching on the same scoring engine" is Covered — a specific
 before/after.
+
+**Does not count:** a customer logo with no result. A claim from a slide that the buyer never engaged with.
+
+**A strong call** gives one proof point of the same kind as the buyer, with a result the buyer reacts to.
 
 ## Sequencing violation (the distinctive failure mode)
 
@@ -132,7 +158,7 @@ on both skills, that call likely has no sequencing violation and no missed
 teaching moment — use `challenger` for the teaching-quality question and
 this skill for the sequencing question.
 
-## Reads-well-too check
+## Reads-well-too test
 
 A call that clearly builds vision before product across all five elements
 should not come back with a manufactured sequencing violation just because

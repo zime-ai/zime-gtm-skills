@@ -8,6 +8,12 @@ applicable" rather than "Missed" when it genuinely wasn't reachable at this
 call's stage (e.g. Fulfillment on a first discovery call that never
 approached a close).
 
+Three rules apply to every compartment.
+
+- **The buyer must say it.** Evidence is something the buyer said or agreed to. A claim from the rep does not count. Silence is not a yes.
+- **Absence is a result.** A compartment that the call never touched is Missed, or Not applicable under the one case above. Do not credit it because the call felt friendly.
+- **Read the "does not count" line.** Each compartment lists the usual false positives.
+
 ## 1. Bonding & Rapport
 
 **What it is.** Whether the rep invested time building genuine working
@@ -30,6 +36,10 @@ best; matching the prospect's energy level and building on shared context
 ("I saw on LinkedIn you just got back from the retail ops conference? How
 was that?") is Covered.
 
+**Does not count:** small talk that only the rep makes. A "fine" with no follow-up. Politeness.
+
+**A strong call** builds on something the buyer shares, in the buyer's own pace.
+
 ## 2. Up-Front Contract
 
 **What it is.** Whether the rep set explicit, mutual expectations before
@@ -48,6 +58,10 @@ straight into questions or a pitch with no agenda stated at all.
 honestly whether it's worth a follow-up — no pressure either way" is Covered;
 skipping straight to "tell me about your returns process" is Missed.
 
+**Does not count:** an agenda that the rep reads out and the buyer does not accept. A time limit with no permission to say no.
+
+**A strong call** states the agenda, the time, and that either side can say no at the end, then asks the buyer to agree.
+
 ## 3. Pain
 
 **What it is.** Whether the rep surfaced a specific, quantified, business
@@ -65,6 +79,10 @@ prospect owns and acknowledges.
 
 "We get a lot of returns" is Partial at best; "that costs us about 10 hours
 a week across the team re-entering data" is Covered.
+
+**Does not count:** a problem the rep names and the buyer never raised. A complaint about a vendor the buyer uses today. A problem that vanishes once no vendor exists.
+
+**A strong call** asks for the last real example and what it cost.
 
 ## 4. Budget
 
@@ -85,6 +103,10 @@ settled.
 "We'd need to find budget" is Partial; "we have roughly $40-60k set aside"
 is Covered; saying nothing at all is Missed.
 
+**Does not count:** worry about price on its own. A question about pricing. The rep's own estimate of the deal size.
+
+**A strong call** asks how the buyer paid for similar tools and who approves the spend.
+
 ## 5. Decision
 
 **What it is.** Whether the rep mapped out who else needs to sign off and
@@ -101,6 +123,10 @@ the person on the call can actually say yes, or who needs to approve.
 "I can move this forward but my director signs off on anything over $20k,
 and she's usually involved in security reviews" is Covered; "I'll just check
 with my director" is Partial; never asking is Missed.
+
+**Does not count:** a job title alone. The buyer must say who has the final word. A person who only recommends is not the approver.
+
+**A strong call** asks who else decides and whether that person will join the next call.
 
 ## 6. Fulfillment
 
@@ -123,6 +149,10 @@ guess") is evidence the close was assumed, not mutual.
 implementation" is Covered; declaring "let's get this moving — I'll send
 over a contract this week" without checking prospect readiness is Missed.
 
+**Does not count:** "let us get this moving" with no word from the buyer. A buyer who goes along with "I guess".
+
+**A strong call** offers the next step as conditional and waits for the buyer to say they want it.
+
 ## 7. Post-Sell
 
 **What it is.** Whether the rep took a real step after apparent agreement to
@@ -142,7 +172,11 @@ questions?" with no reinforcing or reversing step.
 "Anything that could still cause the prospect to back out?" is Covered;
 "any other questions?" is Missed.
 
-## Reads-well-too check
+**Does not count:** "any other questions?". Logistics alone, such as "I will send the contract today".
+
+**A strong call** asks what could still make the buyer back out and listens to the answer.
+
+## Reads-well-too test
 
 A call genuinely strong on the compartments it could reach at this stage
 (e.g. a first call that bonds well, sets an up-front contract, and surfaces

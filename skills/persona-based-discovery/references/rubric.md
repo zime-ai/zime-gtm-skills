@@ -6,6 +6,12 @@ each persona present on the call separately where the call had more than
 one — a call can nail this for the economic buyer and miss it entirely for
 the technical evaluator on the same line.
 
+Three rules apply to every dimension.
+
+- **Quote the right speaker.** For what the rep did, quote the rep. For a persona's role, concern, or reaction, the buyer must say it. A job title alone does not set a persona's authority.
+- **Absence is a result.** A dimension that the call never touched is Missed. Dimension 1 gates the rest, so when the call never identifies the persona, do not credit dimensions 2 to 5 for adaptation that is not there.
+- **Read the "does not count" line.** Each dimension lists the usual false positives.
+
 ## 1. Persona correctly identified
 
 **What it is.** Whether the rep established, early in the call, who they
@@ -29,6 +35,10 @@ real answer, followed by the rep treating the rest of the call
 accordingly, is Covered; the rep addressing the room generically without
 ever asking is Missed.
 
+**Does not count:** a role the rep guessed from the meeting title. A buyer's enthusiasm, which says nothing about what that person owns.
+
+**A strong call** asks the persona what they own and how they will judge success.
+
 ## 2. Pain framed in that persona's language
 
 **What it is.** Once the persona is known, whether the rep framed the
@@ -47,6 +57,10 @@ A technical evaluator hearing "this will reduce your integration overhead
 and on-call load" is Covered; the same rep telling an economic buyer that
 exact sentence instead of translating it to cost or risk is Missed for
 that persona.
+
+**Does not count:** one generic benefit line repeated to every persona. Technical words aimed at a business buyer.
+
+**A strong call** restates the same problem in each persona's own terms: cost and risk for the economic buyer, effort and security for the evaluator.
 
 ## 3. Persona-appropriate proof point offered
 
@@ -67,6 +81,10 @@ handles auth, or a webhook-latency benchmark to an economic buyer who
 asked about payback period, is a Missed or Partial depending on how far off
 it lands — the proof point exists but was aimed at the wrong audience.
 
+**Does not count:** a case study from an unrelated industry. A proof point that nobody asked for.
+
+**A strong call** shows proof at the altitude of the question that the persona asked.
+
 ## 4. Persona-specific objections surfaced and addressed
 
 **What it is.** Whether the rep drew out and directly addressed the
@@ -84,6 +102,10 @@ answering it. A call where no objection surfaces from either side may mean
 there genuinely were none, or may mean the rep didn't probe — mark
 **Unclear** rather than assuming either.
 
+**Does not count:** a concern that only the rep names. A complaint about a vendor the persona uses today, which is a current-state detail.
+
+**A strong call** asks each persona what would stop them from saying yes.
+
 ## 5. Next step framed for that persona to act on
 
 **What it is.** Whether the proposed next step is something this specific
@@ -98,7 +120,11 @@ map to this persona's role. **Missed looks like:** the same "let's set up
 a follow-up call" is offered to every persona in the room regardless of
 role.
 
-## Reads-well-too check
+**Does not count:** "let us set up a follow-up call" offered to everyone. A next step that the persona has no authority to approve.
+
+**A strong call** gives each persona a next step they can act on alone, with a date.
+
+## Reads-well-too test
 
 Before finalizing an audit, sanity-check it against a call you already know
 adapted well to its persona(s). If the rubric still returns several Missed

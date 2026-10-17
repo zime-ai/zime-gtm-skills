@@ -1,6 +1,6 @@
 ---
 name: upsell-expansion
-description: Audits an expansion/upsell call transcript against a rubric covering opportunity clarity, champion strength, renewal health, and strategic alignment, or sweeps a CRM export for expansion opportunities missing a health check. Use when reviewing an upsell or expansion conversation, or checking an account list for expansion pushes that skipped a renewal-health check first.
+description: Audits an expansion or upsell call transcript against an eight-dimension rubric (account health, a concrete ask, champion strength, confidence, strategic alignment, open risks, enablement, next step) and credits only what the customer said, or sweeps a CRM export for expansion opportunities missing a health check. Use when the user asks whether an expansion push is ready, wants an upsell call reviewed, or wants accounts found where an expansion skipped the renewal-health check.
 license: MIT
 metadata:
   zime:category: post-sale
@@ -61,8 +61,7 @@ shows real renewal risk, say so plainly before scoring the rest — pursuing
 an upsell on an unhealthy account is a bigger problem than any gap in the
 expansion pitch itself.
 
-Close with a go/hold read on the expansion push. Run the reads-well-too
-check first.
+Close with a go/hold read on the expansion push. Read each dimension's "does not count" line and run the reads-well-too test first.
 
 ### CSV mode (`.csv`)
 

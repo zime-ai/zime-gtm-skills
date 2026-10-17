@@ -6,6 +6,12 @@ point in the deal — that distinction matters more here than in a
 single-stage rubric, because MEDDPICC is meant to be read cumulatively
 across a deal's whole call history, not perfectly in any one call.
 
+Three rules apply to every letter.
+
+- **The buyer must say it.** Evidence is something the buyer said. A claim from the rep does not count. A fact the rep reads out of the CRM does not count either, unless the buyer agrees during the call. A job title is not authority.
+- **Absence is a result.** A letter that the call never touched is Missed, or Not applicable under the one case above. Do not credit a letter because the rep seemed prepared.
+- **Read the "does not count" line.** Each letter lists the usual false positives.
+
 ## Metrics
 
 **What it is.** Whether the prospect attached a number to the value of
@@ -22,6 +28,10 @@ named, or the prospect can't connect the problem to any measurable cost.
 
 "This would help a lot" is Partial; "we lose about $30k a quarter chasing
 this manually" is Covered.
+
+**Does not count:** a number from the rep's own case study. A figure the rep supplies and the buyer only nods at. Price worry on its own.
+
+**A strong call** asks where the number comes from and who tracks it.
 
 ## Economic buyer
 
@@ -41,6 +51,10 @@ me" with no name attached.
 their approval threshold, and confirming they're bought into the pain
 (even without being on the call yet) is Covered.
 
+**Does not count:** a job title alone. The buyer must say who has the final word. A person who only recommends is not the economic buyer.
+
+**A strong call** asks whether the approver will join the next call and what that person needs to see.
+
 ## Decision criteria
 
 **What it is.** What the prospect's organization actually evaluates on —
@@ -57,6 +71,10 @@ against, leaving the rep guessing at what to emphasize later.
 "We want something reliable" is Partial; "integration effort matters more
 to us than price, because a past vendor's rollout ran four months over
 what they quoted" is Covered.
+
+**Does not count:** a reaction to a demo ("that looks good"). Criteria that the rep states and the buyer does not accept.
+
+**A strong call** asks the buyer to rank the criteria and name the must-haves.
 
 ## Decision process
 
@@ -76,6 +94,10 @@ how a decision like this actually gets made inside the account.
 "I recommend, my boss approves the budget, and then it goes to our ops
 committee — mostly a formality" is Covered; "it'll go through a few people"
 is Partial.
+
+**Does not count:** a date for the next meeting. A hypothetical, such as "how long does an evaluation take?".
+
+**A strong call** works backward from the buyer's decision date through each step and says whether the date is realistic.
 
 ## Paper process
 
@@ -109,6 +131,10 @@ that usually takes" is Missed on a deal three weeks past verbal approval;
 "legal is already reviewing the MSA, security wants a SOC 2 report by next
 Friday, and our VP of Ops signs anything over $75k" is Covered.
 
+**Does not count:** "we will need to talk to legal" with no step named. A contract or legal step that the rep assumes. A deal called close while a pricing or legal blocker is still open.
+
+**A strong call** asks who runs each paper step, how long each took last time, and what date each must finish.
+
 ## Identify pain
 
 **What it is.** The specific, quantifiable business pain driving this
@@ -124,6 +150,10 @@ no specific problem the prospect owns.
 "We're always looking to improve" is Missed; "our dispatch board and
 carrier portal don't talk to each other, so freight gets double-booked" is
 Covered.
+
+**Does not count:** a problem the rep names and the buyer never raised. A complaint about a vendor the buyer uses today. A problem that vanishes once no vendor exists.
+
+**A strong call** asks for the last real example of the problem and who feels it most.
 
 ## Champion
 
@@ -143,6 +173,10 @@ Someone saying "I really like where this is going" with no follow-through
 is Partial; someone who took the cost number to their own leadership and
 got buy-in is Covered.
 
+**Does not count:** friendliness, enthusiasm, or seniority. Action defines a champion. A person whom others wait on for sign-off is the economic buyer, not the champion.
+
+**A strong call** asks what the champion has already done for the deal and what they need from the rep to do more.
+
 ## Competition
 
 **What it is.** What else the prospect is evaluating, formally or
@@ -161,7 +195,11 @@ contestable.
 seriously" is Partial; naming that competitor and what tipped the
 evaluation away from them is Covered.
 
-## Reads-well-too check
+**Does not count:** an evaluation that ended long ago, unless the buyer says what it taught them. "Other options" with nothing behind it is Partial.
+
+**A strong call** asks which option the buyer prefers today and what gap that option has, then turns the gap into a yes-or-no test.
+
+## Reads-well-too test
 
 A call that is genuinely strong on the letters it *could* address at this
 stage should not come back mostly Missed just because letters unreachable

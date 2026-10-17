@@ -31,6 +31,8 @@ Six types count. Everything else is noise, no matter how long it runs.
 - **Generic rapport-building.** Small talk, scheduling logistics, "nice to
   meet you" — even a long stretch of it — is not a highlight just because
   it took up call time.
+- **Only the rep said it.** A highlight needs the buyer's words, or a step that the buyer accepted. A rep's claim that the buyer is keen is not a highlight.
+- **A weak signal dressed as a strong one.** A buyer who asks "can it do X?" shows curiosity, not interest. Test it by removing the rep's words. When the interest disappears, drop the line. A minor complaint is not an objection. Only a pushback that could block or delay the deal counts, and a resolved one is a note and not a live objection. Vague timing ("maybe next quarter") is not a number or a commitment.
 - **Restating the same highlight twice.** If the same commitment or
   objection comes up more than once in the call, cite the clearest
   instance once, not every mention.

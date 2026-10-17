@@ -1,6 +1,6 @@
 ---
 name: won-pipeline-check
-description: Sweeps a closed-won deal export for missing handoff and record data the post-sale team needs — CS owner, kickoff date, signed value/term, contract reference, and date/stage consistency. Use when a deal desk or RevOps person wants to check closed-won deals before they hand off to onboarding/CS, or audit a pipeline export for won deals with incomplete records.
+description: Sweeps a closed-won deal export for missing handoff and record data the post-sale team needs — CS owner, kickoff date, signed value/term, contract reference, and date/stage consistency. Use when a deal desk or RevOps person wants to check closed-won deals before they hand off to onboarding/CS, or audit a pipeline export for won deals with incomplete records. Also use when the user asks which closed-won deals have incomplete handoff records.
 license: MIT
 metadata:
   zime:category: new-business

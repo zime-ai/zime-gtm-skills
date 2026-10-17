@@ -1,6 +1,6 @@
 ---
 name: deep-discovery
-description: Audits an early-stage B2B sales discovery call transcript against a discovery-quality rubric, or sweeps a CRM deal export for missing discovery fields. Use when reviewing a discovery/early-stage sales call, coaching a rep on discovery quality, or checking a pipeline export for deals with thin discovery.
+description: Audits an early-stage B2B sales discovery call transcript against a nine-dimension discovery rubric and credits only what the buyer actually said, or sweeps a CRM deal export for missing discovery fields. Use when the user asks to review a discovery call, score discovery quality, coach a rep on discovery, find what the rep skipped, spot gaps in pain, trigger, budget or decision process, or find deals with thin discovery in a pipeline export.
 license: MIT
 metadata:
   zime:category: new-business
@@ -36,7 +36,8 @@ it — no network calls, no credentials, nothing leaves your machine.
   rubric's guidance, decide, note the assumption once, and move on.
 - If the transcript is a demo or negotiation call rather than discovery,
   say so in one line and still score whichever dimensions the conversation
-  touches.
+  touches. If it is not a sales call at all (an internal meeting, a
+  candidate interview), say so and stop.
 
 ## Modes
 
@@ -61,10 +62,30 @@ Read the transcript, then score the call against each dimension in
 Close with **2-3 highest-leverage next steps** — not a summary of every
 gap, the ones that would have moved this specific deal forward most.
 
-Run `references/rubric.md`'s "reads well too" check before finalizing: if a
-transcript that clearly covered discovery thoroughly still comes back with
-several Missed dimensions, the read is biased toward finding fault — widen
-what counts as evidence before reporting.
+Scoring rules, applied before you write each status:
+
+- Evidence is what the buyer said, in a line that is about that dimension.
+  A claim from the rep does not count unless the buyer agrees on the call.
+  Never use one line as evidence for two dimensions. Never count a line
+  that only hints at a dimension (a launch mentioned while explaining ticket
+  volume is not a budget or decision-date signal).
+- When no line addresses a dimension, the status is Missed. Do not soften
+  it to Partial because the call felt thorough elsewhere.
+- Partial needs a quotable line that names the dimension but stays vague.
+  When you cannot quote that line, it is Missed.
+- A Covered needs the specifics the rubric names for it (a number, a named
+  person, a named tool, a dated event), not a general statement.
+- Each rubric entry has a "does not count" line. Read it before you write
+  Covered or Partial.
+
+Run the rubric's "reads-well-too" test before you finalize, in both
+directions. A call that clearly covered discovery thoroughly must not come
+back with several Missed dimensions, so widen what counts as evidence when it
+does. A call that never raised a dimension must not get credit for it, so
+cut any status whose evidence line fails the rules above.
+
+For each Missed or Partial dimension, the note can end with the rubric's
+"strong call" move, as one short question the rep can ask next time.
 
 ### CSV mode (`.csv`)
 
@@ -97,6 +118,10 @@ Evidence: mentioned "we use spreadsheets for most of this" but never
 detailed the actual workflow
 Note: baseline named but not detailed enough to credibly show improvement
 against
+
+**3. Trigger — why now** — Missed
+Evidence: none. No line gives a reason to act now rather than later.
+Note: the earliest sign this deal may stall; ask what changed this quarter
 ```
 
 Close with **2-3 highest-leverage next steps** — not a summary of every

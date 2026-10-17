@@ -69,6 +69,17 @@ one when the risk read is otherwise comparable.
 - **Medium**: 1-2 points
 - **Low**: 0 points
 
+## Questions behind each signal
+
+A score ranks deals. It does not say why a deal is at risk. The digest does not print these questions. A manager uses them in the deal review, one per scored signal.
+
+- **Past-due and unlikely:** What changed since the rep set this close date?
+- **Stage age:** What must happen for this deal to leave its current stage, and by when?
+- **Blank or vague next step:** What is the next meeting, who attends, and what is its agenda?
+- **Single-threaded contact:** Who approves this deal, and have they taken part in any call?
+
+A rep's high confidence is not evidence. Ask for the buyer's own words or a dated step before you trust a field.
+
 ## Reads-well-too check
 
 A deal with a future close date, a confident probability, a recent stage

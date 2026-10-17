@@ -1,6 +1,6 @@
 ---
 name: first-call-rampup
-description: Audits a new rep's early sales call transcript against a foundational-skills rubric covering opening, open-ended questioning, pain uncovering, and pitch delivery. Use when coaching a newly ramped rep, reviewing their first calls, or building a rep-development plan from real call evidence.
+description: Audits a new rep's early sales call transcript against a six-technique foundational rubric (opening, open-ended questioning, pain uncovered, trigger surfaced, pitch clarity, rapport) and credits only what the buyer's replies show, as a coaching read. Use when the user asks to coach a newly ramped rep, review a rep's first calls, or build a rep-development plan from real call evidence.
 license: MIT
 metadata:
   zime:category: new-business
@@ -52,7 +52,7 @@ claude "run first-call-rampup on ./calls/new-rep-call-1.txt"
 2. Score each of the six dimensions in `references/rubric.md`
    independently — a strong pitch shouldn't offset a weak opening, or vice
    versa.
-3. Run the rubric's reads-well-too check before finalizing: coaching
+3. Read each technique's "does not count" line, then run the rubric's reads-well-too test before finalizing: coaching
    feedback that reads as uniformly harsh is unlikely to be acted on.
 4. Write the output in the exact shape under `## Output format`.
 
@@ -80,7 +80,7 @@ section repeating all six scores again after this.
 - Don't accept a `.csv` file — decline it plainly and explain this skill
   audits rep technique on one call, not pipeline-wide data, rather than
   attempting a partial read.
-- Don't let a wall of Missed items stand if the reads-well-too check flags
+- Don't let a wall of Missed items stand if the reads-well-too test flags
   it as uniformly harsh — loosen what counts as evidence before shipping
   the read.
 - Don't add a "suggested talk track for the next call" section beyond the

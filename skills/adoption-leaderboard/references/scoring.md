@@ -25,6 +25,10 @@ call.
   not name-resolvable) are real — note each once, briefly and factually, not
   repeated per cell and not as hand-wringing.
 
+## Whose words count
+
+Each 1 needs a quote from the right speaker. For an item about what the prospect or customer said, felt, or asked, the quote must be theirs. A rep's claim that the customer is keen, upset, or interested scores 0. A customer's question about whether something is possible shows curiosity and not interest, so it scores 0 for an interest item unless the customer says more. A topic that the call never raised scores 0, and that absence is the proof.
+
 ## Rolling item marks up to adoption
 
 Keep every per-item 1/0 as the internal working grid — never displayed, no

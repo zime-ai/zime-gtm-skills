@@ -1,0 +1,30 @@
+[Synthetic transcript, no real company or person. For demonstrating the multi-threading skill.]
+
+Call: Redwood Logistics <> Vendor (Rep: Alex)
+Type: Third call
+
+Alex: Thanks, Priya. Where do things stand on your side?
+
+Priya (Operations Lead): Good. My team likes it. I told my boss last week that we are close.
+
+Alex: Who is your boss?
+
+Priya: Daniel, our VP of Operations. He signs anything over fifty thousand.
+
+Alex: Has Daniel seen the product?
+
+Priya: No. I give him a short update each Friday. He trusts me on this.
+
+Alex: Who would use it every day?
+
+Priya: Mostly the dispatch team. Tom leads them. He has not been on any call.
+
+Alex: And IT?
+
+Priya: Someone from IT will have to look at the integration at some point.
+
+Alex: Should we bring Daniel and Tom to the next call?
+
+Priya: Maybe. Let me think about when.
+
+Alex: Sounds good. Talk soon.

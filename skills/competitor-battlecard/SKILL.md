@@ -1,6 +1,6 @@
 ---
 name: competitor-battlecard
-description: Reads a single sales call transcript and writes a battlecard for whichever competitor (or status quo) the buyer actually named on that call — how they framed it, what they said it does better or differently, what the rep countered with, and what went unanswered, citing every line to the transcript. Use right after a call surfaces a competitive frame, to arm the rep for the next call or brief a manager on it — not to score how well the rep handled the objection (see challenger) or to write a post-close loss review (see win-loss-brief).
+description: Reads a single sales call transcript and writes a battlecard for whichever competitor (or status quo) the buyer actually named on that call, covering how they framed it, what they said it does better or differently, what the rep countered with, and what went unanswered, citing every line to the transcript. Use right after a call surfaces a competitive frame, when the user asks for a battlecard, a competitor brief, or a read on what the rep failed to answer, to arm the rep for the next call.
 license: MIT
 metadata:
   zime:category: deal-intelligence

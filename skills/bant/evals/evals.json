@@ -24,11 +24,11 @@
       "id": 2,
       "name": "bant-eval-2-reads-well-too",
       "prompt": "run bant on a transcript of a first call that clearly surfaced strong signal on all four BANT criteria",
-      "expected_output": "The audit scores all four as Covered rather than nitpicking a genuinely strong call into Partials. The reads-well-too check is applied before finalizing.",
+      "expected_output": "The audit scores all four as Covered rather than nitpicking a genuinely strong call into Partials. The reads-well-too test is applied before finalizing.",
       "files": [],
       "expectations": [
         "A genuinely strong call is not scored as mostly Partial or Missed",
-        "The reads-well-too check from references/rubric.md is applied before the audit is finalized"
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized"
       ]
     },
     {

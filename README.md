@@ -1,17 +1,19 @@
 # zime-gtm-skills
 
-[![Skills](https://img.shields.io/badge/skills-41-blue)](skills/)
+[![Skills](https://img.shields.io/badge/skills-45-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 41 [Agent Skills](https://agentskills.io) that audit sales call
+here. 45 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
 that reads the Agent Skills spec.
+
+What sets these skills apart: they credit a call only for what the buyer actually said, and each one is built around what reps usually skip at that deal stage. A rep claim never counts as evidence. A topic the call never touched scores Missed, not "probably fine". Every dimension lists what does not count (price worry is not a budget, a date for the next meeting is not a decision date, a job title is not authority) and gives one strong-call question the rep can ask next time.
 
 Two axes: **deal stage** (discovery through renewal) and **initiative**
 (MEDDICC, BANT, pain identification: frameworks that run at any stage).
@@ -151,10 +153,10 @@ All columns present, no signals skipped.
 
 | Deal | Risk | Reasons | Evidence |
 |---|---|---|---|
-| Fairview Logistics | High (6pts) | past-due+unlikely, stage age, vague next step, single-threaded | close_date = 2025-03-01 (past), probability = 25%; stage_entered_date = 2025-01-10 (584 days in stage); next_step = "Follow up"; contacts = "Greg Malone" |
+| Fairview Logistics | High (6pts) | past-due+unlikely, stage age, vague next step, single-threaded | close_date = 2025-03-01 (past), probability = 25%; days_in_stage = 280; next_step = "Follow up"; contacts = "Greg Malone" |
 | Cobalt Freight Partners | High (3pts) | past-due+unlikely | close_date = 2025-02-14 (past), probability = 20% |
 | Ashgrove Dental Partners | Medium (2pts) | blank next step, single-threaded | next_step = (empty); contacts = "Dr. Lila Fenn" |
-| Driftwood Realty Group | Medium (1pt) | stage age | stage_entered_date = 2025-05-01 (473 days in stage) |
+| Driftwood Realty Group | Medium (1pt) | stage age | days_in_stage = 210 |
 | Terra Foods Co-op | Medium (1pt) | blank next step | next_step = (empty) |
 | Solstice Robotics | Medium (1pt) | single-threaded | contacts = "Priya Shah" |
 | Meridian Health Systems | Low (0pts) | none | — |
@@ -256,8 +258,8 @@ See [Installation](#installation) below for the submodule option and the
 
 ## How these fit together
 
-41 skills: 23 stage motions laid out across the deal lifecycle, 10
-cross-stage initiative skills, and 8 deal-intelligence skills that write
+45 skills: 24 stage motions laid out across the deal lifecycle, 12
+cross-stage initiative skills, and 9 deal-intelligence skills that write
 something forward — a plan, a digest, a drafted email — instead of grading
 a call.
 
@@ -318,8 +320,10 @@ beyond whatever your agent's own model call already sends.
 
 ## Available skills
 
+**Flagship skills** (hand-written, with the buyer-said evidence rules above): `deep-discovery`, `meddicc`, `bant`, `technical-discovery`, `meeting-to-qualify`, `improve-demo`, `follow-up-email-drafter`, `deal-risk-digest`, `next-step-commitment`, `win-loss-brief`. The other skills in the list are **community preview**: they work and pass validation, and their rubrics are still being rewritten to the same standard.
+
 <details open>
-<summary>41 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
+<summary>45 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
 
 <!-- SKILLS:START -->
 **New business**
@@ -345,6 +349,7 @@ beyond whatever your agent's own model call already sends.
 | [poc-pilot-pipeline-check](skills/poc-pilot-pipeline-check/) | A pipeline export for POCs and pilots with no written exit criteria, conversion date, or executive sponsor, and POCs already past their own end date | CRM export (`.csv`) or connector |
 | [negotiation-pipeline-check](skills/negotiation-pipeline-check/) | A pipeline export for negotiation-stage deals with no paper process started, no approver on a discount, no named signer, or a close date that has already slipped | CRM export (`.csv`) or connector |
 | [won-pipeline-check](skills/won-pipeline-check/) | A closed-won export for missing handoff data — CS owner, kickoff date, signed value/term, contract reference — and won/close date inconsistencies | CRM export (`.csv`) or connector |
+| [security-legal-review](skills/security-legal-review/) | Security and legal review steps — requirements known, reviewers named, document status, step durations, fit with the decision date, open items | transcript |
 
 **Post-sale**
 
@@ -369,6 +374,8 @@ beyond whatever your agent's own model call already sends.
 | [next-step-commitment](skills/next-step-commitment/) | Whether a call ended in a real, dated, two-sided commitment vs. a vague "we'll circle back" | transcript or CRM export |
 | [adoption-leaderboard](skills/adoption-leaderboard/) | Ranks reps by adoption of five fixed winning behaviors (rapport, upsell signals, renewal risk, customer experience, value realization) across recent calls, lowest first | transcript or connector |
 | [sell-the-dream](skills/sell-the-dream/) | Whether a call builds a future-state vision before pitching product, scored against Andy Raskin's "5 Elements of a Great Sales Narrative" and flagged for feature-first sequencing violations | transcript |
+| [competitive-positioning](skills/competitive-positioning/) | How a rep positioned against a named rival — buyer's criteria heard, difference tied to a criterion, proof, honest gap, buyer test | transcript |
+| [multi-threading](skills/multi-threading/) | Buying-group breadth — group mapped, approver reached, technical evaluator reached, daily users heard, second advocate, dated plan to broaden | transcript |
 
 **Deal intelligence**
 
@@ -382,11 +389,12 @@ beyond whatever your agent's own model call already sends.
 | [executive-briefing](skills/executive-briefing/) | Writes the short brief a rep sends upward on one deal — snapshot, status, risk, and the ask — each claim cited to a quote or a CSV column/cell | transcript or CRM export |
 | [champion-tracker](skills/champion-tracker/) | Builds a cited action ledger of who's actually acting like a champion across a deal's calls vs. who's just enthusiastic, and reads the trend | transcript |
 | [competitor-battlecard](skills/competitor-battlecard/) | Writes a battlecard for the competitor a buyer actually named on a call — their framing, the rep's counter, and what went unanswered, citing only the transcript | transcript |
+| [loss-review](skills/loss-review/) | Whether a loss debrief learned the real reason — outcome confirmed, reason in the buyer's words, chosen option, decider, flip condition, reopen condition | transcript |
 <!-- SKILLS:END -->
 
 </details>
 
-All 23 stage motions are covered; the initiative set is 10 skills today.
+All 24 stage motions are covered; the initiative set is 12 skills today.
 New skills welcome, see [CONTRIBUTING.md](CONTRIBUTING.md). For how these
 are tested, and what that testing can and can't prove, see
 [EVALS.md](EVALS.md).

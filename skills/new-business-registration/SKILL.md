@@ -1,6 +1,6 @@
 ---
 name: new-business-registration
-description: Audits a new-logo deal-registration record, or the call/checkpoint where a rep registers a brand-new opportunity into pipeline, against general deal-registration practice covering entity identification, duplicate/conflict checking, source attribution, and ICP fit. Use when reviewing a fresh deal registration before it's approved, or sweeping a registration export for records missing required fields. Not for partner-sourced end-client registrations — see end-client-registration.
+description: Audits a new-logo deal-registration record, or the call/checkpoint where a rep registers a brand-new opportunity into pipeline, against general deal-registration practice covering entity identification, duplicate/conflict checking, source attribution, and ICP fit. Use when reviewing a fresh deal registration before it's approved, or sweeping a registration export for records missing required fields. Also use when the user asks whether a new-logo registration is complete, clean, or safe to approve. Not for partner-sourced end-client registrations, which belong to end-client-registration.
 license: MIT
 metadata:
   zime:category: new-business
@@ -77,7 +77,7 @@ timestamp, or **Unclear** rather than guess), **Note** if not fully
 covered.
 
 Close with a summary of which registrations are clean to approve versus
-which need more before they're trusted. Run the reads-well-too check first.
+which need more before they're trusted. Read the rubric's rules and false-positives section, then run the reads-well-too test first.
 
 ## Do not
 

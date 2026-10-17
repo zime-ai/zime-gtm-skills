@@ -1,6 +1,6 @@
 ---
 name: follow-up-email-drafter
-description: Drafts the customer-facing follow-up email a rep sends after a sales call, grounding every recap, next step, and date in what was actually said, plus a separate grounding-notes section flagging which lines are heard-verbatim versus a proposal the rep should confirm before sending. Use right after a call when a rep wants a first-draft follow-up instead of writing one from scratch, or when a manager wants to sanity-check a drafted email against the transcript before it goes out.
+description: Drafts the customer-facing follow-up email a rep sends after a sales call, grounding every recap, next step, and date in what the buyer actually said or agreed, plus a separate grounding-notes section flagging which lines are heard versus a proposal the rep should confirm before sending. Use right after a call when a rep asks for a follow-up email, a call recap, a next-steps email, or a thank-you note, or when a manager wants to check a drafted email against the transcript before it goes out.
 license: MIT
 metadata:
   zime:category: deal-intelligence
@@ -68,7 +68,7 @@ least gesture toward.
 claude "run follow-up-email-drafter on ./calls/call.txt"
 ```
 
-Read the transcript, then output two parts:
+Read the transcript, then output two parts. Give every action an owner and a date, list the open questions with an owner, and propose a specific slot for the next meeting (see the rubric's "What a strong follow-up carries").
 
 1. **The drafted email** — subject line + body. Professional, not
    robotic. Recaps what was discussed; confirms next steps only if they

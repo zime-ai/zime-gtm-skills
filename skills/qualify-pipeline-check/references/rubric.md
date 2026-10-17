@@ -64,7 +64,20 @@ such column exists anywhere in the export, this check does not apply —
 report Unknown (column missing), not Flagged, since there is nothing to be
 empty.
 
-## Reads-well-too check
+## Questions behind each flag
+
+A cell holds what someone typed. It cannot prove why a deal looks the way it does. The sweep does not print these questions. A manager uses them in the review, one per flag.
+
+- Who approves the spend, by name?
+- What problem did the buyer describe in their own words?
+- Did the buyer state a budget or an approval status?
+- Do the buyer's own procurement steps fit before this close date?
+- What is the next step, who attends, and when?
+- Which framework record proves that qualification happened?
+
+A rep's confidence is not evidence. Ask for the buyer's own words or a dated step before you trust a field.
+
+## Reads-well-too test
 
 The sample data must include at least two deals with every relevant field
 filled in credibly (real buyer name + role, a specific pain, a budget or

@@ -1,6 +1,6 @@
 ---
 name: sell-the-dream
-description: Audits a B2B sales call transcript for future-state vision selling — does the rep name the world change and stakes before pitching product, or lead with features and bolt a "vision" on afterward. Scored against Andy Raskin's publicly published "5 Elements of a Great Sales Narrative," corroborated by Corporate Visions, Force Management, and Challenger's convergent "vision before product" pattern. "Sell the dream" is the colloquial name for this behavior, not a citation to a named methodology. Use when a rep pitches features early and a deal stalls on "not urgent," or when a manager wants to know if a call's vision narrative landed before the product did, not just whether a vision was mentioned at all.
+description: Audits a B2B sales call transcript for future-state vision selling, meaning whether the rep names the world change and the stakes before pitching product, or leads with features and bolts a vision on afterward. It scores against Andy Raskin's publicly published 5 Elements of a Great Sales Narrative, corroborated by Corporate Visions, Force Management, and Challenger. Sell the dream is the colloquial name for this behavior and not a citation to a named methodology. Use when the user asks whether a rep sold a vision or only a product, wants a narrative review of a pitch call, or wants to coach on sequencing change, stakes, promised land, features and proof.
 license: MIT
 metadata:
   zime:category: cross-stage
@@ -69,7 +69,9 @@ claude "run sell-the-dream on ./calls/acme-call.txt"
    afterward — even if all five elements individually score Covered. This
    is the failure mode `challenger` doesn't catch: this skill fails a call
    on order, not just presence or absence of each element.
-4. Write the output in the exact shape under `## Output format`.
+4. Read each element's "does not count" line first. A claim that only the rep makes, with no buyer reaction, is Partial at most, and an element the call never touched is Missed.
+5. Run the rubric's reads-well-too test before finalizing, in both directions.
+6. Write the output in the exact shape under `## Output format`.
 
 ## Output format
 
