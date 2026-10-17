@@ -6,6 +6,12 @@ problem yet, but who show real financial capacity and genuine curiosity. The
 scoring order is deliberate: Interest is judged before Need, and a call can
 score well without a stated Need — unlike a strict BANT read.
 
+Three rules apply to every criterion.
+
+- **The buyer must say it.** Evidence is something the buyer said. A claim from the rep does not count. A job title is not authority.
+- **Absence is a result.** A criterion that the call never touched is Missed. Do not credit it because the call felt warm.
+- **Read the "does not count" line.** Each criterion lists the usual false positives.
+
 ## Funds
 
 **What it is.** Whether the prospect's organization has genuine financial
@@ -25,6 +31,10 @@ money in this area, or explicitly says spend would be very difficult to justify.
 "We'd have to ask finance first" is Partial; "we're doing fine this year, if
 this made sense we could absorb it" is Covered.
 
+**Does not count:** worry about price on its own. A question about pricing. The size of the buyer's company.
+
+**A strong call** asks how the buyer paid for similar tools and who approved them.
+
 ## Authority
 
 **What it is.** Whether the person on the call has a real path to influencing
@@ -41,6 +51,10 @@ decision-maker, or the person's role is clearly unrelated to the purchase.
 
 A prospect saying "I can move this to my VP, she decides" (naming the person)
 is Covered; saying "I'd have to check with my director" is Partial.
+
+**Does not count:** a job title alone. The buyer must say who has the final word. Enthusiasm does not make a person a decision maker.
+
+**A strong call** asks who else decides and whether that person will join the next call.
 
 ## Interest
 
@@ -60,6 +74,10 @@ yes-or-no answers only.
 "That's actually interesting — can you send me a one-pager?" is Covered; "yeah,
 okay, sounds good" is Partial; "I don't see how this applies to us" is Missed.
 
+**Does not count:** politeness. "Sounds good" with no question back. Interest that the buyer brought in from before the call, which is a different signal.
+
+**A strong call** gives the buyer one idea they had not seen and waits for the reaction.
+
 ## Need
 
 **What it is.** A specific business problem the prospect acknowledged in their
@@ -76,6 +94,10 @@ no specific problem the prospect names or acknowledges as real.
 
 A prospect saying "we spend too much time on manual re-keying and it slows us
 down" is Covered; "we could probably be more efficient" is Partial.
+
+**Does not count:** a problem that the rep names and the buyer never raised. A complaint about a vendor the buyer uses today. A problem that vanishes once no vendor exists.
+
+**A strong call** asks for the last real example of the problem.
 
 ## Timing
 
@@ -94,6 +116,10 @@ timeline 12+ months out, or explicit statements that timing is not a factor.
 "Our license renews in March" is Covered; "maybe around year-end planning" is
 Partial; "no real timeline right now" is Missed.
 
+**Does not count:** a date for the next meeting. A hypothetical, such as "how long does an evaluation take?". "Maybe next quarter", which is Partial at best.
+
+**A strong call** asks what fixes the date and what a slip costs.
+
 ## Interest before Need
 
 The single thing that distinguishes FAINT from BANT: don't let "no stated Need"
@@ -103,7 +129,7 @@ treat weak Need as a real risk when Interest is also weak. When Interest is
 strong, frame Need as "not yet surfaced" and name the call that would surface
 it, not as a disqualifying miss.
 
-## Reads-well-too check
+## Reads-well-too test
 
 A call that clearly built genuine interest and showed financial capacity should
 not come back mostly Missed just because no stated Need surfaced. If that
