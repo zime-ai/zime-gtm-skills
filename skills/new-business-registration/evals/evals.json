@@ -21,14 +21,14 @@
     {
       "id": 2,
       "prompt": "run new-business-registration on skills/new-business-registration/assets/sample-transcript.txt",
-      "expected_output": "Scores the registration-review call against every dimension in references/rubric.md. Every dimension gets a Status (Covered/Partial/Missed) and, for anything not fully covered, a one-line Note, with Evidence as a direct quote from the transcript or Unclear rather than guessed. Applies the reads-well-too check first, and since this call is clean (entity, domain, dedup check, source, ICP reasoning, support ask, and expiry are all explicitly stated), the audit should not come back mostly Missed.",
+      "expected_output": "Scores the registration-review call against every dimension in references/rubric.md. Every dimension gets a Status (Covered/Partial/Missed) and, for anything not fully covered, a one-line Note, with Evidence as a direct quote from the transcript or Unclear rather than guessed. Applies the reads-well-too test first, and since this call is clean (entity, domain, dedup check, source, ICP reasoning, support ask, and expiry are all explicitly stated), the audit should not come back mostly Missed.",
       "files": [
         "assets/sample-transcript.txt"
       ],
       "expectations": [
         "Every dimension in the rubric gets a Status",
         "Every finding cites a quote from the transcript, or is marked Unclear rather than guessed",
-        "The reads-well-too check from references/rubric.md is applied before the audit is finalized",
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized",
         "A clean, fully-covered registration call is not scored as mostly Missed",
         "Closes with a clear read on whether the registration is ready to approve"
       ],
