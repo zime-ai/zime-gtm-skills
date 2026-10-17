@@ -1,13 +1,13 @@
 # zime-gtm-skills
 
-[![Skills](https://img.shields.io/badge/skills-60-blue)](skills/)
+[![Skills](https://img.shields.io/badge/skills-64-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 60 [Agent Skills](https://agentskills.io) that audit sales call
+here. 64 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
@@ -260,7 +260,7 @@ See [Installation](#installation) below for the submodule option and the
 
 ## How these fit together
 
-60 skills: 24 stage motions laid out across the deal lifecycle, 16
+64 skills: 24 stage motions laid out across the deal lifecycle, 20
 cross-stage initiative skills, and 20 deal-intelligence skills that write
 something forward — a plan, a digest, a drafted email — instead of grading
 a call.
@@ -325,7 +325,7 @@ beyond whatever your agent's own model call already sends.
 **Flagship skills** (hand-written, with the buyer-said evidence rules above): `deep-discovery`, `meddicc`, `bant`, `technical-discovery`, `meeting-to-qualify`, `improve-demo`, `follow-up-email-drafter`, `deal-risk-digest`, `next-step-commitment`, `win-loss-brief`. The other skills in the list are **community preview**: they work and pass validation, and their rubrics are still being rewritten to the same standard.
 
 <details open>
-<summary>60 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
+<summary>64 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
 
 <!-- SKILLS:START -->
 **New business**
@@ -382,6 +382,10 @@ beyond whatever your agent's own model call already sends.
 | [channel-partner-engagement](skills/channel-partner-engagement/) | How engaged a channel partner is — figures, capacity, reach, last real activity, enablement, dated plan | transcript |
 | [partner-pain-points](skills/partner-pain-points/) | A partner's own problems — the problem, its cost, who feels it, root cause, prior fix, what would help | transcript |
 | [partner-sentiment](skills/partner-sentiment/) | How a channel partner really feels — stance in their words, action behind it, rivals they favor, friction, long-term intent | transcript |
+| [partner-competition-landscape](skills/partner-competition-landscape/) | What a partner carries — rivals, share, differences, terms, switch conditions, conflict rules | transcript |
+| [partner-decision-authority](skills/partner-decision-authority/) | Who decides at a partner and how — decider, process, criteria, commitment, competing priorities, dated decision | transcript |
+| [ideal-channel-partner-profile](skills/ideal-channel-partner-profile/) | Fit evidence for a prospective partner — buyer relationship, vendor work, capacity, reach, technology habits | transcript |
+| [partner-potential](skills/partner-potential/) | Whether a partner's deal is real — named end customer, fit stated by both sides, purchase step, timeline, roles, terms | transcript |
 
 **Deal intelligence**
 
@@ -411,7 +415,7 @@ beyond whatever your agent's own model call already sends.
 
 </details>
 
-All 24 stage motions are covered; the initiative set is 16 skills today.
+All 24 stage motions are covered; the initiative set is 20 skills today.
 New skills welcome, see [CONTRIBUTING.md](CONTRIBUTING.md). For how these
 are tested, and what that testing can and can't prove, see
 [EVALS.md](EVALS.md).

@@ -135,11 +135,11 @@ worth a second look before any of it gets built.
 
 **Partner & channel**
 - [x] channel-partner-engagement
-- [ ] partner-potential
+- [x] partner-potential
 - [x] partner-sentiment
-- [ ] ideal-channel-partner-profile
-- [ ] partner-decision-authority
-- [ ] partner-competition-landscape
+- [x] ideal-channel-partner-profile
+- [x] partner-decision-authority
+- [x] partner-competition-landscape
 - [x] partner-pain-points
 - [x] partner-business-review
 

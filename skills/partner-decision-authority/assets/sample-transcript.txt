@@ -1,0 +1,30 @@
+[Synthetic transcript, no real company or person. For demonstrating the partner-decision-authority skill.]
+
+Call: Ironwood Systems <> Vendor (Rep: Morgan)
+Type: Partner onboarding call
+
+Morgan: Who decides whether Ironwood takes on a new vendor?
+
+Lena (Partner Manager): I make a recommendation. Our owner, Greg, decides.
+
+Morgan: Has Greg heard about us?
+
+Lena: I have mentioned it. He has not seen a demo.
+
+Morgan: What does Greg look at?
+
+Lena: Margin, mostly. And whether we need to hire.
+
+Morgan: How does the decision go?
+
+Lena: I write a one-page case, then Greg decides at the monthly leadership meeting. That is the first Tuesday.
+
+Morgan: Can I help with the case?
+
+Lena: Send me the margin tiers and a customer example.
+
+Morgan: I will send them this week. What else competes for Greg's attention?
+
+Lena: We are launching another practice area in January.
+
+Morgan: Understood. Let me know how it goes.
