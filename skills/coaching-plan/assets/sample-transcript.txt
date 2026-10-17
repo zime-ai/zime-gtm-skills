@@ -1,0 +1,37 @@
+[Synthetic transcripts, no real company or person. For demonstrating the coaching-plan skill. Two calls by the same rep, Drew.]
+
+=== CALL 1: Fenwick Foods <> Vendor (Rep: Drew) ===
+
+Drew: Thanks for your time. We help teams cut manual work. What are your challenges?
+
+Pat (Buyer): We are always looking to improve things.
+
+Drew: Great. Our platform has reporting, automation, and integrations.
+
+Pat: Okay.
+
+Drew: Sounds like a fit. I will send a proposal.
+
+Pat: Fine. Talk soon.
+
+=== CALL 2: Marlow Retail <> Vendor (Rep: Drew) ===
+
+Drew: Before we start, the plan is: your process, then a quick look at the product, then next steps. Does that work?
+
+Lee (Buyer): Yes.
+
+Drew: Tell me about how orders come in.
+
+Lee: By email, mostly. We re-type them into the system. Two people, a few hours a day.
+
+Drew: What happens when one gets missed?
+
+Lee: A customer calls us angry. It happened twice last week.
+
+Drew: Our automation reads orders from email. Does that match what you described?
+
+Lee: Yes, that is the problem.
+
+Drew: Great. I will send a proposal.
+
+Lee: Okay.

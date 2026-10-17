@@ -3,6 +3,36 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [3.4.0] — 19 new skills: deal intelligence and partner audits
+
+Skill count goes from 45 to 64: 24 stage skills, 20 initiative skills, and
+20 deal-intelligence skills. All 19 new skills follow the shared evidence
+rules from 3.3.0. They cite a quote or a cell for every claim, write "not
+stated" for what the input does not say, and list what does not count.
+
+Deal intelligence, handoffs and seller-facing: `call-prep`,
+`handover-to-customer-success`, `renewal-prep`, `coaching-plan`.
+
+Deal intelligence, manager rituals from a pipeline export: `stuck-deal-digest`,
+`pipeline-review`, `forecast-review`, `wbr-report-generator`. Every figure is
+computed from the rows. The samples use day-count columns so their evals hold
+at any date.
+
+Deal intelligence across calls and deals: `objection-pattern-digest`,
+`competitive-loss-digest`, `rep-ramp-status-digest`. A pattern needs at
+least two calls, and a loss reason that only the rep wrote is marked
+tentative.
+
+Partner and channel audits: `partner-sentiment`, `partner-pain-points`,
+`channel-partner-engagement`, `partner-business-review`, `partner-potential`,
+`ideal-channel-partner-profile`, `partner-decision-authority`,
+`partner-competition-landscape`. Partner words count the way buyer words
+count in a sales call. Partner size is not fit, and a demo alone does not
+make a deal.
+
+Not built yet: the two global-agent skills, the vertical packs, and the
+general marketing skills in `ROADMAP.md`.
+
 ## [3.3.0] — buyer-said evidence rules, four new skills
 
 Skill count goes from 41 to 45: 24 stage skills, 12 initiative skills, and

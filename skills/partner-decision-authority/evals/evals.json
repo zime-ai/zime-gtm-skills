@@ -1,0 +1,34 @@
+{
+  "skill_name": "partner-decision-authority",
+  "evals": [
+    {
+      "id": 1,
+      "name": "partner-decision-authority-eval-1",
+      "prompt": "run partner-decision-authority on skills/partner-decision-authority/assets/sample-transcript.txt",
+      "expected_output": "The decider (Greg, the owner) is Covered, and Lena is the recommender. The process is Covered (a one-page case, then the monthly leadership meeting on the first Tuesday). What the decider looks at is Covered (margin and hiring). The commitment is Partial or Covered (Lena will write the case, no date for it). Competing attention is Covered (a new practice area in January). The dated decision is Partial (the first Tuesday, not a calendar date).",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every one of the 6 dimensions gets a Status",
+        "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
+        "A claim that only the rep makes is not counted as evidence",
+        "A dimension the call never touched is scored Missed",
+        "Ends with exactly one closing line and no recap of all scores",
+        "Lena is identified as the recommender and Greg as the decider",
+        "The dated decision is Partial because only \"the first Tuesday\" is given"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "partner-decision-authority-eval-2-reads-well-too",
+      "prompt": "run partner-decision-authority on a transcript of a call that clearly covered every dimension well",
+      "expected_output": "The audit does not come back mostly Missed. The reads-well-too test from references/rubric.md is applied before the audit is finalized.",
+      "files": [],
+      "expectations": [
+        "A genuinely strong call is not scored as mostly Missed",
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized"
+      ]
+    }
+  ]
+}

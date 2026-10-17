@@ -1,0 +1,34 @@
+{
+  "skill_name": "partner-competition-landscape",
+  "evals": [
+    {
+      "id": 1,
+      "name": "partner-competition-landscape-eval-1",
+      "prompt": "run partner-competition-landscape on skills/partner-competition-landscape/assets/sample-transcript.txt",
+      "expected_output": "Rivals are Covered (Northfield and Cascade). Share is Covered or Partial (Northfield about seventy percent, Cascade small). The difference is Covered (a mobile app that customers ask for). Terms are Partial (a bit higher, number not remembered). The switch condition is Partial (if a customer asked, no case). Conflict rules are Partial (not that she knows).",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every one of the 6 dimensions gets a Status",
+        "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
+        "A claim that only the rep makes is not counted as evidence",
+        "A dimension the call never touched is scored Missed",
+        "Ends with exactly one closing line and no recap of all scores",
+        "Terms are Partial because the partner did not remember the figure",
+        "Conflict rules are Partial because \"not that I know of\" is unchecked"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "partner-competition-landscape-eval-2-reads-well-too",
+      "prompt": "run partner-competition-landscape on a transcript of a call that clearly covered every dimension well",
+      "expected_output": "The audit does not come back mostly Missed. The reads-well-too test from references/rubric.md is applied before the audit is finalized.",
+      "files": [],
+      "expectations": [
+        "A genuinely strong call is not scored as mostly Missed",
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "skill_name": "partner-potential",
+  "evals": [
+    {
+      "id": 1,
+      "name": "partner-potential-eval-1",
+      "prompt": "run partner-potential on skills/partner-potential/assets/sample-transcript.txt",
+      "expected_output": "The end customer is Partial or Missed (a regional grocery chain with an operations director, no company name). The fit is Partial because it is relayed (\"she said it looked useful\"). The purchase step is Partial or Missed because registration is not filed and a pilot is only a wish. The timeline is Missed. Who sells is Partial (probably the vendor, not agreed). Terms are Missed (\"we can talk about it later\").",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every one of the 6 dimensions gets a Status",
+        "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
+        "A claim that only the rep makes is not counted as evidence",
+        "A dimension the call never touched is scored Missed",
+        "Ends with exactly one closing line and no recap of all scores",
+        "The fit is Partial because the partner relays \"it looked useful\"",
+        "A pilot alone is not scored as a purchase step"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "partner-potential-eval-2-reads-well-too",
+      "prompt": "run partner-potential on a transcript of a call that clearly covered every dimension well",
+      "expected_output": "The audit does not come back mostly Missed. The reads-well-too test from references/rubric.md is applied before the audit is finalized.",
+      "files": [],
+      "expectations": [
+        "A genuinely strong call is not scored as mostly Missed",
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized"
+      ]
+    }
+  ]
+}

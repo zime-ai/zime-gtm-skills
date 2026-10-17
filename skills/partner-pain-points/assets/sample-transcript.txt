@@ -1,0 +1,28 @@
+[Synthetic transcript, no real company or person. For demonstrating the partner-pain-points skill.]
+
+Call: Pinecrest Systems <> Vendor (Rep: Alex)
+Type: Partner discovery
+
+Alex: What is the hardest part of selling our product for you?
+
+Sandra (Partner Owner): Quoting. Each quote takes my team two days because we rebuild the pricing in a spreadsheet.
+
+Alex: What does that cost you?
+
+Sandra: We lose deals to partners who quote same day. Maybe three a quarter.
+
+Alex: Who feels it most?
+
+Sandra: Our two sales engineers. They stop doing demos to build quotes.
+
+Alex: Have you tried to fix it?
+
+Sandra: We built a template last year. Our pricing changed and it broke.
+
+Alex: What would help?
+
+Sandra: A quote tool tied to your price list.
+
+Alex: I will see what exists.
+
+Sandra: Okay.

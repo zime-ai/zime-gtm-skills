@@ -1,0 +1,28 @@
+[Synthetic transcript, no real company or person. For demonstrating the renewal-prep skill. This is a recent check-in call. The renewal is in 60 days.]
+
+Call: Cedar Logistics <> Vendor (CSM: Robin)
+Type: Mid-term check-in
+
+Robin: Thanks for joining, Avery. How is the dispatch module working for you?
+
+Avery (Operations Director): It cut our late deliveries. We were around eight percent late and we are at about five now.
+
+Robin: Who is using it?
+
+Avery: The dispatch team, six people. The warehouse team has not touched it.
+
+Robin: Anything blocking you?
+
+Avery: The reporting export still times out on large files. We raised it in the spring. Nobody has told us if it is fixed.
+
+Robin: I will find out.
+
+Avery: Also, Pat, who championed this, moved to another division last month. I am the contact now. I did not buy it, so I am still forming a view.
+
+Robin: Understood. Is there interest in the warehouse module?
+
+Avery: Maybe. Our CFO is looking at all software spend this quarter.
+
+Robin: When is the renewal discussion?
+
+Avery: I do not know. Probably when the CFO finishes.

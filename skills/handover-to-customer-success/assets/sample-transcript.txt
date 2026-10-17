@@ -1,0 +1,34 @@
+[Synthetic transcript, no real company or person. For demonstrating the handover-to-customer-success skill. This is the final sales call before signature.]
+
+Call: Birchwood Dental Group <> Vendor (Rep: Taylor)
+Type: Final call before signature
+
+Taylor: Before we sign, let us make sure Customer Success starts with the right picture. What matters most to you in the first ninety days?
+
+Dr. Okafor (Practice Owner): Intake time. Today it takes about twenty minutes per new patient. We want it under ten by the end of the first quarter.
+
+Taylor: Who will run the rollout on your side?
+
+Dr. Okafor: Mina, our office manager. She has agreed. Her time is limited, about four hours a week.
+
+Taylor: And the front-desk team?
+
+Dr. Okafor: Three people. They are nervous about change.
+
+Taylor: You asked about two features earlier. The patient text reminders and the insurance eligibility check.
+
+Dr. Okafor: Yes. The eligibility check matters most.
+
+Taylor: The eligibility check is not available yet. It is planned for next quarter.
+
+Dr. Okafor: Hmm. I understood it was included.
+
+Taylor: I should have been clearer. Reminders are included now. The eligibility check comes later, at no extra cost.
+
+Dr. Okafor: I want that in writing.
+
+Taylor: I will put it in the order form.
+
+Dr. Okafor: We go live on the first of next month, right?
+
+Taylor: That is the plan. I have not confirmed it with our onboarding team.

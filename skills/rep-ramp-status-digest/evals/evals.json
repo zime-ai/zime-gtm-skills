@@ -1,0 +1,34 @@
+{
+  "skill_name": "rep-ramp-status-digest",
+  "evals": [
+    {
+      "id": 1,
+      "name": "rep-ramp-status-digest-eval-1",
+      "prompt": "run rep-ramp-status-digest on skills/rep-ramp-status-digest/assets/sample-transcript.txt",
+      "expected_output": "Opening, pain and priority, and trigger are improving across the three calls with quotes. In week 1 the rep pitched with no agenda and no probing. By week 5 the rep walked the buyer through the last failure and got a figure (about 1,200 dollars) and a reason for timing (March season). Pitch clarity improved. The next step in week 5 is dated (Thursday at ten) with the buyer's office manager.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "Pain and priority is marked improving with a quote from week 1 and week 5",
+        "At most one next focus is named"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "rep-ramp-status-digest-eval-2-thin-input",
+      "prompt": "run rep-ramp-status-digest on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}

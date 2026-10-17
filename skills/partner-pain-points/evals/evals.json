@@ -1,0 +1,34 @@
+{
+  "skill_name": "partner-pain-points",
+  "evals": [
+    {
+      "id": 1,
+      "name": "partner-pain-points-eval-1",
+      "prompt": "run partner-pain-points on skills/partner-pain-points/assets/sample-transcript.txt",
+      "expected_output": "The problem (quotes take two days because pricing is rebuilt in a spreadsheet) is Covered. The cost is Covered (three lost deals a quarter). Who feels it is Covered (two sales engineers stop doing demos). The root cause is Partial or Covered (rebuilt pricing in a spreadsheet). The prior attempt is Covered (a template that broke when pricing changed). What would help is Covered (a quote tool tied to the price list). The next step is Missed because there is no date and no partner-owned task.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every one of the 7 dimensions gets a Status",
+        "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
+        "A claim that only the rep makes is not counted as evidence",
+        "A dimension the call never touched is scored Missed",
+        "Ends with exactly one closing line and no recap of all scores",
+        "The cost cites the three lost deals a quarter",
+        "The next step is Missed because \"I will see what exists\" has no date and no partner owner"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "partner-pain-points-eval-2-reads-well-too",
+      "prompt": "run partner-pain-points on a transcript of a call that clearly covered every dimension well",
+      "expected_output": "The audit does not come back mostly Missed. The reads-well-too test from references/rubric.md is applied before the audit is finalized.",
+      "files": [],
+      "expectations": [
+        "A genuinely strong call is not scored as mostly Missed",
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "skill_name": "stuck-deal-digest",
+  "evals": [
+    {
+      "id": 1,
+      "name": "stuck-deal-digest-eval-1",
+      "prompt": "run stuck-deal-digest on skills/stuck-deal-digest/assets/sample-pipeline.csv",
+      "expected_output": "Birch Analytics is silent (38 days), aged (60 days in Proposal) and has an overdue step (21 days), so it ranks first. Dunmore Retail is silent (52 days) and aged (75 days in Qualify). Fir Health is silent and has an overdue step. Elm Logistics, Alder Freight and Gale Foods have no signal.",
+      "files": [
+        "assets/sample-pipeline.csv"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "Birch Analytics ranks first with three signals and cites the cell values",
+        "Healthy deals such as Elm Logistics are counted and not listed"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "stuck-deal-digest-eval-2-thin-input",
+      "prompt": "run stuck-deal-digest on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}

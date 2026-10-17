@@ -1,0 +1,34 @@
+{
+  "skill_name": "handover-to-customer-success",
+  "evals": [
+    {
+      "id": 1,
+      "name": "handover-to-customer-success-eval-1",
+      "prompt": "run handover-to-customer-success on skills/handover-to-customer-success/assets/sample-transcript.txt",
+      "expected_output": "The note states intake time (about twenty minutes, target under ten by the end of the first quarter), Mina as the rollout owner with four hours a week, and three nervous front-desk users. The eligibility check is listed as planned later, and the note flags that the customer understood it as included. The go-live date is marked as the rep's plan, not confirmed.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "Flags the gap between what Dr. Okafor understood about the eligibility check and what was true",
+        "Marks the go-live date as unconfirmed by the onboarding team"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "handover-to-customer-success-eval-2-thin-input",
+      "prompt": "run handover-to-customer-success on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}

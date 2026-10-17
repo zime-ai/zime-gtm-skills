@@ -1,0 +1,34 @@
+{
+  "skill_name": "partner-business-review",
+  "evals": [
+    {
+      "id": 1,
+      "name": "partner-business-review-eval-1",
+      "prompt": "run partner-business-review on skills/partner-business-review/assets/sample-transcript.txt",
+      "expected_output": "Results are Covered (goal of four deals, two closed). Pipeline is Partial (a manufacturer with a demo, not sure they will buy). Registration is Partial because Pat said \"I think so\". Blockers are Partial because the docs issue has no date. Support needs are Partial. The next-period goal is Covered (six deals) or Partial. The next review is Partial because \"three months\" has no date.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every one of the 7 dimensions gets a Status",
+        "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
+        "A claim that only the rep makes is not counted as evidence",
+        "A dimension the call never touched is scored Missed",
+        "Ends with exactly one closing line and no recap of all scores",
+        "Registration is Partial because the partner said \"I think so\"",
+        "The blocker (out-of-date onboarding docs) has no agreed date"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "partner-business-review-eval-2-reads-well-too",
+      "prompt": "run partner-business-review on a transcript of a call that clearly covered every dimension well",
+      "expected_output": "The audit does not come back mostly Missed. The reads-well-too test from references/rubric.md is applied before the audit is finalized.",
+      "files": [],
+      "expectations": [
+        "A genuinely strong call is not scored as mostly Missed",
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized"
+      ]
+    }
+  ]
+}

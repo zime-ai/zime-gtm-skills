@@ -87,7 +87,7 @@ standalone; CRM connector access is optional and used only when already
 there.
 
 **Seller-facing, single deal**
-- [ ] call-prep
+- [x] call-prep
 - [x] deal-highlights
 - [x] mutual-action-plan
 - [x] executive-briefing
@@ -97,24 +97,24 @@ there.
 - [x] loss-review
 
 **Manager & leader rituals**
-- [ ] wbr-report-generator
-- [ ] forecast-review
-- [ ] pipeline-review
+- [x] wbr-report-generator
+- [x] forecast-review
+- [x] pipeline-review
 - [x] deal-risk-digest
 - [x] win-loss-brief
-- [ ] stuck-deal-digest
-- [ ] rep-ramp-status-digest
+- [x] stuck-deal-digest
+- [x] rep-ramp-status-digest
 
 **Cross-deal, global** (read across a whole book of business, not one call)
 - [ ] prep-notes-global-agent
 - [ ] deal-ama-global-agent
-- [ ] objection-pattern-digest
-- [ ] competitive-loss-digest
+- [x] objection-pattern-digest
+- [x] competitive-loss-digest
 
 **Handoffs**
-- [ ] handover-to-customer-success
-- [ ] renewal-prep
-- [ ] coaching-plan
+- [x] handover-to-customer-success
+- [x] renewal-prep
+- [x] coaching-plan
 
 ## Phase 3 — Vertical packs
 
@@ -134,14 +134,14 @@ something for every GTM function, not sales calls alone. A starting list,
 worth a second look before any of it gets built.
 
 **Partner & channel**
-- [ ] channel-partner-engagement
-- [ ] partner-potential
-- [ ] partner-sentiment
-- [ ] ideal-channel-partner-profile
-- [ ] partner-decision-authority
-- [ ] partner-competition-landscape
-- [ ] partner-pain-points
-- [ ] partner-business-review
+- [x] channel-partner-engagement
+- [x] partner-potential
+- [x] partner-sentiment
+- [x] ideal-channel-partner-profile
+- [x] partner-decision-authority
+- [x] partner-competition-landscape
+- [x] partner-pain-points
+- [x] partner-business-review
 
 **Pricing & deal desk**
 - [ ] deal-desk-approval-brief

@@ -1,0 +1,34 @@
+{
+  "skill_name": "call-prep",
+  "evals": [
+    {
+      "id": 1,
+      "name": "call-prep-eval-1",
+      "prompt": "run call-prep on skills/call-prep/assets/sample-transcript.txt",
+      "expected_output": "The prep lists the six-hours-a-week manual process, the missing success number, the approver (Noor) who has not seen the product, and the December contract date as unknown. The open commitments show no owner or date for the overview, the contract date, and the integration check. The ask is marked as the rep's proposal.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "Lists Noor as an approver who has not seen the product",
+        "Marks the ask as the rep's proposal, not as agreed"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "call-prep-eval-2-thin-input",
+      "prompt": "run call-prep on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}

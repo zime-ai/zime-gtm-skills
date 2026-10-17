@@ -1,13 +1,13 @@
 # zime-gtm-skills
 
-[![Skills](https://img.shields.io/badge/skills-45-blue)](skills/)
+[![Skills](https://img.shields.io/badge/skills-64-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 45 [Agent Skills](https://agentskills.io) that audit sales call
+here. 64 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
@@ -43,6 +43,8 @@ bug or have a question? [Open an issue](https://github.com/zime-ai/zime-gtm-skil
 - [License](#license)
 
 ## See it work
+
+Live demo, one call reviewed with and without a skill: <https://zime-ai.github.io/zime-gtm-skills/>
 
 Real output from three skills, one per output shape, each run against its
 own bundled sample data: nothing invented for this README. Skim the
@@ -258,8 +260,8 @@ See [Installation](#installation) below for the submodule option and the
 
 ## How these fit together
 
-45 skills: 24 stage motions laid out across the deal lifecycle, 12
-cross-stage initiative skills, and 9 deal-intelligence skills that write
+64 skills: 24 stage motions laid out across the deal lifecycle, 20
+cross-stage initiative skills, and 20 deal-intelligence skills that write
 something forward — a plan, a digest, a drafted email — instead of grading
 a call.
 
@@ -320,10 +322,10 @@ beyond whatever your agent's own model call already sends.
 
 ## Available skills
 
-**Flagship skills** (hand-written, with the buyer-said evidence rules above): `deep-discovery`, `meddicc`, `bant`, `technical-discovery`, `meeting-to-qualify`, `improve-demo`, `follow-up-email-drafter`, `deal-risk-digest`, `next-step-commitment`, `win-loss-brief`. The other skills in the list are **community preview**: they work and pass validation, and their rubrics are still being rewritten to the same standard.
+Every skill here follows the evidence rules above. `deep-discovery`, `meddicc`, `bant`, `technical-discovery` and `meeting-to-qualify` also have planted-fact test banks that you can run as a manual regression check (see `SKILL-DESIGN.md`). `deep-discovery` is the best rubric to read first.
 
 <details open>
-<summary>45 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
+<summary>64 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
 
 <!-- SKILLS:START -->
 **New business**
@@ -376,6 +378,14 @@ beyond whatever your agent's own model call already sends.
 | [sell-the-dream](skills/sell-the-dream/) | Whether a call builds a future-state vision before pitching product, scored against Andy Raskin's "5 Elements of a Great Sales Narrative" and flagged for feature-first sequencing violations | transcript |
 | [competitive-positioning](skills/competitive-positioning/) | How a rep positioned against a named rival — buyer's criteria heard, difference tied to a criterion, proof, honest gap, buyer test | transcript |
 | [multi-threading](skills/multi-threading/) | Buying-group breadth — group mapped, approver reached, technical evaluator reached, daily users heard, second advocate, dated plan to broaden | transcript |
+| [partner-business-review](skills/partner-business-review/) | A partner QBR — results against goals, named pipeline, registration status, blockers with owners, next goal | transcript |
+| [channel-partner-engagement](skills/channel-partner-engagement/) | How engaged a channel partner is — figures, capacity, reach, last real activity, enablement, dated plan | transcript |
+| [partner-pain-points](skills/partner-pain-points/) | A partner's own problems — the problem, its cost, who feels it, root cause, prior fix, what would help | transcript |
+| [partner-sentiment](skills/partner-sentiment/) | How a channel partner really feels — stance in their words, action behind it, rivals they favor, friction, long-term intent | transcript |
+| [partner-competition-landscape](skills/partner-competition-landscape/) | What a partner carries — rivals, share, differences, terms, switch conditions, conflict rules | transcript |
+| [partner-decision-authority](skills/partner-decision-authority/) | Who decides at a partner and how — decider, process, criteria, commitment, competing priorities, dated decision | transcript |
+| [ideal-channel-partner-profile](skills/ideal-channel-partner-profile/) | Fit evidence for a prospective partner — buyer relationship, vendor work, capacity, reach, technology habits | transcript |
+| [partner-potential](skills/partner-potential/) | Whether a partner's deal is real — named end customer, fit stated by both sides, purchase step, timeline, roles, terms | transcript |
 
 **Deal intelligence**
 
@@ -390,11 +400,22 @@ beyond whatever your agent's own model call already sends.
 | [champion-tracker](skills/champion-tracker/) | Builds a cited action ledger of who's actually acting like a champion across a deal's calls vs. who's just enthusiastic, and reads the trend | transcript |
 | [competitor-battlecard](skills/competitor-battlecard/) | Writes a battlecard for the competitor a buyer actually named on a call — their framing, the rep's counter, and what went unanswered, citing only the transcript | transcript |
 | [loss-review](skills/loss-review/) | Whether a loss debrief learned the real reason — outcome confirmed, reason in the buyer's words, chosen option, decider, flip condition, reopen condition | transcript |
+| [call-prep](skills/call-prep/) | Prep for the next call from the prior calls — where things left off, open commitments, what is still unknown, risks, a proposed agenda and ask | transcript |
+| [handover-to-customer-success](skills/handover-to-customer-success/) | Sales to Customer Success handover — why they bought, success measure, people, what was promised, gaps, key dates | transcript |
+| [renewal-prep](skills/renewal-prep/) | Renewal prep from recent customer calls — value in the customer's words, who uses it, risks, open issues, real expansion signals | transcript |
+| [coaching-plan](skills/coaching-plan/) | A coaching plan for one rep from two or more calls — the repeated pattern, a question to practice, a drill | transcript |
+| [stuck-deal-digest](skills/stuck-deal-digest/) | Deals that stopped moving — silent, aged in stage, overdue next step, with the cells behind each call | CRM export |
+| [pipeline-review](skills/pipeline-review/) | Weekly pipeline review brief — snapshot by stage, change since the last export, deals that need attention, data gaps | CRM export |
+| [forecast-review](skills/forecast-review/) | Tests the commit list — commit deals that do not hold up, with cited cells and value at risk | CRM export |
+| [wbr-report-generator](skills/wbr-report-generator/) | Numbers section of a weekly business review — headline figures, movement, risks, what the export cannot tell | CRM export |
+| [objection-pattern-digest](skills/objection-pattern-digest/) | Objections that repeat across calls — themes, call counts, resolved or not, what worked | transcripts |
+| [competitive-loss-digest](skills/competitive-loss-digest/) | Which rivals take deals and why — counts, amount lost, buyer-stated versus rep-stated reasons | CRM export |
+| [rep-ramp-status-digest](skills/rep-ramp-status-digest/) | A new rep's ramp status by technique across weeks — improving, flat, regressing, not enough evidence | transcripts |
 <!-- SKILLS:END -->
 
 </details>
 
-All 24 stage motions are covered; the initiative set is 12 skills today.
+All 24 stage motions are covered; the initiative set is 20 skills today.
 New skills welcome, see [CONTRIBUTING.md](CONTRIBUTING.md). For how these
 are tested, and what that testing can and can't prove, see
 [EVALS.md](EVALS.md).
