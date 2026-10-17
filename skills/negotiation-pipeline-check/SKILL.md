@@ -1,6 +1,6 @@
 ---
 name: negotiation-pipeline-check
-description: Sweeps a deal/pipeline export for deals in negotiation with no paper process started, no named approver on a discount, no credible close date, or no named signature path. Use when reviewing forecast-stage negotiation deals for whether they have a real mechanical path to signature, not just a stated intent to close.
+description: Sweeps a deal/pipeline export for deals in negotiation with no paper process started, no named approver on a discount, no credible close date, or no named signature path. Use when reviewing forecast-stage negotiation deals for whether they have a real mechanical path to signature, not just a stated intent to close. Also use when the user asks which negotiation deals have no real path to signature.
 license: MIT
 metadata:
   zime:category: new-business
@@ -75,7 +75,7 @@ no cited cell does not ship. Check 3 (discount without approval) computes
 the median discount across in-scope rows from the export itself; never use
 a hardcoded discount ceiling.
 
-Run the reads-well-too check from `references/rubric.md` first if working
+Run the reads-well-too test from `references/rubric.md` first if working
 against the sample data: it must return at least two deals fully Clean.
 
 ## Step 5: Output

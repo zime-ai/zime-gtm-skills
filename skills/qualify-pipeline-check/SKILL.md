@@ -1,6 +1,6 @@
 ---
 name: qualify-pipeline-check
-description: Sweeps a CRM/pipeline export for deals that advanced past the Qualify stage without the facts that stage is supposed to establish — economic buyer, pain, budget signal, a close date consistent with the procurement cycle, a next step, and a qualification-framework record. Use when RevOps or a manager wants to audit the Qualify pipeline for deals advanced on hope rather than evidence. Does not read call transcripts — that's `meeting-to-qualify` (audits the qualification call itself) or `sql-to-qualify` (audits the SQL handoff call); this one only asks whether the CRM record itself can prove qualification happened.
+description: Sweeps a CRM/pipeline export for deals that advanced past the Qualify stage without the facts that stage is supposed to establish — economic buyer, pain, budget signal, a close date consistent with the procurement cycle, a next step, and a qualification-framework record. Use when RevOps or a manager wants to audit the Qualify pipeline for deals advanced on hope rather than evidence. Does not read call transcripts — that's `meeting-to-qualify` (audits the qualification call itself) or `sql-to-qualify` (audits the SQL handoff call); this one only asks whether the CRM record itself can prove qualification happened. Also use when the user asks which Qualify deals are hollow or advanced without proof.
 license: MIT
 metadata:
   zime:category: new-business

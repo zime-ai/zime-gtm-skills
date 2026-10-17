@@ -67,7 +67,20 @@ required field, not estimated.
 Flagged if the close date is before today's date while the deal still sits
 in prospect stage.
 
-## Reads-well-too check
+## Questions behind each flag
+
+A cell holds what someone typed. It cannot prove why a deal looks the way it does. The sweep does not print these questions. A manager uses them in the review, one per flag.
+
+- Has anyone at the buyer replied or joined a call?
+- What happened to the meeting that was scheduled?
+- Who else at the buyer can we reach?
+- What changed since the deal was created?
+- What is the real deal size, and why?
+- What is the new close date, and what drives it?
+
+A rep's confidence is not evidence. Ask for the buyer's own words or a dated step before you trust a field.
+
+## Reads-well-too test
 
 A deal with a genuinely responsive prospect — logged replies, a completed
 meeting, more than one engaged contact — should come back Clean across all

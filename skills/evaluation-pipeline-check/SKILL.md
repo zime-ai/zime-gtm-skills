@@ -1,6 +1,6 @@
 ---
 name: evaluation-pipeline-check
-description: Sweeps a deal/pipeline export for technical evaluations running without defined success criteria, a technical champion, or an evaluation end date, and flags evaluations running long, stalled, or missing a security/procurement review relative to the export's own norms. Use when reviewing deals sitting in a technical evaluation stage, or auditing a pipeline export before a forecast call.
+description: Sweeps a deal/pipeline export for technical evaluations running without defined success criteria, a technical champion, or an evaluation end date, and flags evaluations running long, stalled, or missing a security/procurement review relative to the export's own norms. Use when reviewing deals sitting in a technical evaluation stage, or auditing a pipeline export before a forecast call. Also use when the user asks which technical evaluations have no plan or are drifting.
 license: MIT
 metadata:
   zime:category: new-business
