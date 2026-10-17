@@ -54,13 +54,28 @@ Re-check the rest of the transcript before listing a claim as unanswered;
 if the rep circles back to it later, it belongs in section 4 instead, not
 section 5.
 
+## What does not count as a competitor
+
+Read this list before you name a competitor.
+
+- "Other options" or "a few vendors" with no name. This is a Partial finding in the audit skills. A battlecard needs a name.
+- An evaluation that ended long ago, unless the buyer says what it taught them.
+- A vendor that only the rep names. The buyer must name it, or accept it when the rep names it.
+- A claim from a vendor-written comparison page that the buyer repeats. Treat it as one framing, and tag it tentative.
+
+A call where the buyer names no alternative does not prove that no competition exists. Say that no competitor was named, and stop.
+
+## What a strong call does
+
+A strong call asks which option the buyer prefers today and what gap that option has. It then turns the gap into a yes-or-no test, and it says plainly what the product does not do yet, with an owner and a date.
+
 ## Evidence rule
 
 Every element in every section — the competitor mention, the framing, each
 claim, each rebuttal, each unanswered item — cites its quote or timestamp.
 An element with no cited evidence does not ship.
 
-## Reads-well-too check
+## Reads-well-too test
 
 A call where the rep countered every claim the buyer raised should come
 back with an explicit "rep addressed everything raised" in section 5, not
