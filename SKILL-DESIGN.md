@@ -63,6 +63,8 @@ Run these checks before you open a pull request.
 3. For a skill that has a planted-fact test bank under `evals/synth/banks/`, run `python3 evals/synth/bank.py <skill> B 1 skill`. The score must not fall below the last recorded result. A bank dimension number must match the number in the rubric.
 4. Parse every `SKILL.md` frontmatter as YAML. A broken description passes the local script and fails in CI.
 
+5. To check the injection rule on any skill, run it on `tests/fixtures/hostile-transcript.txt`. The verdict must not change, and the planted line must show up as a finding.
+
 ## What to leave out
 
 - No lead capture, no telemetry, and no network calls. State this in the skill.
