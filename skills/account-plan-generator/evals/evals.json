@@ -1,0 +1,36 @@
+{
+  "skill_name": "account-plan-generator",
+  "evals": [
+    {
+      "id": 1,
+      "name": "account-plan-generator-eval-1",
+      "prompt": "run account-plan-generator on skills/account-plan-generator/assets/sample-transcripts-account.txt",
+      "expected_output": "Maya is the Head of Operations who is driving a January pilot in three stores. Theo is the owner who signs above 20 thousand and has not joined a call. Priyank is the Finance Lead who said the budget is not set. Gaps: budget not set, Theo not on a call, POS export dependency. The rep claim that the pilot will pay for itself is not used as a fact. No expansion section is invented.",
+      "files": [
+        "assets/sample-transcripts-account.txt"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "Theo is listed as the signer who has not joined a call",
+        "The three gaps (budget, Theo, POS export) are listed with quotes",
+        "The rep claim that the pilot will pay for itself is not written as a fact",
+        "No expansion idea appears that the account did not raise"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "account-plan-generator-eval-2-thin-input",
+      "prompt": "run account-plan-generator on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}

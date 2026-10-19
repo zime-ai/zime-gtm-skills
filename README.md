@@ -1,13 +1,13 @@
 # zime-gtm-skills
 
-[![Skills](https://img.shields.io/badge/skills-65-blue)](skills/)
+[![Skills](https://img.shields.io/badge/skills-71-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 65 [Agent Skills](https://agentskills.io) that audit sales call
+here. 71 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
@@ -260,8 +260,8 @@ See [Installation](#installation) below for the submodule option and the
 
 ## How these fit together
 
-65 skills: 24 stage motions laid out across the deal lifecycle, 20
-cross-stage initiative skills, and 21 deal-intelligence skills that write
+71 skills: 24 stage motions laid out across the deal lifecycle, 20
+cross-stage initiative skills, and 27 deal-intelligence skills that write
 something forward — a plan, a digest, a drafted email — instead of grading
 a call.
 
@@ -329,7 +329,7 @@ No skill needs a CRM. Every pipeline skill reads a CSV export. If your CRM alrea
 Every skill here follows the evidence rules above. `deep-discovery`, `meddicc`, `bant`, `technical-discovery` and `meeting-to-qualify` also have planted-fact test banks that you can run as a manual regression check (see `SKILL-DESIGN.md`). `deep-discovery` is the best rubric to read first.
 
 <details open>
-<summary>65 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
+<summary>71 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
 
 <!-- SKILLS:START -->
 **New business**
@@ -416,6 +416,12 @@ Every skill here follows the evidence rules above. `deep-discovery`, `meddicc`, 
 | [competitive-loss-digest](skills/competitive-loss-digest/) | Which rivals take deals and why — counts, amount lost, buyer-stated versus rep-stated reasons | CRM export |
 | [rep-ramp-status-digest](skills/rep-ramp-status-digest/) | A new rep's ramp status by technique across weeks — improving, flat, regressing, not enough evidence | transcripts |
 | [crm-export](skills/crm-export/) | Reads open deals from your connected CRM, read-only, and writes a local CSV for the pipeline skills (optional, never writes to the CRM) | connector |
+| [client-testimonial-finder](skills/client-testimonial-finder/) | Finds quotable customer lines in a call and sorts out the lines that are not usable or need permission | transcript |
+| [reference-case-study-drafter](skills/reference-case-study-drafter/) | Drafts a short customer case study from a customer call, built only from the customer's words, with the figures and permission still needed | transcript |
+| [account-plan-generator](skills/account-plan-generator/) | Plans one account from its call transcripts: people and roles, what they want, open items, and the gaps to close in 30 days | transcript |
+| [territory-summary](skills/territory-summary/) | Summarizes coverage by territory from an account export: open amount, concentration in one account, and accounts gone quiet | csv |
+| [discount-pattern-digest](skills/discount-pattern-digest/) | Finds discount patterns by owner and outlier in a pipeline export, naming an owner only when three deals support it | csv |
+| [deal-desk-approval-brief](skills/deal-desk-approval-brief/) | Writes an approval brief from a pipeline export: deals with a discount well above the export's own norm, what each approver still needs, and open approvals | csv |
 <!-- SKILLS:END -->
 
 </details>
