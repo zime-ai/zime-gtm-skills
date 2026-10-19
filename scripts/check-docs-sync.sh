@@ -166,6 +166,14 @@ else
     ((ISSUES += roadmap_orphans))
 fi
 
+# README diagrams are generated from skills/*; fail when a file is stale or a color pair is too faint.
+if [[ -f scripts/build-diagrams.py ]]; then
+    if ! diag_out=$(python3 scripts/build-diagrams.py --check 2>&1); then
+        echo -e "${RED}FAIL${NC} diagrams: $diag_out"
+        ((ISSUES++))
+    fi
+fi
+
 echo ""
 echo "================================================================"
 if [[ $ISSUES -gt 0 ]]; then
