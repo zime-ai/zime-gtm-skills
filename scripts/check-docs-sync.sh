@@ -166,6 +166,15 @@ else
     ((ISSUES += roadmap_orphans))
 fi
 
+# The demo page quotes the skill count too.
+if [[ -f docs/index.html ]]; then
+    demo_count=$(grep -oE '[0-9]+ skills, MIT' docs/index.html | head -1 | grep -oE '^[0-9]+')
+    if [[ -n "$demo_count" && "$demo_count" != "$actual_count" ]]; then
+        echo -e "${RED}FAIL${NC} docs/index.html says $demo_count skills but skills/ has $actual_count"
+        ((ISSUES++))
+    fi
+fi
+
 # README diagrams are generated from skills/*; fail when a file is stale or a color pair is too faint.
 if [[ -f scripts/build-diagrams.py ]]; then
     if ! diag_out=$(python3 scripts/build-diagrams.py --check 2>&1); then
