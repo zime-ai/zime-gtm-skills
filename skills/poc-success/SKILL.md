@@ -44,7 +44,7 @@ credentials, nothing leaves your machine.
   the output, and move on.
 - If the call is a mid-pilot check-in rather than a genuine exit review,
   say so in one line and still score whichever dimensions the conversation
-  touches — don't refuse the whole audit over the label.
+  touches. The label does not change the rubric.
 - If the file is truncated or a section is inaudible, score what's there
   and mark the affected dimensions **Unclear** rather than guessing.
 

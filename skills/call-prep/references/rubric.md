@@ -40,7 +40,7 @@ Propose a short agenda of three items at most. State the one ask for the call as
 
 Run this test in both directions before you finalize.
 
-- A deal with a clear state, owned commitments, and a short list of gaps must produce a short, clean prep. Do not pad it with risks.
+- A deal with a clear status, owned commitments, and a short list of gaps must produce a short, clean prep. Do not pad it with risks.
 - A thin input must not get a padded output. When the input supports two items, write two. Do not invent a third to reach a count.
 
 ## Sources

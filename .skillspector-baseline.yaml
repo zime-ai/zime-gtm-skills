@@ -1,0 +1,20 @@
+# SkillSpector baseline. Every rule below is a reviewed false positive.
+# Skills here are read-only audits: they read one file and write a report.
+# A rule matches only when every field it sets matches the finding.
+version: 2
+
+rules:
+  - id: "EA2"
+    path: "*SKILL.md"
+    message: "*without asking*"
+    reason: "Read-only audit with no side effects. Proceeding without asking the user is the intended behavior."
+  - id: "EA2"
+    path: "*SKILL.md"
+    message: "*without approval*"
+    reason: "Names a flagged deal condition (a discount with no recorded approver). It is a check the audit reports, not an action the agent takes."
+  - id: "EA2"
+    path: "*references/*"
+    reason: "Rubric text describes what a rep or buyer did on a call (for example, a discount without approval). It is not an instruction to the agent."
+  - id: "EA2"
+    path: "*evals/evals.json"
+    reason: "Eval prompts quote the same call behavior as the rubric. They are test data, not instructions."
