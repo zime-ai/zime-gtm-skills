@@ -3,6 +3,16 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [3.6.0] — Six new skills and a redesigned README
+
+Skill count goes from 65 to 71: 24 stage skills, 20 initiative skills, and 27 deal-intelligence skills.
+
+Pricing and territory, from an export: `deal-desk-approval-brief` lists the deals with a discount well above the export's own norm and what each approver still needs. `discount-pattern-digest` names an owner as a pattern only when three deals support it. `territory-summary` shows coverage, concentration in one account, and accounts that went quiet. Every figure is computed from the rows.
+
+Account and customer proof, from calls: `account-plan-generator` plans one account from its transcripts and writes a role only when someone said it. `reference-case-study-drafter` writes a draft from the customer's own words and lists the figures and permission still needed. `client-testimonial-finder` keeps only specific lines that the customer said, and sorts out hedged, conditional, and off-the-record lines.
+
+README. The top now has a hero picture, a nav row, and plain-language example prompts. The stale text diagram is replaced by a generated skill map, a how-a-skill-works flow, and a sample audit card, each in a light and a dark version. `scripts/build-diagrams.py` builds them from the skills' own metadata, so counts cannot drift. `scripts/check-docs-sync.sh` fails when a picture is stale or a color pair is too faint to read.
+
 ## [3.5.0] — Optional CRM path, a security gate, and diff-scoped review
 
 Skill count goes from 64 to 65. The new skill is `crm-export`.
