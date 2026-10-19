@@ -3,6 +3,10 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [3.6.1] — README fixes
+
+The sample output picture now shows the last lines of a call next to the audit of it, and the text no longer touches the card edge. The badge row is centered under the hero picture. The repository description now says 71 skills.
+
 ## [3.6.0] — Six new skills and a redesigned README
 
 Skill count goes from 65 to 71: 24 stage skills, 20 initiative skills, and 27 deal-intelligence skills.
