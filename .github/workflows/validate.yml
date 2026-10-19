@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # the security scan needs history to find changed skills
 
       - uses: actions/setup-python@v5
         with:
@@ -41,3 +43,18 @@ jobs:
             echo "Validating ${dir%/}"
             skills-ref validate "${dir%/}"
           done
+
+      # Static security scan, no model calls. Pinned to a commit so upstream
+      # changes cannot silently break CI. Pull requests scan only the skills
+      # they changed. Pushes scan every skill. High or critical fails the job.
+      - name: Install SkillSpector
+        run: |
+          pip install "git+https://github.com/NVIDIA/SkillSpector.git@cf5cac7ba5c756a6e0ebf52dc9763f49422f889f"
+
+      - name: Security scan (changed skills on a PR, all skills on a push)
+        run: |
+          if [ "${{ github.event_name }}" = pull_request ]; then
+            ./scripts/skillspector-gate.sh "origin/${{ github.base_ref }}"
+          else
+            ./scripts/skillspector-gate.sh all
+          fi
