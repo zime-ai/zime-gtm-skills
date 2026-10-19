@@ -45,9 +45,7 @@ asks only whether the CRM can prove qualification happened at all.
 A `.csv` deal/pipeline export. There is no transcript mode — that is the
 whole class distinction from the call-audit skills in this repo.
 
-Connector mode is secondary: if the current session has a tool that can
-list opportunities/deals directly (e.g. a CRM MCP tool), call it and treat
-each returned row exactly like a CSV row. Otherwise, ask for a CSV export.
+Connector mode is secondary: if the current session has a CRM connector, run `crm-export` first, or call its read tools and treat each returned row exactly like a CSV row. Use read tools only. Otherwise, ask for a CSV export.
 
 ```
 claude "run qualify-pipeline-check on ./exports/pipeline.csv"

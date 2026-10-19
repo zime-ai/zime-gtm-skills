@@ -47,9 +47,7 @@ claude "run prospect-pipeline-check on ./exports/pipeline.csv"
 ```
 
 **Input.** A `.csv` deal/pipeline export. There is no transcript mode for
-this skill. If the conversation has a connector tool that can list
-opportunities/deals, you may use it instead and treat the returned rows
-exactly like CSV rows — CSV is the default path.
+this skill. If the conversation has a CRM connector, run `crm-export` first, or read deals with its read tools and treat each row exactly like a CSV row. Use read tools only. CSV is the default path.
 
 **Column detection.** Match headers case-insensitively, ignoring
 `_`/`-`/space differences, and accept the synonyms listed in
