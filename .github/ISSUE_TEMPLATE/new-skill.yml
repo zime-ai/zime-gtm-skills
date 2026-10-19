@@ -26,7 +26,7 @@ body:
       label: Proposed rubric dimensions
       description: >
         List the 5-10 things a good call/deal on this motion should show.
-        Your own words — see CONTRIBUTING.md on why rubric text must be
+        Your own words. See CONTRIBUTING.md on why rubric text must be
         written fresh, not copied from anywhere.
     validations:
       required: true

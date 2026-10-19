@@ -25,7 +25,7 @@ already has**: call transcripts and CRM exports, never a live connection.
 Each skill's rubric is grounded in Zime's internal initiative/checklist
 taxonomy: customer-visible checklist question text (see "The IP boundary"
 below for what's still off-limits), pruned down to the items distinctive to
-that motion, then written up fresh as a full rubric dimension — what it is,
+that motion, then written up fresh as a full rubric dimension: what it is,
 what good coverage looks like, what a miss looks like. The prose framing is
 never copy-pasted from an internal scoring guide.
 
@@ -41,7 +41,7 @@ and are permitted. What stays out:
   to a Zime customer today
 
 Before any rubric change goes public, check it against that boundary, not
-against a "does this echo a checklist title" test — that test is gone now
+against a "does this echo a checklist title" test. That test is gone now
 that checklist text itself is allowed.
 
 ## Sample-transcript rules
@@ -51,7 +51,7 @@ data of the user's own. Rules for any sample file (transcript or CSV):
 
 - **Synthetic or fully anonymized.** Never a real call or export, even with
   names stripped: anonymizing free text is easy to get wrong.
-- Transcripts carry a `[Synthetic transcript for demo purposes only — no
+- Transcripts carry a `[Synthetic transcript for demo purposes only, no
   real company or person]` header line.
 - Deliberately mixed quality: a sample that covers everything perfectly
   gives an eval nothing to find. Show some Covered, some Partial/Missed.
@@ -64,7 +64,7 @@ data of the user's own. Rules for any sample file (transcript or CSV):
 2. **Never expose anything that isn't already customer-visible in the Zime
    product**: see the IP boundary section above.
 
-## Two dimensions: stage, initiative — plus a third, intelligence
+## Two dimensions: stage and initiative, plus a third, intelligence
 
 Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
 
@@ -73,7 +73,7 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   `bant`, `pain-finder`, `next-step-commitment`, `meddpicc`, `faint`,
   `sandler`, `challenger`, and `sell-the-dream` are initiative skills that
   run at any stage. `sell-the-dream` is the one to check before assuming
-  `zime:initiative` names a branded methodology — it doesn't (see its
+  `zime:initiative` names a branded methodology. It doesn't (see its
   `SKILL.md`'s provenance note): research found no canonical "sell the
   dream" framework, so it ships anchored on Andy Raskin's publicly
   published "5 Elements of a Great Sales Narrative" instead, with the
@@ -85,30 +85,30 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   `cp -r skills/* .agents/skills/` install line would copy the nesting dirs
   as if they were skills themselves.
 - **`intelligence`** is a third `zime:dimension` value, added for
-  `ROADMAP.md`'s phase-2 "deal intelligence" skills — `mutual-action-plan`,
+  `ROADMAP.md`'s phase-2 "deal intelligence" skills: `mutual-action-plan`,
   `deal-risk-digest`, `deal-highlights`, `follow-up-email-drafter`,
   `win-loss-brief`, `executive-briefing`, `champion-tracker`,
   `competitor-battlecard` so far. They write something forward (a plan, a
   digest, a drafted email) instead of grading a call against a rubric, so
-  neither `stage` nor `initiative` fit — see the frontmatter contract in
+  neither `stage` nor `initiative` fit. See the frontmatter contract in
   `AGENTS.md`. They still ship `assets/` + `evals/evals.json` like any
   runnable skill; they get their own "Deal intelligence" group in the
   README's Available skills table instead of a Stage/Initiative pair.
   `follow-up-email-drafter` is the first skill in this repo whose *output*
-  is customer-facing text rather than an internal audit, digest, or plan —
-  worth remembering if a future skill in this dimension needs the same
+  is customer-facing text rather than an internal audit, digest, or plan.
+  Remember this if a future skill in this dimension needs the same
   grounding-rule treatment (see its `SKILL.md`). `champion-tracker` reuses
   `meddicc`'s Champion letter definition verbatim rather than inventing a
-  second standard — worth doing again whenever a new skill's concept
+  second standard; worth doing again whenever a new skill's concept
   already has a home elsewhere in the repo.
-- This 41-skill set is a deliberate proof-set, not the full catalogue — see
+- This 41-skill set is a deliberate proof-set, not the full catalogue. See
   `ROADMAP.md` for what's built and what's next. Expand it the same way the
   first 4 initiative skills were built.
 - README's "How these fit together" skill map is a plain ASCII diagram in a
-  fenced code block (not `mermaid`/`d2`) — keeps it legible at README width
+  fenced code block (not `mermaid`/`d2`). That keeps it legible at README width
   without an image asset to regenerate.
 
-## Verification state, honestly
+## Verification state
 
 - **Structural validation**: all 41 skills pass `./validate-skills.sh`
   (which now also checks `zime:dimension` is present/valid, and that any
@@ -116,23 +116,23 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   the pinned `skills-ref validate` in CI. 3 skills
   (`evaluation-pipeline-check`, `negotiation-pipeline-check`,
   `sql-to-qualify`) shipped with a nonstandard `{"cases"}` schema that this
-  check didn't catch — fixed to the canonical `{skill_name, evals}` shape.
+  check didn't catch. It was fixed to the canonical `{skill_name, evals}` shape.
 - **Tier 0 (gap diff vs. ground truth)**: the framework (`evals/framework/`,
   promptfoo-backed) has landed. Ground truth comes from two sources, never
   blended: `evals/gt/` (hand-authored, needs a human this repo doesn't
   have) and `evals/gt-web/` (a real named expert's already-published call
-  critique, autonomously harvested — see `evals/gt-web/README.md` and
+  critique, autonomously harvested; see `evals/gt-web/README.md` and
   `evals/SCORECARD.md`). The web-sourced path only covers stage-motion
   skills with public call-coaching content; deal-intelligence/writer skills
   have no such content and carry no Tier 0 number by design, not omission.
 - **Functional validation**: `deep-discovery` and `deal-risk-digest` have
-  actually been run end-to-end against their sample data and had output
-  checked for correctness — `deal-risk-digest`'s build independently
+  been run end-to-end against their sample data and had output
+  checked for correctness: `deal-risk-digest`'s build independently
   recomputed every row of its sample CSV and confirmed the eval's required
   ranking held. The other 39 have evals written (see below) but have not
   been manually run.
 - **CSV mode**: exercised for the first time by `deal-risk-digest` (see
-  above) — that skill is CSV-only. Still unexercised as a *secondary* input
+  above). That skill is CSV-only. Still unexercised as a *secondary* input
   mode on every `stage`/`initiative` skill that also accepts `.csv`. A
   shared synthetic pipeline export exists at
   `skills/deep-discovery/assets/sample-pipeline.csv`.
@@ -140,17 +140,17 @@ Skills cover two axes, both ordinary skills in a flat `skills/`, no nesting:
   `validate-skills.sh`, `scripts/check-docs-sync.sh`, and
   `scripts/scan-content.py` against scratch fixtures with a deliberately
   mismatched `name`/directory, missing frontmatter fields, an un-ignored
-  private data dir, a leaked home path, an injection pattern, and more —
-  asserting the real script fails with the right message, not just that it
+  private data dir, a leaked home path, an injection pattern, and more,
+  asserting that the real script fails with the right message, not just that it
   exists. Wired into `.github/workflows/validate.yml` as its own step.
 - **Vertical overlay demo (Tier 2)**: paused, not run. Was scoped as running
   `pain-finder` with no vertical named vs. `vertical: cybersecurity` named
-  and confirming the output's vocabulary/framing actually changes. Blocked
-  on `vertical-context` returning from its own branch after domain review —
-  see "Two dimensions" above.
+  and confirming the output's vocabulary/framing changes. Blocked
+  on `vertical-context` returning from its own branch after domain review.
+  See "Two dimensions" above.
 - **Gold-label insight recall (Tier 3)**: the `evals/gt/` path (a human,
   not the rubric author, gold-labeling sample transcripts) is not started
-  and stays blocked — no such human is available. The `evals/gt-web/` path
+  and stays blocked because no such human is available. The `evals/gt-web/` path
   is this repo's practical substitute: see `evals/SCORECARD.md` for actual
   recall/precision numbers, scoped to the skills where a real published
   critique exists. See `EVALS.md` for the full methodology.
@@ -175,7 +175,7 @@ eval, not just this section.
   a small harness and comparing against the expectations.
 - **The `vertical-context` skill** (a third axis: industry reference packs
   for cybersecurity, healthcare, fintech, loaded by other skills on request)
-  was pulled off `main` before public launch — it never got the
+  was pulled off `main` before public launch. It never got the
   domain-expert review its own "Status: unreviewed" line called for, and a
   public repo isn't the place to let that sit unresolved. It lives on the
   `vertical-context` branch, snapshotted at the point of removal, with a
@@ -235,12 +235,12 @@ with explicit stop conditions instead of ad hoc judgment each time:
 
 What this is **not**: a CI job, unattended, or something that merges without
 review. It's the same manual flow already run for `deep-discovery` (the one
-skill actually run end-to-end, see "Verification state" above), made
+skill run end-to-end, see "Verification state" above), made
 repeatable. Running this loop unattended in CI, with no human anywhere in it,
 is explicitly out of scope. It would need a much stronger verifier than "a
 fresh Claude session reads it," since this repo's IP and evidence-citation
 rules aren't mechanically checkable. Said plainly rather than implying more
-autonomy than actually exists.
+autonomy than exists.
 
 ### PR-Agent
 
@@ -265,7 +265,7 @@ run the workflow against that secret unapproved.
 
 Fork PRs never see the secret regardless (GitHub withholds it), so the job's
 `if:` skips them outright rather than running and failing. See
-`CONTRIBUTING.md` — fork PRs get maintainer review instead.
+`CONTRIBUTING.md`: fork PRs get a maintainer review instead.
 
 ## Reviewing a change
 
@@ -290,26 +290,26 @@ Separately: every one of the README's several count/table surfaces has to be
 updated by hand when a skill actually lands, or `dev` starts shipping a
 stale README. `scripts/check-docs-sync.sh` (wired into CI and into
 `scripts/pr-prep.sh`) catches a skipped step, but it doesn't do the step for
-you — steps 2-6 below are hand-edits by design, not generated, since the
+you. Steps 2-6 below are hand-edits by design, not generated, since the
 "Audits" column and the coverage-table cells are prose judgment calls, not
 something derivable from frontmatter.
 
-Skill branches PR into `dev`, not `main` — see "Releasing dev to main" below
+Skill branches PR into `dev`, not `main`. See "Releasing dev to main" below
 for how `dev` reaches `main`.
 
 1. Skill directory complete: `SKILL.md`, `references/`, `assets/`,
    `evals/evals.json`.
-2. `README.md` — bump the skill count in all four places: the badge, the
+2. `README.md`: bump the skill count in all four places: the badge, the
    opening paragraph, "How these fit together," and the `<summary>` tag.
-3. `README.md` — add a row inside `<!-- SKILLS:START -->`/`<!-- SKILLS:END -->`,
-   under the right group (New business / Post-sale / Initiative (cross-stage)
-   — matching the skill's `zime:category`), with a hand-written "Audits"
+3. `README.md`: add a row inside `<!-- SKILLS:START -->`/`<!-- SKILLS:END -->`,
+   under the right group (New business / Post-sale / Initiative (cross-stage),
+   matching the skill's `zime:category`), with a hand-written "Audits"
    summary and its input modes.
-4. `ROADMAP.md` — check the skill's box under its phase-1 group.
+4. `ROADMAP.md`: check the skill's box under its phase-1 group.
    `check-docs-sync.sh`'s `roadmap-in-sync` rule fails the PR if this is
    skipped.
-5. `./validate-skills.sh` && `./scripts/check-docs-sync.sh` — both must exit 0.
-6. `scripts/pr-prep.sh <worktree-path> "<PR title>"` — re-runs both gates,
+5. `./validate-skills.sh` && `./scripts/check-docs-sync.sh`. Both must exit 0.
+6. `scripts/pr-prep.sh <worktree-path> "<PR title>"`: re-runs both gates,
    pushes, opens the PR against `dev`. PR-Agent reviews automatically.
 7. Merging to `dev` is still a human decision. Unchanged by any of the above.
 
@@ -325,7 +325,7 @@ the other batch-landing skills) operationalizes this: it re-derives all five
 README count surfaces plus the GitHub repo description from what's actually
 in `skills/` (not from what individual skill PRs claimed), runs all four
 validators, adds the `CHANGELOG.md` entry, and opens the `dev` → `main` PR.
-Same human-merge rule applies — see "Who runs git commands" below.
+Same human-merge rule applies. See "Who runs git commands" below.
 
 Run it whenever a batch of `dev`-landed skills is ready to ship, not on a
 fixed cadence.
