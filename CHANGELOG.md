@@ -3,6 +3,10 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [3.6.2] — Demo page count
+
+The demo page at the repository site said 45 skills. It now says 71, and `scripts/check-docs-sync.sh` fails when that count and `skills/` disagree.
+
 ## [3.6.1] — README fixes
 
 The sample output picture now shows the last lines of a call next to the audit of it, and the text no longer touches the card edge. The badge row is centered under the hero picture. The repository description now says 71 skills.
