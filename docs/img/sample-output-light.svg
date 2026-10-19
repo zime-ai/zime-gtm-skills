@@ -1,28 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="1200" height="440" role="img" aria-label="Sample audit: next-step-commitment scores a call as a weak commitment, with a quote for each element">
-<title>Sample audit: next-step-commitment scores a call as a weak commitment, with a quote for each element</title>
-<rect x="0.5" y="0.5" width="1199" height="439" rx="14" fill="#fafaf8" stroke="#d9dad4"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" role="img" aria-label="Sample audit: the last lines of a call, and the next-step-commitment audit that scores it a weak commitment with a quote for each element">
+<title>Sample audit: the last lines of a call, and the next-step-commitment audit that scores it a weak commitment with a quote for each element</title>
+<rect x="0.5" y="0.5" width="1199" height="519" rx="14" fill="#fafaf8" stroke="#d9dad4"/>
 <text x="48" y="56" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" letter-spacing="2.4">SAMPLE OUTPUT</text>
 <text x="48" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#1f2430" >What an audit looks like</text>
-<rect x="48" y="124" width="1104" height="270" rx="10" fill="#f0f0ec" stroke="#d9dad4"/>
-<text x="72" y="160" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#1f2430" font-weight="600">next-step-commitment</text>
-<text x="1128" y="160" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" >skills/next-step-commitment/assets/sample-transcript.txt</text>
-<line x1="72" y1="176" x2="1128" y2="176" stroke="#d9dad4"/>
-<text x="72" y="216" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" letter-spacing="2">VERDICT</text>
-<text x="168" y="218" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#b8431f" >Weak commitment</text>
-<circle cx="80" cy="251" r="6" fill="#1f2430" stroke="#1f2430" stroke-width="2"/>
-<text x="100" y="256" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#1f2430" font-weight="600">Specific action</text>
-<text x="100" y="276" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" letter-spacing="1.2">Present</text>
-<text x="378" y="256" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#1f2430" >"I'll get that put together and send it your way."</text>
-<text x="378" y="276" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#4a5365" >A named deliverable, but only the rep owns it.</text>
-<circle cx="80" cy="305" r="6" fill="none" stroke="#1f2430" stroke-width="2"/>
-<text x="100" y="310" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#1f2430" font-weight="600">Date or concrete trigger</text>
-<text x="100" y="330" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" letter-spacing="1.2">Missing</text>
-<text x="378" y="310" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#1f2430" >"I'll be in touch soon once it's ready."</text>
-<text x="378" y="330" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#4a5365" >"Soon" is not a date, and nothing marks when it happened.</text>
-<circle cx="80" cy="359" r="6" fill="none" stroke="#1f2430" stroke-width="2"/>
-<text x="100" y="364" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#1f2430" font-weight="600">Two-sided ownership</text>
-<text x="100" y="384" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" letter-spacing="1.2">Missing</text>
-<text x="378" y="364" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#1f2430" >Nina: "I'll take a look when it comes through."</text>
-<text x="378" y="384" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#4a5365" >A hope, not a commitment. The buyer owns no step.</text>
-<text x="48" y="418" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#5b6578" font-style="italic">Every status carries a quote. A rep claim the buyer never accepted does not count.</text>
+<rect x="48" y="128" width="440" height="330" rx="10" fill="#f0f0ec" stroke="#d9dad4"/>
+<line x1="72" y1="180" x2="464" y2="180" stroke="#d9dad4"/>
+<rect x="548" y="128" width="604" height="330" rx="10" fill="#f0f0ec" stroke="#d9dad4"/>
+<line x1="572" y1="180" x2="1128" y2="180" stroke="#d9dad4"/>
+<text x="72" y="162" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#1f2430" font-weight="600" letter-spacing="1.6">THE CALL</text>
+<text x="464" y="162" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" >last three lines</text>
+<circle cx="84" cy="230" r="11" fill="none" stroke="#b8431f" stroke-width="1.5"/>
+<text x="84" y="234" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#b8431f" font-weight="700">1</text>
+<text x="110" y="220" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#5b6578" letter-spacing="1.4">ALEX, REP</text>
+<text x="110" y="244" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#1f2430" >"Great. I'll get that put together</text>
+<text x="110" y="264" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#1f2430" >and send it your way."</text>
+<circle cx="84" cy="316" r="11" fill="none" stroke="#b8431f" stroke-width="1.5"/>
+<text x="84" y="320" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#b8431f" font-weight="700">3</text>
+<text x="110" y="306" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#5b6578" letter-spacing="1.4">NINA, BUYER</text>
+<text x="110" y="330" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#1f2430" >"Perfect, sounds good. I'll take a</text>
+<text x="110" y="350" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#1f2430" >look when it comes through."</text>
+<circle cx="84" cy="402" r="11" fill="none" stroke="#b8431f" stroke-width="1.5"/>
+<text x="84" y="406" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#b8431f" font-weight="700">2</text>
+<text x="110" y="392" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#5b6578" letter-spacing="1.4">ALEX, REP</text>
+<text x="110" y="416" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#1f2430" >"Awesome. I'll be in touch soon</text>
+<text x="110" y="436" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#1f2430" >once it's ready."</text>
+<line x1="498" y1="293" x2="536" y2="293" stroke="#b8431f" stroke-width="2"/>
+<path d="M528 287 L538 293 L528 299" fill="none" stroke="#b8431f" stroke-width="2"/>
+<text x="572" y="162" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#1f2430" font-weight="600" letter-spacing="1.6">THE AUDIT</text>
+<text x="1128" y="162" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" >next-step-commitment</text>
+<text x="572" y="226" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" letter-spacing="2">VERDICT</text>
+<text x="660" y="228" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#b8431f" >Weak commitment</text>
+<text x="572" y="283" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" >1</text>
+<circle cx="606" cy="278" r="6" fill="#1f2430" stroke="#1f2430" stroke-width="2"/>
+<text x="626" y="283" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" fill="#1f2430" font-weight="600">Specific action</text>
+<text x="1128" y="283" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" letter-spacing="1.4">PRESENT</text>
+<text x="626" y="306" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#4a5365" >A named deliverable, but only the rep owns it.</text>
+<text x="572" y="345" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" >2</text>
+<circle cx="606" cy="340" r="6" fill="none" stroke="#1f2430" stroke-width="2"/>
+<text x="626" y="345" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" fill="#1f2430" font-weight="600">Date or concrete trigger</text>
+<text x="1128" y="345" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" letter-spacing="1.4">MISSING</text>
+<text x="626" y="368" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#4a5365" >"Soon" is not a date, and nothing marks when it happens.</text>
+<text x="572" y="407" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" >3</text>
+<circle cx="606" cy="402" r="6" fill="none" stroke="#1f2430" stroke-width="2"/>
+<text x="626" y="407" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" fill="#1f2430" font-weight="600">Two-sided ownership</text>
+<text x="1128" y="407" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#5b6578" letter-spacing="1.4">MISSING</text>
+<text x="626" y="430" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#4a5365" >"I'll take a look" is a hope. The buyer owns no step.</text>
+<text x="48" y="492" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#5b6578" font-style="italic">Every status carries a quote. A rep claim the buyer never accepted does not count.</text>
 </svg>
