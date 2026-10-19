@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 596" width="1200" height="596" role="img" aria-label="Map of 71 skills by deal stage">
+<title>71 skills by deal stage</title>
+<rect x="0.5" y="0.5" width="1199" height="595" rx="14" fill="#171a21" stroke="#2e333e"/>
+<text x="40" y="54" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" letter-spacing="2.4" fill="#9aa2b2">SKILL MAP</text>
+<text x="40" y="96" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#eceae4">What reps skip, by deal stage</text>
+<text x="1160" y="96" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#f08a59">71 skills</text>
+<text x="40" y="122" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#b7bcc7">Each skill audits one thing a deal needs at that stage, and cites a quote or a cell for every finding.</text>
+<line x1="40" y1="150" x2="1152" y2="150" stroke="#f08a59" stroke-width="2"/>
+<path d="M1150 145 L1160 150 L1150 155" fill="none" stroke="#f08a59" stroke-width="2"/>
+<circle cx="45" cy="150" r="5" fill="#171a21" stroke="#f08a59" stroke-width="2"/>
+<text x="40" y="180" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" letter-spacing="1.2" fill="#eceae4">PROSPECT AND QUALIFY</text>
+<text x="246" y="180" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2">5</text>
+<text x="40" y="206" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">prospect-pipeline-check</text>
+<text x="40" y="228" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">sql-to-qualify</text>
+<text x="40" y="250" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">meeting-to-qualify</text>
+<text x="40" y="272" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">qualify-pipeline-check</text>
+<text x="40" y="294" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">qualify-to-poc</text>
+<circle cx="269" cy="150" r="5" fill="#171a21" stroke="#f08a59" stroke-width="2"/>
+<text x="264" y="180" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" letter-spacing="1.2" fill="#eceae4">DISCOVER</text>
+<text x="470" y="180" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2">3</text>
+<text x="264" y="206" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">deep-discovery</text>
+<text x="264" y="228" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">persona-based-discovery</text>
+<text x="264" y="250" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">technical-discovery</text>
+<circle cx="493" cy="150" r="5" fill="#171a21" stroke="#f08a59" stroke-width="2"/>
+<text x="488" y="180" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" letter-spacing="1.2" fill="#eceae4">DEMO AND EVALUATE</text>
+<text x="694" y="180" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2">5</text>
+<text x="488" y="206" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">improve-demo</text>
+<text x="488" y="228" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">evaluation-pipeline-check</text>
+<text x="488" y="250" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">poc-pilot-pipeline-check</text>
+<text x="488" y="272" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">poc-success</text>
+<text x="488" y="294" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">pilot-to-conversion</text>
+<circle cx="717" cy="150" r="5" fill="#171a21" stroke="#f08a59" stroke-width="2"/>
+<text x="712" y="180" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" letter-spacing="1.2" fill="#eceae4">NEGOTIATE</text>
+<text x="918" y="180" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2">3</text>
+<text x="712" y="206" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">negotiation-closing</text>
+<text x="712" y="228" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">security-legal-review</text>
+<text x="712" y="250" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">negotiation-pipeline-check</text>
+<circle cx="941" cy="150" r="5" fill="#171a21" stroke="#f08a59" stroke-width="2"/>
+<text x="936" y="180" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" letter-spacing="1.2" fill="#eceae4">POST-SALE</text>
+<text x="1142" y="180" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2">5</text>
+<text x="936" y="206" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">won-pipeline-check</text>
+<text x="936" y="228" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">onboarding-journey</text>
+<text x="936" y="250" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">customer-success</text>
+<text x="936" y="272" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">upsell-expansion</text>
+<text x="936" y="294" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">churn-prevention</text>
+<rect x="40" y="340" width="360" height="190" rx="10" fill="#20242d" stroke="#2e333e"/>
+<text x="62" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" letter-spacing="1.2" fill="#eceae4">ANY STAGE AND PARTNER</text>
+<text x="378" y="374" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2">3 skills</text>
+<text x="62" y="404" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">first-call-rampup</text>
+<text x="62" y="425" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">end-client-registration</text>
+<text x="62" y="446" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">new-business-registration</text>
+<rect x="420" y="340" width="360" height="190" rx="10" fill="#20242d" stroke="#2e333e"/>
+<text x="442" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" letter-spacing="1.2" fill="#eceae4">FRAMEWORKS AND INITIATIVES</text>
+<text x="758" y="374" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2">20 skills</text>
+<text x="442" y="404" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">Partner and channel (8), BANT,</text>
+<text x="442" y="425" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">Behavior adoption, Challenger,</text>
+<text x="442" y="446" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">Competitive positioning, FAINT,</text>
+<text x="442" y="467" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">Identify pain, MEDDICC, MEDDPICC,</text>
+<text x="442" y="488" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">Multi-threading, Next step</text>
+<text x="442" y="509" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">commitment, Sandler, Vision selling</text>
+<rect x="800" y="340" width="360" height="190" rx="10" fill="#20242d" stroke="#2e333e"/>
+<text x="822" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" letter-spacing="1.2" fill="#eceae4">DEAL INTELLIGENCE</text>
+<text x="1138" y="374" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2">27 skills</text>
+<text x="822" y="404" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">Digests, briefs and reviews across a</text>
+<text x="822" y="425" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">book of business, such as</text>
+<text x="822" y="446" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">deal-risk-digest, forecast-review,</text>
+<text x="822" y="467" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">pipeline-review, call-prep,</text>
+<text x="822" y="488" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">win-loss-brief, crm-export, and 21</text>
+<text x="822" y="509" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7">more.</text>
+<text x="40" y="570" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15" fill="#9aa2b2">The buyer has to say it. Absence is a result. 24 stage skills, 20 initiatives, 27 intelligence.</text>
+</svg>
