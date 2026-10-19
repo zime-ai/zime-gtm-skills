@@ -73,9 +73,7 @@ claude "run evaluation-pipeline-check on ./exports/pipeline.csv"
 
 ### Connector mode
 
-If the conversation has a tool that can list opportunities/deals, use it
-and treat the returned rows exactly like CSV rows — same column detection,
-same six checks, same output. Optional and secondary to CSV mode.
+If the conversation has a CRM connector, run `crm-export` first, or read deals with its read tools. Treat each row exactly like a CSV row, with the same column detection, the same six checks, and the same output. Use read tools only. Optional and secondary to CSV mode.
 
 ## Do not
 

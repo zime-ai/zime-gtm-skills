@@ -45,9 +45,7 @@ specific flagged deal needs that deeper read.
 claude "run deal-risk-digest on ./exports/pipeline.csv"
 ```
 
-**Input.** A `.csv` deal/pipeline export. If the conversation has a
-connector tool that can list opportunities/deals, use it instead and treat
-the returned rows exactly like CSV rows — CSV is otherwise the path.
+**Input.** A `.csv` deal/pipeline export. If the conversation has a CRM connector, run `crm-export` first, or read deals with its read tools and treat each row exactly like a CSV row. Use read tools only. CSV is otherwise the path.
 
 **Column detection.** Match headers case-insensitively, ignoring
 `_`/`-`/space differences, and accept the synonyms listed in

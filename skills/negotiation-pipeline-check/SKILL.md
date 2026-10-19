@@ -43,9 +43,7 @@ structural pieces a deal needs to actually close.
 
 **CSV mode** (default) — read the `.csv` file the user points at directly.
 
-**Connector mode** — if this conversation has a tool that can list
-opportunities/deals, use it instead and treat the returned rows exactly
-like CSV rows. If both are available, ask the user which to use; otherwise
+**Connector mode** — if this conversation has a CRM connector, run `crm-export` first, or read deals with its read tools and treat each row exactly like a CSV row. Use read tools only. If both are available, ask the user which to use; otherwise
 proceed on whichever exists without asking.
 
 There is no transcript mode in this skill.
