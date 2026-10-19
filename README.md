@@ -6,9 +6,11 @@
 </p>
 
 <p align="center">
-
-[![Skills](https://img.shields.io/badge/skills-71-blue)](skills/) [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE) [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io) [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
-
+  <a href="skills/"><img alt="Skills" src="https://img.shields.io/badge/skills-71-blue"></a>
+  <a href="https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml"><img alt="validate" src="https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg"></a>
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-black.svg"></a>
+  <a href="https://agentskills.io"><img alt="Agent Skills spec" src="https://img.shields.io/badge/spec-agentskills.io-informational"></a>
+  <a href="https://zime.ai"><img alt="Zime" src="https://img.shields.io/badge/by-zime.ai-000000"></a>
 </p>
 
 <p align="center"><b><a href="#quick-install">Install</a> · <a href="#ask-your-agent-in-plain-words">Try it</a> · <a href="#see-it-work">See it work</a> · <a href="#how-these-fit-together">Skill map</a> · <a href="#available-skills">All skills</a> · <a href="#connect-your-crm-optional">Connect your CRM</a> · <a href="#faq">FAQ</a></b></p>

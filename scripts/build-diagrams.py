@@ -205,34 +205,58 @@ def how_it_works(skin, skills):
 
 
 def output_card(skin, skills):
+    """Two panels: the last lines of a call on the left, the audit of it on the right."""
     t = TOKENS[skin]
-    W, H, M = 1200, 440, 48
-    o = frame(skin, W, H, "Sample audit: next-step-commitment scores a call as a weak commitment, with a quote for each element")
+    W, H, M = 1200, 520, 48
+    o = frame(skin, W, H, "Sample audit: the last lines of a call, and the next-step-commitment audit that scores it a weak commitment with a quote for each element")
     o.append(txt(M, 56, "SAMPLE OUTPUT", MONO, 12, t["soft"], extra='letter-spacing="2.4"'))
     o.append(txt(M, 100, "What an audit looks like", SERIF, 34, t["ink"]))
-    cx, cy, cw, ch = M, 124, W - 2 * M, 270
-    o.append(f'<rect x="{cx}" y="{cy}" width="{cw}" height="{ch}" rx="10" fill="{t["paper2"]}" stroke="{t["rule"]}"/>')
-    o.append(txt(cx + 24, cy + 36, "next-step-commitment", MONO, 13, t["ink"], extra='font-weight="600"'))
-    o.append(txt(cx + cw - 24, cy + 36, "skills/next-step-commitment/assets/sample-transcript.txt", MONO, 12, t["soft"], "end"))
-    o.append(f'<line x1="{cx+24}" y1="{cy+52}" x2="{cx+cw-24}" y2="{cy+52}" stroke="{t["rule"]}"/>')
-    o.append(txt(cx + 24, cy + 92, "VERDICT", MONO, 12, t["soft"], extra='letter-spacing="2"'))
-    o.append(txt(cx + 120, cy + 94, "Weak commitment", SERIF, 34, t["accent"]))
-    rows = [
-        (True, "Specific action", "Present", '"I\'ll get that put together and send it your way."', "A named deliverable, but only the rep owns it."),
-        (False, "Date or concrete trigger", "Missing", '"I\'ll be in touch soon once it\'s ready."', '"Soon" is not a date, and nothing marks when it happened.'),
-        (False, "Two-sided ownership", "Missing", 'Nina: "I\'ll take a look when it comes through."', "A hope, not a commitment. The buyer owns no step."),
+    py, ph = 128, 330
+    lx, lw = M, 440
+    rx, rw = 548, W - M - 548
+    for x, w in ((lx, lw), (rx, rw)):
+        o.append(f'<rect x="{x}" y="{py}" width="{w}" height="{ph}" rx="10" fill="{t["paper2"]}" stroke="{t["rule"]}"/>')
+        o.append(f'<line x1="{x+24}" y1="{py+52}" x2="{x+w-24}" y2="{py+52}" stroke="{t["rule"]}"/>')
+    # left: the call
+    o.append(txt(lx + 24, py + 34, "THE CALL", MONO, 12, t["ink"], extra='font-weight="600" letter-spacing="1.6"'))
+    o.append(txt(lx + lw - 24, py + 34, "last three lines", MONO, 12, t["soft"], "end"))
+    lines = [
+        ("1", "Alex, rep", ["\"Great. I'll get that put together", "and send it your way.\""]),
+        ("3", "Nina, buyer", ["\"Perfect, sounds good. I'll take a", "look when it comes through.\""]),
+        ("2", "Alex, rep", ["\"Awesome. I'll be in touch soon", "once it's ready.\""]),
     ]
-    for i, (ok, name, status, quote, note) in enumerate(rows):
-        y = cy + 132 + i * 54
+    for k, (num, who, quote) in enumerate(lines):
+        y = py + 88 + k * 86
+        o.append(f'<circle cx="{lx+36}" cy="{y+14}" r="11" fill="none" stroke="{t["accent"]}" stroke-width="1.5"/>')
+        o.append(txt(lx + 36, y + 18, num, MONO, 12, t["accent"], "middle", 'font-weight="700"'))
+        o.append(txt(lx + 62, y + 4, who.upper(), MONO, 11, t["soft"], extra='letter-spacing="1.4"'))
+        for q, ln in enumerate(quote):
+            o.append(txt(lx + 62, y + 28 + q * 20, ln, SANS, 15, t["ink"]))
+    # the arrow between the panels
+    ay = py + ph // 2
+    o.append(f'<line x1="{lx+lw+10}" y1="{ay}" x2="{rx-12}" y2="{ay}" stroke="{t["accent"]}" stroke-width="2"/>')
+    o.append(f'<path d="M{rx-20} {ay-6} L{rx-10} {ay} L{rx-20} {ay+6}" fill="none" stroke="{t["accent"]}" stroke-width="2"/>')
+    # right: the audit
+    o.append(txt(rx + 24, py + 34, "THE AUDIT", MONO, 12, t["ink"], extra='font-weight="600" letter-spacing="1.6"'))
+    o.append(txt(rx + rw - 24, py + 34, "next-step-commitment", MONO, 12, t["soft"], "end"))
+    o.append(txt(rx + 24, py + 98, "VERDICT", MONO, 12, t["soft"], extra='letter-spacing="2"'))
+    o.append(txt(rx + 112, py + 100, "Weak commitment", SERIF, 34, t["accent"]))
+    rows = [
+        ("1", True, "Specific action", "PRESENT", "A named deliverable, but only the rep owns it."),
+        ("2", False, "Date or concrete trigger", "MISSING", "\"Soon\" is not a date, and nothing marks when it happens."),
+        ("3", False, "Two-sided ownership", "MISSING", "\"I'll take a look\" is a hope. The buyer owns no step."),
+    ]
+    for k, (num, ok, name, status, note) in enumerate(rows):
+        y = py + 150 + k * 62
+        o.append(txt(rx + 24, y + 5, num, MONO, 12, t["soft"]))
         if ok:
-            o.append(f'<circle cx="{cx+32}" cy="{y-5}" r="6" fill="{t["ink"]}" stroke="{t["ink"]}" stroke-width="2"/>')
+            o.append(f'<circle cx="{rx+58}" cy="{y}" r="6" fill="{t["ink"]}" stroke="{t["ink"]}" stroke-width="2"/>')
         else:
-            o.append(f'<circle cx="{cx+32}" cy="{y-5}" r="6" fill="none" stroke="{t["ink"]}" stroke-width="2"/>')
-        o.append(txt(cx + 52, y, name, SANS, 15, t["ink"], extra='font-weight="600"'))
-        o.append(txt(cx + 52, y + 20, status, MONO, 12, t["soft"], extra='letter-spacing="1.2"'))
-        o.append(txt(cx + 330, y, quote, SANS, 15, t["ink"]))
-        o.append(txt(cx + 330, y + 20, note, SANS, 14, t["muted"]))
-    o.append(txt(M, H - 22, "Every status carries a quote. A rep claim the buyer never accepted does not count.", SERIF, 16, t["soft"], extra='font-style="italic"'))
+            o.append(f'<circle cx="{rx+58}" cy="{y}" r="6" fill="none" stroke="{t["ink"]}" stroke-width="2"/>')
+        o.append(txt(rx + 78, y + 5, name, SANS, 16, t["ink"], extra='font-weight="600"'))
+        o.append(txt(rx + rw - 24, y + 5, status, MONO, 12, t["soft"], "end", 'letter-spacing="1.4"'))
+        o.append(txt(rx + 78, y + 28, note, SANS, 14, t["muted"]))
+    o.append(txt(M, H - 28, "Every status carries a quote. A rep claim the buyer never accepted does not count.", SERIF, 16, t["soft"], extra='font-style="italic"'))
     o.append("</svg>")
     return "\n".join(o) + "\n"
 
