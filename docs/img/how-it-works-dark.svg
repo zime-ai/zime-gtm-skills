@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" width="1200" height="430" role="img" aria-label="How a skill works: a file goes in, the rubric applies three evidence rules, an audit with a quote for every finding comes out">
+<title>How a skill works: a file goes in, the rubric applies three evidence rules, an audit with a quote for every finding comes out</title>
+<rect x="0.5" y="0.5" width="1199" height="429" rx="14" fill="#171a21" stroke="#2e333e"/>
+<text x="48" y="56" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2" letter-spacing="2.4">HOW A SKILL WORKS</text>
+<text x="48" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#eceae4" >One file in. One evidence-cited audit out.</text>
+<rect x="48" y="140" width="321" height="220" rx="10" fill="#20242d" stroke="#2e333e" stroke-width="1"/>
+<text x="72" y="178" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#eceae4" font-weight="600" letter-spacing="1.6">INPUT</text>
+<text x="72" y="212" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#eceae4" font-weight="600">Call transcript</text>
+<text x="72" y="230" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" >.txt  .vtt  .json  .md</text>
+<text x="72" y="248" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" ></text>
+<text x="72" y="266" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#eceae4" font-weight="600">CRM export</text>
+<text x="72" y="284" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" >.csv</text>
+<text x="72" y="302" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" ></text>
+<text x="72" y="320" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#eceae4" font-weight="600">Live CRM, read-only</text>
+<text x="72" y="338" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" >through crm-export</text>
+<line x1="381" y1="250" x2="421" y2="250" stroke="#f08a59" stroke-width="2"/>
+<path d="M413 244 L423 250 L413 256" fill="none" stroke="#f08a59" stroke-width="2"/>
+<rect x="439" y="140" width="321" height="220" rx="10" fill="#20242d" stroke="#f08a59" stroke-width="2"/>
+<text x="463" y="178" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#f08a59" font-weight="600" letter-spacing="1.6">RUBRIC</text>
+<text x="463" y="212" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#eceae4" font-weight="600">1  The buyer must say it</text>
+<text x="463" y="230" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" ></text>
+<text x="463" y="248" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#eceae4" font-weight="600">2  Absence is a result</text>
+<text x="463" y="266" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" ></text>
+<text x="463" y="284" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#eceae4" font-weight="600">3  Say what does not count</text>
+<text x="463" y="302" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" ></text>
+<text x="463" y="320" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" >Each skill adds its own</text>
+<text x="463" y="338" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" >dimensions on top</text>
+<line x1="772" y1="250" x2="812" y2="250" stroke="#f08a59" stroke-width="2"/>
+<path d="M804 244 L814 250 L804 256" fill="none" stroke="#f08a59" stroke-width="2"/>
+<rect x="830" y="140" width="321" height="220" rx="10" fill="#20242d" stroke="#2e333e" stroke-width="1"/>
+<text x="854" y="178" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#eceae4" font-weight="600" letter-spacing="1.6">OUTPUT</text>
+<text x="854" y="212" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#eceae4" font-weight="600">Covered, Partial or Missed</text>
+<text x="854" y="230" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" ></text>
+<text x="854" y="248" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#eceae4" font-weight="600">A quote or a cell</text>
+<text x="854" y="266" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" >for every finding</text>
+<text x="854" y="284" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" ></text>
+<text x="854" y="302" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" >One closing line,</text>
+<text x="854" y="320" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#b7bcc7" >no recap</text>
+<text x="48" y="396" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#9aa2b2" font-style="italic">Nothing leaves your machine. No telemetry, no lead capture.</text>
+</svg>
