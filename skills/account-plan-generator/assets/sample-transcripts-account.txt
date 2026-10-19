@@ -1,0 +1,35 @@
+[Synthetic transcripts, no real company or person. For demonstrating the account-plan-generator skill. Two calls with one account.]
+
+Account: Harbor Lane Bakeries
+
+=== Call 1 (Discovery) - Rep: Alex ===
+
+Alex: How do you order stock today?
+
+Maya (Head of Operations): By phone. We run 14 bakeries, and two store managers spend Sunday night on the orders.
+
+Alex: What do you want to change?
+
+Maya: Fewer stock-outs. Last quarter we threw away a lot of bread too, but I do not have the figure.
+
+Alex: Who signs for a purchase like this?
+
+Maya: Our owner, Theo. He signs anything above 20 thousand.
+
+Alex: I will send an overview this week.
+
+=== Call 2 (Follow-up) - Rep: Alex ===
+
+Alex: Priyank, thanks for joining. Where do things stand on budget?
+
+Priyank (Finance Lead): It is not set for this year. We might use next year's budget.
+
+Maya: We would pilot in three stores in January.
+
+Alex: I am sure the pilot will pay for itself.
+
+Maya: Maybe. Theo has not been on any call. I will ask him to join the next one.
+
+Maya: One risk. The pilot needs our POS vendor to export sales data, and I am not sure they will.
+
+Alex: I will send a one-page pilot outline by Friday.

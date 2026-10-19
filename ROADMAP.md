@@ -145,16 +145,16 @@ worth a second look before any of it gets built.
 - [x] partner-business-review
 
 **Pricing & deal desk**
-- [ ] deal-desk-approval-brief
-- [ ] discount-pattern-digest
+- [x] deal-desk-approval-brief
+- [x] discount-pattern-digest
 
 **Account & territory**
-- [ ] account-plan-generator
-- [ ] territory-summary
+- [x] account-plan-generator
+- [x] territory-summary
 
 **Customer proof**
-- [ ] reference-case-study-drafter
-- [ ] client-testimonial-finder
+- [x] reference-case-study-drafter
+- [x] client-testimonial-finder
 
 **General GTM practice**
 - [ ] prospecting-sequence-builder

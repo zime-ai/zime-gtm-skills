@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="1200" height="440" role="img" aria-label="Sample audit: next-step-commitment scores a call as a weak commitment, with a quote for each element">
+<title>Sample audit: next-step-commitment scores a call as a weak commitment, with a quote for each element</title>
+<rect x="0.5" y="0.5" width="1199" height="439" rx="14" fill="#171a21" stroke="#2e333e"/>
+<text x="48" y="56" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2" letter-spacing="2.4">SAMPLE OUTPUT</text>
+<text x="48" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#eceae4" >What an audit looks like</text>
+<rect x="48" y="124" width="1104" height="270" rx="10" fill="#20242d" stroke="#2e333e"/>
+<text x="72" y="160" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#eceae4" font-weight="600">next-step-commitment</text>
+<text x="1128" y="160" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2" >skills/next-step-commitment/assets/sample-transcript.txt</text>
+<line x1="72" y1="176" x2="1128" y2="176" stroke="#2e333e"/>
+<text x="72" y="216" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2" letter-spacing="2">VERDICT</text>
+<text x="168" y="218" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#f08a59" >Weak commitment</text>
+<circle cx="80" cy="251" r="6" fill="#eceae4" stroke="#eceae4" stroke-width="2"/>
+<text x="100" y="256" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#eceae4" font-weight="600">Specific action</text>
+<text x="100" y="276" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2" letter-spacing="1.2">Present</text>
+<text x="378" y="256" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#eceae4" >"I'll get that put together and send it your way."</text>
+<text x="378" y="276" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#b7bcc7" >A named deliverable, but only the rep owns it.</text>
+<circle cx="80" cy="305" r="6" fill="none" stroke="#eceae4" stroke-width="2"/>
+<text x="100" y="310" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#eceae4" font-weight="600">Date or concrete trigger</text>
+<text x="100" y="330" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2" letter-spacing="1.2">Missing</text>
+<text x="378" y="310" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#eceae4" >"I'll be in touch soon once it's ready."</text>
+<text x="378" y="330" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#b7bcc7" >"Soon" is not a date, and nothing marks when it happened.</text>
+<circle cx="80" cy="359" r="6" fill="none" stroke="#eceae4" stroke-width="2"/>
+<text x="100" y="364" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#eceae4" font-weight="600">Two-sided ownership</text>
+<text x="100" y="384" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9aa2b2" letter-spacing="1.2">Missing</text>
+<text x="378" y="364" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#eceae4" >Nina: "I'll take a look when it comes through."</text>
+<text x="378" y="384" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#b7bcc7" >A hope, not a commitment. The buyer owns no step.</text>
+<text x="48" y="418" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#9aa2b2" font-style="italic">Every status carries a quote. A rep claim the buyer never accepted does not count.</text>
+</svg>

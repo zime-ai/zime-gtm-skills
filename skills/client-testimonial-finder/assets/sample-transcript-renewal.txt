@@ -1,0 +1,28 @@
+[Synthetic transcript, no real company or person. For demonstrating the client-testimonial-finder skill. A renewal call.]
+
+Call: Larkspur Studios <> Vendor (Rep: Jamie)
+Type: Renewal
+
+Jamie: Thanks for renewing. What changed for you?
+
+Rin (Finance Director): Before this, month-end close took us nine days. Now it takes four.
+
+Jamie: And support?
+
+Rin: Honestly, the support team is the reason we renewed.
+
+Jamie: You told me last time it changed your whole team.
+
+Rin: Not the whole team. Just finance.
+
+Jamie: How is the product overall?
+
+Rin: It is fine. It does what it says.
+
+Rin: If the integration were faster, I would rate it higher.
+
+Rin: Off the record, our CFO does not like the price.
+
+Jamie: Understood. Could we quote you on the close time?
+
+Rin: Maybe. Send me the exact wording first.

@@ -1,0 +1,36 @@
+{
+  "skill_name": "reference-case-study-drafter",
+  "evals": [
+    {
+      "id": 1,
+      "name": "reference-case-study-drafter-eval-1",
+      "prompt": "run reference-case-study-drafter on skills/reference-case-study-drafter/assets/sample-transcript-customer-review.txt",
+      "expected_output": "The draft says a referral took about three days and most are now done the same day, and that referral paperwork went from about 40 to about 15 hours a week, each with a quote. The 60 percent figure is marked as rough, because the customer said roughly. The patient satisfaction claim is not used, because the customer said it was not measured. Permission: the customer asked not to be named until legal has seen it. Missing: why they chose the vendor and a time frame.",
+      "files": [
+        "assets/sample-transcript-customer-review.txt"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "The patient satisfaction claim is not in the draft",
+        "The 60 percent figure is marked rough or left out",
+        "The permission section says the customer asked not to be named until legal has seen it",
+        "Every draft sentence has a supporting quote"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "reference-case-study-drafter-eval-2-thin-input",
+      "prompt": "run reference-case-study-drafter on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "skill_name": "client-testimonial-finder",
+  "evals": [
+    {
+      "id": 1,
+      "name": "client-testimonial-finder-eval-1",
+      "prompt": "run client-testimonial-finder on skills/client-testimonial-finder/assets/sample-transcript-renewal.txt",
+      "expected_output": "Quotable: the nine days to four days close time, and the support team is the reason they renewed. Not usable: the rep line about the whole team (the customer narrowed it to finance), 'it is fine', the conditional integration line, and the off-the-record price line. Permission: the customer said maybe and asked for the exact wording first. Best: close time first, support second.",
+      "files": [
+        "assets/sample-transcript-renewal.txt"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "The close-time quote and the support quote are listed as quotable",
+        "The off-the-record price line is listed as not usable and is not quoted as a testimonial",
+        "The conditional integration line is listed as not usable",
+        "The permission section records that the customer asked for the exact wording first"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "client-testimonial-finder-eval-2-thin-input",
+      "prompt": "run client-testimonial-finder on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}
