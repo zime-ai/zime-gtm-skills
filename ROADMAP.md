@@ -2,12 +2,12 @@
 
 What's shipped and what's next, organized the way the playbook already
 tracks GTM motions. Distribution/go-to-market planning is deliberately not
-here — see `MAINTAINING.md` for process, not promotion.
+here. See `MAINTAINING.md` for process, not promotion.
 
 `scripts/check-docs-sync.sh`'s `roadmap-in-sync` rule keeps this file honest:
 every `skills/<name>/` directory must have a matching `- [x] <name>` line
 below, and no checked line may name a directory that doesn't exist. When you
-land a skill, check its box in the same PR — don't leave that for later.
+land a skill, check its box in the same PR and do not leave it for later.
 
 `sell-the-dream` was scoped by research before it was built: no canonical
 single-source "sell the dream" framework exists (every source that attaches
@@ -18,7 +18,7 @@ a Great Sales Narrative" instead, with the phrase kept as the colloquial
 name, not a citation. See `skills/sell-the-dream/SKILL.md` for the full
 provenance note.
 
-## Phase 1 — Initiative & stage skills
+## Phase 1: Initiative & stage skills
 
 Every framework and deal motion the playbook tracks today.
 
@@ -78,10 +78,10 @@ Every framework and deal motion the playbook tracks today.
 - [x] competitive-positioning
 - [x] multi-threading
 
-## Phase 2 — Deal intelligence skills
+## Phase 2: Deal intelligence skills
 
 A different class from phase 1: instead of grading a call against a rubric,
-these write something forward — prep notes, a report, a handoff — from one
+these write something forward (prep notes, a report, a handoff) from one
 call, one deal, or a whole book of business. Every skill in this group works
 standalone; CRM connector access is optional and used only when already
 there.
@@ -117,20 +117,20 @@ there.
 - [x] renewal-prep
 - [x] coaching-plan
 
-## Phase 3 — Vertical packs
+## Phase 3: Vertical packs
 
 The skills above don't change; a vertical pack is buyer titles, compliance
 drivers, and vocabulary that any skill can load on request. One pack, once
 written well, works across every skill that loads it. Both need a review by
-someone who actually sells into that industry before either is called done.
+someone who sells into that industry before either is called done.
 
 - [ ] cybersecurity pack
 - [ ] healthcare pack
 
-## Phase 4 — Other GTM skills
+## Phase 4: Other GTM skills
 
 Motions already tracked but not yet built, plus general GTM practice adapted
-from how other public skill collections cover this ground — so the repo has
+from how other public skill collections cover this ground, so the repo has
 something for every GTM function, not sales calls alone. A starting list,
 worth a second look before any of it gets built.
 

@@ -1,7 +1,7 @@
 # Evals
 
-How this repo tests whether its skills actually work, and, just as
-important, what these evals can and cannot prove.
+How this repo tests whether its skills work, and what these evals can and
+cannot prove.
 
 ## The problem with evaluating this kind of skill
 
@@ -43,7 +43,7 @@ This repo reports them separately, on purpose.
 
 `evals/framework/eval.sh <skill>` runs a real dataset of cases
 (`evals/cases/*.yaml`) through promptfoo: an isolated RUN stage (the skill
-+ its transcript only), an isolated GAP stage (`judge.py` — output + ground
++ its transcript only), an isolated GAP stage (`judge.py`, output + ground
 truth + transcript, never `SKILL.md`) that majority-votes N independent
 judge samples per ground-truth field, and an optional LEARN stage that
 proposes rubric fixes without ever touching the skill itself. Full detail
@@ -54,16 +54,16 @@ gold-labeler. This repo doesn't have one on staff, so ground truth comes
 from two sources, kept structurally separate and never blended into one
 number:
 
-- **`evals/gt/`** — hand-authored ground truth (a real filled document, a
+- **`evals/gt/`**: hand-authored ground truth (a real filled document, a
   real handover a person actually wrote). Requires a human.
-- **`evals/gt-web/`** — a real named expert's already-published critique of
+- **`evals/gt-web/`**: a real named expert's already-published critique of
   a real call, autonomously harvested (see `evals/gt-web/README.md`).
-  Covers only what public call-coaching content exists for — stage-motion
+  Covers only what public call-coaching content exists for: stage-motion
   skills, not deal-intelligence/writer skills. A case opts into this by
   setting `gt_dir: gt-web` instead of the default `gt`.
 
 Either way, `calibrate.py` computes Cohen's kappa between the judge's
-verdict and a second human labeler to catch judge/rubric drift — for
+verdict and a second human labeler to catch judge/rubric drift, for
 `evals/gt-web/` cases there is no second human labeler, so this check is
 reported as **N/A**, not silently skipped.
 
@@ -125,7 +125,7 @@ Not required, do not spend time here:
   `without_skill` baseline runs, benchmark aggregation, HTML report
   generation. All of this runs unattended.
 - **`evals/gt-web/` cases** specifically don't need a human transcript
-  author or a human labeler — the source's own published author fills that
+  author or a human labeler; the source's own published author fills that
   role. What they still need, and don't get a pass on: the provenance gate
   in `evals/gt-web/README.md` (real named author, dated, quoted, publicly
   checkable), applied before a source is used, not after.
@@ -156,14 +156,14 @@ python3 <skill-creator>/eval-viewer/generate_review.py evals/runs/<timestamp>
 skill you have. This repo doesn't vendor it, since it's tooling for
 authoring/testing skills, not itself a GTM skill.
 
-## Current coverage, honestly
+## Current coverage
 
 | Tier | Status |
 |---|---|
-| Tier 0 (gap diff) | Framework landed (`evals/framework/`, promptfoo-backed). First `evals/gt-web/` harvest pass found zero qualifying sources — see `evals/SCORECARD.md` and `evals/gt-web/SOURCES.md` for the search record and what got rejected |
-| Tier 1 (trigger) | `evals/trigger-set.json` written (16 cases, written when the repo had 16 skills — needs a pass to cover all 41); not yet run |
+| Tier 0 (gap diff) | Framework landed (`evals/framework/`, promptfoo-backed). First `evals/gt-web/` harvest pass found zero qualifying sources. See `evals/SCORECARD.md` and `evals/gt-web/SOURCES.md` for the search record and what got rejected |
+| Tier 1 (trigger) | `evals/trigger-set.json` written (16 cases, written when the repo had 16 skills; needs a pass to cover all 41); not yet run |
 | Tier 2 (format) | All 41 skills now carry a schema-valid `evals/evals.json` (3 were shipped with a nonstandard `{"cases"}` shape and have been fixed); none have actually been run through the benchmark loop yet, and most have at least one eval case with `files: []` (a described-but-not-backed scenario, unrunnable as-is) |
-| Tier 3 (gold-label insight) | The `evals/gt/` path is not started — blocked on a human gold-labeler this repo doesn't have. The `evals/gt-web/` path (this tier's practical substitute here) is what `evals/SCORECARD.md` reports |
+| Tier 3 (gold-label insight) | The `evals/gt/` path is not started; blocked on a human gold-labeler this repo doesn't have. The `evals/gt-web/` path (this tier's practical substitute here) is what `evals/SCORECARD.md` reports |
 
 CSV mode has never been exercised on most skills. The intentionally-broken-
 frontmatter CI test now runs (`tests/run-checks-tests.sh`, wired into CI).
