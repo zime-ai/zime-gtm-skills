@@ -3,15 +3,19 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [3.6.2] — Demo page count
+## [3.6.3] Plainer docs
+
+The README, CONTRIBUTING, SECURITY, MAINTAINING, EVALS, AGENTS, ROADMAP, and CHANGELOG lost their em dashes, filler words, and a few stock phrases, using the patterns from petergyang/no-ai-slop as a checklist. The README "Where this stops" section now matches what the skills do today (it said CRM exports only and one call at a time). SECURITY.md has a Connected CRM section. The skill rubrics and `SKILL.md` files are unchanged.
+
+## [3.6.2] Demo page count
 
 The demo page at the repository site said 45 skills. It now says 71, and `scripts/check-docs-sync.sh` fails when that count and `skills/` disagree.
 
-## [3.6.1] — README fixes
+## [3.6.1] README fixes
 
 The sample output picture now shows the last lines of a call next to the audit of it, and the text no longer touches the card edge. The badge row is centered under the hero picture. The repository description now says 71 skills.
 
-## [3.6.0] — Six new skills and a redesigned README
+## [3.6.0] Six new skills and a redesigned README
 
 Skill count goes from 65 to 71: 24 stage skills, 20 initiative skills, and 27 deal-intelligence skills.
 
@@ -21,7 +25,7 @@ Account and customer proof, from calls: `account-plan-generator` plans one accou
 
 README. The top now has a hero picture, a nav row, and plain-language example prompts. The stale text diagram is replaced by a generated skill map, a how-a-skill-works flow, and a sample audit card, each in a light and a dark version. `scripts/build-diagrams.py` builds them from the skills' own metadata, so counts cannot drift. `scripts/check-docs-sync.sh` fails when a picture is stale or a color pair is too faint to read.
 
-## [3.5.0] — Optional CRM path, a security gate, and diff-scoped review
+## [3.5.0] Optional CRM path, a security gate, and diff-scoped review
 
 Skill count goes from 64 to 65. The new skill is `crm-export`.
 
@@ -31,7 +35,7 @@ Security. A static scan with NVIDIA SkillSpector now runs in CI, with no model c
 
 Maintenance. `scripts/changed-skills.sh` lists the skills a change touched and tags each new, rubric, or wording. `MAINTAINING.md` has a Reviewing a change section: review the diff only, and run model checks only for a rubric or new change.
 
-## [3.4.0] — 19 new skills: deal intelligence and partner audits
+## [3.4.0] 19 new skills: deal intelligence and partner audits
 
 Skill count goes from 45 to 64: 24 stage skills, 20 initiative skills, and
 20 deal-intelligence skills. All 19 new skills follow the shared evidence
@@ -61,7 +65,7 @@ make a deal.
 Not built yet: the two global-agent skills, the vertical packs, and the
 general marketing skills in `ROADMAP.md`.
 
-## [3.3.0] — buyer-said evidence rules, four new skills
+## [3.3.0] buyer-said evidence rules, four new skills
 
 Skill count goes from 41 to 45: 24 stage skills, 12 initiative skills, and
 9 deal-intelligence skills.
@@ -91,7 +95,7 @@ skills, kept as an optional manual regression check. An automatic
 improvement loop built on them was tried and retired within the same
 release window. See `MAINTAINING.md`.
 
-## [3.2.0] — prompt-shape retrofit + full illustrative eval coverage
+## [3.2.0] prompt-shape retrofit + full illustrative eval coverage
 
 No skill count change (still 41: 23 stage + 10 initiative + 8
 intelligence). Retrofitted all 41 skills to the current prompt shape in 9
@@ -114,7 +118,7 @@ illustrative self-authored evals (not Tier 3, see `evals/SCORECARD.md`)
 for the last skills still missing them, completing illustrative eval
 coverage across all three shapes (A, B, C) for all 41 skills.
 
-## [3.1.1] — README: drop Coverage table
+## [3.1.1] README: drop Coverage table
 
 No skill count change (still 41: 23 stage + 10 initiative + 8
 intelligence). Removed README's "Coverage" table (duplicated the Available
@@ -122,7 +126,7 @@ skills table's Stage/Initiative info with no added signal); "Where this
 stops" moved down to sit right above FAQ. `check-docs-sync.sh` and its
 fixture tests updated to match (one fewer check, one fewer test case).
 
-## [3.1.0] — illustrative evals + README rework
+## [3.1.0] illustrative evals + README rework
 
 No skill count change (still 41: 23 stage + 10 initiative + 8
 intelligence). Added illustrative self-authored evals (not Tier 3, see
@@ -135,7 +139,7 @@ skills: `evaluation-pipeline-check`, `negotiation-pipeline-check`,
 CSV pipeline-sweep, document-writer) with real isolated runs and a
 generalized "try any skill" instruction.
 
-## [3.0.0] — 41 skills, deal-intelligence dimension, eval framework
+## [3.0.0] 41 skills, deal-intelligence dimension, eval framework
 
 41 Agent Skills (up from 32 at 2.1.0), 23 stage + 10 initiative + 8
 intelligence.
@@ -145,12 +149,12 @@ intelligence.
 `win-loss-brief`, `executive-briefing`, `champion-tracker`,
 `competitor-battlecard`. These write something forward (a plan, a digest, a
 drafted email) instead of grading a call against a rubric, so neither
-`stage` nor `initiative` fit — see `MAINTAINING.md`'s "Two dimensions" for
+`stage` nor `initiative` fit. See `MAINTAINING.md`'s "Two dimensions" for
 the frontmatter contract and the Coverage-table exemption they get.
 
 **New initiative skill** (1): `sell-the-dream`, anchored on Andy Raskin's
 publicly published "5 Elements of a Great Sales Narrative" (no canonical
-"sell the dream" framework exists — see the skill's provenance note).
+"sell the dream" framework exists; see the skill's provenance note).
 
 Also lands the Tier 0 eval framework (`evals/framework/*`, isolated
 RUN/GAP/LEARN stages, judge.py never sees SKILL.md) and `evals/gt-web/`, a
@@ -160,23 +164,23 @@ blocked on having no in-house labeler. Four illustrative self-authored
 evals (`meddicc`, `challenger`, `deal-risk-digest`, `champion-tracker`) ship
 labeled explicitly as not Tier 3.
 
-## [2.1.0] — 32 skills, registration coverage
+## [2.1.0] 32 skills, registration coverage
 
 32 Agent Skills (up from 29 at 2.0.0), 23 stage + 9 initiative.
 
 **New stage skills** (3): `poc-success` (a completed POC/pilot's exit
-review — success criteria verdicts, end-user validation, sponsor sign-off,
+review: success criteria verdicts, end-user validation, sponsor sign-off,
 production-readiness blockers), `new-business-registration` (a new-logo
 deal-registration record for completeness), `end-client-registration` (a
 partner/reseller's end-client deal registration, kept distinct from direct
 pipeline).
 
 Also: README's "How these fit together" skill map moved off a Mermaid/d2
-diagram to a plain ASCII flowchart in a fenced code block — the rendered
-image scaled down to unreadable at README width; the fixed-width text
-version doesn't have that failure mode.
+diagram to a plain ASCII flowchart in a fenced code block. The rendered
+image scaled down to unreadable at README width, and the fixed-width text
+version does not have that failure mode.
 
-## [2.0.0] — 29 skills, ROADMAP.md, dev/main release flow
+## [2.0.0] 29 skills, ROADMAP.md, dev/main release flow
 
 29 Agent Skills (up from 16 at 1.0.0), 20 stage + 9 initiative, plus the
 process this repo now ships work through: `ROADMAP.md` tracks what's built
@@ -186,7 +190,7 @@ fully-gated releases (this entry is the first one cut that way).
 **New initiative skills** (4): `meddpicc`, `faint`, `sandler`, `challenger`.
 
 **New stage skills** (9): `sql-to-qualify`, `qualify-to-poc`,
-`persona-based-discovery`, and the deal-stage pipeline-check family —
+`persona-based-discovery`, and the deal-stage pipeline-check family:
 `prospect-pipeline-check`, `qualify-pipeline-check`,
 `evaluation-pipeline-check`, `poc-pilot-pipeline-check`,
 `negotiation-pipeline-check`, `won-pipeline-check`. The pipeline-check six
@@ -195,19 +199,19 @@ deal export and flag deals that can't pass their own stage's exit test,
 citing the column and cell value behind every flag.
 
 Also ships:
-- `ROADMAP.md` — every phase-1 skill tracked as a checkbox, machine-checked
+- `ROADMAP.md`: every phase-1 skill tracked as a checkbox, machine-checked
   against `skills/*/` by `scripts/check-docs-sync.sh`'s `roadmap-in-sync`
   rule so this file can't silently drift the way this changelog once did.
 - `dev` as the integration branch for skill PRs; `main` only moves in
   batched, fully-validated releases via the new `gtm-release` skill.
-- `scripts/check-pr-diff-identity.py` — scans every PR's actual diff for the
+- `scripts/check-pr-diff-identity.py`: scans every PR's actual diff for the
   operator's own git identity or a home-directory path right after
   `gh pr create`, since the PR is already public by the time a pre-push gate
   could catch it.
 
-## [1.0.0] — Initial public release
+## [1.0.0] Initial public release
 
-16 Agent Skills across two axes — deal stage and cross-stage initiative —
+16 Agent Skills across two axes (deal stage and cross-stage initiative),
 each auditing a transcript or CRM export against a GTM rubric with a quote
 or timestamp behind every finding.
 
@@ -221,13 +225,13 @@ or timestamp behind every finding.
 
 A third axis, `vertical-context` (industry reference packs for
 cybersecurity, healthcare, fintech), was built but held back from this
-release pending domain-expert review — see the `vertical-context` branch.
+release pending domain-expert review. See the `vertical-context` branch.
 
 Also ships:
 - `validate-skills.sh`, `scripts/check-docs-sync.sh`,
-  `scripts/scan-content.py` — zero-dependency local checks, all three run in
+  `scripts/scan-content.py`: zero-dependency local checks. All three run in
   CI on every PR, backed by a fixture test suite (`tests/run-checks-tests.sh`)
-  that proves each one actually catches what it claims to.
+  that proves each one catches what it claims to.
 - A Claude Code plugin (`/plugin marketplace add zime-ai/zime-gtm-skills`),
   alongside clone-and-copy and git-submodule install paths.
 - `EVALS.md`'s three-tier eval methodology, and a worked example comparing
