@@ -1,0 +1,36 @@
+{
+  "skill_name": "territory-summary",
+  "evals": [
+    {
+      "id": 1,
+      "name": "territory-summary-eval-1",
+      "prompt": "run territory-summary on skills/territory-summary/assets/sample-accounts-territory.csv",
+      "expected_output": "North has 3 accounts, 3 open deals, 161000 open. South has 3 accounts, 4 open deals, 217000. West has 3 accounts, 2 open deals, 49000. North is concentrated (Alder Freight is 74.5 percent). South is concentrated (Elm Logistics is 69.1 percent). West is not (Holt Textiles is 61.2 percent). Quiet accounts: Fir Health 120 days (no open deal), Cobalt Dental 95 (no open deal), Dunmore Retail 52 (one open deal).",
+      "files": [
+        "assets/sample-accounts-territory.csv"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "North and South are flagged for concentration with the shares computed",
+        "West is not flagged",
+        "Fir Health, Cobalt Dental and Dunmore Retail are listed as quiet, ranked by days",
+        "The summary does not say a territory is unfair or needs rebalancing"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "territory-summary-eval-2-thin-input",
+      "prompt": "run territory-summary on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}

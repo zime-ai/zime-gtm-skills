@@ -1,0 +1,26 @@
+[Synthetic transcript, no real company or person. For demonstrating the reference-case-study-drafter skill. A customer success review call.]
+
+Call: Meadow Ridge Clinics <> Vendor (Rep: Jamie)
+Type: Customer review
+
+Jamie: Tell me how the first year went.
+
+Dana (Operations Lead): Before this, a referral took about three days to process. Now most are done the same day.
+
+Jamie: What did that do for your team?
+
+Dana: We went from about 40 hours a week on referral paperwork to about 15.
+
+Jamie: So that is roughly a 60 percent saving.
+
+Dana: Roughly, yes.
+
+Jamie: And I am sure patient satisfaction went up too.
+
+Dana: I cannot say that. We have not measured it.
+
+Jamie: Would you be willing to be a reference?
+
+Dana: Maybe. Please do not use our name until our legal team has seen it.
+
+Jamie: Of course. I will send you a draft.
