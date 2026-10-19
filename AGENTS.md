@@ -65,12 +65,12 @@ published to PyPI.
 
 `tests/run-checks-tests.sh` runs the above three against deliberately broken
 fixtures (missing frontmatter, un-ignored private dirs, a leaked home path,
-an injection pattern, ...) so a CI failure has been shown to actually catch
-something, not just assumed to. Run it after touching any validator.
+an injection pattern, ...) so a CI failure has been shown to catch
+something, not only assumed to. Run it after touching any validator.
 
 `scripts/check-pr-diff-identity.py <base> <head>` is different from the
 three above: it's diff-scoped, not tree-scoped, and runs automatically
-*after* `scripts/pr-prep.sh` opens a PR rather than before — see the
+*after* `scripts/pr-prep.sh` opens a PR rather than before. See the
 `operator-identity` rule above.
 
 ## Rule registry
@@ -80,16 +80,16 @@ what to fix, not just which script ran.
 
 | Rule ID | Enforced by |
 |---|---|
-| `frontmatter-contract` | `validate-skills.sh` — name/description/dimension/line-count |
-| `private-data-ignored` | `validate-skills.sh` — `evals/{transcripts,gt,cases,labels}` stay gitignored |
+| `frontmatter-contract` | `validate-skills.sh`: name/description/dimension/line-count |
+| `private-data-ignored` | `validate-skills.sh`: `evals/{transcripts,gt,cases,labels}` stay gitignored |
 | `readme-in-sync` | `scripts/check-docs-sync.sh` |
-| `roadmap-in-sync` | `scripts/check-docs-sync.sh` — every `skills/*` dir has a `- [x]` line in `ROADMAP.md` and vice versa |
-| `no-home-paths` | `scripts/scan-content.py` — no `/Users/<name>` or `C:\Users\<name>` in tracked files |
-| `no-injection` | `scripts/scan-content.py` — no prompt-injection patterns in `skills/*/SKILL.md` or `references/` |
-| `no-hidden-unicode` | `scripts/scan-content.py` — no zero-width/bidi-override/homoglyph chars |
-| `no-client-names` | `scripts/scan-content.py` — local-only, needs a gitignored `.private/client-denylist.txt`; skips (not a failure) when that file is absent, including in CI |
-| `sample-required` | `validate-skills.sh` — every skill with `zime:dimension: stage` or `initiative` must have `assets/` (at least one file) and `evals/evals.json`; `vertical-context` skills are exempt, they're loaded by other skills rather than run directly |
-| `operator-identity` | `scripts/check-pr-diff-identity.py` — scans a PR's actual diff (not the whole tree) for the operator's own `git config user.name`/`user.email`, or a home-directory path; `scripts/pr-prep.sh` runs it *after* `gh pr create`, since the PR is already public by then, this can only warn, not block |
+| `roadmap-in-sync` | `scripts/check-docs-sync.sh`: every `skills/*` dir has a `- [x]` line in `ROADMAP.md` and vice versa |
+| `no-home-paths` | `scripts/scan-content.py`: no `/Users/<name>` or `C:\Users\<name>` in tracked files |
+| `no-injection` | `scripts/scan-content.py`: no prompt-injection patterns in `skills/*/SKILL.md` or `references/` |
+| `no-hidden-unicode` | `scripts/scan-content.py`: no zero-width/bidi-override/homoglyph chars |
+| `no-client-names` | `scripts/scan-content.py`: local-only, needs a gitignored `.private/client-denylist.txt`; skips (not a failure) when that file is absent, including in CI |
+| `sample-required` | `validate-skills.sh`: every skill with `zime:dimension: stage` or `initiative` must have `assets/` (at least one file) and `evals/evals.json`; `vertical-context` skills are exempt, they're loaded by other skills rather than run directly |
+| `operator-identity` | `scripts/check-pr-diff-identity.py`: scans a PR's actual diff (not the whole tree) for the operator's own `git config user.name`/`user.email`, or a home-directory path; `scripts/pr-prep.sh` runs it *after* `gh pr create`, since the PR is already public by then, this can only warn, not block |
 
 ## The two hard content rules
 
@@ -112,7 +112,7 @@ sample file + expected `expectations`). They are not run in CI yet. See
 `EVALS.md` for the full methodology: the three eval tiers, why format
 compliance and insight recall are reported as two separate metrics rather
 than one blended number, and where a human is required versus where nothing
-is. Treat evals as the source of truth for "does this skill actually work,"
+is. Treat evals as the source of truth for "does this skill work,"
 not the `skills-ref`/`validate-skills.sh` structural checks, which only
 catch frontmatter and layout errors.
 
@@ -124,5 +124,5 @@ under a `skills/stage/` or `skills/initiative/` directory, since that breaks
 the install command above and both validators. A third axis,
 `vertical-context` (a reference pack per industry any other skill can load
 on request), was pulled off `main` before public launch pending
-domain-expert review — see `MAINTAINING.md`'s "Two dimensions" and
+domain-expert review. See `MAINTAINING.md`'s "Two dimensions" and
 "Deferred work" sections, and the `vertical-context` branch.

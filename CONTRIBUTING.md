@@ -30,34 +30,33 @@ Every skill must:
   nested reference chains
 - Pass `./validate-skills.sh` locally (fast, zero dependencies) and
   `skills-ref validate skills/<skill-name>` (this runs in CI on every PR)
-- If the skill is runnable on its own (`zime:dimension` is `stage` or
-  `initiative`): ship a synthetic or fully anonymized sample file in
+- If the skill is runnable on its own (`zime:dimension` is `stage`,
+  `initiative`, or `intelligence`): ship a synthetic or fully anonymized sample file in
   `assets/` and an `evals/evals.json`, so the skill is runnable with nothing
   of the contributor's own. Reference-only packs (`zime:dimension:
   vertical-context`) are loaded by other skills rather than run directly and
   are exempt from this one.
 
 Opening a PR for a new skill or a skill update? Target the `dev` branch, not
-`main` — `main` only moves forward in batches once a release checklist has
+`main`. `main` only moves forward in batches once a release checklist has
 run. The default PR template covers both cases; for the fuller per-case
 checklist see `.github/PULL_REQUEST_TEMPLATE/new-skill.md` or
 `skill-update.md`.
 
-PR-Agent's automated `/review` only runs on PRs from branches of this repo —
-GitHub withholds secrets from fork PRs, so it can't run there. A PR from a
-fork gets maintainer review instead, same bar, just a human doing it.
+A PR from a fork gets a maintainer review. GitHub withholds secrets from fork
+PRs, so automated review does not run there. The bar is the same.
 
-When writing the PR description: write each paragraph or bullet as one
+When you write the PR description, put each paragraph or bullet on one
 physical line, however long. GitHub renders a single newline in a PR body
-as a hard line break, unlike standard markdown where it'd soft-wrap — a
-paragraph hard-wrapped at your editor's line length shows up as several
-short stub lines instead of flowing to the box width. Let your editor
-soft-wrap on display; don't insert real newlines mid-paragraph.
+as a hard line break, unlike standard markdown, which soft-wraps. A
+paragraph wrapped at your editor's line length would show up as several
+short lines. Let your editor soft-wrap on display, and do not insert real
+newlines mid-paragraph.
 
 ## Sample data
 
-If your PR includes a sample transcript, deal export, or any other example
-file: it must be synthetic or fully anonymized. Do not submit a real call
+Any sample transcript, deal export, or other example file in your PR must
+be synthetic or fully anonymized. Do not submit a real call
 transcript or CRM export, even with names removed. Anonymization of free
 text is easy to get wrong, and this repo is public.
 
