@@ -87,6 +87,7 @@ standalone; CRM connector access is optional and used only when already
 there.
 
 **Seller-facing, single deal**
+- [x] crm-export
 - [x] call-prep
 - [x] deal-highlights
 - [x] mutual-action-plan
