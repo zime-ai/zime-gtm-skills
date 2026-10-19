@@ -1,0 +1,13 @@
+{
+  "_note": "Synthetic payload shaped like Salesforce query results. Made-up companies. as_of is the date the day counts are measured against.",
+  "as_of": "2026-10-19",
+  "totalSize": 4,
+  "done": true,
+  "records": [
+    {"attributes": {"type": "Opportunity"}, "Id": "006EX0001", "Name": "Example Echo", "StageName": "Proposal/Price Quote", "Amount": 60000, "CloseDate": "2026-11-15", "CreatedDate": "2026-07-01T09:00:00.000+0000", "LastActivityDate": "2026-10-12", "LastStageChangeDate": "2026-09-14T10:00:00.000+0000", "NextStep": "Legal review call on Oct 27", "ForecastCategoryName": "Commit", "Probability": 75, "Owner": {"Name": "Owner Two"}},
+    {"attributes": {"type": "Opportunity"}, "Id": "006EX0002", "Name": "Example Foxtrot", "StageName": "Negotiation/Review", "Amount": 120000, "CloseDate": "2026-10-05", "CreatedDate": "2026-03-02T09:00:00.000+0000", "LastActivityDate": "2026-08-28", "LastStageChangeDate": "2026-07-20T10:00:00.000+0000", "NextStep": null, "ForecastCategoryName": "Commit", "Probability": 90, "Owner": {"Name": "Owner One"}},
+    {"attributes": {"type": "Opportunity"}, "Id": "006EX0003", "Name": "Example Golf", "StageName": "Needs Analysis", "Amount": 18000, "CloseDate": "2027-02-01", "CreatedDate": "2026-10-01T09:00:00.000+0000", "LastActivityDate": "2026-10-16", "LastStageChangeDate": "2026-10-01T10:00:00.000+0000", "NextStep": "Discovery call 2 on Oct 21", "ForecastCategoryName": "Pipeline", "Probability": 25, "Owner": {"Name": "Owner One"}},
+    {"attributes": {"type": "Opportunity"}, "Id": "006EX0004", "Name": "Example Hotel", "StageName": "Prospecting", "Amount": 9000, "CloseDate": "2026-12-20", "CreatedDate": "2026-10-10T09:00:00.000+0000", "LastActivityDate": null, "LastStageChangeDate": "2026-10-10T10:00:00.000+0000", "NextStep": null, "ForecastCategoryName": "Pipeline", "Probability": 10, "Owner": {"Name": "Owner Two"}}
+  ],
+  "contact_role_counts": {"006EX0001": 2, "006EX0002": 1, "006EX0003": 1, "006EX0004": 0}
+}

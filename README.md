@@ -1,13 +1,13 @@
 # zime-gtm-skills
 
-[![Skills](https://img.shields.io/badge/skills-64-blue)](skills/)
+[![Skills](https://img.shields.io/badge/skills-65-blue)](skills/)
 [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
 [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
 [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 64 [Agent Skills](https://agentskills.io) that audit sales call
+here. 65 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
@@ -260,8 +260,8 @@ See [Installation](#installation) below for the submodule option and the
 
 ## How these fit together
 
-64 skills: 24 stage motions laid out across the deal lifecycle, 20
-cross-stage initiative skills, and 20 deal-intelligence skills that write
+65 skills: 24 stage motions laid out across the deal lifecycle, 20
+cross-stage initiative skills, and 21 deal-intelligence skills that write
 something forward — a plan, a digest, a drafted email — instead of grading
 a call.
 
@@ -320,12 +320,16 @@ This file is yours, never the repo's — it isn't tracked or read by anything
 except the skill itself at run time, and nothing in it leaves your machine
 beyond whatever your agent's own model call already sends.
 
+## Connect your CRM (optional)
+
+No skill needs a CRM. Every pipeline skill reads a CSV export. If your CRM already has an AI connector (HubSpot, Salesforce, Pipedrive, Close, Attio, Zoho, Dynamics), the `crm-export` skill can read open deals through it, read-only, and write a small local CSV for the other skills. It never writes to your CRM and never asks for a password or key. Review the connector with your security team first. See [`docs/crm-connectors.md`](docs/crm-connectors.md) for the read-only setup and the security notes.
+
 ## Available skills
 
 Every skill here follows the evidence rules above. `deep-discovery`, `meddicc`, `bant`, `technical-discovery` and `meeting-to-qualify` also have planted-fact test banks that you can run as a manual regression check (see `SKILL-DESIGN.md`). `deep-discovery` is the best rubric to read first.
 
 <details open>
-<summary>64 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
+<summary>65 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
 
 <!-- SKILLS:START -->
 **New business**
@@ -411,6 +415,7 @@ Every skill here follows the evidence rules above. `deep-discovery`, `meddicc`, 
 | [objection-pattern-digest](skills/objection-pattern-digest/) | Objections that repeat across calls — themes, call counts, resolved or not, what worked | transcripts |
 | [competitive-loss-digest](skills/competitive-loss-digest/) | Which rivals take deals and why — counts, amount lost, buyer-stated versus rep-stated reasons | CRM export |
 | [rep-ramp-status-digest](skills/rep-ramp-status-digest/) | A new rep's ramp status by technique across weeks — improving, flat, regressing, not enough evidence | transcripts |
+| [crm-export](skills/crm-export/) | Reads open deals from your connected CRM, read-only, and writes a local CSV for the pipeline skills (optional, never writes to the CRM) | connector |
 <!-- SKILLS:END -->
 
 </details>
@@ -470,7 +475,7 @@ larger piece of work. It's the problem [Zime](https://zime.ai) works on.
 **Do I need an API key or any credentials?** No. Every skill is a markdown
 rubric your agent reads and applies to a file you already have. Nothing
 here calls out to a service, and nothing you feed a skill leaves your
-machine beyond whatever your agent's own model call already sends.
+machine beyond whatever your agent's own model call already sends. If you choose to connect a CRM, the connector you set up holds the credentials, never these skills.
 
 **My agent isn't picking up the skill.** Claude Code reads
 `.claude/skills/`, not `.agents/skills/` — if you installed via Option 2 or

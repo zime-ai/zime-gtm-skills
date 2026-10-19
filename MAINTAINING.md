@@ -267,6 +267,22 @@ Fork PRs never see the secret regardless (GitHub withholds it), so the job's
 `if:` skips them outright rather than running and failing. See
 `CONTRIBUTING.md` — fork PRs get maintainer review instead.
 
+## Reviewing a change
+
+Review the change, not the whole skill. A two-line edit gets a two-line review.
+
+Run `scripts/changed-skills.sh origin/dev`. It prints each changed skill with a tag. It makes no model calls.
+
+- `wording`: run the validators, `scripts/scan-content.py`, and the security scan on that skill only. No model run.
+- `rubric`: a dimension heading or a Covered, Partial, Missed, or does-not-count line changed. If the skill has a test bank, run `python3 evals/synth/bank.py <skill> B 1 skill`. This costs about 15 Haiku calls, so state the count and ask first.
+- `new`: run the skill once on its own sample, which is one Haiku call.
+
+A model or human reviewer reads `git diff -U3 <base>...HEAD -- <paths>` and nothing else. Use one Haiku reviewer. Paste the hunks into the brief. Cap the report at 300 words and the reviewer at 8 tool calls.
+
+The security scan is `scripts/skillspector-gate.sh <base-ref>`. High or critical findings fail CI. A reviewed false positive goes in `.skillspector-baseline.yaml` with a reason, never as a blanket rule.
+
+Scripts check facts that span files, because a diff-only reviewer misses them. These run on every pull request, because they are cheap: skill counts and README rows (`scripts/check-docs-sync.sh`), frontmatter (`./validate-skills.sh` and a YAML parse), and content leaks (`scripts/scan-content.py`).
+
 ## Landing a skill on dev
 
 "Building skills at scale" above covers writing and validating a skill.
