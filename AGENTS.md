@@ -56,6 +56,7 @@ reference chains.
 ./validate-skills.sh                        # local, seconds, zero deps
 ./scripts/check-docs-sync.sh                # README count/table vs skills/, zero deps
 python3 scripts/scan-content.py             # content-level leak/injection scan, zero deps
+scripts/skillspector-gate.sh all         # static security scan (needs `skillspector` on PATH), or pass a base ref for changed skills only
 ```
 
 CI additionally runs the upstream spec's `skills-ref validate` on every PR,

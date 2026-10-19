@@ -279,6 +279,8 @@ Run `scripts/changed-skills.sh origin/dev`. It prints each changed skill with a 
 
 A model or human reviewer reads `git diff -U3 <base>...HEAD -- <paths>` and nothing else. Use one Haiku reviewer. Paste the hunks into the brief. Cap the report at 300 words and the reviewer at 8 tool calls.
 
+The security scan is `scripts/skillspector-gate.sh <base-ref>`. High or critical findings fail CI. A reviewed false positive goes in `.skillspector-baseline.yaml` with a reason, never as a blanket rule.
+
 Scripts check facts that span files, because a diff-only reviewer misses them. These run on every pull request, because they are cheap: skill counts and README rows (`scripts/check-docs-sync.sh`), frontmatter (`./validate-skills.sh` and a YAML parse), and content leaks (`scripts/scan-content.py`).
 
 ## Landing a skill on dev

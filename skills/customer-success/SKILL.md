@@ -38,7 +38,7 @@ calls, no credentials, nothing leaves your machine.
   whether a borderline quote counts.
 - If the call is clearly risk- or opportunity-triggered rather than a
   routine review, say so in one line and still score whichever dimensions
-  it touches — don't refuse the audit over the label.
+  it touches. The label does not change the rubric.
 - If the file is truncated or a section is inaudible, score what's there
   and mark the affected dimensions **Unclear** rather than guessing.
 
