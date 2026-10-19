@@ -1,0 +1,34 @@
+{
+  "skill_name": "pipeline-review",
+  "evals": [
+    {
+      "id": 1,
+      "name": "pipeline-review-eval-1",
+      "prompt": "run pipeline-review on skills/pipeline-review/assets/sample-pipeline.csv",
+      "expected_output": "The snapshot lists each stage with count and amount computed from the eight rows, and notes that Holt Textiles has an amount of zero. With no previous export, the change section says so. The attention list has at most five deals, each with a cited cell, such as Birch Analytics with a past close date and 45 percent probability.",
+      "files": [
+        "assets/sample-pipeline.csv"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "States that there is no previous export instead of inventing change",
+        "The stage totals add up from the rows"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "pipeline-review-eval-2-thin-input",
+      "prompt": "run pipeline-review on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}

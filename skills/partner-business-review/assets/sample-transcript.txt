@@ -1,0 +1,30 @@
+[Synthetic transcript, no real company or person. For demonstrating the partner-business-review skill.]
+
+Call: Quillfeather Solutions <> Vendor (Rep: Jordan)
+Type: Quarterly partner business review
+
+Jordan: Let us start with results. How did the quarter go against your goal?
+
+Pat (Managing Partner): Our goal was four deals. We closed two.
+
+Jordan: Which ones?
+
+Pat: A logistics firm and a clinic group. Both signed in August.
+
+Jordan: What is in the pipeline now?
+
+Pat: A manufacturer. They have seen a demo. I am not sure they will buy.
+
+Jordan: Is that registered?
+
+Pat: I think so. I registered it in July.
+
+Jordan: What is blocking you?
+
+Pat: Your onboarding docs are out of date. My engineers waste a day on each setup.
+
+Jordan: I will send the new docs.
+
+Pat: Good. Next quarter I want six deals.
+
+Jordan: Let us do a review in three months.

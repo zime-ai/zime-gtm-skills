@@ -1,0 +1,34 @@
+{
+  "skill_name": "partner-sentiment",
+  "evals": [
+    {
+      "id": 1,
+      "name": "partner-sentiment-eval-1",
+      "prompt": "run partner-sentiment on skills/partner-sentiment/assets/sample-transcript.txt",
+      "expected_output": "The stance is Partial or Covered (solid product, one reason). The action is Covered (two accounts, one signed). The rival (Westbrook, cheaper for one customer) is Covered. The friction (a six-day ticket that cost a demo) is Covered with cause and cost. Long-term intent is Partial because the partner wants to grow it but cannot promise headcount. The next step is Missed or Partial because no date was agreed.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every one of the 6 dimensions gets a Status",
+        "Every finding cites a quote or timestamp from the transcript, or is marked Unclear rather than guessed",
+        "A claim that only the rep makes is not counted as evidence",
+        "A dimension the call never touched is scored Missed",
+        "Ends with exactly one closing line and no recap of all scores",
+        "The six-day support ticket is cited as friction with its cost",
+        "Long-term intent is Partial because no headcount was promised"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "partner-sentiment-eval-2-reads-well-too",
+      "prompt": "run partner-sentiment on a transcript of a call that clearly covered every dimension well",
+      "expected_output": "The audit does not come back mostly Missed. The reads-well-too test from references/rubric.md is applied before the audit is finalized.",
+      "files": [],
+      "expectations": [
+        "A genuinely strong call is not scored as mostly Missed",
+        "The reads-well-too test from references/rubric.md is applied before the audit is finalized"
+      ]
+    }
+  ]
+}

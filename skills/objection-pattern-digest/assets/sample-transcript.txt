@@ -1,0 +1,23 @@
+[Synthetic transcripts, no real company or person. For demonstrating the objection-pattern-digest skill. Four short calls.]
+
+=== CALL 1: Alpha Bakery <> Vendor (Rep: Sam) ===
+Buyer: Your price is higher than the tool we use now.
+Sam: Our customers see a return within a quarter.
+Buyer: Maybe. Send me something I can show my boss.
+
+=== CALL 2: Bay Plumbing <> Vendor (Rep: Sam) ===
+Buyer: We tried a tool like this two years ago and nobody used it.
+Sam: Ours is easier. We train your team in an hour.
+Buyer: One hour is good. That helps.
+
+=== CALL 3: Crest Dental <> Vendor (Rep: Priya) ===
+Buyer: It is more than we budgeted.
+Priya: What was the budget?
+Buyer: About half of this. If you can do a smaller package, we can talk.
+Priya: Yes, a smaller package is possible. I will send it today.
+
+=== CALL 4: Dune Auto <> Vendor (Rep: Priya) ===
+Buyer: How does it connect to our scheduling software?
+Priya: We have a connector for most systems.
+Buyer: Most is not good enough. Ours is old. I need to know.
+Priya: I will find out.

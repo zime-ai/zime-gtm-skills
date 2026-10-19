@@ -1,0 +1,34 @@
+{
+  "skill_name": "renewal-prep",
+  "evals": [
+    {
+      "id": 1,
+      "name": "renewal-prep-eval-1",
+      "prompt": "run renewal-prep on skills/renewal-prep/assets/sample-transcript.txt",
+      "expected_output": "The value is Covered with the late-delivery figures (about eight percent down to about five). The risks list the champion who left, the CFO's spend review, and the old export issue. Only the dispatch team of six uses it. Warehouse interest is a maybe and not a clear expansion signal. The renewal date is not stated.",
+      "files": [
+        "assets/sample-transcript.txt"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "Lists the departed champion and the CFO's spend review as risks with quotes",
+        "Does not write the renewal date as known"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "renewal-prep-eval-2-thin-input",
+      "prompt": "run renewal-prep on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}
