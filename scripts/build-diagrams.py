@@ -137,6 +137,106 @@ def skill_map(skin, skills):
     return "\n".join(o) + "\n"
 
 
+def frame(skin, W, H, label):
+    t = TOKENS[skin]
+    return [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="{esc(label)}">',
+            f'<title>{esc(label)}</title>',
+            f'<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="14" fill="{t["paper"]}" stroke="{t["rule"]}"/>']
+
+
+def txt(x, y, s, family, size, fill, anchor="start", extra=""):
+    a = "" if anchor == "start" else f' text-anchor="{anchor}"'
+    return f'<text x="{x}" y="{y}"{a} font-family="{family}" font-size="{size}" fill="{fill}" {extra}>{esc(s)}</text>'
+
+
+def hero(skin, skills):
+    t = TOKENS[skin]
+    total = len(skills)
+    n_stage = sum(1 for d in skills.values() if d["dimension"] == "stage")
+    n_init = sum(1 for d in skills.values() if d["dimension"] == "initiative")
+    n_intel = sum(1 for d in skills.values() if d["dimension"] == "intelligence")
+    W, H, M = 1200, 340, 48
+    o = frame(skin, W, H, f"zime-gtm-skills: {total} Agent Skills that audit sales calls and CRM exports")
+    o.append(txt(M, 66, "AGENT SKILLS FOR REVOPS AND SALES OPS", MONO, 12, t["soft"], extra='letter-spacing="2.4"'))
+    o.append(txt(M, 134, "Audit sales calls and CRM exports.", SERIF, 50, t["ink"]))
+    o.append(txt(M, 190, "Credit only what the buyer said.", SERIF, 50, t["muted"], extra='font-style="italic"'))
+    o.append(txt(M, 232, "One file in, one evidence-cited audit out. Runs locally, no credentials, no telemetry.", SANS, 17, t["muted"]))
+    o.append(f'<rect x="{M}" y="262" width="560" height="50" rx="10" fill="{t["paper2"]}" stroke="{t["rule"]}"/>')
+    o.append(txt(M + 20, 293, "$", MONO, 16, t["accent"], extra='font-weight="700"'))
+    o.append(txt(M + 42, 293, "/plugin marketplace add zime-ai/zime-gtm-skills", MONO, 16, t["ink"]))
+    o.append(txt(W - M, 186, str(total), SERIF, 124, t["accent"], "end"))
+    o.append(txt(W - M, 240, "OPEN AGENT SKILLS", MONO, 13, t["soft"], "end", 'letter-spacing="2"'))
+    o.append(txt(W - M, 288, f"{n_stage} stage  |  {n_init} initiative  |  {n_intel} intelligence", MONO, 13, t["muted"], "end"))
+    o.append("</svg>")
+    return "\n".join(o) + "\n"
+
+
+def how_it_works(skin, skills):
+    t = TOKENS[skin]
+    W, H, M = 1200, 430, 48
+    o = frame(skin, W, H, "How a skill works: a file goes in, the rubric applies three evidence rules, an audit with a quote for every finding comes out")
+    o.append(txt(M, 56, "HOW A SKILL WORKS", MONO, 12, t["soft"], extra='letter-spacing="2.4"'))
+    o.append(txt(M, 100, "One file in. One evidence-cited audit out.", SERIF, 34, t["ink"]))
+    gap = 70
+    bw = (W - 2 * M - 2 * gap) // 3
+    by, bh = 140, 220
+    boxes = [
+        ("INPUT", ["Call transcript", ".txt  .vtt  .json  .md", "", "CRM export", ".csv", "", "Live CRM, read-only", "through crm-export"], False),
+        ("RUBRIC", ["1  The buyer must say it", "", "2  Absence is a result", "", "3  Say what does not count", "", "Each skill adds its own", "dimensions on top"], True),
+        ("OUTPUT", ["Covered, Partial or Missed", "", "A quote or a cell", "for every finding", "", "One closing line,", "no recap"], False),
+    ]
+    for i, (name, lines, focal) in enumerate(boxes):
+        x = M + i * (bw + gap)
+        stroke = t["accent"] if focal else t["rule"]
+        sw = 2 if focal else 1
+        o.append(f'<rect x="{x}" y="{by}" width="{bw}" height="{bh}" rx="10" fill="{t["paper2"]}" stroke="{stroke}" stroke-width="{sw}"/>')
+        o.append(txt(x + 24, by + 38, name, MONO, 12, t["accent"] if focal else t["ink"], extra='font-weight="600" letter-spacing="1.6"'))
+        for j, ln in enumerate(lines):
+            strong = ln[:1].isdigit() or ln in ("Call transcript", "CRM export", "Live CRM, read-only", "Covered, Partial or Missed", "A quote or a cell")
+            o.append(txt(x + 24, by + 72 + j * 18, ln, SANS if strong else MONO, 14 if strong else 13,
+                         t["ink"] if strong else t["muted"], extra='font-weight="600"' if strong else ""))
+        if i < 2:
+            ax = x + bw + 12
+            o.append(f'<line x1="{ax}" y1="{by+bh//2}" x2="{ax+gap-30}" y2="{by+bh//2}" stroke="{t["accent"]}" stroke-width="2"/>')
+            o.append(f'<path d="M{ax+gap-38} {by+bh//2-6} L{ax+gap-28} {by+bh//2} L{ax+gap-38} {by+bh//2+6}" fill="none" stroke="{t["accent"]}" stroke-width="2"/>')
+    o.append(txt(M, H - 34, "Nothing leaves your machine. No telemetry, no lead capture.", SERIF, 16, t["soft"], extra='font-style="italic"'))
+    o.append("</svg>")
+    return "\n".join(o) + "\n"
+
+
+def output_card(skin, skills):
+    t = TOKENS[skin]
+    W, H, M = 1200, 440, 48
+    o = frame(skin, W, H, "Sample audit: next-step-commitment scores a call as a weak commitment, with a quote for each element")
+    o.append(txt(M, 56, "SAMPLE OUTPUT", MONO, 12, t["soft"], extra='letter-spacing="2.4"'))
+    o.append(txt(M, 100, "What an audit looks like", SERIF, 34, t["ink"]))
+    cx, cy, cw, ch = M, 124, W - 2 * M, 270
+    o.append(f'<rect x="{cx}" y="{cy}" width="{cw}" height="{ch}" rx="10" fill="{t["paper2"]}" stroke="{t["rule"]}"/>')
+    o.append(txt(cx + 24, cy + 36, "next-step-commitment", MONO, 13, t["ink"], extra='font-weight="600"'))
+    o.append(txt(cx + cw - 24, cy + 36, "skills/next-step-commitment/assets/sample-transcript.txt", MONO, 12, t["soft"], "end"))
+    o.append(f'<line x1="{cx+24}" y1="{cy+52}" x2="{cx+cw-24}" y2="{cy+52}" stroke="{t["rule"]}"/>')
+    o.append(txt(cx + 24, cy + 92, "VERDICT", MONO, 12, t["soft"], extra='letter-spacing="2"'))
+    o.append(txt(cx + 120, cy + 94, "Weak commitment", SERIF, 34, t["accent"]))
+    rows = [
+        (True, "Specific action", "Present", '"I\'ll get that put together and send it your way."', "A named deliverable, but only the rep owns it."),
+        (False, "Date or concrete trigger", "Missing", '"I\'ll be in touch soon once it\'s ready."', '"Soon" is not a date, and nothing marks when it happened.'),
+        (False, "Two-sided ownership", "Missing", 'Nina: "I\'ll take a look when it comes through."', "A hope, not a commitment. The buyer owns no step."),
+    ]
+    for i, (ok, name, status, quote, note) in enumerate(rows):
+        y = cy + 132 + i * 54
+        if ok:
+            o.append(f'<circle cx="{cx+32}" cy="{y-5}" r="6" fill="{t["ink"]}" stroke="{t["ink"]}" stroke-width="2"/>')
+        else:
+            o.append(f'<circle cx="{cx+32}" cy="{y-5}" r="6" fill="none" stroke="{t["ink"]}" stroke-width="2"/>')
+        o.append(txt(cx + 52, y, name, SANS, 15, t["ink"], extra='font-weight="600"'))
+        o.append(txt(cx + 52, y + 20, status, MONO, 12, t["soft"], extra='letter-spacing="1.2"'))
+        o.append(txt(cx + 330, y, quote, SANS, 15, t["ink"]))
+        o.append(txt(cx + 330, y + 20, note, SANS, 14, t["muted"]))
+    o.append(txt(M, H - 22, "Every status carries a quote. A rep claim the buyer never accepted does not count.", SERIF, 16, t["soft"], extra='font-style="italic"'))
+    o.append("</svg>")
+    return "\n".join(o) + "\n"
+
+
 def lum(hex_):
     r, g, b = (int(hex_[i:i + 2], 16) / 255 for i in (1, 3, 5))
     f = lambda c: c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
@@ -150,7 +250,13 @@ def ratio(a, b):
 
 def outputs():
     skills = load()
-    return {f"skill-map-{skin}.svg": skill_map(skin, skills) for skin in TOKENS}
+    out = {}
+    for skin in TOKENS:
+        out[f"skill-map-{skin}.svg"] = skill_map(skin, skills)
+        out[f"hero-{skin}.svg"] = hero(skin, skills)
+        out[f"how-it-works-{skin}.svg"] = how_it_works(skin, skills)
+        out[f"sample-output-{skin}.svg"] = output_card(skin, skills)
+    return out
 
 
 def main():
