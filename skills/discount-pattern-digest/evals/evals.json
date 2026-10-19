@@ -1,0 +1,37 @@
+{
+  "skill_name": "discount-pattern-digest",
+  "evals": [
+    {
+      "id": 1,
+      "name": "discount-pattern-digest-eval-1",
+      "prompt": "run discount-pattern-digest on skills/discount-pattern-digest/assets/sample-pipeline-discount-owners.csv",
+      "expected_output": "The overall median is 14 across 9 deals. Priya has a median of 30 across 3 deals, 16 above the overall median, so she is a pattern. Sam (median 14) and Jordan (median 12) are not. Outliers are Dunmore Retail (35), Elm Logistics (30) and Birch Analytics (28), all at least 24. The digest says it does not link discounts to wins or losses.",
+      "files": [
+        "assets/sample-pipeline-discount-owners.csv"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "The overall median 14 is computed from nine rows",
+        "Priya is named as a pattern with three deals behind it",
+        "Sam and Jordan are not named as patterns",
+        "The three outliers are listed with cited cells",
+        "The digest states it does not link discounts to wins or losses"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "discount-pattern-digest-eval-2-thin-input",
+      "prompt": "run discount-pattern-digest on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}

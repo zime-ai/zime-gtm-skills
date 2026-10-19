@@ -1,0 +1,36 @@
+{
+  "skill_name": "deal-desk-approval-brief",
+  "evals": [
+    {
+      "id": 1,
+      "name": "deal-desk-approval-brief-eval-1",
+      "prompt": "run deal-desk-approval-brief on skills/deal-desk-approval-brief/assets/sample-pipeline-discounts.csv",
+      "expected_output": "The median discount is 13.5 across 6 rows. Dunmore Retail (35 percent, 12 months, no approver, no competitor) and Birch Analytics (28 percent, 12 months, no approver, competitor Rival Co) are above the norm, Dunmore first. Dunmore is missing approver and competitor. Birch is missing approver. Cobalt Dental has a pending approval. No policy ceiling is invented.",
+      "files": [
+        "assets/sample-pipeline-discounts.csv"
+      ],
+      "expectations": [
+        "Every section in the rubric is present, in order",
+        "Every claim cites a quote, a timestamp, or a column and cell",
+        "Anything the input does not say is written as not stated, not guessed",
+        "No fact from outside the input appears",
+        "A rep claim that the other side never accepted is not written as agreed",
+        "The median 13.5 is computed from the six rows",
+        "Dunmore Retail and Birch Analytics are listed with cited cells",
+        "Cobalt Dental appears under open approvals",
+        "No recommendation to approve or refuse is written"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "deal-desk-approval-brief-eval-2-thin-input",
+      "prompt": "run deal-desk-approval-brief on a very short input that supports only one or two items",
+      "expected_output": "The output is short and does not invent items to fill the sections. Missing items are written as not stated.",
+      "files": [],
+      "expectations": [
+        "The output does not pad to reach a count",
+        "Missing information is written as not stated"
+      ]
+    }
+  ]
+}

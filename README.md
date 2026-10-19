@@ -1,13 +1,20 @@
-# zime-gtm-skills
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/img/hero-dark.svg">
+    <img alt="zime-gtm-skills: open Agent Skills that audit sales calls and CRM exports. Credit only what the buyer said." src="docs/img/hero-light.svg" width="100%">
+  </picture>
+</p>
 
-[![Skills](https://img.shields.io/badge/skills-65-blue)](skills/)
-[![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
-[![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io)
-[![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
+<p align="center">
+
+[![Skills](https://img.shields.io/badge/skills-71-blue)](skills/) [![validate](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/zime-ai/zime-gtm-skills/actions/workflows/validate.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE) [![Agent Skills spec](https://img.shields.io/badge/spec-agentskills.io-informational)](https://agentskills.io) [![Zime](https://img.shields.io/badge/by-zime.ai-000000)](https://zime.ai)
+
+</p>
+
+<p align="center"><b><a href="#quick-install">Install</a> · <a href="#ask-your-agent-in-plain-words">Try it</a> · <a href="#see-it-work">See it work</a> · <a href="#how-these-fit-together">Skill map</a> · <a href="#available-skills">All skills</a> · <a href="#connect-your-crm-optional">Connect your CRM</a> · <a href="#faq">FAQ</a></b></p>
 
 If you're building call-review or deal-inspection tooling in-house, start
-here. 65 [Agent Skills](https://agentskills.io) that audit sales call
+here. 71 [Agent Skills](https://agentskills.io) that audit sales call
 transcripts and CRM exports against GTM rubrics: one file in, one
 evidence-cited audit out. Runs locally, no credentials, no data leaves your
 machine. Works with Claude Code, Cursor, Windsurf, OpenAI Codex, or any agent
@@ -31,16 +38,32 @@ argue anyone out of building.
 **Contributions welcome**: see [CONTRIBUTING.md](CONTRIBUTING.md). Found a
 bug or have a question? [Open an issue](https://github.com/zime-ai/zime-gtm-skills/issues).
 
-- [See it work](#see-it-work)
-- [Quick install](#quick-install)
-- [How these fit together](#how-these-fit-together)
-- [Available skills](#available-skills)
-- [Repository structure](#repository-structure)
-- [Where this stops](#where-this-stops)
-- [FAQ](#faq)
-- [Installation](#installation)
-- [Built by Zime](#built-by-zime)
-- [License](#license)
+## Ask your agent in plain words
+
+The agent picks the skill from your request. You can also call one by name, such as `/deep-discovery calls/acme.txt`.
+
+- *"Review this discovery call and tell me what the rep skipped."* (`deep-discovery`)
+- *"Did this call end with a real next step?"* (`next-step-commitment`)
+- *"Which deals in this pipeline export are at risk before Friday's forecast call?"* (`deal-risk-digest`)
+- *"Prep me for tomorrow's call with this account."* (`call-prep`)
+- *"Read my open deals from HubSpot, read-only, and check the Qualify stage."* (`crm-export`, then `qualify-pipeline-check`)
+
+## Quick install
+
+```bash
+# Claude Code plugin (recommended)
+/plugin marketplace add zime-ai/zime-gtm-skills
+/plugin install gtm-skills@zime-gtm-skills
+```
+
+```bash
+# or clone and copy into any agent that reads the Agent Skills format
+git clone https://github.com/zime-ai/zime-gtm-skills.git
+cp -r zime-gtm-skills/skills/* .agents/skills/
+```
+
+See [Installation](#installation) below for the submodule option and the
+`.claude/skills/` vs `.agents/skills/` distinction.
 
 ## See it work
 
@@ -241,61 +264,37 @@ Every skill ships its own sample data and documents the exact filename(s)
 and command in its `SKILL.md`'s "Sample data" section. Click through from
 the skill's row in [Available skills](#available-skills) below.
 
-## Quick install
-
-```bash
-# Claude Code plugin (recommended)
-/plugin marketplace add zime-ai/zime-gtm-skills
-/plugin install gtm-skills@zime-gtm-skills
-```
-
-```bash
-# or clone and copy into any agent that reads the Agent Skills format
-git clone https://github.com/zime-ai/zime-gtm-skills.git
-cp -r zime-gtm-skills/skills/* .agents/skills/
-```
-
-See [Installation](#installation) below for the submodule option and the
-`.claude/skills/` vs `.agents/skills/` distinction.
-
 ## How these fit together
 
-65 skills: 24 stage motions laid out across the deal lifecycle, 20
-cross-stage initiative skills, and 21 deal-intelligence skills that write
+71 skills: 24 stage motions laid out across the deal lifecycle, 20
+cross-stage initiative skills, and 27 deal-intelligence skills that write
 something forward — a plan, a digest, a drafted email — instead of grading
 a call.
 
-```
-New business
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/img/skill-map-dark.svg">
+    <img alt="Map of the skills by deal stage: prospect and qualify, discover, demo and evaluate, negotiate, post-sale, plus frameworks and deal intelligence." src="docs/img/skill-map-light.svg" width="100%">
+  </picture>
+</p>
 
-┌────────────────┐     ┌────────────────┐     ┌────────────────────┐
-│ sql-to-qualify │ ──▶ │ deep-discovery │ ──▶ │ meeting-to-qualify │
-└────────────────┘     └────────────────┘     └────────────────────┘
-                                                         │
-                                                         ▼
-┌─────────────────────┐     ┌──────────────┐     ┌────────────────┐
-│ technical-discovery │ ◀── │ improve-demo │ ◀── │ qualify-to-poc │
-└─────────────────────┘     └──────────────┘     └────────────────┘
-           │
-           ▼
-┌─────────────────────┐     ┌─────────────┐     ┌─────────────────────┐
-│ pilot-to-conversion │ ──▶ │ poc-success │ ──▶ │ negotiation-closing │
-└─────────────────────┘     └─────────────┘     └─────────────────────┘
-                                                           │
-                                                           ▼
+### How a skill works
 
-                                                     Post-sale
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/img/how-it-works-dark.svg">
+    <img alt="A file goes in, the rubric applies three evidence rules, and an audit with a quote for every finding comes out." src="docs/img/how-it-works-light.svg" width="100%">
+  </picture>
+</p>
 
-                                                ┌────────────────────┐     ┌──────────────────┐
-                                                │ onboarding-journey │ ──▶ │ customer-success │
-                                                └────────────────────┘     └──────────────────┘
+### What an audit looks like
 
-Runs alongside, not in the chain:
-  • persona-based-discovery — persona-adapted lens on discovery
-  • first-call-rampup       — coaching, at any stage
-  • churn-prevention        — renewal risk, post-sale
-  • upsell-expansion        — expansion opportunity, post-sale
-```
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/img/sample-output-dark.svg">
+    <img alt="Sample audit: next-step-commitment scores a call as a weak commitment, with a quote for each element." src="docs/img/sample-output-light.svg" width="100%">
+  </picture>
+</p>
 
 Unlike some agent-skill collections, there's no foundational context skill
 every other one depends on, and no required order. Each skill is independent:
@@ -329,7 +328,7 @@ No skill needs a CRM. Every pipeline skill reads a CSV export. If your CRM alrea
 Every skill here follows the evidence rules above. `deep-discovery`, `meddicc`, `bant`, `technical-discovery` and `meeting-to-qualify` also have planted-fact test banks that you can run as a manual regression check (see `SKILL-DESIGN.md`). `deep-discovery` is the best rubric to read first.
 
 <details open>
-<summary>65 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
+<summary>71 skills across new business, post-sale, cross-stage initiative, and deal intelligence</summary>
 
 <!-- SKILLS:START -->
 **New business**
@@ -416,6 +415,12 @@ Every skill here follows the evidence rules above. `deep-discovery`, `meddicc`, 
 | [competitive-loss-digest](skills/competitive-loss-digest/) | Which rivals take deals and why — counts, amount lost, buyer-stated versus rep-stated reasons | CRM export |
 | [rep-ramp-status-digest](skills/rep-ramp-status-digest/) | A new rep's ramp status by technique across weeks — improving, flat, regressing, not enough evidence | transcripts |
 | [crm-export](skills/crm-export/) | Reads open deals from your connected CRM, read-only, and writes a local CSV for the pipeline skills (optional, never writes to the CRM) | connector |
+| [client-testimonial-finder](skills/client-testimonial-finder/) | Finds quotable customer lines in a call and sorts out the lines that are not usable or need permission | transcript |
+| [reference-case-study-drafter](skills/reference-case-study-drafter/) | Drafts a short customer case study from a customer call, built only from the customer's words, with the figures and permission still needed | transcript |
+| [account-plan-generator](skills/account-plan-generator/) | Plans one account from its call transcripts: people and roles, what they want, open items, and the gaps to close in 30 days | transcript |
+| [territory-summary](skills/territory-summary/) | Summarizes coverage by territory from an account export: open amount, concentration in one account, and accounts gone quiet | csv |
+| [discount-pattern-digest](skills/discount-pattern-digest/) | Finds discount patterns by owner and outlier in a pipeline export, naming an owner only when three deals support it | csv |
+| [deal-desk-approval-brief](skills/deal-desk-approval-brief/) | Writes an approval brief from a pipeline export: deals with a discount well above the export's own norm, what each approver still needs, and open approvals | csv |
 <!-- SKILLS:END -->
 
 </details>

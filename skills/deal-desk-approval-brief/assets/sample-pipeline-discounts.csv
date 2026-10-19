@@ -1,0 +1,7 @@
+deal_name,owner,stage,amount,discount_pct,term_months,approver,approval_status,competitor,days_to_close
+Alder Freight,Sam,Negotiation,84000,12,12,Dana Wu (VP Sales),approved,,12
+Birch Analytics,Sam,Negotiation,41000,28,12,,none,Rival Co,5
+Cobalt Dental,Priya,Negotiation,22000,10,24,Dana Wu (VP Sales),pending,,9
+Dunmore Retail,Priya,Negotiation,67000,35,12,,none,,3
+Elm Logistics,Jordan,Negotiation,58000,15,36,Dana Wu (VP Sales),approved,Rival Co,7
+Fir Health,Jordan,Negotiation,30000,8,12,,none,,20
