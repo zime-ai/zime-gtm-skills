@@ -51,8 +51,11 @@ git clone https://github.com/zime-ai/zime-gtm-skills.git
 cp -r zime-gtm-skills/skills/* .agents/skills/
 ```
 
-See [Installation](#installation) below for the submodule option and the
-`.claude/skills/` vs `.agents/skills/` distinction.
+Use the Claude desktop app or the ChatGPT desktop app instead? See
+[Option 4](#option-4-claude-desktop-and-claudeai) and
+[Option 5](#option-5-chatgpt-desktop-and-codex) below. For the submodule
+option and the `.claude/skills/` vs `.agents/skills/` distinction, see
+[Installation](#installation).
 
 ## See it work
 
@@ -505,6 +508,41 @@ git submodule add https://github.com/zime-ai/zime-gtm-skills.git .agents/zime-gt
 ```
 
 Update later with `git submodule update --remote`.
+
+### Option 4: Claude desktop and claude.ai
+
+The Claude desktop app and claude.ai take one skill per ZIP file. Each ZIP holds one skill folder, and the folder name must match the skill name.
+
+1. Turn on code execution. Open Settings, then Capabilities, and turn on "Code execution and file creation". On Team plans it is on by default. On Enterprise plans, an owner turns it on in Organization settings.
+2. Make a ZIP for each skill you want. Run this in the folder where you cloned the repo:
+
+```bash
+cd zime-gtm-skills/skills
+zip -r deep-discovery.zip deep-discovery
+```
+
+3. In Claude, open Customize, then Skills. Click the plus button, click Create skill, and click Upload a skill. Choose the ZIP file.
+4. Make sure that the skill is switched on in the list.
+5. Start a new chat and ask in plain words, for example: "Review this discovery call" and attach a transcript. Claude reads a skill only when a conversation starts.
+
+To make one ZIP for every skill, run `mkdir -p ../dist && for d in */; do zip -qr "../dist/${d%/}.zip" "$d"; done` in the `skills` folder. Uploaded skills are private to you until you share them. The menu names come from Anthropic's help article, [Using Skills in Claude](https://support.claude.com/en/articles/12512180-using-skills-in-claude). If your app shows different names, follow the app.
+
+### Option 5: ChatGPT desktop and Codex
+
+OpenAI reads the same skill folders. A skill is a folder with a `SKILL.md` file, the same format as this repo.
+
+1. Copy the skills into your personal skills folder. Codex reads `$HOME/.agents/skills`:
+
+```bash
+mkdir -p ~/.agents/skills
+cp -r zime-gtm-skills/skills/* ~/.agents/skills/
+```
+
+2. Restart the app. Codex finds new skills on its own, and a restart fixes a skill that does not show up.
+3. Open Skills in the sidebar of the ChatGPT desktop app to make sure that the skills are listed.
+4. In ChatGPT, type `@` and pick a skill, then attach your file. In Codex CLI or the IDE extension, type `$` or run `/skills`.
+
+To add skills to one project only, copy them into that project's `.agents/skills` folder instead. OpenAI describes this in [Build skills](https://learn.chatgpt.com/docs/build-skills). That page does not describe a ZIP upload for the ChatGPT desktop app, so this repo does not give one. Skills also reach ChatGPT on the web and phone only when they are packaged as a plugin. Plugin packaging is not part of this repo yet.
 
 ## Built by Zime
 
