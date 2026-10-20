@@ -3,6 +3,10 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [3.7.1] Skills CLI install line
+
+The README now shows `npx skills add zime-ai/zime-gtm-skills`, which installs the skills into the folder your agent reads. The command listed all 71 skills from GitHub and installed one into `.claude/skills/` in a scratch project. The marketplace manifest gained a description, so `claude plugin validate` no longer warns about it. The one remaining warning is that the repository root holds a `CLAUDE.md`, which is for contributors and does not affect the plugin. The skill rubrics and `SKILL.md` files are unchanged.
+
 ## [3.7.0] Claude desktop install steps
 
 The README now has install steps for the Claude desktop app and claude.ai: one ZIP per skill, uploaded under Customize, then Skills. The ZIP commands were run in a scratch folder, and all 71 skills packed and unpacked with a valid `SKILL.md`. The app menus were not clicked through. The steps follow Anthropic's help page. The skill rubrics and `SKILL.md` files are unchanged.

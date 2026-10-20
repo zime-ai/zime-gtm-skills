@@ -10,5 +10,8 @@
       "source": "./",
       "description": "Audit sales call transcripts and CRM exports against GTM rubrics — deal stage, initiative frameworks (MEDDICC, BANT), industry vertical context. Every finding cites a quote."
     }
-  ]
+  ],
+  "metadata": {
+    "description": "Agent Skills that audit sales call transcripts and CRM exports against GTM rubrics. Every finding cites a quote."
+  }
 }

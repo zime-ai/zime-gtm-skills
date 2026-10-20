@@ -46,13 +46,18 @@ The agent picks the skill from your request. You can also call one by name, such
 ```
 
 ```bash
+# or install with the skills CLI (Claude Code, Cursor, Codex, and others)
+npx skills add zime-ai/zime-gtm-skills
+```
+
+```bash
 # or clone and copy into any agent that reads the Agent Skills format
 git clone https://github.com/zime-ai/zime-gtm-skills.git
 cp -r zime-gtm-skills/skills/* .agents/skills/
 ```
 
 Use the Claude desktop app instead? See
-[Option 4](#option-4-claude-desktop-and-claudeai) below. For the submodule
+[Option 5](#option-5-claude-desktop-and-claudeai) below. For the submodule
 option and the `.claude/skills/` vs `.agents/skills/` distinction, see
 [Installation](#installation).
 
@@ -468,8 +473,8 @@ choose to connect a CRM, the connector you set up holds the credentials, never
 these skills.
 
 **My agent isn't picking up the skill.** Claude Code reads
-`.claude/skills/`, not `.agents/skills/`. If you installed via Option 2 or
-3 below for Claude Code, copy (or symlink) into `.claude/skills/` instead. For
+`.claude/skills/`, not `.agents/skills/`. If you installed via Option 3 or
+4 below for Claude Code, copy (or symlink) into `.claude/skills/` instead. The skills CLI in Option 2 does this for you. For
 other agents, confirm they read the [Agent Skills spec](https://agentskills.io)
 format and that the skill directory is where that agent expects it.
 
@@ -487,7 +492,16 @@ or tooling breaking, [open a bug report](https://github.com/zime-ai/zime-gtm-ski
 /plugin install gtm-skills@zime-gtm-skills
 ```
 
-### Option 2: Clone and copy
+### Option 2: The skills CLI
+
+```bash
+npx skills add zime-ai/zime-gtm-skills                      # pick skills and agents
+npx skills add zime-ai/zime-gtm-skills -s deep-discovery    # one skill
+```
+
+The CLI copies each skill into the folder your agent reads, for example `.claude/skills/`. The CLI counts installs for the skills.sh leaderboard. This repo sends nothing.
+
+### Option 3: Clone and copy
 
 ```bash
 git clone https://github.com/zime-ai/zime-gtm-skills.git
@@ -500,7 +514,7 @@ Or copy only the skill you want: `cp -r zime-gtm-skills/skills/deep-discovery .a
 > Claude Code reads `.claude/skills/`, not `.agents/skills/`. See the
 > [FAQ](#faq) if your agent isn't picking the skill up.
 
-### Option 3: Git submodule
+### Option 4: Git submodule
 
 ```bash
 git submodule add https://github.com/zime-ai/zime-gtm-skills.git .agents/zime-gtm-skills
@@ -508,7 +522,7 @@ git submodule add https://github.com/zime-ai/zime-gtm-skills.git .agents/zime-gt
 
 Update later with `git submodule update --remote`.
 
-### Option 4: Claude desktop and claude.ai
+### Option 5: Claude desktop and claude.ai
 
 The Claude desktop app and claude.ai take one skill per ZIP file. Each ZIP holds one skill folder, and the folder name must match the skill name.
 
