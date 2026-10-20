@@ -3,6 +3,10 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [3.7.0] Desktop app install steps
+
+The README now has install steps for the Claude desktop app (one ZIP per skill, uploaded under Customize, then Skills) and for the ChatGPT desktop app and Codex (copy into `~/.agents/skills`). The ZIP and copy commands were run in a scratch folder, and all 71 skills packed and unpacked with a valid `SKILL.md`. The app menus were not clicked through. The steps follow Anthropic's and OpenAI's own help pages. The skill rubrics and `SKILL.md` files are unchanged.
+
 ## [3.6.3] Plainer docs
 
 The README, CONTRIBUTING, SECURITY, MAINTAINING, EVALS, AGENTS, ROADMAP, and CHANGELOG lost their em dashes, filler words, and a few stock phrases, using the patterns from petergyang/no-ai-slop as a checklist. The README "Where this stops" section now matches what the skills do today (it said CRM exports only and one call at a time). SECURITY.md has a Connected CRM section. The skill rubrics and `SKILL.md` files are unchanged.
