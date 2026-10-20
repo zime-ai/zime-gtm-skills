@@ -3,9 +3,9 @@
 All notable changes to this repo are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [3.7.0] Desktop app install steps
+## [3.7.0] Claude desktop install steps
 
-The README now has install steps for the Claude desktop app (one ZIP per skill, uploaded under Customize, then Skills) and for the ChatGPT desktop app and Codex (copy into `~/.agents/skills`). The ZIP and copy commands were run in a scratch folder, and all 71 skills packed and unpacked with a valid `SKILL.md`. The app menus were not clicked through. The steps follow Anthropic's and OpenAI's own help pages. The skill rubrics and `SKILL.md` files are unchanged.
+The README now has install steps for the Claude desktop app and claude.ai: one ZIP per skill, uploaded under Customize, then Skills. The ZIP commands were run in a scratch folder, and all 71 skills packed and unpacked with a valid `SKILL.md`. The app menus were not clicked through. The steps follow Anthropic's help page. The skill rubrics and `SKILL.md` files are unchanged.
 
 ## [3.6.3] Plainer docs
 
